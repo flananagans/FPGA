@@ -1,0 +1,9 @@
+/**/__pycache__/
+/**/*:Zone.Identifier
+/_history/
+/encoder_log*.csv
+/obj/
+/vivado*.jou
+/vivado*.log
+/clockInfo.txt
+/.Xil/
