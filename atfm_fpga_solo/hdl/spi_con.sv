@@ -3,8 +3,8 @@
 module spi_con #(
         parameter DATA_WIDTH = 8, //changed to encoder pkt width
         parameter DATA_CLK_PERIOD = 100, //change to have roughly 3.5 MHz clock
-        parameter POSITION_BITS = 18,
-        parameter STATUS_BITS = 10 
+        // parameter POSITION_BITS = 18,
+        // parameter STATUS_BITS = 10 
       )
     (   input wire   clk, //system clock (100 MHz)
         input wire   rst, //reset in signal
@@ -18,11 +18,11 @@ module spi_con #(
         output logic dclk, //(Data Clock)
         output logic cs // (Chip Select)
 
-        output logic [POSITION_BITS-1:0] position,
-        output logic [STATUS_BITS-1:0] status,
-        // output logic busy,
-        output logic n_error, // 1 means no error
-        output logic warning
+        // output logic [POSITION_BITS-1:0] position,
+        // output logic [STATUS_BITS-1:0] status,
+        // // output logic busy,
+        // output logic n_error, // 1 means no error
+        // output logic warning
  
       );
     parameter MAX_IDX = $clog2(DATA_WIDTH) - 1;
@@ -115,12 +115,6 @@ module spi_con #(
             if (ts_delay_counter < TS_DELAY_NUM_CYCLES)  ts_delay_counter <= ts_delay_counter + 1;
             else begin
                 ts_delay_counter <= 0;
-
-                //set parsed outputs
-                position <= data_out[DATA_WIDTH - 1: DATA_WIDTH - POSITION_BITS - 1];
-                status <= data_out[STATUS_BITS - 1:0];
-                n_error <= data_out[9]; // 1 means no error
-                warning <= data_out[8];
 
                 //lastly reset everything, pull cs
                 dclk <= 0; 

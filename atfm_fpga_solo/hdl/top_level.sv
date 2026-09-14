@@ -39,16 +39,19 @@ module top_level(
     input wire spi_trigger       //from PSOC con (teensy)
 );
 
+    parameter int ENCO_SPI_CLK_PERIOD = 28; // 100MHz / 28 ~= 3.5 MHz
+
+    parameter int ENCO_SPI_PKT_WIDTH = 32;
+    parameter int ENCO_POS_DATA_WIDTH = 18;
+    parameter int ENCO_STATUS_DATA_WIDTH = 10; //error + warning bits, crc bits
+
+    // assign uart_txd_debug = uart_txd;
+
+    // ***************** Trigger Logic ***************** //
     logic rst;
     logic trigger;
     logic [23:0] auto_trigger_counter;
     logic auto_trigger;
-
-    parameter int ENCO_SPI_CLK_PERIOD = 28;
-    parameter int ENCO_SPI_PKT_WIDTH = 32;
-    parameter int ENCO_POS_DATA_WIDTH = 18;
-    parameter int ENCO_STATUS_DATA_WIDTH = 10; //error + warning bits, crc bits
-    // assign uart_txd_debug = uart_txd;
     
     assign rst = btn[0];
     
@@ -94,9 +97,12 @@ module top_level(
     
     // Select trigger source: SW[15] = 1 for auto, 0 for manual
     assign trigger = sw[15] ? auto_trigger : !spi_trigger;
-    
-    logic [9:0] ssi_clk_freq;
-    assign ssi_clk_freq = 12'd1000;
+
+    // *************************************************** //
+
+    /*  ***************** Original SSI Master Code ***************** //
+    // logic [9:0] ssi_clk_freq;
+    // assign ssi_clk_freq = 12'd1000;
     
     // ssi_master #(
     //     .CLK_FREQ_MHZ(100),
@@ -124,6 +130,9 @@ module top_level(
     //     .warning_flag(warning_flag)
     // );
 
+    // *************************************************** */
+
+    // ***************** SPI: FPGA Con to Encoder Per ***************** //
     logic [ENCO_SPI_PKT_WIDTH - 1: 0]   encoder_data_out;
     logic                               encoder_data_valid;
 
@@ -132,6 +141,7 @@ module top_level(
     // logic data_valid;
     // logic busy;
     logic error_flag, warning_flag;
+    logic n_error_flag; //TODO: need to see how this is used
 
     spi_con #(
         .DATA_WIDTH(ENCO_SPI_PKT_WIDTH), //4 bytes of encoder data
@@ -149,17 +159,27 @@ module top_level(
         .dclk(dclk_enco),
         .cs(cs_enco),
 
-        .position(encoder_position),
-        .status(encoder_status),
-        .n_error(error_flag),
-        .warning(warning_flag)
+        // .position(encoder_position),
+        // .status(encoder_status),
+        // .n_error(error_flag),
+        // .warning(warning_flag)
     );
+
+    //set parsed encoder outputs
+    assign encoder_position = encoder_data_out[DATA_WIDTH - 1: DATA_WIDTH - POSITION_BITS - 1];
+    assign status = encoder_data_out[STATUS_BITS - 1:0];
+    assign error_flag = encoder_data_out[9]; // 1 means no error
+    assign warning_flag = encoder_data_out[8];
+
+    // *************************************************** //
+
+    // ***************** LED Logic ***************** //
     
     assign led[15] = sw[15];            // Auto-trigger mode indicator
     assign led[14] = busy;              // Busy indicator
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
-    assign led[11] = data_valid;        // Data valid pulse
+    assign led[11] = encoder_data_valid;        // Data valid pulse
     assign led[10:0] = encoder_position[18:8];  // Upper 11 bits of position
     
 
@@ -177,7 +197,7 @@ module top_level(
             blink_counter <= '0;
             blink <= 1'b0;
         end else begin
-            if (data_valid) begin
+            if (encoder_data_valid) begin
                 blink_counter <= 24'd5_000_000;  // 50ms blink
             end else if (blink_counter > 0) begin
                 blink_counter <= blink_counter - 1;
@@ -191,10 +211,11 @@ module top_level(
     assign rgb1[1] = blink;  // Green blink on new data
     assign rgb1[2] = 1'b0;
 
+    // *************************************************** //
     
     spi_peripheral #(
         .DATA_WIDTH(8)
-    ) spi_mcu ( //teensy or psoc
+    ) spi_mcu_con_to_fpga_per ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
         .data_in(spi_data_to_send),    // data to send to psoc controller
@@ -207,13 +228,13 @@ module top_level(
         .cs(cs)
     );
 
-
     // Encoder data buffer signals
+    logic [ENCO_SPI_PKT_WIDTH - 1:0] encoder_data_latched;
     logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position_latched;
     logic [ENCO_STATUS_DATA_WIDTH - 1:0]  encoder_status_latched;
     logic        error_flag_latched;
     logic        warning_flag_latched;
-    logic        data_valid_d; //prev value of data_valid
+    logic        data_valid_d; //prev value of encoder_data_valid
     logic        send_pending;
     
     //data latching
@@ -227,12 +248,13 @@ module top_level(
             data_valid_d             <= 1'b0;
             send_pending             <= 1'b0;
         end
-        else if (enco_data_valid) begin
+        else begin
             // Edge detect on data_valid
-            data_valid_d <= data_valid;
+            data_valid_d <= encoder_data_valid;
             
             // Latch incoming SSI data
-            if (data_valid && !data_valid_d) begin
+            if (encoder_data_valid && !data_valid_d) begin
+                encoder_data_latched     <= encoder_data_out;
                 encoder_position_latched <= encoder_position;
                 encoder_status_latched   <= encoder_status;
                 error_flag_latched       <= error_flag;
@@ -253,17 +275,39 @@ module top_level(
     logic        encoder_data_available;  // NEW: Track if we have valid data
 
     // assign spi_packet = uart_packet;
+    //what I'm thinking
+    // always_comb begin
+    //     spi_packet = {
+    //         encoder_data_latched[7:0],
+    //         encoder_data_latched[15:8],
+    //         encoder_data_latched[23:16],
+    //         encoder_data_latched[31:24]
+    //     };
+    // end
+
+    // analogous to SSI data format
+    always_comb begin
+    spi_packet = {
+        encoder_status_latched[7:0],                          // byte 4: status[7:0]
+        {warning_flag_latched, error_flag_latched,            // byte 3:
+        encoder_status_latched[9:8], 2'b0,                   //  W E S9 S8 0 0
+        encoder_position_latched[17:16]},                    //  pos[17:16]
+        encoder_position_latched[15:8],                       // byte 2: pos[15:8]
+        encoder_position_latched[7:0],                        // byte 1: pos[7:0]
+        8'hA5                                                 // byte 0: SYNC (sent first)
+    }
+    end
+
     assign spi_transaction_done = (spi_byte_count == 3'b3) && spi_byte_valid;
 
     // enco packet is 4 bytes
     always_ff @(posedge clk_100mhz) begin
+
         if (rst) begin
             spi_shift_reg          <= {ENCO_SPI_PKT_WIDTH{1'b0}};
             spi_byte_count         <= 3'b0;
             spi_packet_ready       <= 1'b0;
             encoder_data_available <= 1'b0;  // NEW
-
-             
         end 
         else if (spi_packet_ready) spi_packet_ready <= 1'b0;  // Drop interrupt
 
@@ -275,12 +319,12 @@ module top_level(
         
         // Shift to next byte 
         else if (spi_byte_valid) begin
-            spi_shift_reg  <= {8'd0, spi_shift_reg[39:8]};
+            spi_shift_reg  <= {8'b0, spi_shift_reg[ENCO_SPI_PKT_WIDTH-1:8]};
             spi_byte_count <= spi_byte_count + 1'b1;
         end
         
         //Load new encoder data
-        else if (data_valid && !data_valid_d) begin 
+        else if (encoder_data_valid && !data_valid_d) begin 
             // Always load fresh encoder data when it arrives
             spi_shift_reg          <= spi_packet;
             spi_byte_count         <= 3'b0;
@@ -293,7 +337,7 @@ module top_level(
         end
     end
 
-    assign spi_data_to_send = spi_shift_reg[7:0];
+    assign spi_data_to_send = spi_shift_reg[7:0]; //why are bottom bits being grabbed first
 
     
     // Packet format signals
