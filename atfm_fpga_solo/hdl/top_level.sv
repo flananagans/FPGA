@@ -44,6 +44,8 @@ module top_level(
     logic [23:0] auto_trigger_counter;
     logic auto_trigger;
 
+    parameter int ENCO_DATA_WIDTH = 32;
+    parameter int ENCO_SPI_CLK_PERIOD = 28;
     // assign uart_txd_debug = uart_txd;
     
     assign rst = btn[0];
@@ -100,47 +102,49 @@ module top_level(
     logic [9:0] ssi_clk_freq;
     assign ssi_clk_freq = 12'd1000;
     
-    ssi_master #(
-        .CLK_FREQ_MHZ(100),
-        .POSITION_BITS(19),
-        .STATUS_BITS(10),
-        .TOTAL_BITS(30)
-    ) ssi_inst (
-        .clk(clk_100mhz),
-        .rst(rst),
-        .trigger(trigger),
-        .ssi_clk_freq_khz(ssi_clk_freq),
+    // ssi_master #(
+    //     .CLK_FREQ_MHZ(100),
+    //     .POSITION_BITS(19),
+    //     .STATUS_BITS(10),
+    //     .TOTAL_BITS(30)
+    // ) ssi_inst (
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .trigger(trigger),
+    //     .ssi_clk_freq_khz(ssi_clk_freq),
         
-        // Differential I/O 
-        .ssi_clk_p(dclk_plus),
-        .ssi_clk_n(dclk_minus),
-        .ssi_data_p(data_plus),
-        .ssi_data_n(data_minus),
+    //     // Differential I/O 
+    //     .ssi_clk_p(dclk_plus),
+    //     .ssi_clk_n(dclk_minus),
+    //     .ssi_data_p(data_plus),
+    //     .ssi_data_n(data_minus),
         
-        // Parallel outputs
-        .position(encoder_position),
-        .status(encoder_status),
-        .data_valid(data_valid),
-        .busy(busy),
-        .error_flag(error_flag),
-        .warning_flag(warning_flag)
-    );
+    //     // Parallel outputs
+    //     .position(encoder_position),
+    //     .status(encoder_status),
+    //     .data_valid(data_valid),
+    //     .busy(busy),
+    //     .error_flag(error_flag),
+    //     .warning_flag(warning_flag)
+    // );
+
+    logic [ENCO_DATA_WIDTH-1:0]
 
     spi_con #(
-        .DATA_WIDTH(32),
-        .DATA_CLK_PERIOD(28),
-    ) fpga_spi_con (
+        .DATA_WIDTH(ENCO_DATA_WIDTH), //4 bytes of encoder data
+        .DATA_CLK_PERIOD(ENCO_SPI_CLK_PERIOD), //right now, assuming 100MHz/ 28 = ~3.5MHz
+    ) fpga_spi_con_to_enco (
         .clk(clk_100mhz),
         .rst(rst),
-        .data_in(),
+        .data_in(0), //data to send to peripheral (encoder)
         .trigger(spi_trigger),
-        .data_out(),
-        .data_valid(),
+        .data_out(enco_data_out), //data from encoder
+        .data_valid(enco_data_valid),
 
-        .copi(0'b0),
-        .cipo(),
-        .dclk(),
-        .cs()
+        .copi(copi_enco),
+        .cipo(cipo_enco),
+        .dclk(dclk_enco),
+        .cs(cs_enco)
     );
     
     assign led[15] = sw[15];            // Auto-trigger mode indicator
@@ -148,7 +152,7 @@ module top_level(
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
     assign led[11] = data_valid;        // Data valid pulse
-    assign led[10:0] = encoder_position[18:8];  // Upper 11 bits of position
+    // assign led[10:0] = encoder_position[18:8];  // Upper 11 bits of position
     
 
     // RGB0: Error/Warning/OK status
@@ -234,23 +238,11 @@ module top_level(
     // assign spi_packet = uart_packet;
     assign spi_transaction_done = (spi_byte_count == 3'd4) && spi_byte_valid;
 
-    spi_peripheral #(.DATA_WIDTH(8)) spi_enco ( //teensy or psoc
-        .clk(clk_100mhz),
-        .rst(rst),
-        .data_in(spi_data_to_send),    // Connected properly now
-        .data_out(),                    // Ignore received data for now
-        .data_valid(spi_byte_valid),    // Pulses after each byte
-        .busy(spi_busy),
-        .copi(copi),
-        .cipo(cipo),
-        .dclk(dclk),
-        .cs(cs)
-    );
     
     spi_peripheral #(.DATA_WIDTH(8)) spi_mcu ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
-        .data_in(spi_data_to_send),    // Connected properly now
+        .data_in(spi_data_to_send),    // data to send to psoc controller
         .data_out(),                    // Ignore received data for now
         .data_valid(spi_byte_valid),    // Pulses after each byte
         .busy(spi_busy),
@@ -301,51 +293,51 @@ module top_level(
     
 
   
-    always_ff @(posedge clk_100mhz) begin
-        if (rst) begin
-            // Data latching signals
-            encoder_position_latched <= '0;
-            encoder_status_latched   <= '0;
-            error_flag_latched       <= 1'b0;
-            warning_flag_latched     <= 1'b0;
-            data_valid_d             <= 1'b0;
-            send_pending             <= 1'b0;
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (rst) begin
+    //         // Data latching signals
+    //         encoder_position_latched <= '0;
+    //         encoder_status_latched   <= '0;
+    //         error_flag_latched       <= 1'b0;
+    //         warning_flag_latched     <= 1'b0;
+    //         data_valid_d             <= 1'b0;
+    //         send_pending             <= 1'b0;
             
-            // UART transmission signals
-            // uart_shift_reg           <= 40'd0;
-            // uart_byte_count          <= 3'd0;
-            // packet_waiting           <= 1'b0; 
-        end else begin
-            // Edge detect on data_valid
-            data_valid_d <= data_valid;
+    //         // UART transmission signals
+    //         // uart_shift_reg           <= 40'd0;
+    //         // uart_byte_count          <= 3'd0;
+    //         // packet_waiting           <= 1'b0; 
+    //     end else begin
+    //         // Edge detect on data_valid
+    //         data_valid_d <= data_valid;
             
-            // Latch incoming SSI data
-            if (data_valid && !data_valid_d) begin
-                encoder_position_latched <= encoder_position;
-                encoder_status_latched   <= encoder_status;
-                error_flag_latched       <= error_flag;
-                warning_flag_latched     <= warning_flag;
-                send_pending             <= 1'b1;
-            end
+    //         // Latch incoming SSI data
+    //         if (data_valid && !data_valid_d) begin
+    //             encoder_position_latched <= encoder_position;
+    //             encoder_status_latched   <= encoder_status;
+    //             error_flag_latched       <= error_flag;
+    //             warning_flag_latched     <= warning_flag;
+    //             send_pending             <= 1'b1;
+    //         end
             
-            // Load packet when ready
-            // if (send_pending && !packet_waiting) begin
-            //     uart_shift_reg  <= uart_packet;
-            //     uart_byte_count <= 3'd0;
-            //     packet_waiting  <= 1'b1;
-            //     send_pending    <= 1'b0;  // Clear flag after loading
-            // end 
-            // Transmit bytes one at a time
-            // else if (uart_data_valid) begin
-            //     if (uart_byte_count == 3'd7) begin  // 0-7 = 8 bytes
-            //         packet_waiting <= 1'b0;
-            //     end else begin
-            //         uart_shift_reg  <= {8'd0, uart_shift_reg[39:8]};
-            //         uart_byte_count <= uart_byte_count + 1'b1;
-            //     end
-            // end
-        end
-    end
+    //         // Load packet when ready
+    //         // if (send_pending && !packet_waiting) begin
+    //         //     uart_shift_reg  <= uart_packet;
+    //         //     uart_byte_count <= 3'd0;
+    //         //     packet_waiting  <= 1'b1;
+    //         //     send_pending    <= 1'b0;  // Clear flag after loading
+    //         // end 
+    //         // Transmit bytes one at a time
+    //         // else if (uart_data_valid) begin
+    //         //     if (uart_byte_count == 3'd7) begin  // 0-7 = 8 bytes
+    //         //         packet_waiting <= 1'b0;
+    //         //     end else begin
+    //         //         uart_shift_reg  <= {8'd0, uart_shift_reg[39:8]};
+    //         //         uart_byte_count <= uart_byte_count + 1'b1;
+    //         //     end
+    //         // end
+    //     end
+    // end
 
     // uart_transmit
     // #(
