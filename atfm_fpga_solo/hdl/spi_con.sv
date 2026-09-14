@@ -2,7 +2,7 @@
 `default_nettype none
 module spi_con #(
         parameter DATA_WIDTH = 8, //changed to encoder pkt width
-        parameter DATA_CLK_PERIOD = 100, //change to have roughly 3.5 MHz clock
+        parameter DATA_CLK_PERIOD = 100 //change to have roughly 3.5 MHz clock
         // parameter POSITION_BITS = 18,
         // parameter STATUS_BITS = 10 
       )
@@ -37,18 +37,18 @@ module spi_con #(
     logic [$clog2(TS_DELAY_NUM_CYCLES) - 1: 0] ts_delay_counter;
     logic past_ts_delay;
 
-    typedef enum logic [3:0] {
-        IDLE,
-        WAIT_TS_DELAY,
-        CLOCK_HIGH,
-        CLOCK_LOW,
-        FINAL_CLOCK_LOW,
-        FORMAT_DATA_OUT,
-        WAIT_TP_DELAY
-        DONE
-    } state_t;
+    // typedef enum logic [3:0] {
+    //     IDLE,
+    //     WAIT_TS_DELAY,
+    //     CLOCK_HIGH,
+    //     CLOCK_LOW,
+    //     FINAL_CLOCK_LOW,
+    //     FORMAT_DATA_OUT,
+    //     WAIT_TP_DELAY,
+    //     DONE
+    // } state_t;
 
-    state_t spi_state;
+    // state_t spi_state;
     
     //SPI Mode 1: CPOL = 0, means clks is low when no data transfers; CPHA = 1 means sample on falling edge of DCLK, but outputted on the rising edge
     
@@ -65,11 +65,11 @@ module spi_con #(
             past_ts_delay <= 0;
 
             //encoder out
-            position <= '0;
-            status <= '0;
-            // busy <= 1'b1;
-            error_flag <= 1'b0;
-            warning_flag <= 1'b0;
+            // position <= '0;
+            // status <= '0;
+            // // busy <= 1'b1;
+            // error_flag <= 1'b0;
+            // warning_flag <= 1'b0;
         end 
         else if (trigger && cs) begin
             // begin transmission of data

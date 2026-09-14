@@ -157,7 +157,7 @@ module top_level(
         .copi(copi_enco),
         .cipo(cipo_enco),
         .dclk(dclk_enco),
-        .cs(cs_enco),
+        .cs(cs_enco)
 
         // .position(encoder_position),
         // .status(encoder_status),
