@@ -1,10 +1,8 @@
 `timescale 1ns / 1ps
 `default_nettype none
-module spi_con #(
-        parameter DATA_WIDTH = 8, //changed to encoder pkt width
-        parameter DATA_CLK_PERIOD = 100, //change to have roughly 3.5 MHz clock
-        parameter POSITION_BITS = 18,
-        parameter STATUS_BITS = 10 
+module spi_con
+     #(parameter DATA_WIDTH = 8, //changed from 8, because encoder returns back 4 bytes
+       parameter DATA_CLK_PERIOD = 100 //changed from 100; want a roughly 3.5 MHz clock
       )
     (   input wire   clk, //system clock (100 MHz)
         input wire   rst, //reset in signal
@@ -17,12 +15,6 @@ module spi_con #(
         input wire   cipo, //(Controller-In-Peripheral-Out)
         output logic dclk, //(Data Clock)
         output logic cs // (Chip Select)
-
-        output logic [POSITION_BITS-1:0] position,
-        output logic [STATUS_BITS-1:0] status,
-        // output logic busy,
-        output logic n_error, // 1 means no error
-        output logic warning
  
       );
     parameter MAX_IDX = $clog2(DATA_WIDTH) - 1;
@@ -62,15 +54,50 @@ module spi_con #(
             current_data_out <= 0;
 
             ts_delay_counter <= 0;
-            past_ts_delay <= 0;
+            // past_ts_delay <= 0;
+        end else begin
 
-            //encoder out
-            position <= '0;
-            status <= '0;
-            // busy <= 1'b1;
-            error_flag <= 1'b0;
-            warning_flag <= 1'b0;
-        end 
+            case (spi_state)
+                IDLE: begin
+                    data_valid <= 0;
+                    current_data_in <= data_in;
+                    idx <= DATA_WIDTH - 1; 
+                    copi <= data_in[DATA_WIDTH-1];
+                    dcounter <= dcounter + 1; 
+                    if (trigger && cs) begin
+                        // begin transaction by resetting
+                        cs <= 1'b0; //pull cs low 
+                        spi_state <= WAIT_TS_DELAY;
+                    end 
+                end
+
+                WAIT_TS_DELAY: begin
+                    //need to wait 5 microseconds after cs pulled low for ts delay
+                    if (!cs) begin //!past_ts_delay
+                        if (ts_delay_counter < TS_DELAY_NUM_CYCLES) ts_delay_counter <= ts_delay_counter + 1;
+                        else begin
+                            ts_delay_counter <= 0;
+                            // past_ts_delay <= 1;
+                            spi_state <= CLOCK_HIGH;
+                        end
+                    end
+                end
+
+                CLOCK_HIGH: begin
+                    if (dcounter == DUTY - 1) begin //falling edge, sample from cipo
+                        
+                        dcounter <= 0; 
+                        dclk <= ~dclk; 
+                        spi_state <= CLOCK_LOW;
+                    end else begin // in the middle of edges
+                        dcounter <= dcounter + 1;
+                    end
+                end
+
+                default: spi_state <= IDLE;
+            endcase
+            
+        end
         else if (trigger && cs) begin
             // begin transmission of data
             cs <= 1'b0; //set cs low 
@@ -110,32 +137,14 @@ module spi_con #(
             end else begin // in the middle of edges
                 dcounter <= dcounter + 1;
             end 
-        end else begin 
-            //need to wait tp (5us) before ending transaction
-            if (ts_delay_counter < TS_DELAY_NUM_CYCLES)  ts_delay_counter <= ts_delay_counter + 1;
-            else begin
-                ts_delay_counter <= 0;
-
-                //set parsed outputs
-                position <= data_out[DATA_WIDTH - 1: DATA_WIDTH - POSITION_BITS - 1];
-                status <= data_out[STATUS_BITS - 1:0];
-                n_error <= data_out[9]; // 1 means no error
-                warning <= data_out[8];
-
-                //lastly reset everything, pull cs
-                dclk <= 0; 
-                dcounter <= 0; 
-                cs <= 1'b1; 
-                data_out <= 0; 
-                data_valid <= 0;
-                current_data_out <= 0;
-            end
-            
+        end else begin //cs pulled high again - transaction ended
+            dclk <= 0; 
+            dcounter <= 0; 
+            cs <= 1'b1; 
+            data_out <= 0; 
+            data_valid <= 0;
+            current_data_out <= 0;
         end
-    end
-    //position
-    always_ff @(posedge clk) begin
-
     end
 endmodule
 

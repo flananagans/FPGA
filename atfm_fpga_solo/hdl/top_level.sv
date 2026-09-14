@@ -44,8 +44,10 @@ module top_level(
     logic [23:0] auto_trigger_counter;
     logic auto_trigger;
 
-    parameter int ENCO_DATA_WIDTH = 32;
     parameter int ENCO_SPI_CLK_PERIOD = 28;
+    parameter int ENCO_SPI_PKT_WIDTH = 32;
+    parameter int ENCO_POS_DATA_WIDTH = 18;
+    parameter int ENCO_STATUS_DATA_WIDTH = 10; //error + warning bits, crc bits
     // assign uart_txd_debug = uart_txd;
     
     assign rst = btn[0];
@@ -93,12 +95,6 @@ module top_level(
     // Select trigger source: SW[15] = 1 for auto, 0 for manual
     assign trigger = sw[15] ? auto_trigger : !spi_trigger;
     
-    logic [18:0] encoder_position;
-    logic [9:0] encoder_status;
-    logic data_valid;
-    logic busy;
-    logic error_flag, warning_flag;
-    
     logic [9:0] ssi_clk_freq;
     assign ssi_clk_freq = 12'd1000;
     
@@ -128,23 +124,35 @@ module top_level(
     //     .warning_flag(warning_flag)
     // );
 
-    logic [ENCO_DATA_WIDTH-1:0]
+    logic [ENCO_SPI_PKT_WIDTH - 1: 0]   encoder_data_out;
+    logic                               encoder_data_valid;
+
+    logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position;
+    logic [ENCO_STATUS_DATA_WIDTH - 1:0] encoder_status;
+    // logic data_valid;
+    // logic busy;
+    logic error_flag, warning_flag;
 
     spi_con #(
-        .DATA_WIDTH(ENCO_DATA_WIDTH), //4 bytes of encoder data
+        .DATA_WIDTH(ENCO_SPI_PKT_WIDTH), //4 bytes of encoder data
         .DATA_CLK_PERIOD(ENCO_SPI_CLK_PERIOD), //right now, assuming 100MHz/ 28 = ~3.5MHz
     ) fpga_spi_con_to_enco (
         .clk(clk_100mhz),
         .rst(rst),
         .data_in(0), //data to send to peripheral (encoder)
         .trigger(spi_trigger),
-        .data_out(enco_data_out), //data from encoder
-        .data_valid(enco_data_valid),
+        .data_out(encoder_data_out), //data from encoder
+        .data_valid(encoder_data_valid),
 
         .copi(copi_enco),
         .cipo(cipo_enco),
         .dclk(dclk_enco),
-        .cs(cs_enco)
+        .cs(cs_enco),
+
+        .position(encoder_position),
+        .status(encoder_status),
+        .n_error(error_flag),
+        .warning(warning_flag)
     );
     
     assign led[15] = sw[15];            // Auto-trigger mode indicator
@@ -152,7 +160,7 @@ module top_level(
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
     assign led[11] = data_valid;        // Data valid pulse
-    // assign led[10:0] = encoder_position[18:8];  // Upper 11 bits of position
+    assign led[10:0] = encoder_position[18:8];  // Upper 11 bits of position
     
 
     // RGB0: Error/Warning/OK status
@@ -183,13 +191,110 @@ module top_level(
     assign rgb1[1] = blink;  // Green blink on new data
     assign rgb1[2] = 1'b0;
 
-    // Data latching signals
-    logic [18:0] encoder_position_latched;
-    logic [9:0]  encoder_status_latched;
+    
+    spi_peripheral #(
+        .DATA_WIDTH(8)
+    ) spi_mcu ( //teensy or psoc
+        .clk(clk_100mhz),
+        .rst(rst),
+        .data_in(spi_data_to_send),    // data to send to psoc controller
+        .data_out(),                    // Ignore received data for now
+        .data_valid(spi_byte_valid),    // Pulses after each byte
+        .busy(spi_busy),
+        .copi(copi),
+        .cipo(cipo),
+        .dclk(dclk),
+        .cs(cs)
+    );
+
+
+    // Encoder data buffer signals
+    logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position_latched;
+    logic [ENCO_STATUS_DATA_WIDTH - 1:0]  encoder_status_latched;
     logic        error_flag_latched;
     logic        warning_flag_latched;
-    logic        data_valid_d;
+    logic        data_valid_d; //prev value of data_valid
     logic        send_pending;
+    
+    //data latching
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            // Data latching signals
+            encoder_position_latched <= '0;
+            encoder_status_latched   <= '0;
+            error_flag_latched       <= 1'b0;
+            warning_flag_latched     <= 1'b0;
+            data_valid_d             <= 1'b0;
+            send_pending             <= 1'b0;
+        end
+        else if (enco_data_valid) begin
+            // Edge detect on data_valid
+            data_valid_d <= data_valid;
+            
+            // Latch incoming SSI data
+            if (data_valid && !data_valid_d) begin
+                encoder_position_latched <= encoder_position;
+                encoder_status_latched   <= encoder_status;
+                error_flag_latched       <= error_flag;
+                warning_flag_latched     <= warning_flag;
+                send_pending             <= 1'b1;
+            end
+        end
+    end
+
+    logic [ENCO_SPI_PKT_WIDTH - 1:0] spi_packet;
+    logic [ENCO_SPI_PKT_WIDTH - 1:0] spi_shift_reg;
+    logic [2:0]  spi_byte_count;
+    logic        spi_byte_valid;
+    logic [7:0]  spi_data_to_send;
+    logic        spi_busy;
+    logic        spi_packet_ready;
+    logic        spi_transaction_done;
+    logic        encoder_data_available;  // NEW: Track if we have valid data
+
+    // assign spi_packet = uart_packet;
+    assign spi_transaction_done = (spi_byte_count == 3'b3) && spi_byte_valid;
+
+    // enco packet is 4 bytes
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            spi_shift_reg          <= {ENCO_SPI_PKT_WIDTH{1'b0}};
+            spi_byte_count         <= 3'b0;
+            spi_packet_ready       <= 1'b0;
+            encoder_data_available <= 1'b0;  // NEW
+
+             
+        end 
+        else if (spi_packet_ready) spi_packet_ready <= 1'b0;  // Drop interrupt
+
+        //complete transaction
+        else if (spi_transaction_done) begin
+            spi_byte_count         <= 3'b0;
+            encoder_data_available <= 1'b0;  // Mark data as consumed
+        end
+        
+        // Shift to next byte 
+        else if (spi_byte_valid) begin
+            spi_shift_reg  <= {8'd0, spi_shift_reg[39:8]};
+            spi_byte_count <= spi_byte_count + 1'b1;
+        end
+        
+        //Load new encoder data
+        else if (data_valid && !data_valid_d) begin 
+            // Always load fresh encoder data when it arrives
+            spi_shift_reg          <= spi_packet;
+            spi_byte_count         <= 3'b0;
+            encoder_data_available <= 1'b1;  // Mark as available
+            
+            // Raise interrupt ONLY if SPI is idle
+            if (!spi_busy && !spi_packet_ready) begin
+                spi_packet_ready <= 1'b1;
+            end
+        end
+    end
+
+    assign spi_data_to_send = spi_shift_reg[7:0];
+
     
     // Packet format signals
     // logic [39:0] uart_packet;
@@ -212,83 +317,17 @@ module top_level(
     //     };
     // end
 
-    always_comb begin
-        uart_packet = {
-            encoder_status_latched[7:0],                          // byte 4: status[7:0]
-            {warning_flag_latched, error_flag_latched,            // byte 3:
-            encoder_status_latched[9:8], 1'b0,                   //  W E S9 S8 0
-            encoder_position_latched[18:16]},                    //  pos[18:16]
-            encoder_position_latched[15:8],                       // byte 2: pos[15:8]
-            encoder_position_latched[7:0],                        // byte 1: pos[7:0]
-            8'hA5                                                 // byte 0: SYNC (sent first)
-        };
-    end
-
-    
-    logic [39:0] spi_packet;
-    logic [39:0] spi_shift_reg;
-    logic [2:0]  spi_byte_count;
-    logic        spi_byte_valid;
-    logic [7:0]  spi_data_to_send;
-    logic        spi_busy;
-    logic spi_packet_ready;
-    logic        spi_transaction_done;
-    logic        encoder_data_available;  // NEW: Track if we have valid data
-
-    // assign spi_packet = uart_packet;
-    assign spi_transaction_done = (spi_byte_count == 3'd4) && spi_byte_valid;
-
-    
-    spi_peripheral #(.DATA_WIDTH(8)) spi_mcu ( //teensy or psoc
-        .clk(clk_100mhz),
-        .rst(rst),
-        .data_in(spi_data_to_send),    // data to send to psoc controller
-        .data_out(),                    // Ignore received data for now
-        .data_valid(spi_byte_valid),    // Pulses after each byte
-        .busy(spi_busy),
-        .copi(copi),
-        .cipo(cipo),
-        .dclk(dclk),
-        .cs(cs)
-    );
-
-    always_ff @(posedge clk_100mhz) begin
-        if (rst) begin
-            spi_shift_reg          <= 40'd0;
-            spi_byte_count         <= 3'd0;
-            spi_packet_ready       <= 1'b0;
-            encoder_data_available <= 1'b0;  // NEW
-        end 
-        else if (spi_packet_ready) spi_packet_ready <= 1'b0;  // Drop interrupt
-
-        
-        //complete transaction
-        else if (spi_transaction_done) begin
-            spi_byte_count         <= 3'd0;
-            encoder_data_available <= 1'b0;  // Mark data as consumed
-        end
-        
-        // Shift to next byte 
-        else if (spi_byte_valid) begin
-            spi_shift_reg  <= {8'd0, spi_shift_reg[39:8]};
-            spi_byte_count <= spi_byte_count + 1'b1;
-        end
-        
-        //Load new encoder data
-        else if (data_valid && !data_valid_d) begin
-            // Always load fresh encoder data when it arrives
-            spi_shift_reg          <= spi_packet;
-            spi_byte_count         <= 3'd0;
-            encoder_data_available <= 1'b1;  // Mark as available
-            
-            // Raise interrupt ONLY if SPI is idle
-            if (!spi_busy && !spi_packet_ready) begin
-                spi_packet_ready <= 1'b1;
-            end
-        end
-    end
-
-    assign spi_data_to_send = spi_shift_reg[7:0];
+    // always_comb begin
+    //     uart_packet = {
+    //         encoder_status_latched[7:0],                          // byte 4: status[7:0]
+    //         {warning_flag_latched, error_flag_latched,            // byte 3:
+    //         encoder_status_latched[9:8], 1'b0,                   //  W E S9 S8 0
+    //         encoder_position_latched[18:16]},                    //  pos[18:16]
+    //         encoder_position_latched[15:8],                       // byte 2: pos[15:8]
+    //         encoder_position_latched[7:0],                        // byte 1: pos[7:0]
+    //         8'hA5                                                 // byte 0: SYNC (sent first)
+    //     };
+    // end
 
     
 
