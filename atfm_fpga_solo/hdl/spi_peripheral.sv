@@ -16,7 +16,7 @@ module spi_peripheral
         input wire   cs             // (Chip Select) - from controller
     );
     
-    parameter MAX_IDX = $clog2(DATA_WIDTH) - 1;
+    localparam MAX_IDX = $clog2(DATA_WIDTH) - 1;
     
     // Edge detection for dclk and cs (CDC - Clock Domain Crossing)
     logic [2:0] dclk_sync;

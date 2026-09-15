@@ -25,15 +25,15 @@ module spi_con #(
         // output logic warning
  
       );
-    parameter MAX_IDX = $clog2(DATA_WIDTH) - 1;
-    parameter DUTY = DATA_CLK_PERIOD & 8'b0000_0001 ? (DATA_CLK_PERIOD - 1) / 2 : DATA_CLK_PERIOD / 2;
+    localparam MAX_IDX = $clog2(DATA_WIDTH) - 1;
+    localparam DUTY = DATA_CLK_PERIOD & 8'b0000_0001 ? (DATA_CLK_PERIOD - 1) / 2 : DATA_CLK_PERIOD / 2;
     logic [DUTY - 1: 0] dcounter; 
     logic [DATA_WIDTH-1:0] current_data_in; 
     logic [DATA_WIDTH-1:0] current_data_out;
     logic [MAX_IDX : 0] idx; //keep track of what bit we're on
 
     //encoder specifics
-    parameter TS_DELAY_NUM_CYCLES = 13'd5000;
+    localparam TS_DELAY_NUM_CYCLES = 13'd5000;
     logic [$clog2(TS_DELAY_NUM_CYCLES) - 1: 0] ts_delay_counter;
     logic past_ts_delay;
 
@@ -127,10 +127,7 @@ module spi_con #(
             
         end
     end
-    //position
-    always_ff @(posedge clk) begin
-
-    end
+    
 endmodule
 
 //spi notes

@@ -28,7 +28,7 @@ module top_level(
 
     input wire              uart_rxd, // UART computer->FPGA
     output logic            uart_txd, // UART FPGA->computer
-    output logic            uart_txd_debug,
+    // output logic            uart_txd_debug,
 
     //PSOC (con) -> FPGA SPI
     input wire   copi,          // (Controller-Out-Peripheral-In)
@@ -145,7 +145,7 @@ module top_level(
 
     spi_con #(
         .DATA_WIDTH(ENCO_SPI_PKT_WIDTH), //4 bytes of encoder data
-        .DATA_CLK_PERIOD(ENCO_SPI_CLK_PERIOD), //right now, assuming 100MHz/ 28 = ~3.5MHz
+        .DATA_CLK_PERIOD(ENCO_SPI_CLK_PERIOD) // 100MHz/ 28 = ~3.5MHz
     ) fpga_spi_con_to_enco (
         .clk(clk_100mhz),
         .rst(rst),
@@ -166,8 +166,8 @@ module top_level(
     );
 
     //set parsed encoder outputs
-    assign encoder_position = encoder_data_out[DATA_WIDTH - 1: DATA_WIDTH - POSITION_BITS - 1];
-    assign status = encoder_data_out[STATUS_BITS - 1:0];
+    assign encoder_position = encoder_data_out[ENCO_SPI_PKT_WIDTH - 1: ENCO_SPI_PKT_WIDTH - ENCO_POS_DATA_WIDTH - 1];
+    assign encoder_status = encoder_data_out[ENCO_STATUS_DATA_WIDTH - 1:0];
     assign error_flag = encoder_data_out[9]; // 1 means no error
     assign warning_flag = encoder_data_out[8];
 
@@ -176,11 +176,11 @@ module top_level(
     // ***************** LED Logic ***************** //
     
     assign led[15] = sw[15];            // Auto-trigger mode indicator
-    assign led[14] = busy;              // Busy indicator
+    // assign led[14] = busy;              // Busy indicator
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
     assign led[11] = encoder_data_valid;        // Data valid pulse
-    assign led[10:0] = encoder_position[18:8];  // Upper 11 bits of position
+    assign led[10:0] = encoder_position[ENCO_POS_DATA_WIDTH - 1 : 8];  // Upper 11 bits of position
     
 
     // RGB0: Error/Warning/OK status
@@ -287,18 +287,18 @@ module top_level(
 
     // analogous to SSI data format
     always_comb begin
-    spi_packet = {
-        encoder_status_latched[7:0],                          // byte 4: status[7:0]
-        {warning_flag_latched, error_flag_latched,            // byte 3:
-        encoder_status_latched[9:8], 2'b0,                   //  W E S9 S8 0 0
-        encoder_position_latched[17:16]},                    //  pos[17:16]
-        encoder_position_latched[15:8],                       // byte 2: pos[15:8]
-        encoder_position_latched[7:0],                        // byte 1: pos[7:0]
-        8'hA5                                                 // byte 0: SYNC (sent first)
-    }
+        spi_packet = {
+            encoder_status_latched[7:0],                          // byte 4: status[7:0]
+            {warning_flag_latched, error_flag_latched,            // byte 3:
+            encoder_status_latched[9:8], 2'b0,                   //  W E S9 S8 0 0
+            encoder_position_latched[17:16]},                    //  pos[17:16]
+            encoder_position_latched[15:8],                       // byte 2: pos[15:8]
+            encoder_position_latched[7:0],                        // byte 1: pos[7:0]
+            8'hA5                                                 // byte 0: SYNC (sent first)
+        };
     end
 
-    assign spi_transaction_done = (spi_byte_count == 3'b3) && spi_byte_valid;
+    assign spi_transaction_done = (spi_byte_count == 3'd3) && spi_byte_valid;
 
     // enco packet is 4 bytes
     always_ff @(posedge clk_100mhz) begin
