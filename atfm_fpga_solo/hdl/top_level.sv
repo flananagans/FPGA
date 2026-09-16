@@ -150,7 +150,7 @@ module top_level(
         .clk(clk_100mhz),
         .rst(rst),
         .data_in(0), //data to send to peripheral (encoder)
-        .trigger(spi_trigger),
+        .trigger(1), //TODO: change to spi_trigger
         .data_out(encoder_data_out), //data from encoder
         .data_valid(encoder_data_valid),
 
@@ -180,7 +180,7 @@ module top_level(
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
     assign led[11] = encoder_data_valid;        // Data valid pulse
-    assign led[10:0] = encoder_position[ENCO_POS_DATA_WIDTH - 1 : 8];  // Upper 11 bits of position
+    assign led[9:0] = encoder_position[ENCO_POS_DATA_WIDTH - 1 : 8];  // Upper 10 bits of position
     
 
     // RGB0: Error/Warning/OK status
