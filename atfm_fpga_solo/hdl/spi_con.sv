@@ -16,11 +16,11 @@ module spi_con #(
         output logic copi, //(Controller-Out-Peripheral-In)
         input wire   cipo, //(Controller-In-Peripheral-Out)
         output logic dclk, //(Data Clock)
-        output logic cs // (Chip Select)
+        output logic cs, // (Chip Select)
 
         // output logic [POSITION_BITS-1:0] position,
         // output logic [STATUS_BITS-1:0] status,
-        // // output logic busy,
+        output logic busy
         // output logic n_error, // 1 means no error
         // output logic warning
  
@@ -33,9 +33,10 @@ module spi_con #(
     logic [MAX_IDX : 0] idx; //keep track of what bit we're on
 
     //encoder specifics
-    localparam TS_DELAY_NUM_CYCLES = 13'd5000;
+    localparam TS_DELAY_NUM_CYCLES = 13'd2500;
     logic [$clog2(TS_DELAY_NUM_CYCLES) - 1: 0] ts_delay_counter;
     logic past_ts_delay;
+    logic data_frame_end;
 
     // typedef enum logic [3:0] {
     //     IDLE,
@@ -47,7 +48,6 @@ module spi_con #(
     //     WAIT_TP_DELAY,
     //     DONE
     // } state_t;
-
     // state_t spi_state;
     
     //SPI Mode 1: CPOL = 0, means clks is low when no data transfers; CPHA = 1 means sample on falling edge of DCLK, but outputted on the rising edge
@@ -63,45 +63,51 @@ module spi_con #(
 
             ts_delay_counter <= 0;
             past_ts_delay <= 0;
+            data_frame_end <= 0;
 
             //encoder out
             // position <= '0;
             // status <= '0;
-            // // busy <= 1'b1;
+            busy <= 1'b0;
             // error_flag <= 1'b0;
             // warning_flag <= 1'b0;
         end 
         else if (trigger && cs) begin
             // begin transmission of data
+            busy <= 1'b1;
             cs <= 1'b0; //set cs low 
             data_valid <= 0;
             current_data_in <= data_in;
             idx <= DATA_WIDTH - 1; 
             copi <= data_in[DATA_WIDTH-1];
-            dcounter <= dcounter + 1; 
+            dcounter <= dcounter + 1;
+            past_ts_delay <= 1'b0; 
         end 
         //need to wait 5 microseconds after cs pulled low for ts delay
         else if (!cs && !past_ts_delay) begin 
             if (ts_delay_counter < TS_DELAY_NUM_CYCLES) ts_delay_counter <= ts_delay_counter + 1;
             else begin
                 ts_delay_counter <= 0;
-                past_ts_delay <= 1;
+                past_ts_delay <= 1'b1;
             end
         end
         // CPHA = 1 means sample on falling edge of DCLK, but outputted on the rising edge
-        else if (!cs && past_ts_delay) begin
+        else if (!cs && past_ts_delay && !data_frame_end) begin
             // right before falling edge
             if (idx == 0 && dcounter == (DUTY - 1) && dclk) begin  
                 // end of data transmission - last index, end of period, about to be falling edge
                 data_valid <= 1'b1;
-                cs <= 1'b1;
+                // cs <= 1'b1;
+                data_frame_end <= 1'b1;
                 data_out <= current_data_out; //new frame of bits
                 dclk <= 0; 
             end else if (dcounter == DUTY - 1) begin 
                 // A) dclk: 0 -> 1
                 if (!dclk) begin  // DCLK = 0 （no data tx), rising edge
-                    copi <= current_data_in[idx - 1]; 
-                    idx <= idx - 1;
+                    if (idx > 0) begin
+                        copi <= current_data_in[idx - 1]; 
+                        idx <= idx - 1;
+                    end
                 end else begin // idx > 0 and DCLK = 1; sample on rising edge
                     current_data_out <= {current_data_out, cipo}; //cipo is 1'b, equiv to (current_data_out << 1) | cipo;  
                 end 
@@ -110,7 +116,7 @@ module spi_con #(
             end else begin // in the middle of edges
                 dcounter <= dcounter + 1;
             end 
-        end else begin 
+        end else if (!cs && past_ts_delay && data_frame_end) begin 
             //need to wait tp (5us) before ending transaction
             if (ts_delay_counter < TS_DELAY_NUM_CYCLES)  ts_delay_counter <= ts_delay_counter + 1;
             else begin
@@ -123,6 +129,10 @@ module spi_con #(
                 data_out <= 0; 
                 data_valid <= 0;
                 current_data_out <= 0;
+                past_ts_delay <= 1'b0;
+                data_frame_end <= 1'b0;  
+
+                busy <= 1'b0;
             end
             
         end

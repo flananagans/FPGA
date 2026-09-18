@@ -22,9 +22,15 @@ module top_level(
 
     //FPGA (con) -> encoder SPI
     output wire   copi_enco,          // (Controller-Out-Peripheral-In)
-    input wire cipo_enco,          // (Controller-In-Peripheral-Out)
+    input wire    cipo_enco,          // (Controller-In-Peripheral-Out)
     output wire   dclk_enco,          // (Data Clock) - from controller (FPGA)
     output wire   cs_enco,             // (Chip Select) - from controller (FPGA)
+
+    output wire   probe_copi,          // (Controller-Out-Peripheral-In)
+    output wire    probe_cipo,          // (Controller-In-Peripheral-Out)
+    output wire   probe_dclk,          // (Data Clock) - from controller (FPGA)
+    output wire   probe_cs,             // (Chip Select) - from controller (FPGA)
+
 
     input wire              uart_rxd, // UART computer->FPGA
     output logic            uart_txd, // UART FPGA->computer
@@ -45,6 +51,10 @@ module top_level(
     parameter int ENCO_POS_DATA_WIDTH = 18;
     parameter int ENCO_STATUS_DATA_WIDTH = 10; //error + warning bits, crc bits
 
+    assign probe_copi  = copi_enco;
+    assign probe_cipo  = cipo_enco;
+    assign probe_dclk  = dclk_enco;
+    assign probe_cs  = cs_enco;
     // assign uart_txd_debug = uart_txd;
 
     // ***************** Trigger Logic ***************** //
@@ -139,9 +149,30 @@ module top_level(
     logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position;
     logic [ENCO_STATUS_DATA_WIDTH - 1:0] encoder_status;
     // logic data_valid;
-    // logic busy;
+    logic enco_busy;
     logic error_flag, warning_flag;
     logic n_error_flag; //TODO: need to see how this is used
+
+    logic test_trigger;
+    localparam COUNT_12_5KHZ_MAX = 8000;
+    localparam COUNT_2HZ_MAX = 50_000_000; 
+    logic [$clog2(COUNT_2HZ_MAX) - 1 : 0] clk_counter_12khz;
+
+
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            clk_counter_12khz <= 0;
+            test_trigger <= 0;
+        end else if (clk_counter_12khz == COUNT_12_5KHZ_MAX - 1) begin
+            test_trigger <= 0;
+            clk_counter_12khz <= 0;
+        end else begin
+            clk_counter_12khz <= clk_counter_12khz + 1;
+
+            if (clk_counter_12khz >= (COUNT_12_5KHZ_MAX/2 - 1)) test_trigger <= 1;
+            else test_trigger <= 0;
+        end
+    end
 
     spi_con #(
         .DATA_WIDTH(ENCO_SPI_PKT_WIDTH), //4 bytes of encoder data
@@ -150,14 +181,16 @@ module top_level(
         .clk(clk_100mhz),
         .rst(rst),
         .data_in(0), //data to send to peripheral (encoder)
-        .trigger(1), //TODO: change to spi_trigger
+        .trigger(test_trigger), //TODO: change to spi_trigger
         .data_out(encoder_data_out), //data from encoder
         .data_valid(encoder_data_valid),
 
         .copi(copi_enco),
         .cipo(cipo_enco),
         .dclk(dclk_enco),
-        .cs(cs_enco)
+        .cs(cs_enco),
+
+        .busy(enco_busy)
 
         // .position(encoder_position),
         // .status(encoder_status),
@@ -166,27 +199,70 @@ module top_level(
     );
 
     //set parsed encoder outputs
-    assign encoder_position = encoder_data_out[ENCO_SPI_PKT_WIDTH - 1: ENCO_SPI_PKT_WIDTH - ENCO_POS_DATA_WIDTH - 1];
+    assign encoder_position = encoder_data_out[ENCO_SPI_PKT_WIDTH - 1: ENCO_SPI_PKT_WIDTH - ENCO_POS_DATA_WIDTH];
     assign encoder_status = encoder_data_out[ENCO_STATUS_DATA_WIDTH - 1:0];
     assign error_flag = encoder_data_out[9]; // 1 means no error
     assign warning_flag = encoder_data_out[8];
 
     // *************************************************** //
 
+
+    // ***************** Latch Encoder Data ***************** //
+
+    // Encoder data buffer signals
+    logic [ENCO_SPI_PKT_WIDTH - 1:0] encoder_data_latched;
+    logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position_latched;
+    logic [ENCO_STATUS_DATA_WIDTH - 1:0]  encoder_status_latched;
+    logic        error_flag_latched;
+    logic        warning_flag_latched;
+    logic        data_valid_d; //prev value of encoder_data_valid
+    logic        send_pending;
+    
+    //data latching
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            // Data latching signals
+            encoder_data_latched <= '0;
+            encoder_position_latched <= '0;
+            encoder_status_latched   <= '0;
+            error_flag_latched       <= 1'b0;
+            warning_flag_latched     <= 1'b0;
+            data_valid_d             <= 1'b0;
+            send_pending             <= 1'b0;
+        end
+        else begin
+            // Edge detect on data_valid
+            data_valid_d <= encoder_data_valid;
+            
+            // Latch incoming SPI data
+            if (encoder_data_valid && !data_valid_d) begin
+                encoder_data_latched     <= encoder_data_out;
+                encoder_position_latched <= encoder_position;
+                encoder_status_latched   <= encoder_status;
+                error_flag_latched       <= error_flag;
+                warning_flag_latched     <= warning_flag;
+                send_pending             <= 1'b1;
+            end
+        end
+    end
+
+    // *************************************************** //
+
     // ***************** LED Logic ***************** //
     
-    assign led[15] = sw[15];            // Auto-trigger mode indicator
-    // assign led[14] = busy;              // Busy indicator
+    assign led[15] = rst; //sw[15];            // Auto-trigger mode indicator
+    assign led[14] = enco_busy;              // Busy indicator
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
-    assign led[11] = encoder_data_valid;        // Data valid pulse
-    assign led[9:0] = encoder_position[ENCO_POS_DATA_WIDTH - 1 : 8];  // Upper 10 bits of position
-    
+    assign led[11] = data_valid_d;        // Data valid pulse
+    // assign led[10] = test_trigger;
+    // assign led[9:0] = encoder_position_latched[ENCO_POS_DATA_WIDTH - 1 : ENCO_POS_DATA_WIDTH - 10];  // Upper 10 bits of position
+    assign led[10:0] = encoder_data_latched[ENCO_SPI_PKT_WIDTH - 1 : ENCO_SPI_PKT_WIDTH - 11];
 
-    // RGB0: Error/Warning/OK status
-    assign rgb0[0] = error_flag;                        // Red = Error
-    assign rgb0[1] = warning_flag && !error_flag;       // Green = Warning
-    assign rgb0[2] = !error_flag && !warning_flag;      // Blue = OK
+    // RGB0: Error/Warning/OK status - 
+    assign rgb0[0] = error_flag_latched;                        // Red = Error
+    assign rgb0[1] = warning_flag_latched && !error_flag_latched;       // Green = Warning
+    assign rgb0[2] = !error_flag_latched && !warning_flag_latched;      // Blue = OK
     
     // RGB1: Busy/Activity indicator (blink on data valid)
     logic [23:0] blink_counter;
@@ -228,41 +304,7 @@ module top_level(
         .cs(cs)
     );
 
-    // Encoder data buffer signals
-    logic [ENCO_SPI_PKT_WIDTH - 1:0] encoder_data_latched;
-    logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position_latched;
-    logic [ENCO_STATUS_DATA_WIDTH - 1:0]  encoder_status_latched;
-    logic        error_flag_latched;
-    logic        warning_flag_latched;
-    logic        data_valid_d; //prev value of encoder_data_valid
-    logic        send_pending;
     
-    //data latching
-    always_ff @(posedge clk_100mhz) begin
-        if (rst) begin
-            // Data latching signals
-            encoder_position_latched <= '0;
-            encoder_status_latched   <= '0;
-            error_flag_latched       <= 1'b0;
-            warning_flag_latched     <= 1'b0;
-            data_valid_d             <= 1'b0;
-            send_pending             <= 1'b0;
-        end
-        else begin
-            // Edge detect on data_valid
-            data_valid_d <= encoder_data_valid;
-            
-            // Latch incoming SSI data
-            if (encoder_data_valid && !data_valid_d) begin
-                encoder_data_latched     <= encoder_data_out;
-                encoder_position_latched <= encoder_position;
-                encoder_status_latched   <= encoder_status;
-                error_flag_latched       <= error_flag;
-                warning_flag_latched     <= warning_flag;
-                send_pending             <= 1'b1;
-            end
-        end
-    end
 
     logic [ENCO_SPI_PKT_WIDTH - 1:0] spi_packet;
     logic [ENCO_SPI_PKT_WIDTH - 1:0] spi_shift_reg;

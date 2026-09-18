@@ -89,15 +89,17 @@ set_property -dict {PACKAGE_PIN A8  IOSTANDARD LVCMOS33} [ get_ports "sw[15]" ]
 
 
 # PMOD A Signals
-
+# top down CS = blue, COPI = Yellow, CIPO = Green, DCLK = Red
 set_property -dict {PACKAGE_PIN F14 IOSTANDARD LVCMOS33}  [ get_ports "cs_enco" ]
 set_property -dict {PACKAGE_PIN F15 IOSTANDARD LVCMOS33}  [ get_ports "copi_enco" ]
 set_property -dict {PACKAGE_PIN H13 IOSTANDARD LVCMOS33}  [ get_ports "cipo_enco" ]
 set_property -dict {PACKAGE_PIN H14 IOSTANDARD LVCMOS33}  [ get_ports "dclk_enco" ]
 # set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33}  [ get_ports "uart_rxd" ] BADDDDD
 # set_property -dict {PACKAGE_PIN J14 IOSTANDARD LVCMOS33}  [ get_ports "uart_txd" ] BADDDDD
-#set_property -dict {PACKAGE_PIN E14 IOSTANDARD LVCMOS33}  [ get_ports "pmoda[6]" ]
-#set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33}  [ get_ports "pmoda[7]" ]
+set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33}  [ get_ports "probe_cs" ] 
+set_property -dict {PACKAGE_PIN J14 IOSTANDARD LVCMOS33}  [ get_ports "probe_copi" ] 
+set_property -dict {PACKAGE_PIN E14 IOSTANDARD LVCMOS33}  [ get_ports "probe_cipo" ]
+set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33}  [ get_ports "probe_dclk" ]
 
 
 # set_property -dict {PACKAGE_PIN H14 IOSTANDARD LVCMOS33} [get_ports "dclk_plus"]
