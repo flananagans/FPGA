@@ -27,7 +27,7 @@ module spi_con #(
       );
     localparam MAX_IDX = $clog2(DATA_WIDTH) - 1;
     localparam DUTY = DATA_CLK_PERIOD & 8'b0000_0001 ? (DATA_CLK_PERIOD - 1) / 2 : DATA_CLK_PERIOD / 2;
-    logic [DUTY - 1: 0] dcounter; 
+    logic [$clog2(DUTY) - 1: 0] dcounter; 
     logic [DATA_WIDTH-1:0] current_data_in; 
     logic [DATA_WIDTH-1:0] current_data_out;
     logic [MAX_IDX : 0] idx; //keep track of what bit we're on
@@ -72,7 +72,7 @@ module spi_con #(
             // error_flag <= 1'b0;
             // warning_flag <= 1'b0;
         end 
-        else if (trigger && cs) begin
+        else if (cs) begin // trigger && 
             // begin transmission of data
             busy <= 1'b1;
             cs <= 1'b0; //set cs low 
@@ -80,7 +80,8 @@ module spi_con #(
             current_data_in <= data_in;
             idx <= DATA_WIDTH - 1; 
             copi <= data_in[DATA_WIDTH-1];
-            dcounter <= dcounter + 1;
+            dcounter <=  0;
+            // dcounter <= dcounter + 1;
             past_ts_delay <= 1'b0; 
         end 
         //need to wait 5 microseconds after cs pulled low for ts delay

@@ -155,21 +155,21 @@ module top_level(
 
     logic test_trigger;
     localparam COUNT_12_5KHZ_MAX = 8000;
-    localparam COUNT_2HZ_MAX = 50_000_000; 
-    logic [$clog2(COUNT_2HZ_MAX) - 1 : 0] clk_counter_12khz;
+    localparam COUNT_100HZ_MAX = 1_000_000; 
+    logic [$clog2(COUNT_100HZ_MAX) - 1 : 0] clk_counter_12khz;
 
 
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
             clk_counter_12khz <= 0;
             test_trigger <= 0;
-        end else if (clk_counter_12khz == COUNT_12_5KHZ_MAX - 1) begin
+        end else if (clk_counter_12khz == COUNT_100HZ_MAX - 1) begin
             test_trigger <= 0;
             clk_counter_12khz <= 0;
         end else begin
             clk_counter_12khz <= clk_counter_12khz + 1;
 
-            if (clk_counter_12khz >= (COUNT_12_5KHZ_MAX/2 - 1)) test_trigger <= 1;
+            if (clk_counter_12khz >= (COUNT_100HZ_MAX/2 - 1)) test_trigger <= 1;
             else test_trigger <= 0;
         end
     end
