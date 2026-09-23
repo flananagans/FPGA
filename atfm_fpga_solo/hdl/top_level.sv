@@ -256,8 +256,8 @@ module top_level(
     assign led[12] = warning_flag;      // Warning flag
     assign led[11] = data_valid_d;        // Data valid pulse
     // assign led[10] = test_trigger;
-    // assign led[9:0] = encoder_position_latched[ENCO_POS_DATA_WIDTH - 1 : ENCO_POS_DATA_WIDTH - 10];  // Upper 10 bits of position
-    assign led[10:0] = encoder_data_latched[ENCO_SPI_PKT_WIDTH - 1 : ENCO_SPI_PKT_WIDTH - 11];
+    assign led[9:0] = encoder_position_latched[ENCO_POS_DATA_WIDTH - 1 : ENCO_POS_DATA_WIDTH - 10];  // Upper 10 bits of position
+    // assign led[10:0] = encoder_data_latched[ENCO_SPI_PKT_WIDTH - 1 : ENCO_SPI_PKT_WIDTH - 11]; //TODO: uncomment
 
     // RGB0: Error/Warning/OK status - 
     assign rgb0[0] = error_flag_latched;                        // Red = Error
@@ -274,7 +274,7 @@ module top_level(
             blink <= 1'b0;
         end else begin
             if (encoder_data_valid) begin
-                blink_counter <= 24'd5_000_000;  // 50ms blink
+                blink_counter <= 24'd50_000_000;  // 5ms blink, was 50ms
             end else if (blink_counter > 0) begin
                 blink_counter <= blink_counter - 1;
             end
@@ -289,13 +289,30 @@ module top_level(
 
     // *************************************************** //
     
+    // spi_peripheral #(
+    //     .DATA_WIDTH(8) //TODO: change back to 8 for PSOC afterwards
+    // ) spi_mcu_con_to_fpga_per ( //teensy or psoc
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .data_in(encoder_data_latched),    // data to send to psoc controller
+    //     .data_out(),                    // Ignore received data for now
+    //     .data_valid(spi_byte_valid),    // Pulses after each byte
+    //     .busy(spi_busy),
+    //     .copi(copi),
+    //     .cipo(cipo),
+    //     .dclk(dclk),
+    //     .cs(cs)
+    // );
+
+    // Test FPGA peripheral: 
+    logic [7:0] lights;
     spi_peripheral #(
-        .DATA_WIDTH(8)
+        .DATA_WIDTH(8) //TODO: change back to ENCO_SPI_PKT_WIDTH for PSOC afterwards
     ) spi_mcu_con_to_fpga_per ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
-        .data_in(spi_data_to_send),    // data to send to psoc controller
-        .data_out(),                    // Ignore received data for now
+        .data_in(8'b0110_0101),    // data to send to psoc controller
+        .data_out(lights),                    // Ignore received data for now
         .data_valid(spi_byte_valid),    // Pulses after each byte
         .busy(spi_busy),
         .copi(copi),
@@ -303,6 +320,9 @@ module top_level(
         .dclk(dclk),
         .cs(cs)
     );
+
+    // assign led[7:0] = lights;
+    // assign led[8] = spi_busy;
 
     
 

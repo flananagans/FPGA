@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Sep 21 10:46:30 2026
-| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
+| Date         : Wed Sep 23 11:07:29 2026
+| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
 | Device       : xc7s50csga324-1
@@ -22,10 +22,10 @@ Table of Contents
 +---------------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
 |          Instance         |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
 +---------------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
-| top_level                 |          (top) |        111 |        109 |       0 |    2 | 167 |      0 |      0 |          0 |
-|   (top_level)             |          (top) |          3 |          3 |       0 |    0 |  78 |      0 |      0 |          0 |
-|   fpga_spi_con_to_enco    |        spi_con |         78 |         76 |       0 |    2 |  77 |      0 |      0 |          0 |
-|   spi_mcu_con_to_fpga_per | spi_peripheral |         30 |         30 |       0 |    0 |  12 |      0 |      0 |          0 |
+| top_level                 |          (top) |        118 |        118 |       0 |    0 | 138 |      0 |      0 |          0 |
+|   (top_level)             |          (top) |         15 |         15 |       0 |    0 |  59 |      0 |      0 |          0 |
+|   fpga_spi_con_to_enco    |        spi_con |         97 |         97 |       0 |    0 |  68 |      0 |      0 |          0 |
+|   spi_mcu_con_to_fpga_per | spi_peripheral |          6 |          6 |       0 |    0 |  11 |      0 |      0 |          0 |
 +---------------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
 
 
