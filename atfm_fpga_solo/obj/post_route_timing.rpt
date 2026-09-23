@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Sep 23 11:07:47 2026
+| Date         : Wed Sep 23 17:23:58 2026
 | Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_timing -file obj/post_route_timing.rpt
 | Design       : top_level
@@ -12,20 +12,20 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (MET) :             5.901ns  (required time - arrival time)
-  Source:                 fpga_spi_con_to_enco/ts_delay_counter_reg[6]/C
+Slack (MET) :             5.861ns  (required time - arrival time)
+  Source:                 fpga_spi_con_to_enco/ts_delay_counter_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            fpga_spi_con_to_enco/dcounter_reg[1]/CE
+  Destination:            fpga_spi_con_to_enco/dclk_reg/CE
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        3.833ns  (logic 1.056ns (27.551%)  route 2.777ns (72.449%))
-  Logic Levels:           3  (LUT5=2 LUT6=1)
-  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.831ns = ( 14.831 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.127ns
-    Clock Pessimism Removal (CPR):    0.270ns
+  Data Path Delay:        3.880ns  (logic 1.118ns (28.816%)  route 2.762ns (71.184%))
+  Logic Levels:           3  (LUT5=3)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.827ns = ( 14.827 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.117ns
+    Clock Pessimism Removal (CPR):    0.271ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -40,18 +40,18 @@ Slack (MET) :             5.901ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=142, routed)         1.619     5.127    fpga_spi_con_to_enco/clk_100mhz_IBUF_BUFG
-    SLICE_X7Y87          FDRE                                         r  fpga_spi_con_to_enco/ts_delay_counter_reg[6]/C
+                         net (fo=174, routed)         1.609     5.117    fpga_spi_con_to_enco/clk_100mhz_IBUF_BUFG
+    SLICE_X2Y72          FDRE                                         r  fpga_spi_con_to_enco/ts_delay_counter_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y87          FDRE (Prop_fdre_C_Q)         0.456     5.583 r  fpga_spi_con_to_enco/ts_delay_counter_reg[6]/Q
-                         net (fo=4, routed)           0.819     6.402    fpga_spi_con_to_enco/ts_delay_counter_reg_n_0_[6]
-    SLICE_X7Y86          LUT5 (Prop_lut5_I2_O)        0.124     6.526 r  fpga_spi_con_to_enco/ts_delay_counter[1]_i_2/O
-                         net (fo=6, routed)           0.706     7.232    fpga_spi_con_to_enco/ts_delay_counter[1]_i_2_n_0
-    SLICE_X6Y86          LUT5 (Prop_lut5_I4_O)        0.148     7.380 r  fpga_spi_con_to_enco/FSM_sequential_spi_state[1]_i_4/O
-                         net (fo=4, routed)           0.615     7.995    fpga_spi_con_to_enco/FSM_sequential_spi_state[1]_i_4_n_0
-    SLICE_X5Y85          LUT6 (Prop_lut6_I0_O)        0.328     8.323 r  fpga_spi_con_to_enco/dcounter[3]_i_1/O
-                         net (fo=4, routed)           0.637     8.960    fpga_spi_con_to_enco/dcounter[3]_i_1_n_0
-    SLICE_X4Y85          FDRE                                         r  fpga_spi_con_to_enco/dcounter_reg[1]/CE
+    SLICE_X2Y72          FDRE (Prop_fdre_C_Q)         0.518     5.635 r  fpga_spi_con_to_enco/ts_delay_counter_reg[4]/Q
+                         net (fo=3, routed)           0.841     6.476    fpga_spi_con_to_enco/ts_delay_counter_reg_n_0_[4]
+    SLICE_X2Y71          LUT5 (Prop_lut5_I0_O)        0.124     6.600 r  fpga_spi_con_to_enco/ts_delay_counter[1]_i_2/O
+                         net (fo=7, routed)           0.614     7.214    fpga_spi_con_to_enco/ts_delay_counter[1]_i_2_n_0
+    SLICE_X3Y71          LUT5 (Prop_lut5_I0_O)        0.150     7.364 r  fpga_spi_con_to_enco/dcounter[3]_i_3/O
+                         net (fo=2, routed)           0.738     8.102    fpga_spi_con_to_enco/dcounter[3]_i_3_n_0
+    SLICE_X0Y69          LUT5 (Prop_lut5_I2_O)        0.326     8.428 r  fpga_spi_con_to_enco/dclk_i_1/O
+                         net (fo=2, routed)           0.568     8.997    fpga_spi_con_to_enco/dclk_i_1_n_0
+    SLICE_X0Y69          FDRE                                         r  fpga_spi_con_to_enco/dclk_reg/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -60,16 +60,16 @@ Slack (MET) :             5.901ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=142, routed)         1.502    14.831    fpga_spi_con_to_enco/clk_100mhz_IBUF_BUFG
-    SLICE_X4Y85          FDRE                                         r  fpga_spi_con_to_enco/dcounter_reg[1]/C
-                         clock pessimism              0.270    15.101    
-                         clock uncertainty           -0.035    15.065    
-    SLICE_X4Y85          FDRE (Setup_fdre_C_CE)      -0.205    14.860    fpga_spi_con_to_enco/dcounter_reg[1]
+                         net (fo=174, routed)         1.498    14.827    fpga_spi_con_to_enco/clk_100mhz_IBUF_BUFG
+    SLICE_X0Y69          FDRE                                         r  fpga_spi_con_to_enco/dclk_reg/C
+                         clock pessimism              0.271    15.098    
+                         clock uncertainty           -0.035    15.062    
+    SLICE_X0Y69          FDRE (Setup_fdre_C_CE)      -0.205    14.857    fpga_spi_con_to_enco/dclk_reg
   -------------------------------------------------------------------
-                         required time                         14.860    
-                         arrival time                          -8.960    
+                         required time                         14.857    
+                         arrival time                          -8.997    
   -------------------------------------------------------------------
-                         slack                                  5.901    
+                         slack                                  5.861    
 
 
 

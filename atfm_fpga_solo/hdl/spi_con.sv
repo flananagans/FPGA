@@ -56,10 +56,8 @@ module spi_con #(
         WAIT_TS_DELAY,
         CLOCK_HIGH,
         CLOCK_LOW,
-        FINAL_CLOCK_LOW,
-        FORMAT_DATA_OUT,
-        WAIT_TP_DELAY,
-        DONE
+        SPI_DONE,
+        WAIT_TP_DELAY
     } state_t;
     state_t spi_state;
     
@@ -91,10 +89,9 @@ module spi_con #(
                         data_valid <= 0;
                         current_data_in <= data_in;
                         idx <= DATA_WIDTH - 1; 
-                        copi <= data_in[DATA_WIDTH-1];
+                        // copi <= data_in[DATA_WIDTH-1];
 
                         dcounter <= 0;
-                        // past_ts_delay <= 1'b0; 
                         spi_state <= WAIT_TS_DELAY;
                     end 
                 end
@@ -106,21 +103,14 @@ module spi_con #(
                         dcounter <= 0; //for dclk
                         dclk <= 0; //redundant
                         spi_state <= CLOCK_LOW; //one cycle before rising edge
-                        // past_ts_delay <= 1'b1;
                     end
                 end
 
                 CLOCK_LOW: begin
                     if (dcounter == (DUTY - 1)) begin  
                         // end of data transmission - last index, end of period, about to be falling edge
-                        if (idx > 0) begin
-                            copi <= current_data_in[idx - 1];
-                            idx  <= idx - 1;
-                        end
-                        // data_valid <= 1'b1;
-                        // cs <= 1'b1;
-                        // data_frame_end <= 1'b1;
-                        // data_out <= current_data_out; //new frame of bits
+                        
+                        copi <= current_data_in[idx];
                         dclk <= 1; 
                         dcounter <= 0;
                         spi_state <= CLOCK_HIGH;
@@ -135,26 +125,33 @@ module spi_con #(
                         dcounter <= 0; 
                         dclk <= 0; 
 
-                        if (idx == 0) begin //end of SPI packet
+                        if (idx == 0) begin //end of SPI packet, idx from DATA_WIDTH - 1 to 0
                             data_out         <= {current_data_out, cipo};
                             data_valid       <= 1'b1;
                             ts_delay_counter <= 0;
-                            spi_state        <= DONE;
+                            spi_state        <= SPI_DONE;
                         end 
-                        else spi_state <= CLOCK_LOW; // idx > 0 and DCLK = 1; sample on rising edge 
+                        
+                        else begin 
+                            spi_state <= CLOCK_LOW; // idx > 0 and DCLK = 1; sample on rising edge 
+                            idx  <= idx - 1; // idx from DATA_WIDTH to 1
+                        end
                     end 
                     else dcounter <= dcounter + 1; // in the middle of edges
                 end
 
-                DONE: begin
+                SPI_DONE: begin
                     //lastly reset everything, pull cs
                     dcounter <= 0; 
                     cs <= 1'b1; 
                     current_data_out <= 0; 
                     data_frame_end <= 1'b0;  
+                    // data_valid       <= 1'b1;
+                    // data_out <= current_data_out;
 
                     busy <= 1'b0;
                     spi_state <= WAIT_TP_DELAY;
+                    
                 end
                     
                 WAIT_TP_DELAY: begin

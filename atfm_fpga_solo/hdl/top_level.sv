@@ -26,10 +26,11 @@ module top_level(
     output wire   dclk_enco,          // (Data Clock) - from controller (FPGA)
     output wire   cs_enco,             // (Chip Select) - from controller (FPGA)
 
-    output wire   probe_copi,          // (Controller-Out-Peripheral-In)
-    output wire    probe_cipo,          // (Controller-In-Peripheral-Out)
-    output wire   probe_dclk,          // (Data Clock) - from controller (FPGA)
-    output wire   probe_cs,             // (Chip Select) - from controller (FPGA)
+    output wire   probe_enco_copi,          // (Controller-Out-Peripheral-In)
+    output wire    probe_enco_cipo,          // (Controller-In-Peripheral-Out)
+    output wire   probe_enco_dclk,          // (Data Clock) - from controller (FPGA)
+    output wire   probe_enco_cs,             // (Chip Select) - from controller (FPGA)
+
 
 
     input wire              uart_rxd, // UART computer->FPGA
@@ -42,6 +43,11 @@ module top_level(
     input wire   dclk,          // (Data Clock) - from controller
     input wire   cs,             // (Chip Select) - from controller
 
+    output wire   probe_copi,          // (Controller-Out-Peripheral-In)
+    output wire    probe_cipo,          // (Controller-In-Peripheral-Out)
+    output wire   probe_dclk,          // (Data Clock) - from controller (FPGA)
+    output wire   probe_cs,             // (Chip Select) - from controller (FPGA)
+
     input wire spi_trigger       //from PSOC con (teensy)
 );
 
@@ -51,10 +57,16 @@ module top_level(
     parameter int ENCO_POS_DATA_WIDTH = 18;
     parameter int ENCO_STATUS_DATA_WIDTH = 10; //error + warning bits, crc bits
 
-    assign probe_copi  = copi_enco;
-    assign probe_cipo  = cipo_enco;
-    assign probe_dclk  = dclk_enco;
-    assign probe_cs  = cs_enco;
+    assign probe_enco_copi  = copi_enco;
+    assign probe_enco_cipo  = cipo_enco;
+    assign probe_enco_dclk  = dclk_enco;
+    assign probe_enco_cs  = cs_enco;
+    
+    
+    assign probe_copi  = copi;
+    assign probe_cipo  = cipo;
+    assign probe_dclk  = dclk;
+    assign probe_cs  = cs;
     // assign uart_txd_debug = uart_txd;
 
     // ***************** Trigger Logic ***************** //
@@ -144,10 +156,9 @@ module top_level(
 
     // ***************** SPI: FPGA Con to Encoder Per ***************** //
     logic [ENCO_SPI_PKT_WIDTH - 1: 0]   encoder_data_out;
-    logic                               encoder_data_valid;
-
     logic [ENCO_POS_DATA_WIDTH - 1:0] encoder_position;
     logic [ENCO_STATUS_DATA_WIDTH - 1:0] encoder_status;
+    logic                               encoder_data_valid;
     // logic data_valid;
     logic enco_busy;
     logic error_flag, warning_flag;
@@ -181,7 +192,7 @@ module top_level(
         .clk(clk_100mhz),
         .rst(rst),
         .data_in(0), //data to send to peripheral (encoder)
-        .trigger(test_trigger), //TODO: change to spi_trigger
+        .trigger(spi_trigger), //TODO: change to spi_trigger
         .data_out(encoder_data_out), //data from encoder
         .data_valid(encoder_data_valid),
 
@@ -215,7 +226,7 @@ module top_level(
     logic [ENCO_STATUS_DATA_WIDTH - 1:0]  encoder_status_latched;
     logic        error_flag_latched;
     logic        warning_flag_latched;
-    logic        data_valid_d; //prev value of encoder_data_valid
+    logic        encoder_data_valid_d; //prev value of encoder_data_valid
     logic        send_pending;
     
     //data latching
@@ -227,15 +238,15 @@ module top_level(
             encoder_status_latched   <= '0;
             error_flag_latched       <= 1'b0;
             warning_flag_latched     <= 1'b0;
-            data_valid_d             <= 1'b0;
+            encoder_data_valid_d             <= 1'b0;
             send_pending             <= 1'b0;
         end
         else begin
             // Edge detect on data_valid
-            data_valid_d <= encoder_data_valid;
+            encoder_data_valid_d <= encoder_data_valid;
             
             // Latch incoming SPI data
-            if (encoder_data_valid && !data_valid_d) begin
+            if (encoder_data_valid && !encoder_data_valid_d) begin
                 encoder_data_latched     <= encoder_data_out;
                 encoder_position_latched <= encoder_position;
                 encoder_status_latched   <= encoder_status;
@@ -254,10 +265,9 @@ module top_level(
     assign led[14] = enco_busy;              // Busy indicator
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag
-    assign led[11] = data_valid_d;        // Data valid pulse
+    assign led[11] = encoder_data_valid_d;        // Data valid pulse
     // assign led[10] = test_trigger;
     assign led[9:0] = encoder_position_latched[ENCO_POS_DATA_WIDTH - 1 : ENCO_POS_DATA_WIDTH - 10];  // Upper 10 bits of position
-    // assign led[10:0] = encoder_data_latched[ENCO_SPI_PKT_WIDTH - 1 : ENCO_SPI_PKT_WIDTH - 11]; //TODO: uncomment
 
     // RGB0: Error/Warning/OK status - 
     assign rgb0[0] = error_flag_latched;                        // Red = Error
@@ -288,30 +298,13 @@ module top_level(
     assign rgb1[2] = 1'b0;
 
     // *************************************************** //
-    
-    // spi_peripheral #(
-    //     .DATA_WIDTH(8) //TODO: change back to 8 for PSOC afterwards
-    // ) spi_mcu_con_to_fpga_per ( //teensy or psoc
-    //     .clk(clk_100mhz),
-    //     .rst(rst),
-    //     .data_in(encoder_data_latched),    // data to send to psoc controller
-    //     .data_out(),                    // Ignore received data for now
-    //     .data_valid(spi_byte_valid),    // Pulses after each byte
-    //     .busy(spi_busy),
-    //     .copi(copi),
-    //     .cipo(cipo),
-    //     .dclk(dclk),
-    //     .cs(cs)
-    // );
-
-    // Test FPGA peripheral: 
     logic [7:0] lights;
     spi_peripheral #(
-        .DATA_WIDTH(8) //TODO: change back to ENCO_SPI_PKT_WIDTH for PSOC afterwards
+        .DATA_WIDTH(32) //TODO: change back to 8 for PSOC afterwards
     ) spi_mcu_con_to_fpga_per ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
-        .data_in(8'b0110_0101),    // data to send to psoc controller
+        .data_in(encoder_data_latched),    // data to send to psoc controller
         .data_out(lights),                    // Ignore received data for now
         .data_valid(spi_byte_valid),    // Pulses after each byte
         .busy(spi_busy),
@@ -321,8 +314,27 @@ module top_level(
         .cs(cs)
     );
 
+    // Test FPGA peripheral: 
+    // logic [7:0] lights;
+    // spi_peripheral #(
+    //     .DATA_WIDTH(8) //TODO: change back to ENCO_SPI_PKT_WIDTH for PSOC afterwards
+    // ) spi_mcu_con_to_fpga_per ( //teensy or psoc
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .data_in(encoder_data_latched[ENCO_POS_DATA_WIDTH - 1: ENCO_POS_DATA_WIDTH - 9]),    // data to send to psoc controller, test: 8'b0110_0101
+    //     .data_out(lights),                    // Ignore received data for now
+    //     .data_valid(spi_byte_valid),    // Pulses after each byte
+    //     .busy(spi_busy),
+    //     .copi(copi),
+    //     .cipo(cipo),
+    //     .dclk(dclk),
+    //     .cs(cs)
+    // );
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (spi_byte_valid) led[7:0] <= lights;
+    // end
     // assign led[7:0] = lights;
-    // assign led[8] = spi_busy;
+    assign led[10] = spi_busy;
 
     
 
@@ -386,7 +398,7 @@ module top_level(
         end
         
         //Load new encoder data
-        else if (encoder_data_valid && !data_valid_d) begin 
+        else if (encoder_data_valid && !encoder_data_valid_d) begin 
             // Always load fresh encoder data when it arrives
             spi_shift_reg          <= spi_packet;
             spi_byte_count         <= 3'b0;
@@ -445,7 +457,7 @@ module top_level(
     //         encoder_status_latched   <= '0;
     //         error_flag_latched       <= 1'b0;
     //         warning_flag_latched     <= 1'b0;
-    //         data_valid_d             <= 1'b0;
+    //         encoder_data_valid_d             <= 1'b0;
     //         send_pending             <= 1'b0;
             
     //         // UART transmission signals
@@ -454,10 +466,10 @@ module top_level(
     //         // packet_waiting           <= 1'b0; 
     //     end else begin
     //         // Edge detect on data_valid
-    //         data_valid_d <= data_valid;
+    //         encoder_data_valid_d <= data_valid;
             
     //         // Latch incoming SSI data
-    //         if (data_valid && !data_valid_d) begin
+    //         if (data_valid && !encoder_data_valid_d) begin
     //             encoder_position_latched <= encoder_position;
     //             encoder_status_latched   <= encoder_status;
     //             error_flag_latched       <= error_flag;
