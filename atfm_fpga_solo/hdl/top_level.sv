@@ -276,17 +276,22 @@ module top_level(
             cordic_clk_counter <= 0;
             angle_in <= 0;
             cos_sin_out_latched <= 0;
-        end else if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
+        end 
+        else begin
+        cos_sin_out_latched <= display_num;
+        
+        if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
             angle_in <= angle_in + 1;
-            cordic_clk_counter <= 0;
-            cos_sin_out_latched <= display_num;
+            cordic_clk_counter <= 0;    
         end else cordic_clk_counter <= cordic_clk_counter + 1;
+        end
     end
     
     localparam CORDIC_BIT_WIDTH = 16;
 
     cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
         .clk(clk_100mhz),
+        .rst(rst),
         .angle(angle_in), //sw[15:0]
         .cos(cos_out),
         .sin(sin_out)

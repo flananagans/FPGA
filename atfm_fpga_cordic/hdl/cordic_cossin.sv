@@ -10,6 +10,7 @@ module cordic_cossin #(
     parameter NUM_ITERATIONS=16 // Number of CORDIC iterations to perform.
 ) (
     input wire clk, // System clock.
+    input wire rst,
     input wire signed [WIDTH-1:0] angle, // Input angle.
     output logic signed [WIDTH-1:0] cos, // Output cosine.
     output logic signed [WIDTH-1:0] sin // Output sine.
@@ -28,7 +29,7 @@ module cordic_cossin #(
     function automatic logic signed [WIDTH-1:0] get_fixed_angle(int i);
         real fixed_angle_tan = 0.5**(real'(i));
         real out = $atan(fixed_angle_tan) / (2.0 * PI) * (2.0**WIDTH);
-        return signed'(WIDTH'(int'(out)));
+        return $signed(WIDTH'($rtoi(out)));
     endfunction 
 
     function automatic logic signed [WIDTH-1:0] trim_overflow_bit(logic signed [WIDTH:0] inp);
