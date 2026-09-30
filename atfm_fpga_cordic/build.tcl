@@ -58,7 +58,8 @@ synth_ip [get_ips]
 synth_design -top top_level -part $partNum -verbose
 #write_checkpoint -force $outputDir/post_synth.dcp
 report_timing_summary -file $outputDir/post_synth_timing_summary.rpt
-report_utilization -file $outputDir/post_synth_util.rpt -hierarchical -hierarchical_depth 4 -hierarchical_min_primitive_count 0
+report_utilization -file $outputDir/post_synth_util.rpt -hierarchical -hierarchical_depth 4 
+# -hierarchical_min_primitive_count 0
 report_timing -file $outputDir/post_synth_timing.rpt
 
 #run optimization
@@ -72,7 +73,8 @@ if {[get_property SLACK [get_timing_paths -max_paths 1 -nworst 1 -setup]] < 0} {
  phys_opt_design
 }
 #write_checkpoint -force $outputDir/post_place.dcp
-report_utilization -file $outputDir/post_place_util_hierarchical.rpt -hierarchical -hierarchical_depth 4 -hierarchical_min_primitive_count 0
+report_utilization -file $outputDir/post_place_util_hierarchical.rpt -hierarchical -hierarchical_depth 4 
+# -hierarchical_min_primitive_count 0
 report_utilization -file $outputDir/post_place_util.rpt
 report_timing_summary -file $outputDir/post_place_timing_summary.rpt
 report_timing -file $outputDir/post_place_timing.rpt

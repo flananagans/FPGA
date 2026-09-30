@@ -1,0 +1,92 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date         : Wed Sep 30 11:31:09 2026
+| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_timing -file obj/post_route_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             3.254ns  (required time - arrival time)
+  Source:                 cordic/cordic_pipeline[11].desired_angle_pipe_reg[12][10]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            cordic/cordic_pipeline[12].x_pipe_reg[13][16]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        6.706ns  (logic 2.597ns (38.725%)  route 4.109ns (61.275%))
+  Logic Levels:           8  (CARRY4=6 LUT3=1 LUT4=1)
+  Clock Path Skew:        -0.113ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.758ns = ( 14.758 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.128ns
+    Clock Pessimism Removal (CPR):    0.257ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=1055, routed)        1.620     5.128    cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X61Y64         FDRE                                         r  cordic/cordic_pipeline[11].desired_angle_pipe_reg[12][10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X61Y64         FDRE (Prop_fdre_C_Q)         0.419     5.547 r  cordic/cordic_pipeline[11].desired_angle_pipe_reg[12][10]/Q
+                         net (fo=3, routed)           1.786     7.333    cordic/cordic_pipeline[11].desired_angle_pipe_reg[12]_45[10]
+    SLICE_X59Y63         LUT4 (Prop_lut4_I0_O)        0.297     7.630 r  cordic/i__carry__0_i_7__9/O
+                         net (fo=1, routed)           0.000     7.630    cordic/i__carry__0_i_7__9_n_0
+    SLICE_X59Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.180 r  cordic/p_0_out_inferred__28/i__carry__0/CO[3]
+                         net (fo=40, routed)          2.314    10.494    cordic/p_0_out_inferred__28/i__carry__0_n_0
+    SLICE_X56Y73         LUT3 (Prop_lut3_I2_O)        0.124    10.618 r  cordic/cordic_pipeline[12].x_pipe[13][2]_i_4/O
+                         net (fo=1, routed)           0.000    10.618    cordic/cordic_pipeline[12].x_pipe[13][2]_i_4_n_0
+    SLICE_X56Y73         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.151 r  cordic/cordic_pipeline[12].x_pipe_reg[13][2]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.151    cordic/cordic_pipeline[12].x_pipe_reg[13][2]_i_1_n_0
+    SLICE_X56Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.268 r  cordic/cordic_pipeline[12].x_pipe_reg[13][6]_i_1/CO[3]
+                         net (fo=1, routed)           0.009    11.277    cordic/cordic_pipeline[12].x_pipe_reg[13][6]_i_1_n_0
+    SLICE_X56Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.394 r  cordic/cordic_pipeline[12].x_pipe_reg[13][10]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.394    cordic/cordic_pipeline[12].x_pipe_reg[13][10]_i_1_n_0
+    SLICE_X56Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.511 r  cordic/cordic_pipeline[12].x_pipe_reg[13][14]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.511    cordic/cordic_pipeline[12].x_pipe_reg[13][14]_i_1_n_0
+    SLICE_X56Y77         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    11.834 r  cordic/cordic_pipeline[12].x_pipe_reg[13][16]_i_1/O[1]
+                         net (fo=1, routed)           0.000    11.834    cordic/cordic_pipeline[12].x_pipe_reg[13][16]_i_1_n_6
+    SLICE_X56Y77         FDRE                                         r  cordic/cordic_pipeline[12].x_pipe_reg[13][16]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=1055, routed)        1.429    14.758    cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X56Y77         FDRE                                         r  cordic/cordic_pipeline[12].x_pipe_reg[13][16]/C
+                         clock pessimism              0.257    15.015    
+                         clock uncertainty           -0.035    14.979    
+    SLICE_X56Y77         FDRE (Setup_fdre_C_D)        0.109    15.088    cordic/cordic_pipeline[12].x_pipe_reg[13][16]
+  -------------------------------------------------------------------
+                         required time                         15.088    
+                         arrival time                         -11.834    
+  -------------------------------------------------------------------
+                         slack                                  3.254    
+
+
+
+

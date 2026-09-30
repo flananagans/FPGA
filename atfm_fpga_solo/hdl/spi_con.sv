@@ -132,9 +132,9 @@ module spi_con #(
                             spi_state        <= SPI_DONE;
                         end 
                         
-                        else begin 
+                        else begin // idx > 0, idx from DATA_WIDTH to 1
                             spi_state <= CLOCK_LOW; // idx > 0 and DCLK = 1; sample on rising edge 
-                            idx  <= idx - 1; // idx from DATA_WIDTH to 1
+                            idx  <= idx - 1; // 
                         end
                     end 
                     else dcounter <= dcounter + 1; // in the middle of edges
@@ -146,12 +146,8 @@ module spi_con #(
                     cs <= 1'b1; 
                     current_data_out <= 0; 
                     data_frame_end <= 1'b0;  
-                    // data_valid       <= 1'b1;
-                    // data_out <= current_data_out;
-
                     busy <= 1'b0;
                     spi_state <= WAIT_TP_DELAY;
-                    
                 end
                     
                 WAIT_TP_DELAY: begin

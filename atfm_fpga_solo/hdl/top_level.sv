@@ -8,9 +8,9 @@ module top_level(
     output logic [2:0] rgb0,        // RGB LED 0
     output logic [2:0] rgb1,        // RGB LED 1
     // output logic [3:0] ss0_an,      // Seven segment anodes
-    // output logic [3:0] ss1_an,
+    output logic [3:0] ss1_an,
     // output logic [6:0] ss0_c,       // Seven segment cathodes
-    // output logic [6:0] ss1_c,
+    output logic [6:0] ss1_c,
     
     // PMOD JA pins for SSI (differential pairs)
     // Use PMOD connector with differential capability
@@ -164,26 +164,26 @@ module top_level(
     logic error_flag, warning_flag;
     logic n_error_flag; //TODO: need to see how this is used
 
-    logic test_trigger;
-    localparam COUNT_12_5KHZ_MAX = 8000;
-    localparam COUNT_100HZ_MAX = 1_000_000; 
-    logic [$clog2(COUNT_100HZ_MAX) - 1 : 0] clk_counter_12khz;
+    // logic test_trigger;
+    // localparam COUNT_12_5KHZ_MAX = 8000;
+    // localparam COUNT_100HZ_MAX = 1_000_000; 
+    // logic [$clog2(COUNT_100HZ_MAX) - 1 : 0] clk_counter_12khz;
 
 
-    always_ff @(posedge clk_100mhz) begin
-        if (rst) begin
-            clk_counter_12khz <= 0;
-            test_trigger <= 0;
-        end else if (clk_counter_12khz == COUNT_100HZ_MAX - 1) begin
-            test_trigger <= 0;
-            clk_counter_12khz <= 0;
-        end else begin
-            clk_counter_12khz <= clk_counter_12khz + 1;
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (rst) begin
+    //         clk_counter_12khz <= 0;
+    //         test_trigger <= 0;
+    //     end else if (clk_counter_12khz == COUNT_100HZ_MAX - 1) begin
+    //         test_trigger <= 0;
+    //         clk_counter_12khz <= 0;
+    //     end else begin
+    //         clk_counter_12khz <= clk_counter_12khz + 1;
 
-            if (clk_counter_12khz >= (COUNT_100HZ_MAX/2 - 1)) test_trigger <= 1;
-            else test_trigger <= 0;
-        end
-    end
+    //         if (clk_counter_12khz >= (COUNT_100HZ_MAX/2 - 1)) test_trigger <= 1;
+    //         else test_trigger <= 0;
+    //     end
+    // end
 
     spi_con #(
         .DATA_WIDTH(ENCO_SPI_PKT_WIDTH), //4 bytes of encoder data
@@ -259,6 +259,66 @@ module top_level(
 
     // *************************************************** //
 
+    // ***************** CORDIC TEST ***************** //
+
+    logic [15:0] cos_out;
+    logic [15:0] sin_out;
+    logic [31:0] display_num;
+    logic [31:0] cos_sin_out_latched;
+    assign display_num = {cos_out, sin_out}; 
+
+    logic [15:0] angle_in;
+    localparam COUNT_100HZ_MAX = 1_000_000;
+    logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
+
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            cordic_clk_counter <= 0;
+            angle_in <= 0;
+            cos_sin_out_latched <= 0;
+        end else if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
+            angle_in <= angle_in + 1;
+            cordic_clk_counter <= 0;
+            cos_sin_out_latched <= display_num;
+        end else cordic_clk_counter <= cordic_clk_counter + 1;
+    end
+    
+    localparam CORDIC_BIT_WIDTH = 16;
+
+    cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
+        .clk(clk_100mhz),
+        .angle(angle_in), //sw[15:0]
+        .cos(cos_out),
+        .sin(sin_out)
+    );
+
+    // Latch, then send over spi
+
+    spi_peripheral #(
+        .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
+    ) cordic_fpga_to_psoc ( //teensy or psoc
+        .clk(clk_100mhz),
+        .rst(rst),
+        .data_in(display_num),    // {cos, sin} data to send to psoc controller
+        .data_out(lights),                    // Ignore received data for now
+        .data_valid(spi_byte_valid),    // Pulses after each byte
+        .busy(spi_busy),
+        .copi(copi),
+        .cipo(cipo),
+        .dclk(dclk),
+        .cs(cs)
+    );
+
+    //short7s ss1(
+    //     .clk(clk_100mhz),
+    //     .num(display_num[15:0]),
+    //     .anode(ss1_an),
+    //     .cathode(ss1_c)
+    // );
+
+    // *************************************************** //
+
+
     // ***************** LED Logic ***************** //
     
     assign led[15] = rst; //sw[15];            // Auto-trigger mode indicator
@@ -298,30 +358,15 @@ module top_level(
     assign rgb1[2] = 1'b0;
 
     // *************************************************** //
-    logic [7:0] lights;
-    spi_peripheral #(
-        .DATA_WIDTH(32) //TODO: change back to 8 for PSOC afterwards
-    ) spi_mcu_con_to_fpga_per ( //teensy or psoc
-        .clk(clk_100mhz),
-        .rst(rst),
-        .data_in(encoder_data_latched),    // data to send to psoc controller
-        .data_out(lights),                    // Ignore received data for now
-        .data_valid(spi_byte_valid),    // Pulses after each byte
-        .busy(spi_busy),
-        .copi(copi),
-        .cipo(cipo),
-        .dclk(dclk),
-        .cs(cs)
-    );
+    logic [7:0] lights; 
 
-    // Test FPGA peripheral: 
-    // logic [7:0] lights;
+    // Working SPI
     // spi_peripheral #(
-    //     .DATA_WIDTH(8) //TODO: change back to ENCO_SPI_PKT_WIDTH for PSOC afterwards
+    //     .DATA_WIDTH(ENCO_SPI_PKT_WIDTH) //
     // ) spi_mcu_con_to_fpga_per ( //teensy or psoc
     //     .clk(clk_100mhz),
     //     .rst(rst),
-    //     .data_in(encoder_data_latched[ENCO_POS_DATA_WIDTH - 1: ENCO_POS_DATA_WIDTH - 9]),    // data to send to psoc controller, test: 8'b0110_0101
+    //     .data_in(encoder_data_latched),    // data to send to psoc controller
     //     .data_out(lights),                    // Ignore received data for now
     //     .data_valid(spi_byte_valid),    // Pulses after each byte
     //     .busy(spi_busy),
@@ -330,10 +375,8 @@ module top_level(
     //     .dclk(dclk),
     //     .cs(cs)
     // );
-    // always_ff @(posedge clk_100mhz) begin
-    //     if (spi_byte_valid) led[7:0] <= lights;
-    // end
-    // assign led[7:0] = lights;
+
+
     assign led[10] = spi_busy;
 
     

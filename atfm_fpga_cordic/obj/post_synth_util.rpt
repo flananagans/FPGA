@@ -1,0 +1,33 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date         : Wed Sep 30 11:30:46 2026
+| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
+| Design       : top_level
+| Device       : xc7s50csga324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------+-------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|    Instance   |          Module         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++---------------+-------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| top_level     |                   (top) |        955 |        954 |       0 |    1 | 1054 |      0 |      0 |          0 |
+|   (top_level) |                   (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   cordic      |           cordic_cossin |        923 |        922 |       0 |    1 |  962 |      0 |      0 |          0 |
+|   qspi        | parallel_spi_peripheral |         18 |         18 |       0 |    0 |   54 |      0 |      0 |          0 |
+|   ss0         |                 short7s |          7 |          7 |       0 |    0 |   19 |      0 |      0 |          0 |
+|   ss1         |               short7s_0 |          7 |          7 |       0 |    0 |   19 |      0 |      0 |          0 |
++---------------+-------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+
