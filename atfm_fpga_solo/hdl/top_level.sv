@@ -1,6 +1,8 @@
 `default_nettype none
 
-module top_level(
+module top_level
+    import signal_pkg::*;
+#(
     input wire clk_100mhz,          // 100 MHz clock from Urbana board
     input wire [15:0] sw,           // Switches
     input wire [3:0] btn,           // Buttons
@@ -281,7 +283,7 @@ module top_level(
         cos_sin_out_latched <= display_num;
         
         if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
-            angle_in <= angle_in + 1;
+            angle_in <= angle_in + 182; //65536/360 = 182 counts = 1 radian
             cordic_clk_counter <= 0;    
         end else cordic_clk_counter <= cordic_clk_counter + 1;
         end
@@ -299,13 +301,42 @@ module top_level(
 
     // Latch, then send over spi
 
+    // spi_peripheral #(
+    //     .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
+    // ) cordic_fpga_to_psoc ( //teensy or psoc
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .data_in(display_num),    // {cos, sin} data to send to psoc controller
+    //     .data_out(lights),                    // Ignore received data for now
+    //     .data_valid(spi_byte_valid),    // Pulses after each byte
+    //     .busy(spi_busy),
+    //     .copi(copi),
+    //     .cipo(cipo),
+    //     .dclk(dclk),
+    //     .cs(cs)
+    // );
+
+
+    logic [2*CORDIC_BIT_WIDTH-1:0] latch_sig_out;
+    logic [2:0] latch_sig_type_out;
+    multi_cont_test_signal #(
+        .DATA_WIDTH (CORDIC_BIT_WIDTH), //16
+        .DUTY_COUNT (COUNT_12_5KHZ_MAX), //12.5kHz
+        .CYCLES_PER_TYPE(5)
+    ) multiple_continuous_signal_gen (
+        .clk(clk_100mhz),
+        .rst(rst),
+        .sig_out(latch_sig_out),      // currently selected waveform
+        .sig_type_out(latch_sig_type_out)  // which type is active
+    );
+
     spi_peripheral #(
         .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
     ) cordic_fpga_to_psoc ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
-        .data_in(display_num),    // {cos, sin} data to send to psoc controller
-        .data_out(lights),                    // Ignore received data for now
+        .data_in(latch_sig_out),    // {cos, sin} data to send to psoc controller
+        .data_out(),                    // Ignore received data for now
         .data_valid(spi_byte_valid),    // Pulses after each byte
         .busy(spi_busy),
         .copi(copi),
@@ -314,12 +345,21 @@ module top_level(
         .cs(cs)
     );
 
-    //short7s ss1(
-    //     .clk(clk_100mhz),
-    //     .num(display_num[15:0]),
-    //     .anode(ss1_an),
-    //     .cathode(ss1_c)
-    // );
+
+    // *************************************************** //
+
+
+    // ***************** OTHER FPGA TEST SIGNALS ***************** //
+
+    // sawtooth
+
+    // triangle
+
+    // square
+
+    //constant
+
+
 
     // *************************************************** //
 

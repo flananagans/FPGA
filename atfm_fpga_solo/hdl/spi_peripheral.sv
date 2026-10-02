@@ -11,7 +11,7 @@ module spi_peripheral
         output logic data_valid,    // high when output data is present
         output logic busy,
         input wire   copi,          // (Controller-Out-Peripheral-In)
-        output wire cipo,          // (Controller-In-Peripheral-Out)
+        output logic cipo,          // (Controller-In-Peripheral-Out)
         input wire   dclk,          // (Data Clock) - from controller
         input wire   cs             // (Chip Select) - from controller
     );

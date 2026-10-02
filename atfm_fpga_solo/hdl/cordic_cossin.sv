@@ -10,6 +10,7 @@ module cordic_cossin #(
     parameter NUM_ITERATIONS=16 // Number of CORDIC iterations to perform.
 ) (
     input wire clk, // System clock.
+    input wire rst,
     input wire signed [WIDTH-1:0] angle, // Input angle.
     output logic signed [WIDTH-1:0] cos, // Output cosine.
     output logic signed [WIDTH-1:0] sin // Output sine.
