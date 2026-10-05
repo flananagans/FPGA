@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Oct  5 11:38:50 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Date         : Mon Oct  5 16:31:36 2026
+| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
 | Device       : xc7s50csga324-1
@@ -19,20 +19,22 @@ Table of Contents
 1. Utilization by Hierarchy
 ---------------------------
 
-+--------------------------------------+-----------------------------+------------+------------+---------+------+-----+--------+--------+------------+
-|               Instance               |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
-+--------------------------------------+-----------------------------+------------+------------+---------+------+-----+--------+--------+------------+
-| top_level                            |                       (top) |        174 |        174 |       0 |    0 | 305 |      0 |      0 |          0 |
-|   (top_level)                        |                       (top) |          3 |          3 |       0 |    0 |  54 |      0 |      0 |          0 |
-|   cordic_fpga_to_psoc                |              spi_peripheral |         12 |         12 |       0 |    0 |  13 |      0 |      0 |          0 |
-|   fpga_spi_con_to_enco               |                     spi_con |         91 |         91 |       0 |    0 |  68 |      0 |      0 |          0 |
-|   multiple_continuous_signal_gen     |      multi_cont_test_signal |         68 |         68 |       0 |    0 | 170 |      0 |      0 |          0 |
-|     (multiple_continuous_signal_gen) |      multi_cont_test_signal |          8 |          8 |       0 |    0 |  35 |      0 |      0 |          0 |
-|     u_const                          | test_signal__parameterized3 |          5 |          5 |       0 |    0 |  15 |      0 |      0 |          0 |
-|     u_saw                            |                 test_signal |          9 |          9 |       0 |    0 |  58 |      0 |      0 |          0 |
-|     u_sin                            | test_signal__parameterized2 |         16 |         16 |       0 |    0 |   1 |      0 |      0 |          0 |
-|     u_sqr                            | test_signal__parameterized1 |          7 |          7 |       0 |    0 |  16 |      0 |      0 |          0 |
-|     u_tri                            | test_signal__parameterized0 |         23 |         23 |       0 |    0 |  45 |      0 |      0 |          0 |
-+--------------------------------------+-----------------------------+------------+------------+---------+------+-----+--------+--------+------------+
++--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|               Instance               |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| top_level                            |                       (top) |       1027 |       1027 |       0 |    0 | 1280 |      0 |      0 |          0 |
+|   (top_level)                        |                       (top) |          3 |          3 |       0 |    0 |   54 |      0 |      0 |          0 |
+|   cordic_fpga_to_psoc                |              spi_peripheral |         12 |         12 |       0 |    0 |   13 |      0 |      0 |          0 |
+|   fpga_spi_con_to_enco               |                     spi_con |         91 |         91 |       0 |    0 |   68 |      0 |      0 |          0 |
+|   multiple_continuous_signal_gen     |      multi_cont_test_signal |        921 |        921 |       0 |    0 | 1145 |      0 |      0 |          0 |
+|     (multiple_continuous_signal_gen) |      multi_cont_test_signal |          8 |          8 |       0 |    0 |   35 |      0 |      0 |          0 |
+|     u_const                          | test_signal__parameterized3 |          5 |          5 |       0 |    0 |   15 |      0 |      0 |          0 |
+|     u_saw                            |                 test_signal |         32 |         32 |       0 |    0 |   89 |      0 |      0 |          0 |
+|     u_sin                            | test_signal__parameterized2 |        847 |        847 |       0 |    0 |  945 |      0 |      0 |          0 |
+|       (u_sin)                        | test_signal__parameterized2 |         21 |         21 |       0 |    0 |   16 |      0 |      0 |          0 |
+|       cordic                         |               cordic_cossin |        826 |        826 |       0 |    0 |  929 |      0 |      0 |          0 |
+|     u_sqr                            | test_signal__parameterized1 |          7 |          7 |       0 |    0 |   16 |      0 |      0 |          0 |
+|     u_tri                            | test_signal__parameterized0 |         22 |         22 |       0 |    0 |   45 |      0 |      0 |          0 |
++--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
 
 
