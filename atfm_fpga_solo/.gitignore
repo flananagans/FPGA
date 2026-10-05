@@ -5,6 +5,7 @@
 # /obj/
 /vivado*.jou
 /vivado*.log
+/final.bit
 /clockInfo.txt
 /.Xil/
 /venv_fpga
