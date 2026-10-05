@@ -2,7 +2,7 @@
 
 module top_level
     import signal_pkg::*;
-#(
+(
     input wire clk_100mhz,          // 100 MHz clock from Urbana board
     input wire [15:0] sw,           // Switches
     input wire [3:0] btn,           // Buttons
@@ -167,7 +167,7 @@ module top_level
     logic n_error_flag; //TODO: need to see how this is used
 
     // logic test_trigger;
-    // localparam COUNT_12_5KHZ_MAX = 8000;
+    localparam COUNT_12_5KHZ_MAX = 8000;
     // localparam COUNT_100HZ_MAX = 1_000_000; 
     // logic [$clog2(COUNT_100HZ_MAX) - 1 : 0] clk_counter_12khz;
 
@@ -283,7 +283,7 @@ module top_level
         cos_sin_out_latched <= display_num;
         
         if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
-            angle_in <= angle_in + 182; //65536/360 = 182 counts = 1 radian
+            angle_in <= angle_in + 182; //65536/360 = 182 counts = 1 degree
             cordic_clk_counter <= 0;    
         end else cordic_clk_counter <= cordic_clk_counter + 1;
         end
@@ -317,7 +317,7 @@ module top_level
     // );
 
 
-    logic [2*CORDIC_BIT_WIDTH-1:0] latch_sig_out;
+    logic [2*CORDIC_BIT_WIDTH-1:0] test_sig_out, latch_sig_out;
     logic [2:0] latch_sig_type_out;
     multi_cont_test_signal #(
         .DATA_WIDTH (CORDIC_BIT_WIDTH), //16
@@ -326,10 +326,11 @@ module top_level
     ) multiple_continuous_signal_gen (
         .clk(clk_100mhz),
         .rst(rst),
-        .sig_out(latch_sig_out),      // currently selected waveform
+        .sig_out(test_sig_out),      // currently selected waveform
         .sig_type_out(latch_sig_type_out)  // which type is active
     );
 
+    logic test_sig_spi_busy;
     spi_peripheral #(
         .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
     ) cordic_fpga_to_psoc ( //teensy or psoc
@@ -338,13 +339,17 @@ module top_level
         .data_in(latch_sig_out),    // {cos, sin} data to send to psoc controller
         .data_out(),                    // Ignore received data for now
         .data_valid(spi_byte_valid),    // Pulses after each byte
-        .busy(spi_busy),
+        .busy(test_sig_spi_busy),
         .copi(copi),
         .cipo(cipo),
         .dclk(dclk),
         .cs(cs)
     );
 
+    always_ff @(posedge clk_100mhz) begin
+        if (rst)                    latch_sig_out <= 0;
+        else if (!test_sig_spi_busy) latch_sig_out <= test_sig_out;
+    end
 
     // *************************************************** //
 

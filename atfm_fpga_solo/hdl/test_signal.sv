@@ -28,8 +28,9 @@ module test_signal
 
     wire n_cossin_trigger = (SIGNAL_TYPE != SINUSOID);
 
+    localparam ANGLE_BITS = 16; 
     localparam ANGLE_ACC_WIDTH       = ANGLE_BITS + FIXED_PT_FRAC_SHIFT;
-    localparam [ANGLE_ACC_WIDTH-1:0] PHASE_INC_FP = (ANGLE_ACC_WIDTH'(1) << ANGLE_ACC_WIDTH) / DUTY_COUNT;
+    localparam [ANGLE_ACC_WIDTH-1:0] PHASE_INC_FP = ((ANGLE_ACC_WIDTH + 2)'(1) << ANGLE_ACC_WIDTH) / DUTY_COUNT;
 
     logic [ANGLE_ACC_WIDTH-1:0] phase_acc;
     always_ff @(posedge clk) begin
@@ -52,12 +53,10 @@ module test_signal
         if (rst) begin
             duty_counter <= 0;
             end_half_duty <= 0;
-            angle_in <= 0;
         end
         else if (duty_counter == DUTY_COUNT - 1) begin
                 duty_counter <= 0;
                 end_half_duty <= 0;
-                angle_in <= angle_in + 182; //65536/360 = 182 counts = 1 radian
             end else begin
                 duty_counter <= duty_counter + 1;
 
@@ -66,8 +65,8 @@ module test_signal
             end
     end
 
-    localparam ACC_WIDTH     = DATA_WIDTH + FIXED_PT_FRAC_SHIFT;
-    localparam RANGE     = MAX_AMP - MIN_AMP;
+    localparam ACC_WIDTH = DATA_WIDTH + FIXED_PT_FRAC_SHIFT;
+    localparam RANGE = MAX_AMP - MIN_AMP;
 
     // Sawtooth: MIN at count 0, MAX at count DUTY_COUNT-1 -> DUTY_COUNT-1 steps
     localparam [ACC_WIDTH-1:0] SAW_STEP_FP = (ACC_WIDTH'(RANGE) << FIXED_PT_FRAC_SHIFT) / (DUTY_COUNT - 1);
