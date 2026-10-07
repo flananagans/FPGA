@@ -321,7 +321,7 @@ module top_level
     logic [2:0] latch_sig_type_out;
     multi_cont_test_signal #(
         .DATA_WIDTH (CORDIC_BIT_WIDTH), //16
-        .DUTY_COUNT (COUNT_12_5KHZ_MAX), //12.5kHz
+        .DUTY_COUNT (25*COUNT_12_5KHZ_MAX), //12.5kHz
         .CYCLES_PER_TYPE(500)
     ) multiple_continuous_signal_gen (
         .clk(clk_100mhz),

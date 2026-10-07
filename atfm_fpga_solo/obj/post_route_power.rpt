@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Wed Oct  7 10:41:59 2026
+| Date             : Wed Oct  7 10:54:39 2026
 | Host             : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file obj/post_route_power.rpt
 | Design           : top_level
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.108        |
+| Total On-Chip Power (W)  | 0.109        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.036        |
+| Dynamic (W)              | 0.037        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.5         |
@@ -53,16 +53,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.007 |        3 |       --- |             --- |
-| Slice Logic    |     0.014 |     2799 |       --- |             --- |
-|   LUT as Logic |     0.011 |     1022 |     32600 |            3.13 |
-|   CARRY4       |     0.002 |      289 |      8150 |            3.55 |
-|   Register     |     0.001 |     1290 |     65200 |            1.98 |
+| Slice Logic    |     0.014 |     2877 |       --- |             --- |
+|   LUT as Logic |     0.011 |     1051 |     32600 |            3.22 |
+|   CARRY4       |     0.002 |      298 |      8150 |            3.66 |
+|   Register     |     0.001 |     1329 |     65200 |            2.04 |
 |   F7/F8 Muxes  |    <0.001 |        2 |     32600 |           <0.01 |
 |   Others       |     0.000 |       19 |       --- |             --- |
-| Signals        |     0.011 |     1625 |       --- |             --- |
+| Signals        |     0.011 |     1688 |       --- |             --- |
 | I/O            |     0.006 |       53 |       210 |           25.24 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.108 |          |           |                 |
+| Total          |     0.109 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -139,10 +139,11 @@ Table of Contents
 +----------------------------------+-----------+
 | Name                             | Power (W) |
 +----------------------------------+-----------+
-| top_level                        |     0.036 |
-|   multiple_continuous_signal_gen |     0.029 |
+| top_level                        |     0.037 |
+|   multiple_continuous_signal_gen |     0.030 |
 |     u_sin                        |     0.027 |
 |       cordic                     |     0.027 |
+|     u_tri                        |     0.001 |
 +----------------------------------+-----------+
 
 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Oct  7 10:41:49 2026
+| Date         : Wed Oct  7 10:54:30 2026
 | Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
@@ -22,19 +22,19 @@ Table of Contents
 +--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
 |               Instance               |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
 +--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
-| top_level                            |                       (top) |       1029 |       1029 |       0 |    0 | 1286 |      0 |      0 |          0 |
+| top_level                            |                       (top) |       1059 |       1059 |       0 |    0 | 1325 |      0 |      0 |          0 |
 |   (top_level)                        |                       (top) |          3 |          3 |       0 |    0 |   54 |      0 |      0 |          0 |
 |   cordic_fpga_to_psoc                |              spi_peripheral |         12 |         12 |       0 |    0 |   13 |      0 |      0 |          0 |
 |   fpga_spi_con_to_enco               |                     spi_con |         91 |         91 |       0 |    0 |   68 |      0 |      0 |          0 |
-|   multiple_continuous_signal_gen     |      multi_cont_test_signal |        923 |        923 |       0 |    0 | 1151 |      0 |      0 |          0 |
-|     (multiple_continuous_signal_gen) |      multi_cont_test_signal |         10 |         10 |       0 |    0 |   41 |      0 |      0 |          0 |
-|     u_const                          | test_signal__parameterized3 |          5 |          5 |       0 |    0 |   15 |      0 |      0 |          0 |
-|     u_saw                            |                 test_signal |         32 |         32 |       0 |    0 |   89 |      0 |      0 |          0 |
+|   multiple_continuous_signal_gen     |      multi_cont_test_signal |        953 |        953 |       0 |    0 | 1190 |      0 |      0 |          0 |
+|     (multiple_continuous_signal_gen) |      multi_cont_test_signal |         12 |         12 |       0 |    0 |   46 |      0 |      0 |          0 |
+|     u_const                          | test_signal__parameterized3 |          7 |          7 |       0 |    0 |   20 |      0 |      0 |          0 |
+|     u_saw                            |                 test_signal |         37 |         37 |       0 |    0 |   93 |      0 |      0 |          0 |
 |     u_sin                            | test_signal__parameterized2 |        847 |        847 |       0 |    0 |  945 |      0 |      0 |          0 |
 |       (u_sin)                        | test_signal__parameterized2 |         21 |         21 |       0 |    0 |   16 |      0 |      0 |          0 |
 |       cordic                         |               cordic_cossin |        826 |        826 |       0 |    0 |  929 |      0 |      0 |          0 |
-|     u_sqr                            | test_signal__parameterized1 |          7 |          7 |       0 |    0 |   16 |      0 |      0 |          0 |
-|     u_tri                            | test_signal__parameterized0 |         22 |         22 |       0 |    0 |   45 |      0 |      0 |          0 |
+|     u_sqr                            | test_signal__parameterized1 |         11 |         11 |       0 |    0 |   21 |      0 |      0 |          0 |
+|     u_tri                            | test_signal__parameterized0 |         39 |         39 |       0 |    0 |   65 |      0 |      0 |          0 |
 +--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
 
 
