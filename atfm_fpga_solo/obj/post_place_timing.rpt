@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Oct  5 16:31:40 2026
+| Date         : Wed Oct  7 10:41:53 2026
 | Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_timing -file obj/post_place_timing.rpt
 | Design       : top_level
@@ -12,19 +12,19 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (MET) :             4.330ns  (required time - arrival time)
-  Source:                 multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1][10]/C
+Slack (MET) :             4.369ns  (required time - arrival time)
+  Source:                 multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1][0]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Destination:            multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]/D
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        5.649ns  (logic 2.819ns (49.903%)  route 2.830ns (50.097%))
-  Logic Levels:           7  (CARRY4=5 LUT1=1 LUT2=1)
-  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.778ns = ( 14.778 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.078ns
+  Data Path Delay:        5.728ns  (logic 2.923ns (51.030%)  route 2.805ns (48.970%))
+  Logic Levels:           8  (CARRY4=6 LUT1=1 LUT2=1)
+  Clock Path Skew:        0.023ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.845ns = ( 14.845 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.074ns
     Clock Pessimism Removal (CPR):    0.253ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -40,31 +40,34 @@ Slack (MET) :             4.330ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=1284, estimated)     1.570     5.078    multiple_continuous_signal_gen/u_sin/cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X12Y42         FDRE                                         r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1][10]/C
+                         net (fo=1290, estimated)     1.566     5.074    multiple_continuous_signal_gen/u_sin/cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X12Y36         FDRE                                         r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1][0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X12Y42         FDRE (Prop_fdre_C_Q)         0.478     5.556 f  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1][10]/Q
-                         net (fo=3, estimated)        0.892     6.448    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1]_2[10]
-    SLICE_X11Y40         LUT2 (Prop_lut2_I0_O)        0.295     6.743 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][13]_i_9/O
-                         net (fo=1, routed)           0.000     6.743    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][13]_i_9_n_0
-    SLICE_X11Y40         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.293 f  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe_reg[2][13]_i_1/CO[3]
-                         net (fo=34, estimated)       1.173     8.466    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe_reg[2][13]_i_1_n_0
-    SLICE_X12Y30         LUT1 (Prop_lut1_I0_O)        0.150     8.616 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][11]_i_1/O
-                         net (fo=2, estimated)        0.765     9.381    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][11]_i_1_n_0
-    SLICE_X9Y28          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.784    10.165 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][5]_i_1/CO[3]
-                         net (fo=1, estimated)        0.000    10.165    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][5]_i_1_n_0
-    SLICE_X9Y29          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.279 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][9]_i_1/CO[3]
-                         net (fo=1, estimated)        0.000    10.279    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][9]_i_1_n_0
-    SLICE_X9Y30          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    10.393 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][13]_i_1/CO[3]
-                         net (fo=1, estimated)        0.000    10.393    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][13]_i_1_n_0
-    SLICE_X9Y31          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    10.727 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][16]_i_1/O[1]
-                         net (fo=1, routed)           0.000    10.727    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][16]_i_1_n_6
-    SLICE_X9Y31          FDRE                                         r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]/D
+    SLICE_X12Y36         FDRE (Prop_fdre_C_Q)         0.478     5.552 f  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1][0]/Q
+                         net (fo=3, estimated)        1.010     6.562    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[0].desired_angle_pipe_reg[1]_2[0]
+    SLICE_X9Y39          LUT2 (Prop_lut2_I0_O)        0.295     6.857 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][13]_i_18/O
+                         net (fo=1, routed)           0.000     6.857    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][13]_i_18_n_0
+    SLICE_X9Y39          CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.389 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe_reg[2][13]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     7.389    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe_reg[2][13]_i_2_n_0
+    SLICE_X9Y40          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.503 f  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe_reg[2][13]_i_1/CO[3]
+                         net (fo=34, estimated)       1.314     8.817    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe_reg[2][13]_i_1_n_0
+    SLICE_X4Y27          LUT1 (Prop_lut1_I0_O)        0.150     8.967 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][11]_i_1/O
+                         net (fo=2, estimated)        0.481     9.448    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].total_angle_pipe[2][11]_i_1_n_0
+    SLICE_X6Y28          CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.797    10.245 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][5]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000    10.245    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][5]_i_1_n_0
+    SLICE_X6Y29          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.362 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][9]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000    10.362    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][9]_i_1_n_0
+    SLICE_X6Y30          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.479 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][13]_i_1/CO[3]
+                         net (fo=1, estimated)        0.000    10.479    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][13]_i_1_n_0
+    SLICE_X6Y31          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    10.802 r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][16]_i_1/O[1]
+                         net (fo=1, routed)           0.000    10.802    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][16]_i_1_n_6
+    SLICE_X6Y31          FDRE                                         r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -73,16 +76,16 @@ Slack (MET) :             4.330ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.873    13.244    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.335 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=1284, estimated)     1.443    14.778    multiple_continuous_signal_gen/u_sin/cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X9Y31          FDRE                                         r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]/C
-                         clock pessimism              0.253    15.030    
-                         clock uncertainty           -0.035    14.995    
-    SLICE_X9Y31          FDRE (Setup_fdre_C_D)        0.062    15.057    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]
+                         net (fo=1290, estimated)     1.510    14.845    multiple_continuous_signal_gen/u_sin/cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X6Y31          FDRE                                         r  multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]/C
+                         clock pessimism              0.253    15.097    
+                         clock uncertainty           -0.035    15.062    
+    SLICE_X6Y31          FDRE (Setup_fdre_C_D)        0.109    15.171    multiple_continuous_signal_gen/u_sin/cordic/cordic_pipeline[1].y_pipe_reg[2][15]
   -------------------------------------------------------------------
-                         required time                         15.057    
-                         arrival time                         -10.727    
+                         required time                         15.171    
+                         arrival time                         -10.802    
   -------------------------------------------------------------------
-                         slack                                  4.330    
+                         slack                                  4.369    
 
 
 
