@@ -4,6 +4,8 @@
 Given an input angle in the range -2^(WIDTH-1) to 2^(WIDTH-1)-1
 (corresponding to -180 to 180 degrees), outputs the cosine and sine
 of that angle as signed integers in the range -2^(WIDTH - 1) to 2^(WIDTH - 1).
+Can stream in a new angle every cycle, and only wait for NUM_ITER + 1 cycles 
+before outputs are streamed on every cycle
 */
 module cordic_cossin #(
     parameter WIDTH = 16, // Bit width of the input and output.
@@ -11,9 +13,11 @@ module cordic_cossin #(
 ) (
     input wire clk, // System clock.
     input wire rst,
+    input wire data_angle_valid_in, 
     input wire signed [WIDTH-1:0] angle, // Input angle.
     output logic signed [WIDTH-1:0] cos, // Output cosine.
-    output logic signed [WIDTH-1:0] sin // Output sine.
+    output logic signed [WIDTH-1:0] sin, // Output sine.
+    output logic data_cossin_valid_out
 );
 
     localparam real PI = 3.14159265358979323846;
@@ -51,22 +55,27 @@ module cordic_cossin #(
     logic x_flip_pipe [0:NUM_ITERATIONS];
     logic signed [WIDTH-1:0] total_angle_pipe [0:NUM_ITERATIONS];
     logic signed [WIDTH-1:0] desired_angle_pipe [0:NUM_ITERATIONS];
-    
+    logic valid_pipe [0:NUM_ITERATIONS];
 
+    // Stage 0
     always_ff @(posedge clk) begin
-        x_pipe[0] <= X_INIT;
-        y_pipe[0] <= Y_INIT;
-        total_angle_pipe[0] <= 0;
-        unique case (angle[WIDTH-1:WIDTH-2])
-            2'b00, 2'b11 : begin
-                desired_angle_pipe[0] <= angle;
-                x_flip_pipe[0] <= 1'b0;
-            end
-            2'b01, 2'b10 : begin
-                desired_angle_pipe[0] <= (1 << (WIDTH - 1)) - angle;
-                x_flip_pipe[0] <= 1'b1;
-            end
-        endcase
+        if (rst) valid_pipe[0] <= 1'b0;
+        else begin
+            valid_pipe[0] <= data_angle_valid_in;
+            x_pipe[0] <= X_INIT;
+            y_pipe[0] <= Y_INIT;
+            total_angle_pipe[0] <= 0;
+            unique case (angle[WIDTH-1:WIDTH-2])
+                2'b00, 2'b11 : begin
+                    desired_angle_pipe[0] <= angle;
+                    x_flip_pipe[0] <= 1'b0;
+                end
+                2'b01, 2'b10 : begin
+                    desired_angle_pipe[0] <= (1 << (WIDTH - 1)) - angle;
+                    x_flip_pipe[0] <= 1'b1;
+                end
+            endcase
+        end
     end
 
     // some logic to trim the extra bit off x and y, and unflip the cosine of angles in 2nd and 3rd quadrants
@@ -79,26 +88,32 @@ module cordic_cossin #(
         sin = trim_overflow_bit(y_pipe[NUM_ITERATIONS]);
     end
 
-
+    // Stages 1...N
     generate
         genvar i;
         for (i = 0; i < NUM_ITERATIONS; i++) begin : cordic_pipeline
             always_ff @(posedge clk) begin
-
-                if (total_angle_pipe[i] < desired_angle_pipe[i] ) begin
-                    x_pipe[i + 1] <= x_pipe[i] - (y_pipe[i] >>> i);
-                    y_pipe[i + 1] <= y_pipe[i] + (x_pipe[i] >>> i);
-                    total_angle_pipe[i + 1] <= total_angle_pipe[i] + get_fixed_angle(i);
-                end else begin
-                    x_pipe[i + 1] <= x_pipe[i] + (y_pipe[i] >>> i);
-                    y_pipe[i + 1] <= y_pipe[i] - (x_pipe[i] >>> i);
-                    total_angle_pipe[i + 1] <= total_angle_pipe[i] - get_fixed_angle(i);
+                if (rst) valid_pipe[i + 1] <= 1'b0;
+                else begin
+                    valid_pipe[i + 1] <= valid_pipe[i];
+                    if (total_angle_pipe[i] < desired_angle_pipe[i] ) begin
+                        x_pipe[i + 1] <= x_pipe[i] - (y_pipe[i] >>> i);
+                        y_pipe[i + 1] <= y_pipe[i] + (x_pipe[i] >>> i);
+                        total_angle_pipe[i + 1] <= total_angle_pipe[i] + get_fixed_angle(i);
+                    end else begin
+                        x_pipe[i + 1] <= x_pipe[i] + (y_pipe[i] >>> i);
+                        y_pipe[i + 1] <= y_pipe[i] - (x_pipe[i] >>> i);
+                        total_angle_pipe[i + 1] <= total_angle_pipe[i] - get_fixed_angle(i);
+                    end
+                    desired_angle_pipe[i + 1] <= desired_angle_pipe[i];
+                    x_flip_pipe[i + 1] <= x_flip_pipe[i];
                 end
-                desired_angle_pipe[i + 1] <= desired_angle_pipe[i];
-                x_flip_pipe[i + 1] <= x_flip_pipe[i];
             end
         end
     endgenerate
+
+    assign valid_data_out = valid_pipe[NUM_ITERATIONS];
+
 
 endmodule
 `default_nettype wire
