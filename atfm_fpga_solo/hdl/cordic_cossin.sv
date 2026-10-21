@@ -112,7 +112,7 @@ module cordic_cossin #(
         end
     endgenerate
 
-    assign valid_data_out = valid_pipe[NUM_ITERATIONS];
+    assign data_cossin_valid_out = valid_pipe[NUM_ITERATIONS];
 
 
 endmodule

@@ -294,9 +294,11 @@ module top_level
     cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
         .clk(clk_100mhz),
         .rst(rst),
+        .data_angle_valid_in(1'b1),
         .angle(angle_in), //sw[15:0]
         .cos(cos_out),
-        .sin(sin_out)
+        .sin(sin_out),
+        .data_cossin_valid_out()
     );
 
     // Latch, then send over spi
