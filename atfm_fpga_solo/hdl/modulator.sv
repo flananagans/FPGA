@@ -2,18 +2,21 @@
 module harmonic_modulator
 #(
     MAX_HARMONIC = 10,
-    DATA_WIDTH = 32,
+    DATA_WIDTH = 32
 ) (
     input wire          clk,
     input wire          rst,
     input wire          data_valid_in,
     input wire signed [DATA_WIDTH-1:0] angle,
-    input logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] a_values,
-    input logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] b_values,
+    input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] a_values,
+    input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] b_values,
     output logic signed [DATA_WIDTH-1:0] modulator_sum_out,
     output logic data_valid_out,
     output logic busy
 );
+
+    logic signed [DATA_WIDTH-1:0] angle_reg;
+
 
     logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] cos_unlatched, cos_harmonics; // Output cosine for [1, MAX_HARMONIC]
     logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] sin_unlatched, sin_harmonics; // Output sine.
@@ -22,8 +25,16 @@ module harmonic_modulator
     logic [$clog2(MAX_HARMONIC+1) - 1:0] idx;
     logic [DATA_WIDTH-1:0] inter_sum_out;
 
+    /* Do I need to latch angle, a_vals and b_vals into registers */
+    // always_ff @(posedge clk) begin
+    //     if (rst) begin
+    //     end
+    // end
+
+    assign busy = hgen_busy;
+
     harmonic_generator #(.MAX_HARMONIC(MAX_HARMONIC), .DATA_WIDTH(DATA_WIDTH)) 
-    hgen (
+    serial_hgen (
         .clk(clk),
         .rst(rst),
         .data_valid_in(data_valid_in),
@@ -33,6 +44,15 @@ module harmonic_modulator
         .data_valid_out(hgen_valid_out),
         .busy(hgen_busy)
     );
+
+    always_comb begin
+        if (hgen_valid_out) begin
+            for (int i = 0; i < MAX_HARMONIC; i++) begin
+                inter_sum_out = inter_sum_out + a_values[i] * cos_harmonics[i] + b_values[i] * sin_harmonics[i];
+            end
+        end
+    end
+
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -47,7 +67,7 @@ module harmonic_modulator
                 cos_harmonics <= cos_unlatched;
                 sin_harmonics <= sin_unlatched;
 
-                inter_sum_out
+                modulator_sum_out <= inter_sum_out;
 
                 if (idx == MAX_HARMONIC - 1) begin
                     idx <= 0;

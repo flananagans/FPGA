@@ -1,0 +1,40 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date         : Wed Oct 21 15:24:47 2026
+| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
+| Design       : top_level
+| Device       : xc7s50csga324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|               Instance               |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| top_level                            |                       (top) |       1060 |       1060 |       0 |    0 | 1325 |      0 |      0 |          0 |
+|   (top_level)                        |                       (top) |          3 |          3 |       0 |    0 |   54 |      0 |      0 |          0 |
+|   cordic_fpga_to_psoc                |              spi_peripheral |         12 |         12 |       0 |    0 |   13 |      0 |      0 |          0 |
+|   fpga_spi_con_to_enco               |                     spi_con |         91 |         91 |       0 |    0 |   68 |      0 |      0 |          0 |
+|   multiple_continuous_signal_gen     |      multi_cont_test_signal |        954 |        954 |       0 |    0 | 1190 |      0 |      0 |          0 |
+|     (multiple_continuous_signal_gen) |      multi_cont_test_signal |         12 |         12 |       0 |    0 |   46 |      0 |      0 |          0 |
+|     u_const                          | test_signal__parameterized3 |          7 |          7 |       0 |    0 |   20 |      0 |      0 |          0 |
+|     u_saw                            |                 test_signal |         37 |         37 |       0 |    0 |   93 |      0 |      0 |          0 |
+|     u_sin                            | test_signal__parameterized2 |        848 |        848 |       0 |    0 |  945 |      0 |      0 |          0 |
+|       (u_sin)                        | test_signal__parameterized2 |         21 |         21 |       0 |    0 |   16 |      0 |      0 |          0 |
+|       cordic                         |               cordic_cossin |        827 |        827 |       0 |    0 |  929 |      0 |      0 |          0 |
+|     u_sqr                            | test_signal__parameterized1 |         11 |         11 |       0 |    0 |   21 |      0 |      0 |          0 |
+|     u_tri                            | test_signal__parameterized0 |         39 |         39 |       0 |    0 |   65 |      0 |      0 |          0 |
++--------------------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

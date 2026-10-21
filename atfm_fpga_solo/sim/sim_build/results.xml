@@ -1,8 +1,10 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1790198346" />
-    <testcase name="test_single_transaction" classname="test_spi_con" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_spi_con.py" lineno="62" time="0.608975887298584" sim_time_ns="214040.001" ratio_time="351475.3300815917">
-      <failure message="Test failed with RANDOM_SEED=1790198346" />
-    </testcase>
+    <property name="random_seed" value="1792616027" />
+    <testcase name="test_sawtooth_full_cycle" classname="test_sawtooth_hgen" file="/home/biomech/atfm_fpga_copy/atfm_fpga_solo/sim/test_sawtooth_hgen.py" lineno="227" time="0.39743566513061523" sim_time_ns="2785.001" ratio_time="7007.425966878749" />
+    <testcase name="test_sawtooth_multi_wrap" classname="test_sawtooth_hgen" file="/home/biomech/atfm_fpga_copy/atfm_fpga_solo/sim/test_sawtooth_hgen.py" lineno="234" time="0.5575978755950928" sim_time_ns="6225.001" ratio_time="11163.961113295863" />
+    <testcase name="test_sawtooth_down" classname="test_sawtooth_hgen" file="/home/biomech/atfm_fpga_copy/atfm_fpga_solo/sim/test_sawtooth_hgen.py" lineno="240" time="0.4148261547088623" sim_time_ns="4225.001" ratio_time="10184.991838244228" />
+    <testcase name="test_sawtooth_fine" classname="test_sawtooth_hgen" file="/home/biomech/atfm_fpga_copy/atfm_fpga_solo/sim/test_sawtooth_hgen.py" lineno="246" time="0.330380916595459" sim_time_ns="3225.001" ratio_time="9761.462717741993" />
+    <testcase name="test_reset_flushes_pipeline" classname="test_sawtooth_hgen" file="/home/biomech/atfm_fpga_copy/atfm_fpga_solo/sim/test_sawtooth_hgen.py" lineno="254" time="0.0016982555389404297" sim_time_ns="365.0010000000002" ratio_time="214927.01871458668" />
   </testsuite>
 </testsuites>
