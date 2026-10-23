@@ -4,7 +4,7 @@
 # Execute this makefile from the object directory:
 #    make -f Vtop.mk
 
-default: harmonic_generator
+default: modulator
 
 ### Constants...
 # Perl executable (from $PERL, defaults to 'perl' if not set)
@@ -12,7 +12,7 @@ PERL = perl
 # Python3 executable (from $PYTHON3, defaults to 'python3' if not set)
 PYTHON3 = python3
 # Path to Verilator kit (from $VERILATOR_ROOT)
-VERILATOR_ROOT = /home/biomech/.local/verilator/share/verilator
+VERILATOR_ROOT = /opt/homebrew/Cellar/verilator/5.052/share/verilator
 # SystemC include directory with systemc.h (from $SYSTEMC_INCLUDE)
 SYSTEMC_INCLUDE ?=
 # SystemC library directory with libsystemc.a (from $SYSTEMC_LIBDIR)
@@ -40,7 +40,7 @@ VM_USER_CFLAGS = \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
-  -Wl,-rpath,/home/biomech/cocotb_venv/lib/python3.10/site-packages/cocotb/libs -L/home/biomech/cocotb_venv/lib/python3.10/site-packages/cocotb/libs -lcocotbvpi_verilator \
+  -Wl,-rpath,/Users/smyl362/6205_python/lib/python3.11/site-packages/cocotb/libs -L/Users/smyl362/6205_python/lib/python3.11/site-packages/cocotb/libs -lcocotbvpi_verilator \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
@@ -49,7 +49,7 @@ VM_USER_CLASSES = \
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
   . \
-  ../../../../cocotb_venv/lib/python3.10/site-packages/cocotb/share/lib/verilator \
+  ../../../../../../6205_python/lib/python3.11/site-packages/cocotb/share/lib/verilator \
 
 ### Default rules...
 # Include list of all generated classes
@@ -64,11 +64,11 @@ VPATH += $(VM_USER_DIR)
 LDFLAGS += $(CFG_LDFLAGS_DYNAMIC)
 LDLIBS += $(CFG_LDLIBS_DYNAMIC)
 
-verilator.o: /home/biomech/cocotb_venv/lib/python3.10/site-packages/cocotb/share/lib/verilator/verilator.cpp 
+verilator.o: /Users/smyl362/6205_python/lib/python3.11/site-packages/cocotb/share/lib/verilator/verilator.cpp 
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST)  -c -o $@ $<
 
 ### Link rules... (from --exe)
-harmonic_generator: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
+modulator: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
 	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
 
 # Verilated -*- Makefile -*-

@@ -4,13 +4,13 @@
 
 #include "Vtop__pch.h"
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_1;
-    __VdfgRegularize_h6e95ff9d_0_1 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_12;
+    __VdfgRegularize_hebeb780c_0_12 = 0;
     // Body
     vlSelfRef.sin = ((1U == (3U & (vlSelfRef.y_pipe[16U] 
                                    >> 0x0000000fU)))
@@ -21,56 +21,53 @@ void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
     vlSelfRef.data_cossin_valid_out = vlSelfRef.valid_pipe[16U];
-    __VdfgRegularize_h6e95ff9d_0_1 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_1 
+    __VdfgRegularize_hebeb780c_0_12 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.clk = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__clk;
+    vlSelfRef.rst = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__rst;
+    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__data_valid_in;
+    vlSelfRef.angle = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__angle_n;
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_12 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_1 
+                                               (__VdfgRegularize_hebeb780c_0_12 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_1)));
+                                           & __VdfgRegularize_hebeb780c_0_12)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__1(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__1\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.clk = vlSymsp->TOP.harmonic_generator__DOT__clk;
-    vlSelfRef.rst = vlSymsp->TOP.harmonic_generator__DOT__rst;
-    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.harmonic_generator__DOT__data_valid_in;
-    vlSelfRef.angle = vlSymsp->TOP.harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__angle_n;
-}
-
-void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_1;
-    __VdfgRegularize_h6e95ff9d_0_1 = 0;
-    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
-    __VdlySet__total_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
-    __VdlyVal__valid_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__x_pipe__v0;
-    __VdlySet__x_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__y_pipe__v0;
-    __VdlySet__y_pipe__v0 = 0;
-    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
-    __VdlyVal__desired_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
-    __VdlySet__desired_angle_pipe__v0 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_12;
+    __VdfgRegularize_hebeb780c_0_12 = 0;
     CData/*0:0*/ __VdlyVal__x_flip_pipe__v0;
     __VdlyVal__x_flip_pipe__v0 = 0;
     CData/*0:0*/ __VdlySet__x_flip_pipe__v0;
     __VdlySet__x_flip_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__y_pipe__v0;
+    __VdlySet__y_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__x_pipe__v0;
+    __VdlySet__x_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
+    __VdlySet__total_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
+    __VdlyVal__valid_pipe__v0 = 0;
+    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
+    __VdlyVal__desired_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
+    __VdlySet__desired_angle_pipe__v0 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v1;
     __VdlyVal__valid_pipe__v1 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
+    __VdlyVal__x_flip_pipe__v1 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
+    __VdlySet__x_flip_pipe__v1 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v1;
     __VdlyVal__x_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v1;
@@ -91,12 +88,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v1;
     __VdlySet__desired_angle_pipe__v1 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
-    __VdlyVal__x_flip_pipe__v1 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
-    __VdlySet__x_flip_pipe__v1 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v2;
     __VdlyVal__valid_pipe__v2 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
+    __VdlyVal__x_flip_pipe__v2 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
+    __VdlySet__x_flip_pipe__v2 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v3;
     __VdlyVal__x_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v3;
@@ -117,12 +114,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v2 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v2;
     __VdlySet__desired_angle_pipe__v2 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
-    __VdlyVal__x_flip_pipe__v2 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
-    __VdlySet__x_flip_pipe__v2 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v3;
     __VdlyVal__valid_pipe__v3 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
+    __VdlyVal__x_flip_pipe__v3 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
+    __VdlySet__x_flip_pipe__v3 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v5;
     __VdlyVal__x_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v5;
@@ -143,12 +140,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v3;
     __VdlySet__desired_angle_pipe__v3 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
-    __VdlyVal__x_flip_pipe__v3 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
-    __VdlySet__x_flip_pipe__v3 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v4;
     __VdlyVal__valid_pipe__v4 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
+    __VdlyVal__x_flip_pipe__v4 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
+    __VdlySet__x_flip_pipe__v4 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v7;
     __VdlyVal__x_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v7;
@@ -169,12 +166,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v4 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v4;
     __VdlySet__desired_angle_pipe__v4 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
-    __VdlyVal__x_flip_pipe__v4 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
-    __VdlySet__x_flip_pipe__v4 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v5;
     __VdlyVal__valid_pipe__v5 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
+    __VdlyVal__x_flip_pipe__v5 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
+    __VdlySet__x_flip_pipe__v5 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v9;
     __VdlyVal__x_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v9;
@@ -195,12 +192,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v5;
     __VdlySet__desired_angle_pipe__v5 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
-    __VdlyVal__x_flip_pipe__v5 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
-    __VdlySet__x_flip_pipe__v5 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v6;
     __VdlyVal__valid_pipe__v6 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
+    __VdlyVal__x_flip_pipe__v6 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
+    __VdlySet__x_flip_pipe__v6 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v11;
     __VdlyVal__x_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v11;
@@ -221,12 +218,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v6 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v6;
     __VdlySet__desired_angle_pipe__v6 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
-    __VdlyVal__x_flip_pipe__v6 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
-    __VdlySet__x_flip_pipe__v6 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v7;
     __VdlyVal__valid_pipe__v7 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
+    __VdlyVal__x_flip_pipe__v7 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
+    __VdlySet__x_flip_pipe__v7 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v13;
     __VdlyVal__x_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v13;
@@ -247,12 +244,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v7;
     __VdlySet__desired_angle_pipe__v7 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
-    __VdlyVal__x_flip_pipe__v7 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
-    __VdlySet__x_flip_pipe__v7 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v8;
     __VdlyVal__valid_pipe__v8 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
+    __VdlyVal__x_flip_pipe__v8 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
+    __VdlySet__x_flip_pipe__v8 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v15;
     __VdlyVal__x_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v15;
@@ -273,12 +270,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v8 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v8;
     __VdlySet__desired_angle_pipe__v8 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
-    __VdlyVal__x_flip_pipe__v8 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
-    __VdlySet__x_flip_pipe__v8 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v9;
     __VdlyVal__valid_pipe__v9 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
+    __VdlyVal__x_flip_pipe__v9 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
+    __VdlySet__x_flip_pipe__v9 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v17;
     __VdlyVal__x_pipe__v17 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v17;
@@ -299,12 +296,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v9;
     __VdlySet__desired_angle_pipe__v9 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
-    __VdlyVal__x_flip_pipe__v9 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
-    __VdlySet__x_flip_pipe__v9 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v10;
     __VdlyVal__valid_pipe__v10 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
+    __VdlyVal__x_flip_pipe__v10 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
+    __VdlySet__x_flip_pipe__v10 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v19;
     __VdlyVal__x_pipe__v19 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v19;
@@ -325,12 +322,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v10 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v10;
     __VdlySet__desired_angle_pipe__v10 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
-    __VdlyVal__x_flip_pipe__v10 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
-    __VdlySet__x_flip_pipe__v10 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v11;
     __VdlyVal__valid_pipe__v11 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
+    __VdlyVal__x_flip_pipe__v11 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
+    __VdlySet__x_flip_pipe__v11 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v21;
     __VdlyVal__x_pipe__v21 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v21;
@@ -351,12 +348,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v11;
     __VdlySet__desired_angle_pipe__v11 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
-    __VdlyVal__x_flip_pipe__v11 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
-    __VdlySet__x_flip_pipe__v11 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v12;
     __VdlyVal__valid_pipe__v12 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
+    __VdlyVal__x_flip_pipe__v12 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
+    __VdlySet__x_flip_pipe__v12 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v23;
     __VdlyVal__x_pipe__v23 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v23;
@@ -377,12 +374,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v12 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v12;
     __VdlySet__desired_angle_pipe__v12 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
-    __VdlyVal__x_flip_pipe__v12 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
-    __VdlySet__x_flip_pipe__v12 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v13;
     __VdlyVal__valid_pipe__v13 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
+    __VdlyVal__x_flip_pipe__v13 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
+    __VdlySet__x_flip_pipe__v13 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v25;
     __VdlyVal__x_pipe__v25 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v25;
@@ -403,12 +400,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v13;
     __VdlySet__desired_angle_pipe__v13 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
-    __VdlyVal__x_flip_pipe__v13 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
-    __VdlySet__x_flip_pipe__v13 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v14;
     __VdlyVal__valid_pipe__v14 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
+    __VdlyVal__x_flip_pipe__v14 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
+    __VdlySet__x_flip_pipe__v14 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v27;
     __VdlyVal__x_pipe__v27 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v27;
@@ -429,12 +426,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v14 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v14;
     __VdlySet__desired_angle_pipe__v14 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
-    __VdlyVal__x_flip_pipe__v14 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
-    __VdlySet__x_flip_pipe__v14 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v15;
     __VdlyVal__valid_pipe__v15 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
+    __VdlyVal__x_flip_pipe__v15 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
+    __VdlySet__x_flip_pipe__v15 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v29;
     __VdlyVal__x_pipe__v29 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v29;
@@ -455,10 +452,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v15;
     __VdlySet__desired_angle_pipe__v15 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
-    __VdlyVal__x_flip_pipe__v15 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
-    __VdlySet__x_flip_pipe__v15 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v16;
     __VdlyVal__valid_pipe__v16 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v31;
@@ -523,21 +516,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__desired_angle_pipe__v15 = 0U;
     __VdlySet__x_pipe__v31 = 0U;
     __VdlySet__x_pipe__v32 = 0U;
-    __VdlySet__total_angle_pipe__v2 = 0U;
-    __VdlySet__total_angle_pipe__v4 = 0U;
-    __VdlySet__total_angle_pipe__v6 = 0U;
-    __VdlySet__total_angle_pipe__v8 = 0U;
-    __VdlySet__total_angle_pipe__v10 = 0U;
-    __VdlySet__total_angle_pipe__v12 = 0U;
-    __VdlySet__total_angle_pipe__v14 = 0U;
-    __VdlySet__total_angle_pipe__v16 = 0U;
-    __VdlySet__total_angle_pipe__v18 = 0U;
-    __VdlySet__total_angle_pipe__v20 = 0U;
-    __VdlySet__total_angle_pipe__v22 = 0U;
-    __VdlySet__total_angle_pipe__v24 = 0U;
-    __VdlySet__total_angle_pipe__v26 = 0U;
-    __VdlySet__total_angle_pipe__v28 = 0U;
-    __VdlySet__total_angle_pipe__v30 = 0U;
     __VdlySet__x_pipe__v1 = 0U;
     __VdlySet__x_pipe__v3 = 0U;
     __VdlySet__x_pipe__v5 = 0U;
@@ -553,6 +531,21 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__x_pipe__v25 = 0U;
     __VdlySet__x_pipe__v27 = 0U;
     __VdlySet__x_pipe__v29 = 0U;
+    __VdlySet__total_angle_pipe__v2 = 0U;
+    __VdlySet__total_angle_pipe__v4 = 0U;
+    __VdlySet__total_angle_pipe__v6 = 0U;
+    __VdlySet__total_angle_pipe__v8 = 0U;
+    __VdlySet__total_angle_pipe__v10 = 0U;
+    __VdlySet__total_angle_pipe__v12 = 0U;
+    __VdlySet__total_angle_pipe__v14 = 0U;
+    __VdlySet__total_angle_pipe__v16 = 0U;
+    __VdlySet__total_angle_pipe__v18 = 0U;
+    __VdlySet__total_angle_pipe__v20 = 0U;
+    __VdlySet__total_angle_pipe__v22 = 0U;
+    __VdlySet__total_angle_pipe__v24 = 0U;
+    __VdlySet__total_angle_pipe__v26 = 0U;
+    __VdlySet__total_angle_pipe__v28 = 0U;
+    __VdlySet__total_angle_pipe__v30 = 0U;
     if ((1U & (~ (IData)(vlSelfRef.rst)))) {
         if ((0x00008000U & (IData)(vlSelfRef.angle))) {
             __VdlyVal__desired_angle_pipe__v0 = (0x0000ffffU 
@@ -1464,27 +1457,35 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         ? 0x00008000U
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
-    __VdfgRegularize_h6e95ff9d_0_1 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_1 
+    __VdfgRegularize_hebeb780c_0_12 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_12 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_1 
+                                               (__VdfgRegularize_hebeb780c_0_12 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_1)));
+                                           & __VdfgRegularize_hebeb780c_0_12)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__1(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__1\n"); );
+    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__data_valid_in;
+}
+
+void Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_2;
-    __VdfgRegularize_h6e95ff9d_0_2 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_13;
+    __VdfgRegularize_hebeb780c_0_13 = 0;
     // Body
     vlSelfRef.sin = ((1U == (3U & (vlSelfRef.y_pipe[16U] 
                                    >> 0x0000000fU)))
@@ -1495,56 +1496,53 @@ void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
     vlSelfRef.data_cossin_valid_out = vlSelfRef.valid_pipe[16U];
-    __VdfgRegularize_h6e95ff9d_0_2 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_2 
+    __VdfgRegularize_hebeb780c_0_13 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.clk = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__clk;
+    vlSelfRef.rst = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__rst;
+    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__data_valid_in;
+    vlSelfRef.angle = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__angle_n;
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_13 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_2 
+                                               (__VdfgRegularize_hebeb780c_0_13 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_2)));
+                                           & __VdfgRegularize_hebeb780c_0_13)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__1(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__1\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.clk = vlSymsp->TOP.harmonic_generator__DOT__clk;
-    vlSelfRef.rst = vlSymsp->TOP.harmonic_generator__DOT__rst;
-    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.harmonic_generator__DOT__data_valid_in;
-    vlSelfRef.angle = vlSymsp->TOP.harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__angle_n;
-}
-
-void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_2;
-    __VdfgRegularize_h6e95ff9d_0_2 = 0;
-    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
-    __VdlySet__total_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
-    __VdlyVal__valid_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__x_pipe__v0;
-    __VdlySet__x_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__y_pipe__v0;
-    __VdlySet__y_pipe__v0 = 0;
-    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
-    __VdlyVal__desired_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
-    __VdlySet__desired_angle_pipe__v0 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_13;
+    __VdfgRegularize_hebeb780c_0_13 = 0;
     CData/*0:0*/ __VdlyVal__x_flip_pipe__v0;
     __VdlyVal__x_flip_pipe__v0 = 0;
     CData/*0:0*/ __VdlySet__x_flip_pipe__v0;
     __VdlySet__x_flip_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__y_pipe__v0;
+    __VdlySet__y_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__x_pipe__v0;
+    __VdlySet__x_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
+    __VdlySet__total_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
+    __VdlyVal__valid_pipe__v0 = 0;
+    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
+    __VdlyVal__desired_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
+    __VdlySet__desired_angle_pipe__v0 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v1;
     __VdlyVal__valid_pipe__v1 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
+    __VdlyVal__x_flip_pipe__v1 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
+    __VdlySet__x_flip_pipe__v1 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v1;
     __VdlyVal__x_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v1;
@@ -1565,12 +1563,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v1;
     __VdlySet__desired_angle_pipe__v1 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
-    __VdlyVal__x_flip_pipe__v1 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
-    __VdlySet__x_flip_pipe__v1 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v2;
     __VdlyVal__valid_pipe__v2 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
+    __VdlyVal__x_flip_pipe__v2 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
+    __VdlySet__x_flip_pipe__v2 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v3;
     __VdlyVal__x_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v3;
@@ -1591,12 +1589,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v2 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v2;
     __VdlySet__desired_angle_pipe__v2 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
-    __VdlyVal__x_flip_pipe__v2 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
-    __VdlySet__x_flip_pipe__v2 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v3;
     __VdlyVal__valid_pipe__v3 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
+    __VdlyVal__x_flip_pipe__v3 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
+    __VdlySet__x_flip_pipe__v3 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v5;
     __VdlyVal__x_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v5;
@@ -1617,12 +1615,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v3;
     __VdlySet__desired_angle_pipe__v3 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
-    __VdlyVal__x_flip_pipe__v3 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
-    __VdlySet__x_flip_pipe__v3 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v4;
     __VdlyVal__valid_pipe__v4 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
+    __VdlyVal__x_flip_pipe__v4 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
+    __VdlySet__x_flip_pipe__v4 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v7;
     __VdlyVal__x_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v7;
@@ -1643,12 +1641,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v4 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v4;
     __VdlySet__desired_angle_pipe__v4 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
-    __VdlyVal__x_flip_pipe__v4 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
-    __VdlySet__x_flip_pipe__v4 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v5;
     __VdlyVal__valid_pipe__v5 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
+    __VdlyVal__x_flip_pipe__v5 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
+    __VdlySet__x_flip_pipe__v5 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v9;
     __VdlyVal__x_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v9;
@@ -1669,12 +1667,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v5;
     __VdlySet__desired_angle_pipe__v5 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
-    __VdlyVal__x_flip_pipe__v5 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
-    __VdlySet__x_flip_pipe__v5 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v6;
     __VdlyVal__valid_pipe__v6 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
+    __VdlyVal__x_flip_pipe__v6 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
+    __VdlySet__x_flip_pipe__v6 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v11;
     __VdlyVal__x_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v11;
@@ -1695,12 +1693,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v6 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v6;
     __VdlySet__desired_angle_pipe__v6 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
-    __VdlyVal__x_flip_pipe__v6 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
-    __VdlySet__x_flip_pipe__v6 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v7;
     __VdlyVal__valid_pipe__v7 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
+    __VdlyVal__x_flip_pipe__v7 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
+    __VdlySet__x_flip_pipe__v7 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v13;
     __VdlyVal__x_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v13;
@@ -1721,12 +1719,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v7;
     __VdlySet__desired_angle_pipe__v7 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
-    __VdlyVal__x_flip_pipe__v7 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
-    __VdlySet__x_flip_pipe__v7 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v8;
     __VdlyVal__valid_pipe__v8 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
+    __VdlyVal__x_flip_pipe__v8 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
+    __VdlySet__x_flip_pipe__v8 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v15;
     __VdlyVal__x_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v15;
@@ -1747,12 +1745,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v8 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v8;
     __VdlySet__desired_angle_pipe__v8 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
-    __VdlyVal__x_flip_pipe__v8 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
-    __VdlySet__x_flip_pipe__v8 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v9;
     __VdlyVal__valid_pipe__v9 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
+    __VdlyVal__x_flip_pipe__v9 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
+    __VdlySet__x_flip_pipe__v9 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v17;
     __VdlyVal__x_pipe__v17 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v17;
@@ -1773,12 +1771,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v9;
     __VdlySet__desired_angle_pipe__v9 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
-    __VdlyVal__x_flip_pipe__v9 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
-    __VdlySet__x_flip_pipe__v9 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v10;
     __VdlyVal__valid_pipe__v10 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
+    __VdlyVal__x_flip_pipe__v10 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
+    __VdlySet__x_flip_pipe__v10 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v19;
     __VdlyVal__x_pipe__v19 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v19;
@@ -1799,12 +1797,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v10 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v10;
     __VdlySet__desired_angle_pipe__v10 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
-    __VdlyVal__x_flip_pipe__v10 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
-    __VdlySet__x_flip_pipe__v10 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v11;
     __VdlyVal__valid_pipe__v11 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
+    __VdlyVal__x_flip_pipe__v11 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
+    __VdlySet__x_flip_pipe__v11 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v21;
     __VdlyVal__x_pipe__v21 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v21;
@@ -1825,12 +1823,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v11;
     __VdlySet__desired_angle_pipe__v11 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
-    __VdlyVal__x_flip_pipe__v11 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
-    __VdlySet__x_flip_pipe__v11 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v12;
     __VdlyVal__valid_pipe__v12 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
+    __VdlyVal__x_flip_pipe__v12 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
+    __VdlySet__x_flip_pipe__v12 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v23;
     __VdlyVal__x_pipe__v23 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v23;
@@ -1851,12 +1849,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v12 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v12;
     __VdlySet__desired_angle_pipe__v12 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
-    __VdlyVal__x_flip_pipe__v12 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
-    __VdlySet__x_flip_pipe__v12 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v13;
     __VdlyVal__valid_pipe__v13 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
+    __VdlyVal__x_flip_pipe__v13 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
+    __VdlySet__x_flip_pipe__v13 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v25;
     __VdlyVal__x_pipe__v25 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v25;
@@ -1877,12 +1875,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v13;
     __VdlySet__desired_angle_pipe__v13 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
-    __VdlyVal__x_flip_pipe__v13 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
-    __VdlySet__x_flip_pipe__v13 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v14;
     __VdlyVal__valid_pipe__v14 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
+    __VdlyVal__x_flip_pipe__v14 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
+    __VdlySet__x_flip_pipe__v14 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v27;
     __VdlyVal__x_pipe__v27 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v27;
@@ -1903,12 +1901,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v14 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v14;
     __VdlySet__desired_angle_pipe__v14 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
-    __VdlyVal__x_flip_pipe__v14 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
-    __VdlySet__x_flip_pipe__v14 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v15;
     __VdlyVal__valid_pipe__v15 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
+    __VdlyVal__x_flip_pipe__v15 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
+    __VdlySet__x_flip_pipe__v15 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v29;
     __VdlyVal__x_pipe__v29 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v29;
@@ -1929,10 +1927,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v15;
     __VdlySet__desired_angle_pipe__v15 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
-    __VdlyVal__x_flip_pipe__v15 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
-    __VdlySet__x_flip_pipe__v15 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v16;
     __VdlyVal__valid_pipe__v16 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v31;
@@ -1997,21 +1991,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__desired_angle_pipe__v15 = 0U;
     __VdlySet__x_pipe__v31 = 0U;
     __VdlySet__x_pipe__v32 = 0U;
-    __VdlySet__total_angle_pipe__v2 = 0U;
-    __VdlySet__total_angle_pipe__v4 = 0U;
-    __VdlySet__total_angle_pipe__v6 = 0U;
-    __VdlySet__total_angle_pipe__v8 = 0U;
-    __VdlySet__total_angle_pipe__v10 = 0U;
-    __VdlySet__total_angle_pipe__v12 = 0U;
-    __VdlySet__total_angle_pipe__v14 = 0U;
-    __VdlySet__total_angle_pipe__v16 = 0U;
-    __VdlySet__total_angle_pipe__v18 = 0U;
-    __VdlySet__total_angle_pipe__v20 = 0U;
-    __VdlySet__total_angle_pipe__v22 = 0U;
-    __VdlySet__total_angle_pipe__v24 = 0U;
-    __VdlySet__total_angle_pipe__v26 = 0U;
-    __VdlySet__total_angle_pipe__v28 = 0U;
-    __VdlySet__total_angle_pipe__v30 = 0U;
     __VdlySet__x_pipe__v1 = 0U;
     __VdlySet__x_pipe__v3 = 0U;
     __VdlySet__x_pipe__v5 = 0U;
@@ -2027,6 +2006,21 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__x_pipe__v25 = 0U;
     __VdlySet__x_pipe__v27 = 0U;
     __VdlySet__x_pipe__v29 = 0U;
+    __VdlySet__total_angle_pipe__v2 = 0U;
+    __VdlySet__total_angle_pipe__v4 = 0U;
+    __VdlySet__total_angle_pipe__v6 = 0U;
+    __VdlySet__total_angle_pipe__v8 = 0U;
+    __VdlySet__total_angle_pipe__v10 = 0U;
+    __VdlySet__total_angle_pipe__v12 = 0U;
+    __VdlySet__total_angle_pipe__v14 = 0U;
+    __VdlySet__total_angle_pipe__v16 = 0U;
+    __VdlySet__total_angle_pipe__v18 = 0U;
+    __VdlySet__total_angle_pipe__v20 = 0U;
+    __VdlySet__total_angle_pipe__v22 = 0U;
+    __VdlySet__total_angle_pipe__v24 = 0U;
+    __VdlySet__total_angle_pipe__v26 = 0U;
+    __VdlySet__total_angle_pipe__v28 = 0U;
+    __VdlySet__total_angle_pipe__v30 = 0U;
     if ((1U & (~ (IData)(vlSelfRef.rst)))) {
         if ((0x00008000U & (IData)(vlSelfRef.angle))) {
             __VdlyVal__desired_angle_pipe__v0 = (0x0000ffffU 
@@ -2938,27 +2932,27 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         ? 0x00008000U
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
-    __VdfgRegularize_h6e95ff9d_0_2 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_2 
+    __VdfgRegularize_hebeb780c_0_13 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_13 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_2 
+                                               (__VdfgRegularize_hebeb780c_0_13 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_2)));
+                                           & __VdfgRegularize_hebeb780c_0_13)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_3;
-    __VdfgRegularize_h6e95ff9d_0_3 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_14;
+    __VdfgRegularize_hebeb780c_0_14 = 0;
     // Body
     vlSelfRef.sin = ((1U == (3U & (vlSelfRef.y_pipe[16U] 
                                    >> 0x0000000fU)))
@@ -2969,56 +2963,53 @@ void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
     vlSelfRef.data_cossin_valid_out = vlSelfRef.valid_pipe[16U];
-    __VdfgRegularize_h6e95ff9d_0_3 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_3 
+    __VdfgRegularize_hebeb780c_0_14 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.clk = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__clk;
+    vlSelfRef.rst = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__rst;
+    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__data_valid_in;
+    vlSelfRef.angle = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__angle_n;
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_14 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_3 
+                                               (__VdfgRegularize_hebeb780c_0_14 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_3)));
+                                           & __VdfgRegularize_hebeb780c_0_14)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__1(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__1\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.clk = vlSymsp->TOP.harmonic_generator__DOT__clk;
-    vlSelfRef.rst = vlSymsp->TOP.harmonic_generator__DOT__rst;
-    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.harmonic_generator__DOT__data_valid_in;
-    vlSelfRef.angle = vlSymsp->TOP.harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__angle_n;
-}
-
-void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_3;
-    __VdfgRegularize_h6e95ff9d_0_3 = 0;
-    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
-    __VdlySet__total_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
-    __VdlyVal__valid_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__x_pipe__v0;
-    __VdlySet__x_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__y_pipe__v0;
-    __VdlySet__y_pipe__v0 = 0;
-    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
-    __VdlyVal__desired_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
-    __VdlySet__desired_angle_pipe__v0 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_14;
+    __VdfgRegularize_hebeb780c_0_14 = 0;
     CData/*0:0*/ __VdlyVal__x_flip_pipe__v0;
     __VdlyVal__x_flip_pipe__v0 = 0;
     CData/*0:0*/ __VdlySet__x_flip_pipe__v0;
     __VdlySet__x_flip_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__y_pipe__v0;
+    __VdlySet__y_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__x_pipe__v0;
+    __VdlySet__x_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
+    __VdlySet__total_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
+    __VdlyVal__valid_pipe__v0 = 0;
+    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
+    __VdlyVal__desired_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
+    __VdlySet__desired_angle_pipe__v0 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v1;
     __VdlyVal__valid_pipe__v1 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
+    __VdlyVal__x_flip_pipe__v1 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
+    __VdlySet__x_flip_pipe__v1 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v1;
     __VdlyVal__x_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v1;
@@ -3039,12 +3030,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v1;
     __VdlySet__desired_angle_pipe__v1 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
-    __VdlyVal__x_flip_pipe__v1 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
-    __VdlySet__x_flip_pipe__v1 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v2;
     __VdlyVal__valid_pipe__v2 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
+    __VdlyVal__x_flip_pipe__v2 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
+    __VdlySet__x_flip_pipe__v2 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v3;
     __VdlyVal__x_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v3;
@@ -3065,12 +3056,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v2 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v2;
     __VdlySet__desired_angle_pipe__v2 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
-    __VdlyVal__x_flip_pipe__v2 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
-    __VdlySet__x_flip_pipe__v2 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v3;
     __VdlyVal__valid_pipe__v3 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
+    __VdlyVal__x_flip_pipe__v3 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
+    __VdlySet__x_flip_pipe__v3 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v5;
     __VdlyVal__x_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v5;
@@ -3091,12 +3082,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v3;
     __VdlySet__desired_angle_pipe__v3 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
-    __VdlyVal__x_flip_pipe__v3 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
-    __VdlySet__x_flip_pipe__v3 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v4;
     __VdlyVal__valid_pipe__v4 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
+    __VdlyVal__x_flip_pipe__v4 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
+    __VdlySet__x_flip_pipe__v4 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v7;
     __VdlyVal__x_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v7;
@@ -3117,12 +3108,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v4 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v4;
     __VdlySet__desired_angle_pipe__v4 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
-    __VdlyVal__x_flip_pipe__v4 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
-    __VdlySet__x_flip_pipe__v4 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v5;
     __VdlyVal__valid_pipe__v5 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
+    __VdlyVal__x_flip_pipe__v5 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
+    __VdlySet__x_flip_pipe__v5 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v9;
     __VdlyVal__x_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v9;
@@ -3143,12 +3134,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v5;
     __VdlySet__desired_angle_pipe__v5 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
-    __VdlyVal__x_flip_pipe__v5 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
-    __VdlySet__x_flip_pipe__v5 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v6;
     __VdlyVal__valid_pipe__v6 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
+    __VdlyVal__x_flip_pipe__v6 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
+    __VdlySet__x_flip_pipe__v6 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v11;
     __VdlyVal__x_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v11;
@@ -3169,12 +3160,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v6 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v6;
     __VdlySet__desired_angle_pipe__v6 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
-    __VdlyVal__x_flip_pipe__v6 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
-    __VdlySet__x_flip_pipe__v6 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v7;
     __VdlyVal__valid_pipe__v7 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
+    __VdlyVal__x_flip_pipe__v7 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
+    __VdlySet__x_flip_pipe__v7 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v13;
     __VdlyVal__x_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v13;
@@ -3195,12 +3186,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v7;
     __VdlySet__desired_angle_pipe__v7 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
-    __VdlyVal__x_flip_pipe__v7 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
-    __VdlySet__x_flip_pipe__v7 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v8;
     __VdlyVal__valid_pipe__v8 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
+    __VdlyVal__x_flip_pipe__v8 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
+    __VdlySet__x_flip_pipe__v8 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v15;
     __VdlyVal__x_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v15;
@@ -3221,12 +3212,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v8 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v8;
     __VdlySet__desired_angle_pipe__v8 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
-    __VdlyVal__x_flip_pipe__v8 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
-    __VdlySet__x_flip_pipe__v8 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v9;
     __VdlyVal__valid_pipe__v9 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
+    __VdlyVal__x_flip_pipe__v9 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
+    __VdlySet__x_flip_pipe__v9 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v17;
     __VdlyVal__x_pipe__v17 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v17;
@@ -3247,12 +3238,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v9;
     __VdlySet__desired_angle_pipe__v9 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
-    __VdlyVal__x_flip_pipe__v9 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
-    __VdlySet__x_flip_pipe__v9 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v10;
     __VdlyVal__valid_pipe__v10 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
+    __VdlyVal__x_flip_pipe__v10 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
+    __VdlySet__x_flip_pipe__v10 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v19;
     __VdlyVal__x_pipe__v19 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v19;
@@ -3273,12 +3264,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v10 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v10;
     __VdlySet__desired_angle_pipe__v10 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
-    __VdlyVal__x_flip_pipe__v10 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
-    __VdlySet__x_flip_pipe__v10 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v11;
     __VdlyVal__valid_pipe__v11 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
+    __VdlyVal__x_flip_pipe__v11 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
+    __VdlySet__x_flip_pipe__v11 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v21;
     __VdlyVal__x_pipe__v21 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v21;
@@ -3299,12 +3290,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v11;
     __VdlySet__desired_angle_pipe__v11 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
-    __VdlyVal__x_flip_pipe__v11 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
-    __VdlySet__x_flip_pipe__v11 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v12;
     __VdlyVal__valid_pipe__v12 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
+    __VdlyVal__x_flip_pipe__v12 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
+    __VdlySet__x_flip_pipe__v12 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v23;
     __VdlyVal__x_pipe__v23 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v23;
@@ -3325,12 +3316,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v12 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v12;
     __VdlySet__desired_angle_pipe__v12 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
-    __VdlyVal__x_flip_pipe__v12 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
-    __VdlySet__x_flip_pipe__v12 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v13;
     __VdlyVal__valid_pipe__v13 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
+    __VdlyVal__x_flip_pipe__v13 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
+    __VdlySet__x_flip_pipe__v13 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v25;
     __VdlyVal__x_pipe__v25 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v25;
@@ -3351,12 +3342,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v13;
     __VdlySet__desired_angle_pipe__v13 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
-    __VdlyVal__x_flip_pipe__v13 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
-    __VdlySet__x_flip_pipe__v13 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v14;
     __VdlyVal__valid_pipe__v14 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
+    __VdlyVal__x_flip_pipe__v14 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
+    __VdlySet__x_flip_pipe__v14 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v27;
     __VdlyVal__x_pipe__v27 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v27;
@@ -3377,12 +3368,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v14 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v14;
     __VdlySet__desired_angle_pipe__v14 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
-    __VdlyVal__x_flip_pipe__v14 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
-    __VdlySet__x_flip_pipe__v14 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v15;
     __VdlyVal__valid_pipe__v15 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
+    __VdlyVal__x_flip_pipe__v15 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
+    __VdlySet__x_flip_pipe__v15 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v29;
     __VdlyVal__x_pipe__v29 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v29;
@@ -3403,10 +3394,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v15;
     __VdlySet__desired_angle_pipe__v15 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
-    __VdlyVal__x_flip_pipe__v15 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
-    __VdlySet__x_flip_pipe__v15 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v16;
     __VdlyVal__valid_pipe__v16 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v31;
@@ -3471,21 +3458,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__desired_angle_pipe__v15 = 0U;
     __VdlySet__x_pipe__v31 = 0U;
     __VdlySet__x_pipe__v32 = 0U;
-    __VdlySet__total_angle_pipe__v2 = 0U;
-    __VdlySet__total_angle_pipe__v4 = 0U;
-    __VdlySet__total_angle_pipe__v6 = 0U;
-    __VdlySet__total_angle_pipe__v8 = 0U;
-    __VdlySet__total_angle_pipe__v10 = 0U;
-    __VdlySet__total_angle_pipe__v12 = 0U;
-    __VdlySet__total_angle_pipe__v14 = 0U;
-    __VdlySet__total_angle_pipe__v16 = 0U;
-    __VdlySet__total_angle_pipe__v18 = 0U;
-    __VdlySet__total_angle_pipe__v20 = 0U;
-    __VdlySet__total_angle_pipe__v22 = 0U;
-    __VdlySet__total_angle_pipe__v24 = 0U;
-    __VdlySet__total_angle_pipe__v26 = 0U;
-    __VdlySet__total_angle_pipe__v28 = 0U;
-    __VdlySet__total_angle_pipe__v30 = 0U;
     __VdlySet__x_pipe__v1 = 0U;
     __VdlySet__x_pipe__v3 = 0U;
     __VdlySet__x_pipe__v5 = 0U;
@@ -3501,6 +3473,21 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__x_pipe__v25 = 0U;
     __VdlySet__x_pipe__v27 = 0U;
     __VdlySet__x_pipe__v29 = 0U;
+    __VdlySet__total_angle_pipe__v2 = 0U;
+    __VdlySet__total_angle_pipe__v4 = 0U;
+    __VdlySet__total_angle_pipe__v6 = 0U;
+    __VdlySet__total_angle_pipe__v8 = 0U;
+    __VdlySet__total_angle_pipe__v10 = 0U;
+    __VdlySet__total_angle_pipe__v12 = 0U;
+    __VdlySet__total_angle_pipe__v14 = 0U;
+    __VdlySet__total_angle_pipe__v16 = 0U;
+    __VdlySet__total_angle_pipe__v18 = 0U;
+    __VdlySet__total_angle_pipe__v20 = 0U;
+    __VdlySet__total_angle_pipe__v22 = 0U;
+    __VdlySet__total_angle_pipe__v24 = 0U;
+    __VdlySet__total_angle_pipe__v26 = 0U;
+    __VdlySet__total_angle_pipe__v28 = 0U;
+    __VdlySet__total_angle_pipe__v30 = 0U;
     if ((1U & (~ (IData)(vlSelfRef.rst)))) {
         if ((0x00008000U & (IData)(vlSelfRef.angle))) {
             __VdlyVal__desired_angle_pipe__v0 = (0x0000ffffU 
@@ -4412,27 +4399,27 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         ? 0x00008000U
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
-    __VdfgRegularize_h6e95ff9d_0_3 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_3 
+    __VdfgRegularize_hebeb780c_0_14 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_14 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_3 
+                                               (__VdfgRegularize_hebeb780c_0_14 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_3)));
+                                           & __VdfgRegularize_hebeb780c_0_14)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_4;
-    __VdfgRegularize_h6e95ff9d_0_4 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_15;
+    __VdfgRegularize_hebeb780c_0_15 = 0;
     // Body
     vlSelfRef.sin = ((1U == (3U & (vlSelfRef.y_pipe[16U] 
                                    >> 0x0000000fU)))
@@ -4443,56 +4430,53 @@ void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
     vlSelfRef.data_cossin_valid_out = vlSelfRef.valid_pipe[16U];
-    __VdfgRegularize_h6e95ff9d_0_4 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_4 
+    __VdfgRegularize_hebeb780c_0_15 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.clk = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__clk;
+    vlSelfRef.rst = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__rst;
+    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__data_valid_in;
+    vlSelfRef.angle = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__angle_n;
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_15 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_4 
+                                               (__VdfgRegularize_hebeb780c_0_15 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_4)));
+                                           & __VdfgRegularize_hebeb780c_0_15)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__1(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__1\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.clk = vlSymsp->TOP.harmonic_generator__DOT__clk;
-    vlSelfRef.rst = vlSymsp->TOP.harmonic_generator__DOT__rst;
-    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.harmonic_generator__DOT__data_valid_in;
-    vlSelfRef.angle = vlSymsp->TOP.harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__angle_n;
-}
-
-void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_4;
-    __VdfgRegularize_h6e95ff9d_0_4 = 0;
-    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
-    __VdlySet__total_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
-    __VdlyVal__valid_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__x_pipe__v0;
-    __VdlySet__x_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__y_pipe__v0;
-    __VdlySet__y_pipe__v0 = 0;
-    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
-    __VdlyVal__desired_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
-    __VdlySet__desired_angle_pipe__v0 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_15;
+    __VdfgRegularize_hebeb780c_0_15 = 0;
     CData/*0:0*/ __VdlyVal__x_flip_pipe__v0;
     __VdlyVal__x_flip_pipe__v0 = 0;
     CData/*0:0*/ __VdlySet__x_flip_pipe__v0;
     __VdlySet__x_flip_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__y_pipe__v0;
+    __VdlySet__y_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__x_pipe__v0;
+    __VdlySet__x_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
+    __VdlySet__total_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
+    __VdlyVal__valid_pipe__v0 = 0;
+    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
+    __VdlyVal__desired_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
+    __VdlySet__desired_angle_pipe__v0 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v1;
     __VdlyVal__valid_pipe__v1 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
+    __VdlyVal__x_flip_pipe__v1 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
+    __VdlySet__x_flip_pipe__v1 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v1;
     __VdlyVal__x_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v1;
@@ -4513,12 +4497,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v1;
     __VdlySet__desired_angle_pipe__v1 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
-    __VdlyVal__x_flip_pipe__v1 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
-    __VdlySet__x_flip_pipe__v1 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v2;
     __VdlyVal__valid_pipe__v2 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
+    __VdlyVal__x_flip_pipe__v2 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
+    __VdlySet__x_flip_pipe__v2 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v3;
     __VdlyVal__x_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v3;
@@ -4539,12 +4523,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v2 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v2;
     __VdlySet__desired_angle_pipe__v2 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
-    __VdlyVal__x_flip_pipe__v2 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
-    __VdlySet__x_flip_pipe__v2 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v3;
     __VdlyVal__valid_pipe__v3 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
+    __VdlyVal__x_flip_pipe__v3 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
+    __VdlySet__x_flip_pipe__v3 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v5;
     __VdlyVal__x_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v5;
@@ -4565,12 +4549,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v3;
     __VdlySet__desired_angle_pipe__v3 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
-    __VdlyVal__x_flip_pipe__v3 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
-    __VdlySet__x_flip_pipe__v3 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v4;
     __VdlyVal__valid_pipe__v4 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
+    __VdlyVal__x_flip_pipe__v4 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
+    __VdlySet__x_flip_pipe__v4 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v7;
     __VdlyVal__x_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v7;
@@ -4591,12 +4575,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v4 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v4;
     __VdlySet__desired_angle_pipe__v4 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
-    __VdlyVal__x_flip_pipe__v4 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
-    __VdlySet__x_flip_pipe__v4 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v5;
     __VdlyVal__valid_pipe__v5 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
+    __VdlyVal__x_flip_pipe__v5 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
+    __VdlySet__x_flip_pipe__v5 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v9;
     __VdlyVal__x_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v9;
@@ -4617,12 +4601,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v5;
     __VdlySet__desired_angle_pipe__v5 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
-    __VdlyVal__x_flip_pipe__v5 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
-    __VdlySet__x_flip_pipe__v5 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v6;
     __VdlyVal__valid_pipe__v6 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
+    __VdlyVal__x_flip_pipe__v6 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
+    __VdlySet__x_flip_pipe__v6 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v11;
     __VdlyVal__x_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v11;
@@ -4643,12 +4627,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v6 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v6;
     __VdlySet__desired_angle_pipe__v6 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
-    __VdlyVal__x_flip_pipe__v6 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
-    __VdlySet__x_flip_pipe__v6 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v7;
     __VdlyVal__valid_pipe__v7 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
+    __VdlyVal__x_flip_pipe__v7 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
+    __VdlySet__x_flip_pipe__v7 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v13;
     __VdlyVal__x_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v13;
@@ -4669,12 +4653,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v7;
     __VdlySet__desired_angle_pipe__v7 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
-    __VdlyVal__x_flip_pipe__v7 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
-    __VdlySet__x_flip_pipe__v7 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v8;
     __VdlyVal__valid_pipe__v8 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
+    __VdlyVal__x_flip_pipe__v8 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
+    __VdlySet__x_flip_pipe__v8 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v15;
     __VdlyVal__x_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v15;
@@ -4695,12 +4679,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v8 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v8;
     __VdlySet__desired_angle_pipe__v8 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
-    __VdlyVal__x_flip_pipe__v8 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
-    __VdlySet__x_flip_pipe__v8 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v9;
     __VdlyVal__valid_pipe__v9 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
+    __VdlyVal__x_flip_pipe__v9 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
+    __VdlySet__x_flip_pipe__v9 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v17;
     __VdlyVal__x_pipe__v17 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v17;
@@ -4721,12 +4705,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v9;
     __VdlySet__desired_angle_pipe__v9 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
-    __VdlyVal__x_flip_pipe__v9 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
-    __VdlySet__x_flip_pipe__v9 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v10;
     __VdlyVal__valid_pipe__v10 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
+    __VdlyVal__x_flip_pipe__v10 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
+    __VdlySet__x_flip_pipe__v10 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v19;
     __VdlyVal__x_pipe__v19 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v19;
@@ -4747,12 +4731,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v10 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v10;
     __VdlySet__desired_angle_pipe__v10 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
-    __VdlyVal__x_flip_pipe__v10 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
-    __VdlySet__x_flip_pipe__v10 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v11;
     __VdlyVal__valid_pipe__v11 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
+    __VdlyVal__x_flip_pipe__v11 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
+    __VdlySet__x_flip_pipe__v11 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v21;
     __VdlyVal__x_pipe__v21 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v21;
@@ -4773,12 +4757,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v11;
     __VdlySet__desired_angle_pipe__v11 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
-    __VdlyVal__x_flip_pipe__v11 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
-    __VdlySet__x_flip_pipe__v11 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v12;
     __VdlyVal__valid_pipe__v12 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
+    __VdlyVal__x_flip_pipe__v12 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
+    __VdlySet__x_flip_pipe__v12 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v23;
     __VdlyVal__x_pipe__v23 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v23;
@@ -4799,12 +4783,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v12 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v12;
     __VdlySet__desired_angle_pipe__v12 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
-    __VdlyVal__x_flip_pipe__v12 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
-    __VdlySet__x_flip_pipe__v12 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v13;
     __VdlyVal__valid_pipe__v13 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
+    __VdlyVal__x_flip_pipe__v13 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
+    __VdlySet__x_flip_pipe__v13 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v25;
     __VdlyVal__x_pipe__v25 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v25;
@@ -4825,12 +4809,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v13;
     __VdlySet__desired_angle_pipe__v13 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
-    __VdlyVal__x_flip_pipe__v13 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
-    __VdlySet__x_flip_pipe__v13 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v14;
     __VdlyVal__valid_pipe__v14 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
+    __VdlyVal__x_flip_pipe__v14 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
+    __VdlySet__x_flip_pipe__v14 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v27;
     __VdlyVal__x_pipe__v27 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v27;
@@ -4851,12 +4835,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v14 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v14;
     __VdlySet__desired_angle_pipe__v14 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
-    __VdlyVal__x_flip_pipe__v14 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
-    __VdlySet__x_flip_pipe__v14 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v15;
     __VdlyVal__valid_pipe__v15 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
+    __VdlyVal__x_flip_pipe__v15 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
+    __VdlySet__x_flip_pipe__v15 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v29;
     __VdlyVal__x_pipe__v29 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v29;
@@ -4877,10 +4861,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v15;
     __VdlySet__desired_angle_pipe__v15 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
-    __VdlyVal__x_flip_pipe__v15 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
-    __VdlySet__x_flip_pipe__v15 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v16;
     __VdlyVal__valid_pipe__v16 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v31;
@@ -4945,21 +4925,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__desired_angle_pipe__v15 = 0U;
     __VdlySet__x_pipe__v31 = 0U;
     __VdlySet__x_pipe__v32 = 0U;
-    __VdlySet__total_angle_pipe__v2 = 0U;
-    __VdlySet__total_angle_pipe__v4 = 0U;
-    __VdlySet__total_angle_pipe__v6 = 0U;
-    __VdlySet__total_angle_pipe__v8 = 0U;
-    __VdlySet__total_angle_pipe__v10 = 0U;
-    __VdlySet__total_angle_pipe__v12 = 0U;
-    __VdlySet__total_angle_pipe__v14 = 0U;
-    __VdlySet__total_angle_pipe__v16 = 0U;
-    __VdlySet__total_angle_pipe__v18 = 0U;
-    __VdlySet__total_angle_pipe__v20 = 0U;
-    __VdlySet__total_angle_pipe__v22 = 0U;
-    __VdlySet__total_angle_pipe__v24 = 0U;
-    __VdlySet__total_angle_pipe__v26 = 0U;
-    __VdlySet__total_angle_pipe__v28 = 0U;
-    __VdlySet__total_angle_pipe__v30 = 0U;
     __VdlySet__x_pipe__v1 = 0U;
     __VdlySet__x_pipe__v3 = 0U;
     __VdlySet__x_pipe__v5 = 0U;
@@ -4975,6 +4940,21 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__x_pipe__v25 = 0U;
     __VdlySet__x_pipe__v27 = 0U;
     __VdlySet__x_pipe__v29 = 0U;
+    __VdlySet__total_angle_pipe__v2 = 0U;
+    __VdlySet__total_angle_pipe__v4 = 0U;
+    __VdlySet__total_angle_pipe__v6 = 0U;
+    __VdlySet__total_angle_pipe__v8 = 0U;
+    __VdlySet__total_angle_pipe__v10 = 0U;
+    __VdlySet__total_angle_pipe__v12 = 0U;
+    __VdlySet__total_angle_pipe__v14 = 0U;
+    __VdlySet__total_angle_pipe__v16 = 0U;
+    __VdlySet__total_angle_pipe__v18 = 0U;
+    __VdlySet__total_angle_pipe__v20 = 0U;
+    __VdlySet__total_angle_pipe__v22 = 0U;
+    __VdlySet__total_angle_pipe__v24 = 0U;
+    __VdlySet__total_angle_pipe__v26 = 0U;
+    __VdlySet__total_angle_pipe__v28 = 0U;
+    __VdlySet__total_angle_pipe__v30 = 0U;
     if ((1U & (~ (IData)(vlSelfRef.rst)))) {
         if ((0x00008000U & (IData)(vlSelfRef.angle))) {
             __VdlyVal__desired_angle_pipe__v0 = (0x0000ffffU 
@@ -5886,27 +5866,27 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         ? 0x00008000U
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
-    __VdfgRegularize_h6e95ff9d_0_4 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_4 
+    __VdfgRegularize_hebeb780c_0_15 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_15 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_4 
+                                               (__VdfgRegularize_hebeb780c_0_15 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_4)));
+                                           & __VdfgRegularize_hebeb780c_0_15)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___ico_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_5;
-    __VdfgRegularize_h6e95ff9d_0_5 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_16;
+    __VdfgRegularize_hebeb780c_0_16 = 0;
     // Body
     vlSelfRef.sin = ((1U == (3U & (vlSelfRef.y_pipe[16U] 
                                    >> 0x0000000fU)))
@@ -5917,56 +5897,53 @@ void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
     vlSelfRef.data_cossin_valid_out = vlSelfRef.valid_pipe[16U];
-    __VdfgRegularize_h6e95ff9d_0_5 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_5 
+    __VdfgRegularize_hebeb780c_0_16 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.clk = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__clk;
+    vlSelfRef.rst = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__rst;
+    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__data_valid_in;
+    vlSelfRef.angle = vlSymsp->TOP.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__angle_n;
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_16 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_5 
+                                               (__VdfgRegularize_hebeb780c_0_16 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_5)));
+                                           & __VdfgRegularize_hebeb780c_0_16)));
 }
 
-void Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__1(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ico_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__1\n"); );
-    Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.clk = vlSymsp->TOP.harmonic_generator__DOT__clk;
-    vlSelfRef.rst = vlSymsp->TOP.harmonic_generator__DOT__rst;
-    vlSelfRef.data_angle_valid_in = vlSymsp->TOP.harmonic_generator__DOT__data_valid_in;
-    vlSelfRef.angle = vlSymsp->TOP.harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__angle_n;
-}
-
-void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0\n"); );
+void Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0(Vtop_cordic_cossin* vlSelf) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___nba_sequent__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*16:0*/ __VdfgRegularize_h6e95ff9d_0_5;
-    __VdfgRegularize_h6e95ff9d_0_5 = 0;
-    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
-    __VdlySet__total_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
-    __VdlyVal__valid_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__x_pipe__v0;
-    __VdlySet__x_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__y_pipe__v0;
-    __VdlySet__y_pipe__v0 = 0;
-    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
-    __VdlyVal__desired_angle_pipe__v0 = 0;
-    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
-    __VdlySet__desired_angle_pipe__v0 = 0;
+    IData/*16:0*/ __VdfgRegularize_hebeb780c_0_16;
+    __VdfgRegularize_hebeb780c_0_16 = 0;
     CData/*0:0*/ __VdlyVal__x_flip_pipe__v0;
     __VdlyVal__x_flip_pipe__v0 = 0;
     CData/*0:0*/ __VdlySet__x_flip_pipe__v0;
     __VdlySet__x_flip_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__y_pipe__v0;
+    __VdlySet__y_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__x_pipe__v0;
+    __VdlySet__x_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__total_angle_pipe__v0;
+    __VdlySet__total_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlyVal__valid_pipe__v0;
+    __VdlyVal__valid_pipe__v0 = 0;
+    SData/*15:0*/ __VdlyVal__desired_angle_pipe__v0;
+    __VdlyVal__desired_angle_pipe__v0 = 0;
+    CData/*0:0*/ __VdlySet__desired_angle_pipe__v0;
+    __VdlySet__desired_angle_pipe__v0 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v1;
     __VdlyVal__valid_pipe__v1 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
+    __VdlyVal__x_flip_pipe__v1 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
+    __VdlySet__x_flip_pipe__v1 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v1;
     __VdlyVal__x_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v1;
@@ -5987,12 +5964,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v1 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v1;
     __VdlySet__desired_angle_pipe__v1 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v1;
-    __VdlyVal__x_flip_pipe__v1 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v1;
-    __VdlySet__x_flip_pipe__v1 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v2;
     __VdlyVal__valid_pipe__v2 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
+    __VdlyVal__x_flip_pipe__v2 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
+    __VdlySet__x_flip_pipe__v2 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v3;
     __VdlyVal__x_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v3;
@@ -6013,12 +5990,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v2 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v2;
     __VdlySet__desired_angle_pipe__v2 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v2;
-    __VdlyVal__x_flip_pipe__v2 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v2;
-    __VdlySet__x_flip_pipe__v2 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v3;
     __VdlyVal__valid_pipe__v3 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
+    __VdlyVal__x_flip_pipe__v3 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
+    __VdlySet__x_flip_pipe__v3 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v5;
     __VdlyVal__x_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v5;
@@ -6039,12 +6016,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v3 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v3;
     __VdlySet__desired_angle_pipe__v3 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v3;
-    __VdlyVal__x_flip_pipe__v3 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v3;
-    __VdlySet__x_flip_pipe__v3 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v4;
     __VdlyVal__valid_pipe__v4 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
+    __VdlyVal__x_flip_pipe__v4 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
+    __VdlySet__x_flip_pipe__v4 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v7;
     __VdlyVal__x_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v7;
@@ -6065,12 +6042,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v4 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v4;
     __VdlySet__desired_angle_pipe__v4 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v4;
-    __VdlyVal__x_flip_pipe__v4 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v4;
-    __VdlySet__x_flip_pipe__v4 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v5;
     __VdlyVal__valid_pipe__v5 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
+    __VdlyVal__x_flip_pipe__v5 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
+    __VdlySet__x_flip_pipe__v5 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v9;
     __VdlyVal__x_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v9;
@@ -6091,12 +6068,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v5 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v5;
     __VdlySet__desired_angle_pipe__v5 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v5;
-    __VdlyVal__x_flip_pipe__v5 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v5;
-    __VdlySet__x_flip_pipe__v5 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v6;
     __VdlyVal__valid_pipe__v6 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
+    __VdlyVal__x_flip_pipe__v6 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
+    __VdlySet__x_flip_pipe__v6 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v11;
     __VdlyVal__x_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v11;
@@ -6117,12 +6094,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v6 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v6;
     __VdlySet__desired_angle_pipe__v6 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v6;
-    __VdlyVal__x_flip_pipe__v6 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v6;
-    __VdlySet__x_flip_pipe__v6 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v7;
     __VdlyVal__valid_pipe__v7 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
+    __VdlyVal__x_flip_pipe__v7 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
+    __VdlySet__x_flip_pipe__v7 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v13;
     __VdlyVal__x_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v13;
@@ -6143,12 +6120,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v7 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v7;
     __VdlySet__desired_angle_pipe__v7 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v7;
-    __VdlyVal__x_flip_pipe__v7 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v7;
-    __VdlySet__x_flip_pipe__v7 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v8;
     __VdlyVal__valid_pipe__v8 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
+    __VdlyVal__x_flip_pipe__v8 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
+    __VdlySet__x_flip_pipe__v8 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v15;
     __VdlyVal__x_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v15;
@@ -6169,12 +6146,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v8 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v8;
     __VdlySet__desired_angle_pipe__v8 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v8;
-    __VdlyVal__x_flip_pipe__v8 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v8;
-    __VdlySet__x_flip_pipe__v8 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v9;
     __VdlyVal__valid_pipe__v9 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
+    __VdlyVal__x_flip_pipe__v9 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
+    __VdlySet__x_flip_pipe__v9 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v17;
     __VdlyVal__x_pipe__v17 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v17;
@@ -6195,12 +6172,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v9 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v9;
     __VdlySet__desired_angle_pipe__v9 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v9;
-    __VdlyVal__x_flip_pipe__v9 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v9;
-    __VdlySet__x_flip_pipe__v9 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v10;
     __VdlyVal__valid_pipe__v10 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
+    __VdlyVal__x_flip_pipe__v10 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
+    __VdlySet__x_flip_pipe__v10 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v19;
     __VdlyVal__x_pipe__v19 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v19;
@@ -6221,12 +6198,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v10 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v10;
     __VdlySet__desired_angle_pipe__v10 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v10;
-    __VdlyVal__x_flip_pipe__v10 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v10;
-    __VdlySet__x_flip_pipe__v10 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v11;
     __VdlyVal__valid_pipe__v11 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
+    __VdlyVal__x_flip_pipe__v11 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
+    __VdlySet__x_flip_pipe__v11 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v21;
     __VdlyVal__x_pipe__v21 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v21;
@@ -6247,12 +6224,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v11 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v11;
     __VdlySet__desired_angle_pipe__v11 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v11;
-    __VdlyVal__x_flip_pipe__v11 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v11;
-    __VdlySet__x_flip_pipe__v11 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v12;
     __VdlyVal__valid_pipe__v12 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
+    __VdlyVal__x_flip_pipe__v12 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
+    __VdlySet__x_flip_pipe__v12 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v23;
     __VdlyVal__x_pipe__v23 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v23;
@@ -6273,12 +6250,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v12 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v12;
     __VdlySet__desired_angle_pipe__v12 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v12;
-    __VdlyVal__x_flip_pipe__v12 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v12;
-    __VdlySet__x_flip_pipe__v12 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v13;
     __VdlyVal__valid_pipe__v13 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
+    __VdlyVal__x_flip_pipe__v13 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
+    __VdlySet__x_flip_pipe__v13 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v25;
     __VdlyVal__x_pipe__v25 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v25;
@@ -6299,12 +6276,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v13 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v13;
     __VdlySet__desired_angle_pipe__v13 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v13;
-    __VdlyVal__x_flip_pipe__v13 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v13;
-    __VdlySet__x_flip_pipe__v13 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v14;
     __VdlyVal__valid_pipe__v14 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
+    __VdlyVal__x_flip_pipe__v14 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
+    __VdlySet__x_flip_pipe__v14 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v27;
     __VdlyVal__x_pipe__v27 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v27;
@@ -6325,12 +6302,12 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v14 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v14;
     __VdlySet__desired_angle_pipe__v14 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v14;
-    __VdlyVal__x_flip_pipe__v14 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v14;
-    __VdlySet__x_flip_pipe__v14 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v15;
     __VdlyVal__valid_pipe__v15 = 0;
+    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
+    __VdlyVal__x_flip_pipe__v15 = 0;
+    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
+    __VdlySet__x_flip_pipe__v15 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v29;
     __VdlyVal__x_pipe__v29 = 0;
     CData/*0:0*/ __VdlySet__x_pipe__v29;
@@ -6351,10 +6328,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlyVal__desired_angle_pipe__v15 = 0;
     CData/*0:0*/ __VdlySet__desired_angle_pipe__v15;
     __VdlySet__desired_angle_pipe__v15 = 0;
-    CData/*0:0*/ __VdlyVal__x_flip_pipe__v15;
-    __VdlyVal__x_flip_pipe__v15 = 0;
-    CData/*0:0*/ __VdlySet__x_flip_pipe__v15;
-    __VdlySet__x_flip_pipe__v15 = 0;
     CData/*0:0*/ __VdlyVal__valid_pipe__v16;
     __VdlyVal__valid_pipe__v16 = 0;
     IData/*16:0*/ __VdlyVal__x_pipe__v31;
@@ -6419,21 +6392,6 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__desired_angle_pipe__v15 = 0U;
     __VdlySet__x_pipe__v31 = 0U;
     __VdlySet__x_pipe__v32 = 0U;
-    __VdlySet__total_angle_pipe__v2 = 0U;
-    __VdlySet__total_angle_pipe__v4 = 0U;
-    __VdlySet__total_angle_pipe__v6 = 0U;
-    __VdlySet__total_angle_pipe__v8 = 0U;
-    __VdlySet__total_angle_pipe__v10 = 0U;
-    __VdlySet__total_angle_pipe__v12 = 0U;
-    __VdlySet__total_angle_pipe__v14 = 0U;
-    __VdlySet__total_angle_pipe__v16 = 0U;
-    __VdlySet__total_angle_pipe__v18 = 0U;
-    __VdlySet__total_angle_pipe__v20 = 0U;
-    __VdlySet__total_angle_pipe__v22 = 0U;
-    __VdlySet__total_angle_pipe__v24 = 0U;
-    __VdlySet__total_angle_pipe__v26 = 0U;
-    __VdlySet__total_angle_pipe__v28 = 0U;
-    __VdlySet__total_angle_pipe__v30 = 0U;
     __VdlySet__x_pipe__v1 = 0U;
     __VdlySet__x_pipe__v3 = 0U;
     __VdlySet__x_pipe__v5 = 0U;
@@ -6449,6 +6407,21 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
     __VdlySet__x_pipe__v25 = 0U;
     __VdlySet__x_pipe__v27 = 0U;
     __VdlySet__x_pipe__v29 = 0U;
+    __VdlySet__total_angle_pipe__v2 = 0U;
+    __VdlySet__total_angle_pipe__v4 = 0U;
+    __VdlySet__total_angle_pipe__v6 = 0U;
+    __VdlySet__total_angle_pipe__v8 = 0U;
+    __VdlySet__total_angle_pipe__v10 = 0U;
+    __VdlySet__total_angle_pipe__v12 = 0U;
+    __VdlySet__total_angle_pipe__v14 = 0U;
+    __VdlySet__total_angle_pipe__v16 = 0U;
+    __VdlySet__total_angle_pipe__v18 = 0U;
+    __VdlySet__total_angle_pipe__v20 = 0U;
+    __VdlySet__total_angle_pipe__v22 = 0U;
+    __VdlySet__total_angle_pipe__v24 = 0U;
+    __VdlySet__total_angle_pipe__v26 = 0U;
+    __VdlySet__total_angle_pipe__v28 = 0U;
+    __VdlySet__total_angle_pipe__v30 = 0U;
     if ((1U & (~ (IData)(vlSelfRef.rst)))) {
         if ((0x00008000U & (IData)(vlSelfRef.angle))) {
             __VdlyVal__desired_angle_pipe__v0 = (0x0000ffffU 
@@ -7360,16 +7333,16 @@ void Vtop_cordic_cossin___nba_sequent__TOP__harmonic_generator__DOT__genblk1__BR
                                         ? 0x00008000U
                                         : (0x0000ffffU 
                                            & vlSelfRef.y_pipe[16U])));
-    __VdfgRegularize_h6e95ff9d_0_5 = (0x0001ffffU & 
-                                      (vlSelfRef.x_flip_pipe[16U]
-                                        ? (- vlSelfRef.x_pipe[16U])
-                                        : vlSelfRef.x_pipe[16U]));
-    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_h6e95ff9d_0_5 
+    __VdfgRegularize_hebeb780c_0_16 = (0x0001ffffU 
+                                       & (vlSelfRef.x_flip_pipe[16U]
+                                           ? (- vlSelfRef.x_pipe[16U])
+                                           : vlSelfRef.x_pipe[16U]));
+    vlSelfRef.cos = ((1U == (3U & (__VdfgRegularize_hebeb780c_0_16 
                                    >> 0x0000000fU)))
                       ? 0x00007fffU : ((2U == (3U & 
-                                               (__VdfgRegularize_h6e95ff9d_0_5 
+                                               (__VdfgRegularize_hebeb780c_0_16 
                                                 >> 0x0000000fU)))
                                         ? 0x00008000U
                                         : (0x0000ffffU 
-                                           & __VdfgRegularize_h6e95ff9d_0_5)));
+                                           & __VdfgRegularize_hebeb780c_0_16)));
 }

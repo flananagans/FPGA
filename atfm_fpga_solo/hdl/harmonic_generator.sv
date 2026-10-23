@@ -1,7 +1,7 @@
 `default_nettype none
 module harmonic_generator #(
     parameter MAX_HARMONIC    = 10,
-    parameter DATA_WIDTH      = 32,
+    parameter DATA_WIDTH      = 16,
     parameter CORDIC_NUM_ITER = 16  // latency = CORDIC_NUM_ITER + 1 cycles
 ) (
     input  wire clk,
@@ -15,7 +15,7 @@ module harmonic_generator #(
     logic [MAX_HARMONIC-1:0] valid_arr;
 
     generate
-        for (genvar i = 0; i < MAX_HARMONIC; i++) begin
+        for (genvar i = 0; i < MAX_HARMONIC; i++) begin : gen_harmonics
             logic signed [DATA_WIDTH-1:0] angle_n;
             assign angle_n = (i + 1) * angle; // wraps naturally, which is correct for angles
 

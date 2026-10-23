@@ -5,16 +5,16 @@
 #include "Vtop__Syms.h"
 
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep);
 
 VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__0\n"); );
@@ -27,80 +27,109 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     VL_TRACE_DECL_BIT(tracep,c+1,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
     VL_TRACE_DECL_BIT(tracep,c+2,0,"data_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
     VL_TRACE_DECL_BUS(tracep,c+3,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_WIDE(tracep,c+4,0,"cos_arr_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
-    VL_TRACE_DECL_WIDE(tracep,c+9,0,"sin_arr_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
-    VL_TRACE_DECL_BIT(tracep,c+14,0,"data_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_WIDE(tracep,c+4,0,"a_values",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+9,0,"b_values",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_BUS(tracep,c+14,0,"modulator_sum_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+15,0,"data_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+16,0,"busy",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "harmonic_generator", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+1131,0,"MAX_HARMONIC",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"DATA_WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"CORDIC_NUM_ITER",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+15,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+16,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+17,0,"data_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+18,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_WIDE(tracep,c+19,0,"cos_arr_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
-    VL_TRACE_DECL_WIDE(tracep,c+24,0,"sin_arr_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
-    VL_TRACE_DECL_BIT(tracep,c+29,0,"data_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+30,0,"valid_arr",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 9,0);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[0]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+31,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "modulator", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+1189,0,"MAX_HARMONIC",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"DATA_WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+17,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+18,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+19,0,"data_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+20,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_WIDE(tracep,c+21,0,"a_values",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+26,0,"b_values",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_BUS(tracep,c+31,0,"modulator_sum_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+32,0,"data_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+33,0,"busy",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+1191,0,"MAC_WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+34,0,"angle_reg",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_WIDE(tracep,c+35,0,"a_reg",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+40,0,"b_reg",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+45,0,"cos_unlatched",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+50,0,"cos_harmonics",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+55,0,"sin_unlatched",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+60,0,"sin_harmonics",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_BIT(tracep,c+65,0,"hgen_valid_out",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+66,0,"hgen_busy",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+67,0,"mult_acc_active",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+68,0,"idx",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 3,0);
+    VL_TRACE_DECL_QUAD(tracep,c+69,0,"mac_cur",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 36,0);
+    VL_TRACE_DECL_QUAD(tracep,c+71,0,"mac_next",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 36,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "serial_hgen", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+1189,0,"MAX_HARMONIC",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"DATA_WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"CORDIC_NUM_ITER",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+73,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+74,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+75,0,"data_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+76,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_WIDE(tracep,c+77,0,"cos_arr_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_WIDE(tracep,c+82,0,"sin_arr_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 159,0);
+    VL_TRACE_DECL_BIT(tracep,c+87,0,"data_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+88,0,"valid_arr",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 9,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[0]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+89,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[1]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+32,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[1]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+90,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[2]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+33,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[2]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+91,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[3]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+34,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[3]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+92,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[4]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+35,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[4]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+93,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[5]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+36,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[5]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+94,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[6]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+37,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[6]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+95,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[7]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+38,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[7]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+96,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[8]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+39,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[8]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+97,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic__0(vlSelf, tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
-    VL_TRACE_PUSH_PREFIX(tracep, "genblk1[9]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    VL_TRACE_DECL_BUS(tracep,c+40,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_PUSH_PREFIX(tracep, "gen_harmonics[9]", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
+    VL_TRACE_DECL_BUS(tracep,c+98,0,"angle_n",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::VAR, VerilatedTraceSigType::LOGIC, 15,0);
     VL_TRACE_PUSH_PREFIX(tracep, "nth_cordic", VerilatedTracePrefixType::SCOPE_MODULE, 0, 0);
-    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic__0(vlSelf, tracep);
+    VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
     VL_TRACE_POP_PREFIX(tracep);
@@ -113,37 +142,37 @@ VL_ATTR_COLD void Vtop___024root__trace_init_dtype____3(Vtop___024root* vlSelf, 
 VL_ATTR_COLD void Vtop___024root__trace_init_dtype____4(Vtop___024root* vlSelf, VerilatedVcd* tracep, const char* name, uint32_t fidx, uint32_t c, VerilatedTraceSigDirection direction);
 VL_ATTR_COLD void Vtop___024root__trace_init_dtype____5(Vtop___024root* vlSelf, VerilatedVcd* tracep, const char* name, uint32_t fidx, uint32_t c, VerilatedTraceSigDirection direction);
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+41,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+42,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+43,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+44,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+45,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+46,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+47,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+99,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+100,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+101,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+102,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+103,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+104,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+105,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+48, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+106, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+65, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+123, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+82, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+140, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+99, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+157, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+116, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+174, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+133, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+191, VerilatedTraceSigDirection::NONE);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_init_dtype_sub____0(Vtop___024root* vlSelf, VerilatedVcd* tracep, const char* name, uint32_t fidx, uint32_t c, VerilatedTraceSigDirection direction);
@@ -278,301 +307,301 @@ VL_ATTR_COLD void Vtop___024root__trace_init_dtype_sub____5(Vtop___024root* vlSe
     VL_TRACE_POP_PREFIX(tracep);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+150,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+151,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+152,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+153,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+154,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+155,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+156,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+208,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+209,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+210,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+211,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+212,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+213,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+214,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+157, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+215, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+174, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+232, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+191, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+249, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+208, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+266, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+225, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+283, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+242, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+300, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+259,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+260,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+261,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+262,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+263,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+264,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+265,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+317,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+318,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+319,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+320,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+321,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+322,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+323,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+266, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+324, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+283, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+341, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+300, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+358, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+317, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+375, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+334, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+392, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+351, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+409, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+368,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+369,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+370,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+371,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+372,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+373,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+374,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+426,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+427,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+428,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+429,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+430,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+431,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+432,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+375, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+433, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+392, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+450, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+409, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+467, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+426, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+484, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+443, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+501, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+460, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+518, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+477,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+478,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+479,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+480,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+481,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+482,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+483,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+535,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+536,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+537,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+538,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+539,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+540,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+541,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+484, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+542, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+501, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+559, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+518, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+576, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+535, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+593, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+552, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+610, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+569, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+627, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+586,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+587,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+588,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+589,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+590,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+591,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+592,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+644,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+645,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+646,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+647,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+648,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+649,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+650,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+593, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+651, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+610, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+668, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+627, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+685, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+644, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+702, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+661, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+719, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+678, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+736, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+695,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+696,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+697,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+698,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+699,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+700,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+701,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+753,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+754,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+755,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+756,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+757,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+758,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+759,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+702, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+760, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+719, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+777, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+736, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+794, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+753, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+811, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+770, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+828, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+787, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+845, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+804,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+805,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+806,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+807,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+808,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+809,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+810,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+862,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+863,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+864,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+865,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+866,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+867,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+868,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+811, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+869, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+828, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+886, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+845, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+903, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+862, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+920, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+879, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+937, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+896, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+954, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+913,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+914,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+915,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+916,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+917,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+918,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+919,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+971,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+972,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+973,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+974,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+975,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+976,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+977,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+920, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+978, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+937, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+995, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+954, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+1012, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+971, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+1029, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+988, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+1046, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+1005, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+1063, VerilatedTraceSigDirection::NONE);
 }
 
-VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic__0\n"); );
+VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic__0(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root__trace_init_sub__TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic__0\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     const int c = vlSymsp->__Vm_baseCode;
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BUS(tracep,c+1132,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
-    VL_TRACE_DECL_BIT(tracep,c+1022,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+1023,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BIT(tracep,c+1024,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_BUS(tracep,c+1025,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+1026,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BUS(tracep,c+1027,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
-    VL_TRACE_DECL_BIT(tracep,c+1028,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1133,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_DOUBLE(tracep,c+1135,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
-    VL_TRACE_DECL_BUS(tracep,c+1137,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
-    VL_TRACE_DECL_BUS(tracep,c+1138,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"WIDTH",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BUS(tracep,c+1190,0,"NUM_ITERATIONS",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 31,0);
+    VL_TRACE_DECL_BIT(tracep,c+1080,0,"clk",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+1081,0,"rst",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BIT(tracep,c+1082,0,"data_angle_valid_in",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_BUS(tracep,c+1083,0,"angle",-1, VerilatedTraceSigDirection::INPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+1084,0,"cos",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BUS(tracep,c+1085,0,"sin",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC, 15,0);
+    VL_TRACE_DECL_BIT(tracep,c+1086,0,"data_cossin_valid_out",-1, VerilatedTraceSigDirection::OUTPUT, VerilatedTraceSigKind::WIRE, VerilatedTraceSigType::LOGIC);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1192,0,"PI",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_DOUBLE(tracep,c+1194,0,"SCALING_FACTOR_REAL",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::DOUBLE);
+    VL_TRACE_DECL_BUS(tracep,c+1196,0,"X_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
+    VL_TRACE_DECL_BUS(tracep,c+1197,0,"Y_INIT",-1, VerilatedTraceSigDirection::NONE, VerilatedTraceSigKind::PARAMETER, VerilatedTraceSigType::LOGIC, 16,0);
 
-    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+1029, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____0(vlSelf, tracep, "x_pipe", 0, c+1087, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+1046, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____1(vlSelf, tracep, "y_pipe", 0, c+1104, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+1063, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____2(vlSelf, tracep, "x_flip_pipe", 0, c+1121, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+1080, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____3(vlSelf, tracep, "total_angle_pipe", 0, c+1138, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+1097, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____4(vlSelf, tracep, "desired_angle_pipe", 0, c+1155, VerilatedTraceSigDirection::NONE);
 
-    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+1114, VerilatedTraceSigDirection::NONE);
+    Vtop___024root__trace_init_dtype____5(vlSelf, tracep, "valid_pipe", 0, c+1172, VerilatedTraceSigDirection::NONE);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_init_top(Vtop___024root* vlSelf, VerilatedVcd* tracep) {
@@ -615,12 +644,13 @@ VL_ATTR_COLD void Vtop___024root__trace_const_0_sub_0(Vtop___024root* vlSelf, Ve
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
-    bufp->fullIData(oldp+1131,(0x0000000aU),32);
-    bufp->fullIData(oldp+1132,(0x00000010U),32);
-    bufp->fullDouble(oldp+1133,(3.14159265358979312e+00));
-    bufp->fullDouble(oldp+1135,(6.07252935008881445e-01));
-    bufp->fullIData(oldp+1137,(0x00004dbaU),17);
-    bufp->fullIData(oldp+1138,(0U),17);
+    bufp->fullIData(oldp+1189,(0x0000000aU),32);
+    bufp->fullIData(oldp+1190,(0x00000010U),32);
+    bufp->fullIData(oldp+1191,(0x00000025U),32);
+    bufp->fullDouble(oldp+1192,(3.14159265358979312e+00));
+    bufp->fullDouble(oldp+1194,(6.07252935008881445e-01));
+    bufp->fullIData(oldp+1196,(0x00004dbaU),17);
+    bufp->fullIData(oldp+1197,(0U),17);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffer* bufp);
@@ -650,157 +680,181 @@ VL_ATTR_COLD void Vtop___024root__trace_full_0_sub_0(Vtop___024root* vlSelf, Ver
     bufp->fullBit(oldp+1,(vlSelfRef.rst));
     bufp->fullBit(oldp+2,(vlSelfRef.data_valid_in));
     bufp->fullSData(oldp+3,(vlSelfRef.angle),16);
-    bufp->fullWData(oldp+4,(vlSelfRef.cos_arr_out),160);
-    bufp->fullWData(oldp+9,(vlSelfRef.sin_arr_out),160);
-    bufp->fullBit(oldp+14,(vlSelfRef.data_valid_out));
-    bufp->fullBit(oldp+15,(vlSelfRef.harmonic_generator__DOT__clk));
-    bufp->fullBit(oldp+16,(vlSelfRef.harmonic_generator__DOT__rst));
-    bufp->fullBit(oldp+17,(vlSelfRef.harmonic_generator__DOT__data_valid_in));
-    bufp->fullSData(oldp+18,(vlSelfRef.harmonic_generator__DOT__angle),16);
-    bufp->fullWData(oldp+19,(vlSelfRef.harmonic_generator__DOT__cos_arr_out),160);
-    bufp->fullWData(oldp+24,(vlSelfRef.harmonic_generator__DOT__sin_arr_out),160);
-    bufp->fullBit(oldp+29,(vlSelfRef.harmonic_generator__DOT__data_valid_out));
-    bufp->fullSData(oldp+30,(vlSelfRef.harmonic_generator__DOT__valid_arr),10);
-    bufp->fullSData(oldp+31,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+32,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+33,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+34,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+35,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+36,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+37,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+38,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+39,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__angle_n),16);
-    bufp->fullSData(oldp+40,(vlSelfRef.harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__angle_n),16);
-    bufp->fullBit(oldp+41,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+42,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+43,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+44,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+45,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+46,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+47,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 48, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 65, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 82, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 99, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 116, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 133, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__0__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+150,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+151,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+152,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+153,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+154,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+155,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+156,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 157, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 174, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 191, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 208, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 225, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 242, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__1__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+259,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+260,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+261,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+262,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+263,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+264,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+265,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 266, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 283, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 300, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 317, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 334, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 351, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__2__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+368,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+369,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+370,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+371,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+372,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+373,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+374,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 375, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 392, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 409, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 426, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 443, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 460, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__3__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+477,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+478,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+479,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+480,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+481,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+482,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+483,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 484, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 501, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 518, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 535, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 552, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 569, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__4__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+586,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+587,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+588,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+589,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+590,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+591,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+592,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 593, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 610, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 627, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 644, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 661, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 678, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__5__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+695,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+696,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+697,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+698,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+699,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+700,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+701,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 702, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 719, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 736, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 753, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 770, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 787, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__6__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+804,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+805,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+806,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+807,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+808,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+809,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+810,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 811, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 828, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 845, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 862, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 879, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 896, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__7__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+913,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+914,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+915,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+916,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+917,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+918,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+919,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 920, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 937, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 954, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 971, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 988, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 1005, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__8__KET____DOT__nth_cordic.valid_pipe);
-    bufp->fullBit(oldp+1022,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.clk));
-    bufp->fullBit(oldp+1023,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.rst));
-    bufp->fullBit(oldp+1024,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.data_angle_valid_in));
-    bufp->fullSData(oldp+1025,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.angle),16);
-    bufp->fullSData(oldp+1026,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.cos),16);
-    bufp->fullSData(oldp+1027,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.sin),16);
-    bufp->fullBit(oldp+1028,(vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.data_cossin_valid_out));
-    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 1029, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.x_pipe);
-    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 1046, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.y_pipe);
-    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 1063, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.x_flip_pipe);
-    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 1080, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.total_angle_pipe);
-    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 1097, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.desired_angle_pipe);
-    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 1114, vlSymsp->TOP__harmonic_generator__DOT__genblk1__BRA__9__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullWData(oldp+4,(vlSelfRef.a_values),160);
+    bufp->fullWData(oldp+9,(vlSelfRef.b_values),160);
+    bufp->fullSData(oldp+14,(vlSelfRef.modulator_sum_out),16);
+    bufp->fullBit(oldp+15,(vlSelfRef.data_valid_out));
+    bufp->fullBit(oldp+16,(vlSelfRef.busy));
+    bufp->fullBit(oldp+17,(vlSelfRef.modulator__DOT__clk));
+    bufp->fullBit(oldp+18,(vlSelfRef.modulator__DOT__rst));
+    bufp->fullBit(oldp+19,(vlSelfRef.modulator__DOT__data_valid_in));
+    bufp->fullSData(oldp+20,(vlSelfRef.modulator__DOT__angle),16);
+    bufp->fullWData(oldp+21,(vlSelfRef.modulator__DOT__a_values),160);
+    bufp->fullWData(oldp+26,(vlSelfRef.modulator__DOT__b_values),160);
+    bufp->fullSData(oldp+31,(vlSelfRef.modulator__DOT__modulator_sum_out),16);
+    bufp->fullBit(oldp+32,(vlSelfRef.modulator__DOT__data_valid_out));
+    bufp->fullBit(oldp+33,(vlSelfRef.modulator__DOT__busy));
+    bufp->fullSData(oldp+34,(vlSelfRef.modulator__DOT__angle_reg),16);
+    bufp->fullWData(oldp+35,(vlSelfRef.modulator__DOT__a_reg),160);
+    bufp->fullWData(oldp+40,(vlSelfRef.modulator__DOT__b_reg),160);
+    bufp->fullWData(oldp+45,(vlSelfRef.modulator__DOT__cos_unlatched),160);
+    bufp->fullWData(oldp+50,(vlSelfRef.modulator__DOT__cos_harmonics),160);
+    bufp->fullWData(oldp+55,(vlSelfRef.modulator__DOT__sin_unlatched),160);
+    bufp->fullWData(oldp+60,(vlSelfRef.modulator__DOT__sin_harmonics),160);
+    bufp->fullBit(oldp+65,(vlSelfRef.modulator__DOT__hgen_valid_out));
+    bufp->fullBit(oldp+66,(vlSelfRef.modulator__DOT__hgen_busy));
+    bufp->fullBit(oldp+67,(vlSelfRef.modulator__DOT__mult_acc_active));
+    bufp->fullCData(oldp+68,(vlSelfRef.modulator__DOT__idx),4);
+    bufp->fullQData(oldp+69,(vlSelfRef.modulator__DOT__mac_cur),37);
+    bufp->fullQData(oldp+71,(vlSelfRef.modulator__DOT__mac_next),37);
+    bufp->fullBit(oldp+73,(vlSelfRef.modulator__DOT__serial_hgen__DOT__clk));
+    bufp->fullBit(oldp+74,(vlSelfRef.modulator__DOT__serial_hgen__DOT__rst));
+    bufp->fullBit(oldp+75,(vlSelfRef.modulator__DOT__serial_hgen__DOT__data_valid_in));
+    bufp->fullSData(oldp+76,(vlSelfRef.modulator__DOT__serial_hgen__DOT__angle),16);
+    bufp->fullWData(oldp+77,(vlSelfRef.modulator__DOT__serial_hgen__DOT__cos_arr_out),160);
+    bufp->fullWData(oldp+82,(vlSelfRef.modulator__DOT__serial_hgen__DOT__sin_arr_out),160);
+    bufp->fullBit(oldp+87,(vlSelfRef.modulator__DOT__serial_hgen__DOT__data_valid_out));
+    bufp->fullSData(oldp+88,(vlSelfRef.modulator__DOT__serial_hgen__DOT__valid_arr),10);
+    bufp->fullSData(oldp+89,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+90,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+91,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+92,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+93,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+94,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+95,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+96,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+97,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__angle_n),16);
+    bufp->fullSData(oldp+98,(vlSelfRef.modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__angle_n),16);
+    bufp->fullBit(oldp+99,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+100,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+101,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+102,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+103,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+104,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+105,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 106, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 123, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 140, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 157, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 174, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 191, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+208,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+209,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+210,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+211,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+212,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+213,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+214,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 215, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 232, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 249, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 266, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 283, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 300, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+317,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+318,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+319,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+320,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+321,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+322,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+323,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 324, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 341, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 358, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 375, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 392, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 409, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+426,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+427,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+428,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+429,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+430,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+431,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+432,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 433, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 450, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 467, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 484, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 501, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 518, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+535,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+536,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+537,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+538,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+539,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+540,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+541,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 542, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 559, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 576, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 593, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 610, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 627, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+644,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+645,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+646,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+647,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+648,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+649,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+650,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 651, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 668, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 685, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 702, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 719, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 736, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+753,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+754,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+755,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+756,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+757,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+758,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+759,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 760, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 777, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 794, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 811, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 828, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 845, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+862,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+863,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+864,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+865,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+866,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+867,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+868,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 869, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 886, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 903, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 920, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 937, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 954, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+971,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+972,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+973,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+974,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+975,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+976,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+977,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 978, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 995, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 1012, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 1029, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 1046, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 1063, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic.valid_pipe);
+    bufp->fullBit(oldp+1080,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.clk));
+    bufp->fullBit(oldp+1081,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.rst));
+    bufp->fullBit(oldp+1082,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.data_angle_valid_in));
+    bufp->fullSData(oldp+1083,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.angle),16);
+    bufp->fullSData(oldp+1084,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.cos),16);
+    bufp->fullSData(oldp+1085,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.sin),16);
+    bufp->fullBit(oldp+1086,(vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.data_cossin_valid_out));
+    Vtop___024root__trace_full_dtype____0(vlSelf, bufp, 1087, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.x_pipe);
+    Vtop___024root__trace_full_dtype____1(vlSelf, bufp, 1104, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.y_pipe);
+    Vtop___024root__trace_full_dtype____2(vlSelf, bufp, 1121, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.x_flip_pipe);
+    Vtop___024root__trace_full_dtype____3(vlSelf, bufp, 1138, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.total_angle_pipe);
+    Vtop___024root__trace_full_dtype____4(vlSelf, bufp, 1155, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.desired_angle_pipe);
+    Vtop___024root__trace_full_dtype____5(vlSelf, bufp, 1172, vlSymsp->TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic.valid_pipe);
 }
 
 VL_ATTR_COLD void Vtop___024root__trace_full_dtype____0(Vtop___024root* vlSelf, VerilatedVcd::Buffer* bufp, uint32_t offset, const VlUnpacked<IData/*16:0*/, 17>& __VdtypeVar) {

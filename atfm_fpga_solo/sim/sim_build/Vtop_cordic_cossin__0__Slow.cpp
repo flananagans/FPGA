@@ -5,7 +5,7 @@
 #include "Vtop__pch.h"
 
 VL_ATTR_COLD void Vtop_cordic_cossin___ctor_var_reset(Vtop_cordic_cossin* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop_cordic_cossin___ctor_var_reset\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+          Vtop_cordic_cossin___ctor_var_reset\n"); );
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body

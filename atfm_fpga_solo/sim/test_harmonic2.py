@@ -287,7 +287,7 @@ def harmonic_generator_runner():
     proj_path = Path(__file__).resolve().parent.parent
     sys.path.append(str(proj_path / "sim" / "model"))
     sources = [proj_path / "hdl" / "cordic_cossin.sv",
-               proj_path / "hdl" / "parallel_harmonic_generator.sv"]
+               proj_path / "hdl" / "harmonic_generator.sv"]
     build_test_args = ["-Wall", "-Wno-fatal", "--timing", "--trace"]
     parameters = {"DATA_WIDTH": W, "MAX_HARMONIC": NH, "CORDIC_NUM_ITER": NITER}
     sys.path.append(str(proj_path / "sim"))
