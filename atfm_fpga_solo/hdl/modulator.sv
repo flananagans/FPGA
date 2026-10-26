@@ -15,6 +15,9 @@ module modulator
     output logic busy
 );
 
+    // Expected latency (in clk cycles): CORDIC_NUM_ITER + MAX_HARMONIC + 2  
+    // = (CORDIC_NUM_ITER + 1) + 1 (storing after hgen_valid_out) + MAX_HARMONIC
+
     localparam MAC_WIDTH = 2*DATA_WIDTH + $clog2(2*MAX_HARMONIC);
     logic signed [DATA_WIDTH-1:0] angle_reg;
     logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] a_reg;
@@ -26,13 +29,6 @@ module modulator
 
     logic [$clog2(MAX_HARMONIC + 1)-1:0] idx; 
     logic signed [MAC_WIDTH -1:0] mac_cur, mac_next;
-
-    /* Do I need to latch angle, a_vals and b_vals into registers */
-    // always_ff @(posedge clk) begin
-    //     if (rst) begin   
-    //     end else 
-    // end
-
 
     harmonic_generator #(.MAX_HARMONIC(MAX_HARMONIC), .DATA_WIDTH(DATA_WIDTH)) 
     serial_hgen (
@@ -46,17 +42,6 @@ module modulator
         // .busy(hgen_busy)
     );
 
-    // always_ff @(posedge clk) begin
-    //     if (rst) begin
-    //         inter_sum_out <= 0;
-    //         idx <= 0;
-    //     end
-    //     else if (hgen_valid_out) begin
-    //         for (int i = 0; i < MAX_HARMONIC; i++) begin
-    //             inter_sum_out <= inter_sum_out + a_reg[i] * cos_harmonics[i] + b_reg[i] * sin_harmonics[i];
-    //         end
-    //     end
-    // end
 
     always_comb begin
         mac_next = mac_cur + $signed(a_reg[idx]) * $signed(cos_harmonics[idx]) 
@@ -66,20 +51,22 @@ module modulator
 
     always_ff @(posedge clk) begin
         if (rst) begin
+            // Outputs
             modulator_sum_out <= 0;
             data_valid_out <= 1'b0;
 
+            // Multiply & Accum
             mac_cur <= '0;
             mult_acc_active <= 1'b0;
-
             idx <= 0;
+
             busy <= 1'b0;
             a_reg <= 0;
             b_reg <= 0;
         end else begin
             data_valid_out <= 1'b0;
 
-            if (data_valid_in && !busy)begin //accepting values
+            if (data_valid_in && !busy)begin //accepting a, b values
                 a_reg <= a_values;
                 b_reg <= b_values;
                 busy <= 1'b1;

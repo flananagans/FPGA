@@ -366,7 +366,57 @@ module top_level
 
     //constant
 
+    // *************************************************** //
 
+
+    // ***************** CORDIC TEST ***************** //
+    localparam NUM_MODULATORS = 8;
+    localparam MAX_HARMONIC = 10;
+
+    logic [NUM_MODULATORS-1:0] [CORDIC_BIT_WIDTH-1:0] mod_sum_out_arr;
+    logic [NUM_MODULATORS-1:0] mod_val_out_arr, mod_busy_arr;
+    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] a_test_vals;
+    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] b_test_vals;
+    logic [CORDIC_BIT_WIDTH-1:0] phase;
+
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            a_test_vals <= 0;
+            b_test_vals <= 0;
+            phase <= 0;
+        end 
+        else begin
+            for (int k = 0; k < MAX_HARMONIC; k++) begin
+                a_test_vals[k] <= a_test_vals[k] + (k + 1);   // different rate per harmonic
+                b_test_vals[k] <= b_test_vals[k] + (2*k + 1);
+            end
+            phase <= phase + 16'd37;
+        end
+    end
+
+    generate
+        for (genvar i = 0; i < NUM_MODULATORS; i++) begin : gen_modulators
+            logic signed [CORDIC_BIT_WIDTH-1:0] angle_in;
+            assign angle_in = phase + (i * (1 << CORDIC_BIT_WIDTH)) / NUM_MODULATORS ; // wraps naturally, which is correct for angles
+
+            modulator #(
+                .MAX_HARMONIC(MAX_HARMONIC),
+                .DATA_WIDTH(CORDIC_BIT_WIDTH)
+            ) kth_modulator (
+                .clk(clk_100mhz),
+                .rst(rst),
+                .data_valid_in(1'b1),
+                .angle(angle_in),
+                .a_values(a_test_vals),
+                .b_values(b_test_vals),
+                .modulator_sum_out(mod_sum_out_arr[i]),
+                .data_valid_out(mod_val_out_arr[i]),
+                .busy(mod_busy_arr[i])
+            );
+        end
+        endgenerate
+
+        assign led[10] = ^mod_sum_out_arr; //for testing, to ensure that it is not synthed away
 
     // *************************************************** //
 

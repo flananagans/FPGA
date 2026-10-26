@@ -7,7 +7,7 @@ module harmonic_generator #(
     input  wire clk,
     input  wire rst,
     input  wire data_valid_in,
-    input  wire signed [DATA_WIDTH-1:0] angle,
+    input  wire signed [DATA_WIDTH-1:0] angle, //am confused about signed bit because I thought it maps 360 deg to 2^16 values (not 2^15)
     output logic signed [MAX_HARMONIC-1:0][DATA_WIDTH-1:0] cos_arr_out, // [i] = cos((i+1)*angle)
     output logic signed [MAX_HARMONIC-1:0][DATA_WIDTH-1:0] sin_arr_out,
     output logic data_valid_out
