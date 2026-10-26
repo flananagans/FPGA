@@ -13,7 +13,7 @@ module top_level
     output logic [3:0] ss1_an,
     // output logic [6:0] ss0_c,       // Seven segment cathodes
     output logic [6:0] ss1_c,
-    
+
     // PMOD JA pins for SSI (differential pairs)
     // Use PMOD connector with differential capability
 
@@ -63,8 +63,8 @@ module top_level
     assign probe_enco_cipo  = cipo_enco;
     assign probe_enco_dclk  = dclk_enco;
     assign probe_enco_cs  = cs_enco;
-    
-    
+
+
     assign probe_copi  = copi;
     assign probe_cipo  = cipo;
     assign probe_dclk  = dclk;
@@ -76,9 +76,9 @@ module top_level
     logic trigger;
     logic [23:0] auto_trigger_counter;
     logic auto_trigger;
-    
+
     assign rst = btn[0];
-    
+
     // Auto-trigger for continuous reading (adjustable rate)
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
@@ -95,11 +95,11 @@ module top_level
             end
         end
     end
-    
+
     // Manual trigger with debouncing
     logic [19:0] btn_debounce;
     logic btn_trigger;
-    
+
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
             btn_debounce <= '0;
@@ -118,7 +118,7 @@ module top_level
             end
         end
     end
-    
+
     // Select trigger source: SW[15] = 1 for auto, 0 for manual
     assign trigger = sw[15] ? auto_trigger : !spi_trigger;
 
@@ -127,7 +127,7 @@ module top_level
     /*  ***************** Original SSI Master Code ***************** //
     // logic [9:0] ssi_clk_freq;
     // assign ssi_clk_freq = 12'd1000;
-    
+
     // ssi_master #(
     //     .CLK_FREQ_MHZ(100),
     //     .POSITION_BITS(19),
@@ -138,13 +138,13 @@ module top_level
     //     .rst(rst),
     //     .trigger(trigger),
     //     .ssi_clk_freq_khz(ssi_clk_freq),
-        
-    //     // Differential I/O 
+
+    //     // Differential I/O
     //     .ssi_clk_p(dclk_plus),
     //     .ssi_clk_n(dclk_minus),
     //     .ssi_data_p(data_plus),
     //     .ssi_data_n(data_minus),
-        
+
     //     // Parallel outputs
     //     .position(encoder_position),
     //     .status(encoder_status),
@@ -168,7 +168,7 @@ module top_level
 
     // logic test_trigger;
     localparam COUNT_12_5KHZ_MAX = 8000;
-    // localparam COUNT_100HZ_MAX = 1_000_000; 
+    // localparam COUNT_100HZ_MAX = 1_000_000;
     // logic [$clog2(COUNT_100HZ_MAX) - 1 : 0] clk_counter_12khz;
 
 
@@ -230,7 +230,7 @@ module top_level
     logic        warning_flag_latched;
     logic        encoder_data_valid_d; //prev value of encoder_data_valid
     logic        send_pending;
-    
+
     //data latching
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
@@ -246,7 +246,7 @@ module top_level
         else begin
             // Edge detect on data_valid
             encoder_data_valid_d <= encoder_data_valid;
-            
+
             // Latch incoming SPI data
             if (encoder_data_valid && !encoder_data_valid_d) begin
                 encoder_data_latched     <= encoder_data_out;
@@ -267,7 +267,7 @@ module top_level
     logic [15:0] sin_out;
     logic [31:0] display_num;
     logic [31:0] cos_sin_out_latched;
-    assign display_num = {cos_out, sin_out}; 
+    assign display_num = {cos_out, sin_out};
 
     logic [15:0] angle_in;
     localparam COUNT_100HZ_MAX = 1_000_000;
@@ -278,17 +278,17 @@ module top_level
             cordic_clk_counter <= 0;
             angle_in <= 0;
             cos_sin_out_latched <= 0;
-        end 
+        end
         else begin
         cos_sin_out_latched <= display_num;
-        
+
         if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
             angle_in <= angle_in + 182; //65536/360 = 182 counts = 1 degree
-            cordic_clk_counter <= 0;    
+            cordic_clk_counter <= 0;
         end else cordic_clk_counter <= cordic_clk_counter + 1;
         end
     end
-    
+
     localparam CORDIC_BIT_WIDTH = 16;
 
     cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
@@ -369,46 +369,73 @@ module top_level
     // *************************************************** //
 
 
-    // ***************** CORDIC TEST ***************** //
+    // ***************** HARMONICS & MODULATORS TEST ***************** //
     localparam NUM_MODULATORS = 8;
     localparam MAX_HARMONIC = 10;
 
     logic [NUM_MODULATORS-1:0] [CORDIC_BIT_WIDTH-1:0] mod_sum_out_arr;
     logic [NUM_MODULATORS-1:0] mod_val_out_arr, mod_busy_arr;
-    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] a_test_vals;
-    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] b_test_vals;
-    logic [CORDIC_BIT_WIDTH-1:0] phase;
+    // logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] a_test_vals;
+    // logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] b_test_vals;
+    logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] a_test_vals [NUM_MODULATORS];
+    logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] b_test_vals [NUM_MODULATORS];
 
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
-            a_test_vals <= 0;
-            b_test_vals <= 0;
-            phase <= 0;
-        end 
-        else begin
-            for (int k = 0; k < MAX_HARMONIC; k++) begin
-                a_test_vals[k] <= a_test_vals[k] + (k + 1);   // different rate per harmonic
-                b_test_vals[k] <= b_test_vals[k] + (2*k + 1);
+            for (int m = 0; m < NUM_MODULATORS; m++) begin
+                a_test_vals[m] <= '0;
+                b_test_vals[m] <= '0;
             end
-            phase <= phase + 16'd37;
+        end else begin
+            for (int m = 0; m < NUM_MODULATORS; m++) // different test coefficients for each signal so that vivado doesn't synth away
+                for (int k = 0; k < MAX_HARMONIC; k++) begin
+                    a_test_vals[m][k] <= a_test_vals[m][k] + (k + 1 + m);
+                    b_test_vals[m][k] <= b_test_vals[m][k] + (2*k + 1 + 3*m);
+                end
         end
     end
 
-    generate
-        for (genvar i = 0; i < NUM_MODULATORS; i++) begin : gen_modulators
-            logic signed [CORDIC_BIT_WIDTH-1:0] angle_in;
-            assign angle_in = phase + (i * (1 << CORDIC_BIT_WIDTH)) / NUM_MODULATORS ; // wraps naturally, which is correct for angles
+    logic [CORDIC_BIT_WIDTH-1:0] phase;
+    logic signed [CORDIC_BIT_WIDTH-1:0] angle_n;
+    always_ff @(posedge clk_100mhz)
+        if (rst) phase <= '0;
+        else     phase <= phase + 16'd37;
+    assign angle_n = phase;
 
+    logic hgen_valid;
+    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] cos_reg; // Output cosine for [1, MAX_HARMONIC]
+    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] sin_reg;
+    // logic signed [CORDIC_BIT_WIDTH-1:0] angle_in;
+    // assign angle_in = phase + (i * (1 << CORDIC_BIT_WIDTH)) / NUM_MODULATORS ; // wraps naturally, which is correct for angles
+
+    harmonic_generator #(
+        .MAX_HARMONIC(MAX_HARMONIC),
+        .DATA_WIDTH(CORDIC_BIT_WIDTH)
+    ) full_hgen (
+        .clk(clk_100mhz),
+        .rst(rst),
+        .data_valid_in(1'b1),
+        .angle(angle_n),
+        .cos_arr_out(cos_reg),
+        .sin_arr_out(sin_reg),
+        .data_valid_out(hgen_valid),
+        .busy()
+    );
+
+
+    generate
+        for (genvar i = 0; i < NUM_MODULATORS; i++) begin : signal_modulators
             modulator #(
                 .MAX_HARMONIC(MAX_HARMONIC),
                 .DATA_WIDTH(CORDIC_BIT_WIDTH)
             ) kth_modulator (
                 .clk(clk_100mhz),
                 .rst(rst),
-                .data_valid_in(1'b1),
-                .angle(angle_in),
-                .a_values(a_test_vals),
-                .b_values(b_test_vals),
+                .data_valid_in(hgen_valid),
+                .a_values(a_test_vals[i]),
+                .b_values(b_test_vals[i]),
+                .cos_harmonics(cos_reg),
+                .sin_harmonics(sin_reg),
                 .modulator_sum_out(mod_sum_out_arr[i]),
                 .data_valid_out(mod_val_out_arr[i]),
                 .busy(mod_busy_arr[i])
@@ -422,7 +449,7 @@ module top_level
 
 
     // ***************** LED Logic ***************** //
-    
+
     assign led[15] = rst; //sw[15];            // Auto-trigger mode indicator
     assign led[14] = enco_busy;              // Busy indicator
     assign led[13] = error_flag;        // Error flag
@@ -431,15 +458,15 @@ module top_level
     // assign led[10] = test_trigger;
     assign led[9:0] = encoder_position_latched[ENCO_POS_DATA_WIDTH - 1 : ENCO_POS_DATA_WIDTH - 10];  // Upper 10 bits of position
 
-    // RGB0: Error/Warning/OK status - 
+    // RGB0: Error/Warning/OK status -
     assign rgb0[0] = error_flag_latched;                        // Red = Error
     assign rgb0[1] = warning_flag_latched && !error_flag_latched;       // Green = Warning
     assign rgb0[2] = !error_flag_latched && !warning_flag_latched;      // Blue = OK
-    
+
     // RGB1: Busy/Activity indicator (blink on data valid)
     logic [23:0] blink_counter;
     logic blink;
-    
+
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
             blink_counter <= '0;
@@ -450,17 +477,17 @@ module top_level
             end else if (blink_counter > 0) begin
                 blink_counter <= blink_counter - 1;
             end
-            
+
             blink <= (blink_counter > 0);
         end
     end
-    
+
     assign rgb1[0] = 1'b0;
     assign rgb1[1] = blink;  // Green blink on new data
     assign rgb1[2] = 1'b0;
 
     // *************************************************** //
-    logic [7:0] lights; 
+    logic [7:0] lights;
 
     // Working SPI
     // spi_peripheral #(
@@ -481,7 +508,7 @@ module top_level
 
     assign led[10] = spi_busy;
 
-    
+
 
     logic [ENCO_SPI_PKT_WIDTH - 1:0] spi_packet;
     logic [ENCO_SPI_PKT_WIDTH - 1:0] spi_shift_reg;
@@ -527,7 +554,7 @@ module top_level
             spi_byte_count         <= 3'b0;
             spi_packet_ready       <= 1'b0;
             encoder_data_available <= 1'b0;  // NEW
-        end 
+        end
         else if (spi_packet_ready) spi_packet_ready <= 1'b0;  // Drop interrupt
 
         //complete transaction
@@ -535,20 +562,20 @@ module top_level
             spi_byte_count         <= 3'b0;
             encoder_data_available <= 1'b0;  // Mark data as consumed
         end
-        
-        // Shift to next byte 
+
+        // Shift to next byte
         else if (spi_byte_valid) begin
             spi_shift_reg  <= {8'b0, spi_shift_reg[ENCO_SPI_PKT_WIDTH-1:8]};
             spi_byte_count <= spi_byte_count + 1'b1;
         end
-        
+
         //Load new encoder data
-        else if (encoder_data_valid && !encoder_data_valid_d) begin 
+        else if (encoder_data_valid && !encoder_data_valid_d) begin
             // Always load fresh encoder data when it arrives
             spi_shift_reg          <= spi_packet;
             spi_byte_count         <= 3'b0;
             encoder_data_available <= 1'b1;  // Mark as available
-            
+
             // Raise interrupt ONLY if SPI is idle
             if (!spi_busy && !spi_packet_ready) begin
                 spi_packet_ready <= 1'b1;
@@ -558,13 +585,13 @@ module top_level
 
     assign spi_data_to_send = spi_shift_reg[7:0]; //why are bottom bits being grabbed first
 
-    
+
     // Packet format signals
     // logic [39:0] uart_packet;
     // logic [39:0] uart_shift_reg;
     // logic [2:0]  uart_byte_count;  // 3 bits to count 0-7
     // logic        packet_waiting;
-    
+
     // logic [7:0]  uart_data_in;
     // logic        uart_data_valid;
     // logic        uart_busy;
@@ -592,9 +619,9 @@ module top_level
     //     };
     // end
 
-    
 
-  
+
+
     // always_ff @(posedge clk_100mhz) begin
     //     if (rst) begin
     //         // Data latching signals
@@ -604,15 +631,15 @@ module top_level
     //         warning_flag_latched     <= 1'b0;
     //         encoder_data_valid_d             <= 1'b0;
     //         send_pending             <= 1'b0;
-            
+
     //         // UART transmission signals
     //         // uart_shift_reg           <= 40'd0;
     //         // uart_byte_count          <= 3'd0;
-    //         // packet_waiting           <= 1'b0; 
+    //         // packet_waiting           <= 1'b0;
     //     end else begin
     //         // Edge detect on data_valid
     //         encoder_data_valid_d <= data_valid;
-            
+
     //         // Latch incoming SSI data
     //         if (data_valid && !encoder_data_valid_d) begin
     //             encoder_position_latched <= encoder_position;
@@ -621,14 +648,14 @@ module top_level
     //             warning_flag_latched     <= warning_flag;
     //             send_pending             <= 1'b1;
     //         end
-            
+
     //         // Load packet when ready
     //         // if (send_pending && !packet_waiting) begin
     //         //     uart_shift_reg  <= uart_packet;
     //         //     uart_byte_count <= 3'd0;
     //         //     packet_waiting  <= 1'b1;
     //         //     send_pending    <= 1'b0;  // Clear flag after loading
-    //         // end 
+    //         // end
     //         // Transmit bytes one at a time
     //         // else if (uart_data_valid) begin
     //         //     if (uart_byte_count == 3'd7) begin  // 0-7 = 8 bytes
@@ -656,7 +683,7 @@ module top_level
 
     // assign uart_data_valid = packet_waiting && !uart_busy;
     // assign uart_data_in    = uart_shift_reg[7:0];
-    
+
 
 endmodule
 

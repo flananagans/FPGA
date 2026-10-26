@@ -1,0 +1,169 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date             : Mon Oct 26 18:38:57 2026
+| Host             : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Command          : report_power -file obj/post_route_power.rpt
+| Design           : top_level
+| Device           : xc7s50csga324-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 0.526        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.454        |
+| Device Static (W)        | 0.073        |
+| Effective TJA (C/W)      | 4.9          |
+| Max Ambient (C)          | 82.4         |
+| Junction Temperature (C) | 27.6         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |     0.056 |        3 |       --- |             --- |
+| Slice Logic             |     0.167 |    32790 |       --- |             --- |
+|   LUT as Logic          |     0.137 |    11682 |     32600 |           35.83 |
+|   CARRY4                |     0.018 |     2871 |      8150 |           35.23 |
+|   Register              |     0.012 |    16599 |     65200 |           25.46 |
+|   LUT as Shift Register |    <0.001 |       10 |      9600 |            0.10 |
+|   F7/F8 Muxes           |    <0.001 |        2 |     32600 |           <0.01 |
+|   Others                |     0.000 |       74 |       --- |             --- |
+| Signals                 |     0.201 |    22504 |       --- |             --- |
+| DSPs                    |     0.020 |       24 |       120 |           20.00 |
+| I/O                     |     0.009 |       53 |       210 |           25.24 |
+| Static Power            |     0.073 |          |           |                 |
+| Total                   |     0.526 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint    |       1.000 |     0.455 |       0.445 |      0.010 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 4.9                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+------------+-----------------+
+| Clock | Domain     | Constraint (ns) |
++-------+------------+-----------------+
+| gclk  | clk_100mhz |            10.0 |
++-------+------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++--------------------------------------+-----------+
+| Name                                 | Power (W) |
++--------------------------------------+-----------+
+| top_level                            |     0.454 |
+|   full_hgen                          |     0.324 |
+|     gen_harmonics[0].nth_cordic      |     0.030 |
+|     gen_harmonics[1].nth_cordic      |     0.031 |
+|     gen_harmonics[2].nth_cordic      |     0.034 |
+|     gen_harmonics[3].nth_cordic      |     0.031 |
+|     gen_harmonics[4].nth_cordic      |     0.034 |
+|     gen_harmonics[5].nth_cordic      |     0.033 |
+|     gen_harmonics[6].nth_cordic      |     0.034 |
+|     gen_harmonics[7].nth_cordic      |     0.030 |
+|     gen_harmonics[8].nth_cordic      |     0.035 |
+|     gen_harmonics[9].nth_cordic      |     0.033 |
+|   multiple_continuous_signal_gen     |     0.028 |
+|     u_sin                            |     0.026 |
+|       cordic                         |     0.025 |
+|   signal_modulators[0].kth_modulator |     0.009 |
+|   signal_modulators[1].kth_modulator |     0.009 |
+|   signal_modulators[2].kth_modulator |     0.009 |
+|   signal_modulators[3].kth_modulator |     0.009 |
+|   signal_modulators[4].kth_modulator |     0.009 |
+|   signal_modulators[5].kth_modulator |     0.011 |
+|   signal_modulators[6].kth_modulator |     0.010 |
+|   signal_modulators[7].kth_modulator |     0.010 |
++--------------------------------------+-----------+
+
+

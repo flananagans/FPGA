@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Oct 26 11:28:20 2026
+| Date         : Mon Oct 26 18:34:29 2026
 | Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
@@ -19,126 +19,42 @@ Table of Contents
 1. Utilization by Hierarchy
 ---------------------------
 
-+---------------------------------------+-----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
-|                Instance               |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
-+---------------------------------------+-----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
-| top_level                             |                       (top) |      74569 |      74481 |       0 |   88 | 82201 |      0 |      0 |         24 |
-|   (top_level)                         |                       (top) |         38 |         38 |       0 |    0 |   322 |      0 |      0 |          0 |
-|   cordic_fpga_to_psoc                 |              spi_peripheral |         12 |         12 |       0 |    0 |    13 |      0 |      0 |          0 |
-|   fpga_spi_con_to_enco                |                     spi_con |         91 |         91 |       0 |    0 |    68 |      0 |      0 |          0 |
-|   gen_modulators[0].kth_modulator     |                   modulator |       9183 |       9172 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[0].kth_modulator) |                   modulator |        202 |        202 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_83 |       8981 |       8970 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_84 |        895 |        894 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_85 |        890 |        889 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_86 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_87 |        876 |        875 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_88 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_89 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_90 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_91 |        873 |        872 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_92 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_93 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[1].kth_modulator     |                 modulator_0 |       9185 |       9174 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[1].kth_modulator) |                 modulator_0 |        201 |        201 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_72 |       8984 |       8973 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_73 |        895 |        894 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_74 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_75 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_76 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_77 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_78 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_79 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_80 |        874 |        873 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_81 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_82 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[2].kth_modulator     |                 modulator_1 |       9185 |       9174 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[2].kth_modulator) |                 modulator_1 |        202 |        202 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_61 |       8983 |       8972 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_62 |        895 |        894 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_63 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_64 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_65 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_66 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_67 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_68 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_69 |        873 |        872 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_70 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_71 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[3].kth_modulator     |                 modulator_2 |       9184 |       9173 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[3].kth_modulator) |                 modulator_2 |        200 |        200 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_50 |       8984 |       8973 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_51 |        896 |        895 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_52 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_53 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_54 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_55 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_56 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_57 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_58 |        873 |        872 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_59 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_60 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[4].kth_modulator     |                 modulator_3 |       9183 |       9172 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[4].kth_modulator) |                 modulator_3 |        202 |        202 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_39 |       8981 |       8970 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_40 |        894 |        893 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_41 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_42 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_43 |        876 |        875 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_44 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_45 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_46 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_47 |        873 |        872 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_48 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_49 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[5].kth_modulator     |                 modulator_4 |       9185 |       9174 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[5].kth_modulator) |                 modulator_4 |        201 |        201 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_28 |       8984 |       8973 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_29 |        896 |        895 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_30 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_31 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_32 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_33 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_34 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_35 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_36 |        873 |        872 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_37 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_38 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[6].kth_modulator     |                 modulator_5 |       9184 |       9173 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[6].kth_modulator) |                 modulator_5 |        200 |        200 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |       harmonic_generator_17 |       8984 |       8973 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |            cordic_cossin_18 |        896 |        895 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |            cordic_cossin_19 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |            cordic_cossin_20 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_21 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_22 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_23 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_24 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_25 |        873 |        872 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_26 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_27 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   gen_modulators[7].kth_modulator     |                 modulator_6 |       9188 |       9177 |       0 |   11 | 10076 |      0 |      0 |          3 |
-|     (gen_modulators[7].kth_modulator) |                 modulator_6 |        202 |        202 |       0 |    0 |   574 |      0 |      0 |          3 |
-|     serial_hgen                       |          harmonic_generator |       8986 |       8975 |       0 |   11 |  9502 |      0 |      0 |          0 |
-|       gen_harmonics[0].nth_cordic     |             cordic_cossin_7 |        897 |        896 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[1].nth_cordic     |             cordic_cossin_8 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[2].nth_cordic     |             cordic_cossin_9 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[3].nth_cordic     |            cordic_cossin_10 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
-|       gen_harmonics[4].nth_cordic     |            cordic_cossin_11 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[5].nth_cordic     |            cordic_cossin_12 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
-|       gen_harmonics[6].nth_cordic     |            cordic_cossin_13 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
-|       gen_harmonics[7].nth_cordic     |            cordic_cossin_14 |        874 |        873 |       0 |    1 |   914 |      0 |      0 |          0 |
-|       gen_harmonics[8].nth_cordic     |            cordic_cossin_15 |        912 |        910 |       0 |    2 |   965 |      0 |      0 |          0 |
-|       gen_harmonics[9].nth_cordic     |            cordic_cossin_16 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
-|   multiple_continuous_signal_gen      |      multi_cont_test_signal |        951 |        951 |       0 |    0 |  1190 |      0 |      0 |          0 |
-|     (multiple_continuous_signal_gen)  |      multi_cont_test_signal |         10 |         10 |       0 |    0 |    46 |      0 |      0 |          0 |
-|     u_const                           | test_signal__parameterized3 |          8 |          8 |       0 |    0 |    20 |      0 |      0 |          0 |
-|     u_saw                             |                 test_signal |         13 |         13 |       0 |    0 |    62 |      0 |      0 |          0 |
-|     u_sin                             | test_signal__parameterized2 |        871 |        871 |       0 |    0 |   976 |      0 |      0 |          0 |
-|       (u_sin)                         | test_signal__parameterized2 |         29 |         29 |       0 |    0 |    47 |      0 |      0 |          0 |
-|       cordic                          |               cordic_cossin |        842 |        842 |       0 |    0 |   929 |      0 |      0 |          0 |
-|     u_sqr                             | test_signal__parameterized1 |         10 |         10 |       0 |    0 |    21 |      0 |      0 |          0 |
-|     u_tri                             | test_signal__parameterized0 |         39 |         39 |       0 |    0 |    65 |      0 |      0 |          0 |
-+---------------------------------------+-----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
++--------------------------------------+-----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|               Instance               |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++--------------------------------------+-----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| top_level                            |                       (top) |      11754 |      11744 |       0 |   10 | 16338 |      0 |      0 |         24 |
+|   (top_level)                        |                       (top) |        101 |        101 |       0 |    0 |   640 |      0 |      0 |          0 |
+|   cordic_fpga_to_psoc                |              spi_peripheral |         12 |         12 |       0 |    0 |    13 |      0 |      0 |          0 |
+|   fpga_spi_con_to_enco               |                     spi_con |         96 |         96 |       0 |    0 |    68 |      0 |      0 |          0 |
+|   full_hgen                          |          harmonic_generator |       8995 |       8985 |       0 |   10 |  9518 |      0 |      0 |          0 |
+|     (full_hgen)                      |          harmonic_generator |          0 |          0 |       0 |    0 |     1 |      0 |      0 |          0 |
+|     gen_harmonics[0].nth_cordic      |             cordic_cossin_7 |        894 |        893 |       0 |    1 |   963 |      0 |      0 |          0 |
+|     gen_harmonics[1].nth_cordic      |             cordic_cossin_8 |        891 |        890 |       0 |    1 |   947 |      0 |      0 |          0 |
+|     gen_harmonics[2].nth_cordic      |             cordic_cossin_9 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
+|     gen_harmonics[3].nth_cordic      |            cordic_cossin_10 |        877 |        876 |       0 |    1 |   930 |      0 |      0 |          0 |
+|     gen_harmonics[4].nth_cordic      |            cordic_cossin_11 |        908 |        907 |       0 |    1 |   963 |      0 |      0 |          0 |
+|     gen_harmonics[5].nth_cordic      |            cordic_cossin_12 |        905 |        904 |       0 |    1 |   947 |      0 |      0 |          0 |
+|     gen_harmonics[6].nth_cordic      |            cordic_cossin_13 |        909 |        908 |       0 |    1 |   963 |      0 |      0 |          0 |
+|     gen_harmonics[7].nth_cordic      |            cordic_cossin_14 |        874 |        873 |       0 |    1 |   914 |      0 |      0 |          0 |
+|     gen_harmonics[8].nth_cordic      |            cordic_cossin_15 |        924 |        923 |       0 |    1 |   980 |      0 |      0 |          0 |
+|     gen_harmonics[9].nth_cordic      |            cordic_cossin_16 |        904 |        903 |       0 |    1 |   947 |      0 |      0 |          0 |
+|   multiple_continuous_signal_gen     |      multi_cont_test_signal |        952 |        952 |       0 |    0 |  1190 |      0 |      0 |          0 |
+|     (multiple_continuous_signal_gen) |      multi_cont_test_signal |         10 |         10 |       0 |    0 |    46 |      0 |      0 |          0 |
+|     u_const                          | test_signal__parameterized3 |          8 |          8 |       0 |    0 |    20 |      0 |      0 |          0 |
+|     u_saw                            |                 test_signal |         13 |         13 |       0 |    0 |    62 |      0 |      0 |          0 |
+|     u_sin                            | test_signal__parameterized2 |        872 |        872 |       0 |    0 |   976 |      0 |      0 |          0 |
+|       (u_sin)                        | test_signal__parameterized2 |         29 |         29 |       0 |    0 |    47 |      0 |      0 |          0 |
+|       cordic                         |               cordic_cossin |        843 |        843 |       0 |    0 |   929 |      0 |      0 |          0 |
+|     u_sqr                            | test_signal__parameterized1 |         10 |         10 |       0 |    0 |    21 |      0 |      0 |          0 |
+|     u_tri                            | test_signal__parameterized0 |         39 |         39 |       0 |    0 |    65 |      0 |      0 |          0 |
+|   signal_modulators[0].kth_modulator |                   modulator |        202 |        202 |       0 |    0 |   573 |      0 |      0 |          3 |
+|   signal_modulators[1].kth_modulator |                 modulator_0 |        198 |        198 |       0 |    0 |   578 |      0 |      0 |          3 |
+|   signal_modulators[2].kth_modulator |                 modulator_1 |        202 |        202 |       0 |    0 |   604 |      0 |      0 |          3 |
+|   signal_modulators[3].kth_modulator |                 modulator_2 |        197 |        197 |       0 |    0 |   605 |      0 |      0 |          3 |
+|   signal_modulators[4].kth_modulator |                 modulator_3 |        202 |        202 |       0 |    0 |   637 |      0 |      0 |          3 |
+|   signal_modulators[5].kth_modulator |                 modulator_4 |        198 |        198 |       0 |    0 |   632 |      0 |      0 |          3 |
+|   signal_modulators[6].kth_modulator |                 modulator_5 |        200 |        200 |       0 |    0 |   650 |      0 |      0 |          3 |
+|   signal_modulators[7].kth_modulator |                 modulator_6 |        199 |        199 |       0 |    0 |   630 |      0 |      0 |          3 |
++--------------------------------------+-----------------------------+------------+------------+---------+------+-------+--------+--------+------------+
 
 
