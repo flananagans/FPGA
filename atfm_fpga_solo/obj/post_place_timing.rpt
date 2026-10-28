@@ -1,30 +1,30 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Oct 26 18:36:02 2026
+| Date         : Wed Oct 28 01:42:17 2026
 | Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_timing -file obj/post_place_timing.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
 | Speed File   : -1  PRODUCTION 1.23 2018-06-13
-| Design State : Physopt postPlace
+| Design State : Fully Placed
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 Timing Report
 
-Slack (VIOLATED) :        -2.599ns  (required time - arrival time)
-  Source:                 signal_modulators[5].kth_modulator/cos_reg_reg[6][6]/C
+Slack (MET) :             1.851ns  (required time - arrival time)
+  Source:                 full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[15].x_pipe_reg[16][0]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            signal_modulators[5].kth_modulator/modulator_sum_out_reg[2]/D
+  Destination:            signal_modulators[3].kth_modulator/cos_reg_reg[0][1]/D
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        12.231ns  (logic 7.786ns (63.658%)  route 4.445ns (36.342%))
-  Logic Levels:           5  (DSP48E1=3 LUT6=2)
-  Clock Path Skew:        -0.288ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.774ns = ( 14.774 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.243ns
+  Data Path Delay:        7.721ns  (logic 2.560ns (33.156%)  route 5.161ns (66.844%))
+  Logic Levels:           7  (CARRY4=4 LUT1=1 LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.290ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.766ns = ( 14.766 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.237ns
     Clock Pessimism Removal (CPR):    0.182ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -40,25 +40,30 @@ Slack (VIOLATED) :        -2.599ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16617, estimated)    1.735     5.243    signal_modulators[5].kth_modulator/clk_100mhz_IBUF_BUFG
-    SLICE_X48Y107        FDRE                                         r  signal_modulators[5].kth_modulator/cos_reg_reg[6][6]/C
+                         net (fo=16640, estimated)    1.729     5.237    full_hgen/gen_harmonics[0].nth_cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X25Y134        FDRE                                         r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[15].x_pipe_reg[16][0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X48Y107        FDRE (Prop_fdre_C_Q)         0.456     5.699 r  signal_modulators[5].kth_modulator/cos_reg_reg[6][6]/Q
-                         net (fo=1, estimated)        0.995     6.694    signal_modulators[5].kth_modulator/cos_reg_reg[6]_33[6]
-    SLICE_X48Y107        LUT6 (Prop_lut6_I1_O)        0.124     6.818 r  signal_modulators[5].kth_modulator/modulator_sum_out3_i_52__4/O
-                         net (fo=1, estimated)        0.974     7.792    signal_modulators[5].kth_modulator/modulator_sum_out3_i_52__4_n_0
-    SLICE_X47Y98         LUT6 (Prop_lut6_I3_O)        0.124     7.916 r  signal_modulators[5].kth_modulator/modulator_sum_out3_i_10__4/O
-                         net (fo=1, estimated)        1.130     9.046    signal_modulators[5].kth_modulator/cos_reg[6]
-    DSP48_X1Y44          DSP48E1 (Prop_dsp48e1_B[6]_PCOUT[47])
-                                                      3.851    12.897 r  signal_modulators[5].kth_modulator/modulator_sum_out3/PCOUT[47]
-                         net (fo=1, estimated)        0.000    12.897    signal_modulators[5].kth_modulator/modulator_sum_out3_n_106
-    DSP48_X1Y45          DSP48E1 (Prop_dsp48e1_PCIN[47]_PCOUT[47])
-                                                      1.713    14.610 r  signal_modulators[5].kth_modulator/modulator_sum_out1/PCOUT[47]
-                         net (fo=1, estimated)        0.000    14.610    signal_modulators[5].kth_modulator/modulator_sum_out1_n_106
-    DSP48_X1Y46          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[17])
-                                                      1.518    16.128 r  signal_modulators[5].kth_modulator/modulator_sum_out1__0/P[17]
-                         net (fo=2, estimated)        1.346    17.474    signal_modulators[5].kth_modulator/modulator_sum_out1__0_n_88
-    SLICE_X54Y97         FDRE                                         r  signal_modulators[5].kth_modulator/modulator_sum_out_reg[2]/D
+    SLICE_X25Y134        FDRE (Prop_fdre_C_Q)         0.456     5.693 f  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[15].x_pipe_reg[16][0]/Q
+                         net (fo=2, estimated)        0.860     6.553    full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[15].x_pipe_reg[16]_76[0]
+    SLICE_X27Y136        LUT1 (Prop_lut1_I0_O)        0.149     6.702 r  full_hgen/gen_harmonics[0].nth_cordic/cos_reg[0][4]_i_3/O
+                         net (fo=1, estimated)        0.506     7.208    full_hgen/gen_harmonics[0].nth_cordic/cos_reg[0][4]_i_3_n_0
+    SLICE_X26Y135        CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.788     7.996 r  full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][4]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     7.996    full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][4]_i_2_n_0
+    SLICE_X26Y136        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.110 r  full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][8]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     8.110    full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][8]_i_2_n_0
+    SLICE_X26Y137        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.224 r  full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][12]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     8.224    full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][12]_i_2_n_0
+    SLICE_X26Y138        CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.537 f  full_hgen/gen_harmonics[0].nth_cordic/cos_reg_reg[0][15]_i_2/O[3]
+                         net (fo=3, estimated)        0.578     9.115    full_hgen/gen_harmonics[0].nth_cordic/inp0[16]
+    SLICE_X28Y139        LUT3 (Prop_lut3_I0_O)        0.300     9.415 f  full_hgen/gen_harmonics[0].nth_cordic/cos_reg[0][14]_i_2/O
+                         net (fo=14, estimated)       0.645    10.060    full_hgen/gen_harmonics[0].nth_cordic/inp[16]
+    SLICE_X27Y136        LUT6 (Prop_lut6_I3_O)        0.326    10.386 r  full_hgen/gen_harmonics[0].nth_cordic/cos_reg[0][1]_i_1/O
+                         net (fo=8, estimated)        2.572    12.958    signal_modulators[3].kth_modulator/cos_reg_reg[0][15]_0[1]
+    SLICE_X28Y90         FDRE                                         r  signal_modulators[3].kth_modulator/cos_reg_reg[0][1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -67,16 +72,16 @@ Slack (VIOLATED) :        -2.599ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.873    13.244    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.335 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16617, estimated)    1.439    14.774    signal_modulators[5].kth_modulator/clk_100mhz_IBUF_BUFG
-    SLICE_X54Y97         FDRE                                         r  signal_modulators[5].kth_modulator/modulator_sum_out_reg[2]/C
-                         clock pessimism              0.182    14.955    
-                         clock uncertainty           -0.035    14.920    
-    SLICE_X54Y97         FDRE (Setup_fdre_C_D)       -0.045    14.875    signal_modulators[5].kth_modulator/modulator_sum_out_reg[2]
+                         net (fo=16640, estimated)    1.431    14.766    signal_modulators[3].kth_modulator/clk_100mhz_IBUF_BUFG
+    SLICE_X28Y90         FDRE                                         r  signal_modulators[3].kth_modulator/cos_reg_reg[0][1]/C
+                         clock pessimism              0.182    14.947    
+                         clock uncertainty           -0.035    14.912    
+    SLICE_X28Y90         FDRE (Setup_fdre_C_D)       -0.103    14.809    signal_modulators[3].kth_modulator/cos_reg_reg[0][1]
   -------------------------------------------------------------------
-                         required time                         14.875    
-                         arrival time                         -17.474    
+                         required time                         14.809    
+                         arrival time                         -12.958    
   -------------------------------------------------------------------
-                         slack                                 -2.599    
+                         slack                                  1.851    
 
 
 

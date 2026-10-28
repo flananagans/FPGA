@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Oct 26 18:38:59 2026
+| Date         : Wed Oct 28 01:42:58 2026
 | Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_drc -file obj/post_imp_drc.rpt
 | Design       : top_level
@@ -24,12 +24,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 46
+             Violations found: 1
 +----------+----------+-----------------------------------------------------+------------+
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| DPIP-1   | Warning  | Input pipelining                                    | 45         |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -45,231 +44,6 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
-Related violations: <none>
-
-DPIP-1#1 Warning
-Input pipelining  
-DSP signal_modulators[0].kth_modulator/modulator_sum_out1 input signal_modulators[0].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#2 Warning
-Input pipelining  
-DSP signal_modulators[0].kth_modulator/modulator_sum_out1 input signal_modulators[0].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#3 Warning
-Input pipelining  
-DSP signal_modulators[0].kth_modulator/modulator_sum_out1__0 input signal_modulators[0].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#4 Warning
-Input pipelining  
-DSP signal_modulators[0].kth_modulator/modulator_sum_out1__0 input signal_modulators[0].kth_modulator/modulator_sum_out1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#5 Warning
-Input pipelining  
-DSP signal_modulators[0].kth_modulator/modulator_sum_out3 input signal_modulators[0].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#6 Warning
-Input pipelining  
-DSP signal_modulators[0].kth_modulator/modulator_sum_out3 input signal_modulators[0].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#7 Warning
-Input pipelining  
-DSP signal_modulators[1].kth_modulator/modulator_sum_out1 input signal_modulators[1].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#8 Warning
-Input pipelining  
-DSP signal_modulators[1].kth_modulator/modulator_sum_out1 input signal_modulators[1].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#9 Warning
-Input pipelining  
-DSP signal_modulators[1].kth_modulator/modulator_sum_out3 input signal_modulators[1].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#10 Warning
-Input pipelining  
-DSP signal_modulators[1].kth_modulator/modulator_sum_out3 input signal_modulators[1].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#11 Warning
-Input pipelining  
-DSP signal_modulators[2].kth_modulator/modulator_sum_out1 input signal_modulators[2].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#12 Warning
-Input pipelining  
-DSP signal_modulators[2].kth_modulator/modulator_sum_out1 input signal_modulators[2].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#13 Warning
-Input pipelining  
-DSP signal_modulators[2].kth_modulator/modulator_sum_out1__0 input signal_modulators[2].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#14 Warning
-Input pipelining  
-DSP signal_modulators[2].kth_modulator/modulator_sum_out3 input signal_modulators[2].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#15 Warning
-Input pipelining  
-DSP signal_modulators[2].kth_modulator/modulator_sum_out3 input signal_modulators[2].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#16 Warning
-Input pipelining  
-DSP signal_modulators[3].kth_modulator/modulator_sum_out1 input signal_modulators[3].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#17 Warning
-Input pipelining  
-DSP signal_modulators[3].kth_modulator/modulator_sum_out1 input signal_modulators[3].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#18 Warning
-Input pipelining  
-DSP signal_modulators[3].kth_modulator/modulator_sum_out1__0 input signal_modulators[3].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#19 Warning
-Input pipelining  
-DSP signal_modulators[3].kth_modulator/modulator_sum_out1__0 input signal_modulators[3].kth_modulator/modulator_sum_out1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#20 Warning
-Input pipelining  
-DSP signal_modulators[3].kth_modulator/modulator_sum_out3 input signal_modulators[3].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#21 Warning
-Input pipelining  
-DSP signal_modulators[3].kth_modulator/modulator_sum_out3 input signal_modulators[3].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#22 Warning
-Input pipelining  
-DSP signal_modulators[4].kth_modulator/modulator_sum_out1 input signal_modulators[4].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#23 Warning
-Input pipelining  
-DSP signal_modulators[4].kth_modulator/modulator_sum_out1 input signal_modulators[4].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#24 Warning
-Input pipelining  
-DSP signal_modulators[4].kth_modulator/modulator_sum_out1__0 input signal_modulators[4].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#25 Warning
-Input pipelining  
-DSP signal_modulators[4].kth_modulator/modulator_sum_out1__0 input signal_modulators[4].kth_modulator/modulator_sum_out1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#26 Warning
-Input pipelining  
-DSP signal_modulators[4].kth_modulator/modulator_sum_out3 input signal_modulators[4].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#27 Warning
-Input pipelining  
-DSP signal_modulators[4].kth_modulator/modulator_sum_out3 input signal_modulators[4].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#28 Warning
-Input pipelining  
-DSP signal_modulators[5].kth_modulator/modulator_sum_out1 input signal_modulators[5].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#29 Warning
-Input pipelining  
-DSP signal_modulators[5].kth_modulator/modulator_sum_out1 input signal_modulators[5].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#30 Warning
-Input pipelining  
-DSP signal_modulators[5].kth_modulator/modulator_sum_out1__0 input signal_modulators[5].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#31 Warning
-Input pipelining  
-DSP signal_modulators[5].kth_modulator/modulator_sum_out1__0 input signal_modulators[5].kth_modulator/modulator_sum_out1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#32 Warning
-Input pipelining  
-DSP signal_modulators[5].kth_modulator/modulator_sum_out3 input signal_modulators[5].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#33 Warning
-Input pipelining  
-DSP signal_modulators[5].kth_modulator/modulator_sum_out3 input signal_modulators[5].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#34 Warning
-Input pipelining  
-DSP signal_modulators[6].kth_modulator/modulator_sum_out1 input signal_modulators[6].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#35 Warning
-Input pipelining  
-DSP signal_modulators[6].kth_modulator/modulator_sum_out1 input signal_modulators[6].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#36 Warning
-Input pipelining  
-DSP signal_modulators[6].kth_modulator/modulator_sum_out1__0 input signal_modulators[6].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#37 Warning
-Input pipelining  
-DSP signal_modulators[6].kth_modulator/modulator_sum_out1__0 input signal_modulators[6].kth_modulator/modulator_sum_out1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#38 Warning
-Input pipelining  
-DSP signal_modulators[6].kth_modulator/modulator_sum_out3 input signal_modulators[6].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#39 Warning
-Input pipelining  
-DSP signal_modulators[6].kth_modulator/modulator_sum_out3 input signal_modulators[6].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#40 Warning
-Input pipelining  
-DSP signal_modulators[7].kth_modulator/modulator_sum_out1 input signal_modulators[7].kth_modulator/modulator_sum_out1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#41 Warning
-Input pipelining  
-DSP signal_modulators[7].kth_modulator/modulator_sum_out1 input signal_modulators[7].kth_modulator/modulator_sum_out1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#42 Warning
-Input pipelining  
-DSP signal_modulators[7].kth_modulator/modulator_sum_out1__0 input signal_modulators[7].kth_modulator/modulator_sum_out1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#43 Warning
-Input pipelining  
-DSP signal_modulators[7].kth_modulator/modulator_sum_out1__0 input signal_modulators[7].kth_modulator/modulator_sum_out1__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#44 Warning
-Input pipelining  
-DSP signal_modulators[7].kth_modulator/modulator_sum_out3 input signal_modulators[7].kth_modulator/modulator_sum_out3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-Related violations: <none>
-
-DPIP-1#45 Warning
-Input pipelining  
-DSP signal_modulators[7].kth_modulator/modulator_sum_out3 input signal_modulators[7].kth_modulator/modulator_sum_out3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 
