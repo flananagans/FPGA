@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Oct 28 15:36:31 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Date         : Wed Oct 28 16:14:12 2026
+| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_timing -file obj/post_synth_timing.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
@@ -68,7 +68,7 @@ Slack (MET) :             3.730ns  (required time - arrival time)
                          MUXF7 (Prop_muxf7_I1_O)      0.245     8.304 r  cordic/cipo_internal_reg_i_5/O
                          net (fo=1, unplaced)         0.000     8.304    cordic/cipo_internal_reg_i_5_n_0
                          MUXF8 (Prop_muxf8_I0_O)      0.104     8.408 r  cordic/cipo_internal_reg_i_2/O
-                         net (fo=1, unplaced)         0.312     8.720    cordic_fpga_to_psoc/cipo_internal_reg_1
+                         net (fo=1, unplaced)         0.312     8.720    cordic_fpga_to_psoc/cipo_internal_reg_0
                          LUT5 (Prop_lut5_I0_O)        0.319     9.039 r  cordic_fpga_to_psoc/cipo_internal_i_1/O
                          net (fo=1, unplaced)         0.000     9.039    cordic_fpga_to_psoc/cipo_internal_i_1_n_0
                          FDRE                                         r  cordic_fpga_to_psoc/cipo_internal_reg/D

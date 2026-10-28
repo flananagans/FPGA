@@ -106,40 +106,6 @@ module test_signal
         else                         val_out <= {{DATA_WIDTH{1'b0}}, amp};
     end
 
-    // always_ff @(posedge clk) begin
-    //     if (rst) begin
-    //         val_out <= 0;
-    //     end else begin
-    //         // duty & half counters
-    //         if (duty_counter == 0) begin
-    //             val_out <= MIN_AMP;
-    //         end else begin
-
-    //         case (SIGNAL_TYPE)
-    //             SAWTOOTH: begin
-    //                 val_out <= val_out + STEP;
-    //             end
-
-    //             TRIANGLE: begin
-    //                 if (!end_half_duty) val_out <= val_out + 2*STEP;
-    //                 else val_out <= val_out - 2*STEP;
-    //             end
-
-    //             SQUARE: begin
-    //                 if (!end_half_duty) val_out <= MIN_AMP;
-    //                 else val_out <= MAX_AMP;
-    //             end
-
-    //             SINUSOID: begin
-    //                 val_out <= {cos_out, sin_out};
-    //             end
-
-    //             CONSTANT: val_out <= MAX_AMP;
-    //         default: val_out <= MAX_AMP; //default is CONSTANT
-    //         endcase
-    //         end
-    //     end
-    // end
     
 
 endmodule
