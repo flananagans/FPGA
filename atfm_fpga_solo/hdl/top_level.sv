@@ -272,6 +272,7 @@ module top_level
     logic [15:0] angle_in;
     localparam COUNT_100HZ_MAX = 1_000_000;
     logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
+    localparam STEP = 1;  //65536/360 = 182 counts = 1 degree
 
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
@@ -283,7 +284,7 @@ module top_level
         cos_sin_out_latched <= display_num;
 
         if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
-            angle_in <= angle_in + 182; //65536/360 = 182 counts = 1 degree
+            angle_in <= angle_in + STEP;
             cordic_clk_counter <= 0;
         end else cordic_clk_counter <= cordic_clk_counter + 1;
         end
@@ -301,23 +302,27 @@ module top_level
         .data_cossin_valid_out()
     );
 
-    // Latch, then send over spi
+    // Latch, then send cossin cordic data over spi
 
-    // spi_peripheral #(
-    //     .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
-    // ) cordic_fpga_to_psoc ( //teensy or psoc
-    //     .clk(clk_100mhz),
-    //     .rst(rst),
-    //     .data_in(display_num),    // {cos, sin} data to send to psoc controller
-    //     .data_out(lights),                    // Ignore received data for now
-    //     .data_valid(spi_byte_valid),    // Pulses after each byte
-    //     .busy(spi_busy),
-    //     .copi(copi),
-    //     .cipo(cipo),
-    //     .dclk(dclk),
-    //     .cs(cs)
-    // );
+    spi_peripheral #(
+        .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
+    ) cordic_fpga_to_psoc ( //teensy or psoc
+        .clk(clk_100mhz),
+        .rst(rst),
+        .data_in(display_num),    // {cos, sin} data to send to psoc controller
+        .data_out(lights),                    // Ignore received data for now
+        .data_valid(spi_byte_valid),    // Pulses after each byte
+        .busy(spi_busy),
+        .copi(copi),
+        .cipo(cipo),
+        .dclk(dclk),
+        .cs(cs)
+    );
 
+    // *************************************************** //
+
+
+    // ***************** OTHER FPGA TEST SIGNALS ***************** //
 
     logic [2*CORDIC_BIT_WIDTH-1:0] test_sig_out, latch_sig_out;
     logic [2:0] latch_sig_type_out;
@@ -335,7 +340,7 @@ module top_level
     logic test_sig_spi_busy;
     spi_peripheral #(
         .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
-    ) cordic_fpga_to_psoc ( //teensy or psoc
+    ) test_sig_fpga_to_psoc ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
         .data_in(latch_sig_out),    // {cos, sin} data to send to psoc controller
@@ -352,12 +357,6 @@ module top_level
         if (rst)                    latch_sig_out <= 0;
         else if (!test_sig_spi_busy) latch_sig_out <= test_sig_out;
     end
-
-    // *************************************************** //
-
-
-    // ***************** OTHER FPGA TEST SIGNALS ***************** //
-
     // sawtooth
 
     // triangle
@@ -443,14 +442,14 @@ module top_level
         end
         endgenerate
 
-        assign led[10] = ^mod_sum_out_arr; //for testing, to ensure that it is not synthed away
+        assign led[15] = ^mod_sum_out_arr; //for testing, to ensure that it is not synthed away
 
     // *************************************************** //
 
 
     // ***************** LED Logic ***************** //
 
-    assign led[15] = rst; //sw[15];            // Auto-trigger mode indicator
+    // assign led[15] = rst; //sw[15];            // Auto-trigger mode indicator
     assign led[14] = enco_busy;              // Busy indicator
     assign led[13] = error_flag;        // Error flag
     assign led[12] = warning_flag;      // Warning flag

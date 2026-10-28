@@ -8,9 +8,7 @@
 constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__MAX_HARMONIC;
 constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__DATA_WIDTH;
 constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__MAC_WIDTH;
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__serial_hgen__DOT__MAX_HARMONIC;
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__serial_hgen__DOT__DATA_WIDTH;
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__serial_hgen__DOT__CORDIC_NUM_ITER;
+constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__LOAD_MAC_DELAY;
 
 
 void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf);

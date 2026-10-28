@@ -16,20 +16,11 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , data_valid_in{vlSymsp->TOP.data_valid_in}
     , data_valid_out{vlSymsp->TOP.data_valid_out}
     , busy{vlSymsp->TOP.busy}
-    , angle{vlSymsp->TOP.angle}
     , a_values{vlSymsp->TOP.a_values}
     , b_values{vlSymsp->TOP.b_values}
+    , cos_harmonics{vlSymsp->TOP.cos_harmonics}
+    , sin_harmonics{vlSymsp->TOP.sin_harmonics}
     , modulator_sum_out{vlSymsp->TOP.modulator_sum_out}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic}
-    , __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic{vlSymsp->TOP.__PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context
@@ -237,6 +228,6 @@ VL_ATTR_COLD void Vtop::traceBaseModel(VerilatedTraceBaseC* tfp, int levels, int
             " use --trace-fst with VerilatedFst object, and --trace-vcd with VerilatedVcd object");
     }
     stfp->spTrace()->addModel(this);
-    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP), name(), false, 1198);
+    stfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP), name(), false, 88);
     Vtop___024root__trace_register(&(vlSymsp->TOP), stfp->spTrace());
 }

@@ -15,7 +15,6 @@
 
 // INCLUDE MODULE CLASSES
 #include "Vtop___024root.h"
-#include "Vtop_cordic_cossin.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
 
@@ -31,41 +30,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop__Syms final : public VerilatedSyms {
 
     // MODULE INSTANCE STATE
     Vtop___024root                 TOP;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin             TOP__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic;
 
     // SCOPE NAMES
     VerilatedScope* __Vscopep_TOP;
     VerilatedScope* __Vscopep_modulator;
-    VerilatedScope* __Vscopep_modulator__serial_hgen;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__0__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__0__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__1__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__1__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__2__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__2__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__3__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__3__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__4__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__4__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__5__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__5__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__6__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__6__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__7__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__7__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__8__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__8__KET____nth_cordic;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__9__KET__;
-    VerilatedScope* __Vscopep_modulator__serial_hgen__gen_harmonics__BRA__9__KET____nth_cordic;
 
     // SCOPE HIERARCHY
     VerilatedHierarchy __Vhier;

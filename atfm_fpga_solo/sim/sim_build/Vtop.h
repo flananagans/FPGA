@@ -14,8 +14,6 @@
 class Vtop__Syms;
 class Vtop___024root;
 class VerilatedVcdC;
-class Vtop_cordic_cossin;
-
 
 // This class is the main interface to the Verilated model
 class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
@@ -40,24 +38,15 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_IN8(&data_valid_in,0,0);
     VL_OUT8(&data_valid_out,0,0);
     VL_OUT8(&busy,0,0);
-    VL_IN16(&angle,15,0);
     VL_INW(&a_values,159,0,5);
     VL_INW(&b_values,159,0,5);
+    VL_INW(&cos_harmonics,159,0,5);
+    VL_INW(&sin_harmonics,159,0,5);
     VL_OUT16(&modulator_sum_out,15,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__0__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__1__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__2__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__3__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__4__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__5__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__6__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__7__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__8__KET____DOT__nth_cordic;
-    Vtop_cordic_cossin* const __PVT__modulator__DOT__serial_hgen__DOT__gen_harmonics__BRA__9__KET____DOT__nth_cordic;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.
