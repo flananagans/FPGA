@@ -272,6 +272,7 @@ module top_level
     logic [15:0] angle_in;
     localparam COUNT_100HZ_MAX = 1_000_000;
     logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
+    logic cordic_valid_in;
     localparam STEP = 1;  //65536/360 = 182 counts = 1 degree
 
     always_ff @(posedge clk_100mhz) begin
@@ -279,6 +280,7 @@ module top_level
             cordic_clk_counter <= 0;
             angle_in <= 0;
             cos_sin_out_latched <= 0;
+            cordic_valid_in <= 1'b0;
         end
         else begin
         cos_sin_out_latched <= display_num;
@@ -286,7 +288,11 @@ module top_level
         if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
             angle_in <= angle_in + STEP;
             cordic_clk_counter <= 0;
-        end else cordic_clk_counter <= cordic_clk_counter + 1;
+            cordic_valid_in <= 1'b1;
+        end else begin
+            cordic_clk_counter <= cordic_clk_counter + 1;
+            cordic_valid_in <= 1'b0;
+        end
         end
     end
 
@@ -295,7 +301,7 @@ module top_level
     cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
         .clk(clk_100mhz),
         .rst(rst),
-        .data_angle_valid_in(1'b1),
+        .data_angle_valid_in(cordic_valid_in),
         .angle(angle_in), //sw[15:0]
         .cos(cos_out),
         .sin(sin_out),
@@ -326,32 +332,32 @@ module top_level
 
     logic [2*CORDIC_BIT_WIDTH-1:0] test_sig_out, latch_sig_out;
     logic [2:0] latch_sig_type_out;
-    multi_cont_test_signal #(
-        .DATA_WIDTH (CORDIC_BIT_WIDTH), //16
-        .DUTY_COUNT (25*COUNT_12_5KHZ_MAX), //12.5kHz
-        .CYCLES_PER_TYPE(500)
-    ) multiple_continuous_signal_gen (
-        .clk(clk_100mhz),
-        .rst(rst),
-        .sig_out(test_sig_out),      // currently selected waveform
-        .sig_type_out(latch_sig_type_out)  // which type is active
-    );
+    // multi_cont_test_signal #(
+    //     .DATA_WIDTH (CORDIC_BIT_WIDTH), //16
+    //     .DUTY_COUNT (25*COUNT_12_5KHZ_MAX), //12.5kHz
+    //     .CYCLES_PER_TYPE(500)
+    // ) multiple_continuous_signal_gen (
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .sig_out(test_sig_out),      // currently selected waveform
+    //     .sig_type_out(latch_sig_type_out)  // which type is active
+    // );
 
     logic test_sig_spi_busy;
-    spi_peripheral #(
-        .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
-    ) test_sig_fpga_to_psoc ( //teensy or psoc
-        .clk(clk_100mhz),
-        .rst(rst),
-        .data_in(latch_sig_out),    // {cos, sin} data to send to psoc controller
-        .data_out(),                    // Ignore received data for now
-        .data_valid(spi_byte_valid),    // Pulses after each byte
-        .busy(test_sig_spi_busy),
-        .copi(copi),
-        .cipo(cipo),
-        .dclk(dclk),
-        .cs(cs)
-    );
+    // spi_peripheral #(
+    //     .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
+    // ) test_sig_fpga_to_psoc ( //teensy or psoc
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .data_in(latch_sig_out),    // {cos, sin} data to send to psoc controller
+    //     .data_out(),                    // Ignore received data for now
+    //     .data_valid(spi_byte_valid),    // Pulses after each byte
+    //     .busy(test_sig_spi_busy),
+    //     .copi(copi),
+    //     .cipo(cipo),
+    //     .dclk(dclk),
+    //     .cs(cs)
+    // );
 
     always_ff @(posedge clk_100mhz) begin
         if (rst)                    latch_sig_out <= 0;

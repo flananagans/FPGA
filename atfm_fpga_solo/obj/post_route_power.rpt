@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date             : Wed Oct 28 16:14:50 2026
-| Host             : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
+| Date             : Wed Oct 28 16:38:47 2026
+| Host             : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command          : report_power -file obj/post_route_power.rpt
 | Design           : top_level
 | Device           : xc7s50csga324-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.533        |
+| Total On-Chip Power (W)  | 0.514        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.460        |
+| Dynamic (W)              | 0.441        |
 | Device Static (W)        | 0.073        |
 | Effective TJA (C/W)      | 4.9          |
-| Max Ambient (C)          | 82.4         |
-| Junction Temperature (C) | 27.6         |
+| Max Ambient (C)          | 82.5         |
+| Junction Temperature (C) | 27.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.066 |        3 |       --- |             --- |
-| Slice Logic             |     0.182 |    35720 |       --- |             --- |
-|   LUT as Logic          |     0.149 |    13015 |     32600 |           39.92 |
-|   CARRY4                |     0.020 |     3184 |      8150 |           39.07 |
-|   Register              |     0.013 |    17620 |     65200 |           27.02 |
+| Clocks                  |     0.057 |        3 |       --- |             --- |
+| Slice Logic             |     0.169 |    33094 |       --- |             --- |
+|   LUT as Logic          |     0.139 |    12053 |     32600 |           36.97 |
+|   CARRY4                |     0.018 |     2892 |      8150 |           35.48 |
+|   Register              |     0.012 |    16407 |     65200 |           25.16 |
 |   LUT as Shift Register |    <0.001 |       11 |      9600 |            0.11 |
-|   F7/F8 Muxes           |    <0.001 |        8 |     32600 |            0.02 |
-|   Others                |     0.000 |       78 |       --- |             --- |
-| Signals                 |     0.185 |    23640 |       --- |             --- |
+|   F7/F8 Muxes           |    <0.001 |        6 |     32600 |            0.02 |
+|   Others                |     0.000 |       62 |       --- |             --- |
+| Signals                 |     0.189 |    22132 |       --- |             --- |
 | DSPs                    |     0.016 |       16 |       120 |           13.33 |
 | I/O                     |     0.011 |       53 |       210 |           25.24 |
 | Static Power            |     0.073 |          |           |                 |
-| Total                   |     0.533 |          |           |                 |
+| Total                   |     0.514 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.460 |       0.449 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.441 |       0.431 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -141,27 +141,24 @@ Table of Contents
 +--------------------------------------+-----------+
 | Name                                 | Power (W) |
 +--------------------------------------+-----------+
-| top_level                            |     0.460 |
-|   cordic                             |     0.026 |
-|   full_hgen                          |     0.305 |
-|     gen_harmonics[0].nth_cordic      |     0.029 |
+| top_level                            |     0.441 |
+|   cordic                             |     0.027 |
+|   full_hgen                          |     0.309 |
+|     gen_harmonics[0].nth_cordic      |     0.030 |
 |     gen_harmonics[1].nth_cordic      |     0.029 |
 |     gen_harmonics[2].nth_cordic      |     0.032 |
 |     gen_harmonics[3].nth_cordic      |     0.029 |
-|     gen_harmonics[4].nth_cordic      |     0.031 |
-|     gen_harmonics[5].nth_cordic      |     0.031 |
+|     gen_harmonics[4].nth_cordic      |     0.032 |
+|     gen_harmonics[5].nth_cordic      |     0.032 |
 |     gen_harmonics[6].nth_cordic      |     0.032 |
 |     gen_harmonics[7].nth_cordic      |     0.029 |
 |     gen_harmonics[8].nth_cordic      |     0.032 |
 |     gen_harmonics[9].nth_cordic      |     0.032 |
-|   multiple_continuous_signal_gen     |     0.028 |
-|     u_sin                            |     0.026 |
-|       cordic                         |     0.025 |
 |   signal_modulators[0].kth_modulator |     0.010 |
 |   signal_modulators[1].kth_modulator |     0.009 |
 |   signal_modulators[2].kth_modulator |     0.010 |
 |   signal_modulators[3].kth_modulator |     0.010 |
-|   signal_modulators[4].kth_modulator |     0.010 |
+|   signal_modulators[4].kth_modulator |     0.011 |
 |   signal_modulators[5].kth_modulator |     0.010 |
 |   signal_modulators[6].kth_modulator |     0.010 |
 |   signal_modulators[7].kth_modulator |     0.010 |
