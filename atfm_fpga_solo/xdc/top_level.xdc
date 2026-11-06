@@ -96,8 +96,8 @@ set_property -dict {PACKAGE_PIN H13 IOSTANDARD LVCMOS33}  [ get_ports "cipo_enco
 set_property -dict {PACKAGE_PIN H14 IOSTANDARD LVCMOS33}  [ get_ports "dclk_enco" ]
 # set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33}  [ get_ports "uart_rxd" ] BADDDDD
 # set_property -dict {PACKAGE_PIN J14 IOSTANDARD LVCMOS33}  [ get_ports "uart_txd" ] BADDDDD
-set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33}  [ get_ports "probe_enco_cs" ] 
-set_property -dict {PACKAGE_PIN J14 IOSTANDARD LVCMOS33}  [ get_ports "probe_enco_copi" ] 
+set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33}  [ get_ports "probe_enco_cs" ]
+set_property -dict {PACKAGE_PIN J14 IOSTANDARD LVCMOS33}  [ get_ports "probe_enco_copi" ]
 set_property -dict {PACKAGE_PIN E14 IOSTANDARD LVCMOS33}  [ get_ports "probe_enco_cipo" ]
 set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33}  [ get_ports "probe_enco_dclk" ]
 
@@ -128,7 +128,7 @@ set_property -dict {PACKAGE_PIN J16 IOSTANDARD LVCMOS33}  [ get_ports "dclk" ]
 # PMOD AB Signals
 #set_property -dict {PACKAGE_PIN D11 IOSTANDARD LVCMOS33} [get_ports {jab[0]}]
 #set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports {jab[1]}]
-#set_property -dict {PACKAGE_PIN E16 IOSTANDARD LVCMOS33} [get_ports {jab[2]}]
+set_property -dict {PACKAGE_PIN E16 IOSTANDARD LVCMOS33} [get_ports "psoc_trigger_in"]
 #set_property -dict {PACKAGE_PIN G16 IOSTANDARD LVCMOS33} [get_ports {jab[3]}]
 #set_property -dict {PACKAGE_PIN C11 IOSTANDARD LVCMOS33} [get_ports {jab[4]}]
 #set_property -dict {PACKAGE_PIN D10 IOSTANDARD LVCMOS33} [get_ports {jab[5]}]

@@ -50,7 +50,8 @@ module top_level
     output wire   probe_dclk,          // (Data Clock) - from controller (FPGA)
     output wire   probe_cs,             // (Chip Select) - from controller (FPGA)
 
-    input wire spi_trigger       //from PSOC con (teensy)
+    input wire spi_trigger,       //from teensy con
+    input wire psoc_trigger_in       //from PSOC con
 );
 
     parameter int ENCO_SPI_CLK_PERIOD = 28; // 100MHz / 28 ~= 3.5 MHz
@@ -267,31 +268,35 @@ module top_level
     logic [15:0] sin_out;
     logic [31:0] display_num;
     logic [31:0] cos_sin_out_latched;
-    assign display_num = {cos_out, sin_out};
+    // assign display_num = {cos_out, sin_out};
 
     logic [15:0] angle_in;
     localparam COUNT_100HZ_MAX = 1_000_000;
     logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
-    logic cordic_valid_in;
+    logic trig_rise_edge, cordic_valid_in, psoc_trigger_in_d;
     localparam STEP = 1;  //65536/360 = 182 counts = 1 degree
+
+    assign trig_rise_edge = (!psoc_trigger_in_d && psoc_trigger_in); //on rising edge of trigger in
 
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
             cordic_clk_counter <= 0;
             angle_in <= 0;
             cos_sin_out_latched <= 0;
+            psoc_trigger_in_d <= 1'b0;
             cordic_valid_in <= 1'b0;
         end
         else begin
         cos_sin_out_latched <= display_num;
+        psoc_trigger_in_d <= psoc_trigger_in;
 
-        if (cordic_clk_counter == COUNT_100HZ_MAX - 1) begin
+        if (trig_rise_edge) begin
             angle_in <= angle_in + STEP;
-            cordic_clk_counter <= 0;
             cordic_valid_in <= 1'b1;
+            // cordic_clk_counter <= 0;
         end else begin
-            cordic_clk_counter <= cordic_clk_counter + 1;
             cordic_valid_in <= 1'b0;
+            // cordic_clk_counter <= cordic_clk_counter + 1;
         end
         end
     end
@@ -309,14 +314,16 @@ module top_level
     );
 
     // Latch, then send cossin cordic data over spi
+    logic [3*CORDIC_BIT_WIDTH - 1:0] spi_ang_cossin_pkt;
+    assign spi_ang_cossin_pkt = {angle_in, cos_out, sin_out};
 
     spi_peripheral #(
-        .DATA_WIDTH((CORDIC_BIT_WIDTH + CORDIC_BIT_WIDTH)) //32
+        .DATA_WIDTH((3 * CORDIC_BIT_WIDTH)) // {angle, cos, sin}
     ) cordic_fpga_to_psoc ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),
-        .data_in(display_num),    // {cos, sin} data to send to psoc controller
-        .data_out(lights),                    // Ignore received data for now
+        .data_in(spi_ang_cossin_pkt),    // {angle, cos, sin} data to send to psoc controller
+        .data_out(),                    // Ignore received data for now
         .data_valid(spi_byte_valid),    // Pulses after each byte
         .busy(spi_busy),
         .copi(copi),
