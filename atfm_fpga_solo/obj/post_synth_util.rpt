@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Oct 28 16:37:24 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Date         : Fri Nov  6 15:01:35 2026
+| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
 | Device       : xc7s50csga324-1
@@ -22,10 +22,10 @@ Table of Contents
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
 |               Instance               |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
-| top_level                            |              (top) |      12112 |      12101 |       0 |   11 | 16403 |      0 |      0 |         16 |
-|   (top_level)                        |              (top) |        111 |        111 |       0 |    0 |   660 |      0 |      0 |          0 |
-|   cordic                             |      cordic_cossin |        902 |        901 |       0 |    1 |   963 |      0 |      0 |          0 |
-|   cordic_fpga_to_psoc                |     spi_peripheral |          9 |          9 |       0 |    0 |    13 |      0 |      0 |          0 |
+| top_level                            |              (top) |      12112 |      12101 |       0 |   11 | 16385 |      0 |      0 |         16 |
+|   (top_level)                        |              (top) |        103 |        103 |       0 |    0 |   641 |      0 |      0 |          0 |
+|   cordic                             |      cordic_cossin |        903 |        902 |       0 |    1 |   963 |      0 |      0 |          0 |
+|   cordic_fpga_to_psoc                |     spi_peripheral |         16 |         16 |       0 |    0 |    14 |      0 |      0 |          0 |
 |   fpga_spi_con_to_enco               |            spi_con |         96 |         96 |       0 |    0 |    68 |      0 |      0 |          0 |
 |   full_hgen                          | harmonic_generator |       8980 |       8970 |       0 |   10 |  9518 |      0 |      0 |          0 |
 |     (full_hgen)                      | harmonic_generator |          0 |          0 |       0 |    0 |     1 |      0 |      0 |          0 |

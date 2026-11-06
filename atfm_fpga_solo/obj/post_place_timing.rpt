@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Oct 28 16:38:07 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Date         : Fri Nov  6 15:01:54 2026
+| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_timing -file obj/post_place_timing.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
@@ -12,20 +12,20 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (MET) :             1.822ns  (required time - arrival time)
-  Source:                 signal_modulators[3].kth_modulator/idx_reg[1]/C
+Slack (MET) :             2.511ns  (required time - arrival time)
+  Source:                 full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[15].x_pipe_reg[16][0]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            signal_modulators[3].kth_modulator/mac_cur0/B[7]
-                            (rising edge-triggered cell DSP48E1 clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            signal_modulators[0].kth_modulator/cos_reg_reg[5][3]/D
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        7.748ns  (logic 0.704ns (9.086%)  route 7.044ns (90.914%))
-  Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        0.056ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.036ns = ( 15.036 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.242ns
-    Clock Pessimism Removal (CPR):    0.262ns
+  Data Path Delay:        7.065ns  (logic 2.155ns (30.502%)  route 4.910ns (69.498%))
+  Logic Levels:           7  (CARRY4=4 LUT1=1 LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.344ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.775ns = ( 14.775 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.300ns
+    Clock Pessimism Removal (CPR):    0.182ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -40,16 +40,30 @@ Slack (MET) :             1.822ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16434, estimated)    1.734     5.242    signal_modulators[3].kth_modulator/clk_100mhz_IBUF_BUFG
-    SLICE_X35Y100        FDRE                                         r  signal_modulators[3].kth_modulator/idx_reg[1]/C
+                         net (fo=16416, estimated)    1.792     5.300    full_hgen/gen_harmonics[5].nth_cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X7Y121         FDRE                                         r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[15].x_pipe_reg[16][0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X35Y100        FDRE (Prop_fdre_C_Q)         0.456     5.698 r  signal_modulators[3].kth_modulator/idx_reg[1]/Q
-                         net (fo=132, estimated)      2.389     8.087    signal_modulators[3].kth_modulator/idx_reg_n_0_[1]
-    SLICE_X55Y128        LUT6 (Prop_lut6_I2_O)        0.124     8.211 r  signal_modulators[3].kth_modulator/mac_cur0_i_49__2/O
-                         net (fo=1, estimated)        2.070    10.281    signal_modulators[3].kth_modulator/mac_cur0_i_49__2_n_0
-    SLICE_X34Y89         LUT6 (Prop_lut6_I5_O)        0.124    10.405 r  signal_modulators[3].kth_modulator/mac_cur0_i_9__2/O
-                         net (fo=1, estimated)        2.585    12.990    signal_modulators[3].kth_modulator/sin_reg[7]
-    DSP48_X0Y57          DSP48E1                                      r  signal_modulators[3].kth_modulator/mac_cur0/B[7]
+    SLICE_X7Y121         FDRE (Prop_fdre_C_Q)         0.456     5.756 f  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[15].x_pipe_reg[16][0]/Q
+                         net (fo=2, estimated)        0.468     6.224    full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[15].x_pipe_reg[16]_366[0]
+    SLICE_X6Y124         LUT1 (Prop_lut1_I0_O)        0.124     6.348 r  full_hgen/gen_harmonics[5].nth_cordic/cos_reg[5][4]_i_3/O
+                         net (fo=1, estimated)        0.554     6.902    full_hgen/gen_harmonics[5].nth_cordic/cos_reg[5][4]_i_3_n_0
+    SLICE_X8Y124         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.595     7.497 r  full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][4]_i_2/CO[3]
+                         net (fo=1, estimated)        0.009     7.506    full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][4]_i_2_n_0
+    SLICE_X8Y125         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.623 r  full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][8]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     7.623    full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][8]_i_2_n_0
+    SLICE_X8Y126         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.740 r  full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][12]_i_2/CO[3]
+                         net (fo=1, estimated)        0.000     7.740    full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][12]_i_2_n_0
+    SLICE_X8Y127         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315     8.055 f  full_hgen/gen_harmonics[5].nth_cordic/cos_reg_reg[5][15]_i_2/O[3]
+                         net (fo=3, estimated)        0.778     8.833    full_hgen/gen_harmonics[5].nth_cordic/inp0[16]
+    SLICE_X10Y132        LUT3 (Prop_lut3_I0_O)        0.307     9.140 f  full_hgen/gen_harmonics[5].nth_cordic/cos_reg[5][14]_i_2/O
+                         net (fo=14, estimated)       0.905    10.045    full_hgen/gen_harmonics[5].nth_cordic/inp[16]
+    SLICE_X10Y118        LUT6 (Prop_lut6_I3_O)        0.124    10.169 r  full_hgen/gen_harmonics[5].nth_cordic/cos_reg[5][3]_i_1/O
+                         net (fo=8, estimated)        2.196    12.365    signal_modulators[0].kth_modulator/cos_reg_reg[5][15]_0[3]
+    SLICE_X56Y99         FDRE                                         r  signal_modulators[0].kth_modulator/cos_reg_reg[5][3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -58,17 +72,16 @@ Slack (MET) :             1.822ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, estimated)        1.873    13.244    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.335 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16434, estimated)    1.702    15.036    signal_modulators[3].kth_modulator/clk_100mhz_IBUF_BUFG
-    DSP48_X0Y57          DSP48E1                                      r  signal_modulators[3].kth_modulator/mac_cur0/CLK
-                         clock pessimism              0.262    15.298    
-                         clock uncertainty           -0.035    15.262    
-    DSP48_X0Y57          DSP48E1 (Setup_dsp48e1_CLK_B[7])
-                                                     -0.450    14.812    signal_modulators[3].kth_modulator/mac_cur0
+                         net (fo=16416, estimated)    1.440    14.775    signal_modulators[0].kth_modulator/clk_100mhz_IBUF_BUFG
+    SLICE_X56Y99         FDRE                                         r  signal_modulators[0].kth_modulator/cos_reg_reg[5][3]/C
+                         clock pessimism              0.182    14.956    
+                         clock uncertainty           -0.035    14.921    
+    SLICE_X56Y99         FDRE (Setup_fdre_C_D)       -0.045    14.876    signal_modulators[0].kth_modulator/cos_reg_reg[5][3]
   -------------------------------------------------------------------
-                         required time                         14.812    
-                         arrival time                         -12.990    
+                         required time                         14.876    
+                         arrival time                         -12.365    
   -------------------------------------------------------------------
-                         slack                                  1.822    
+                         slack                                  2.511    
 
 
 

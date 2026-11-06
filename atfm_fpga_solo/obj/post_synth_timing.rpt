@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Wed Oct 28 16:37:24 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Date         : Fri Nov  6 15:01:35 2026
+| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_timing -file obj/post_synth_timing.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
@@ -12,7 +12,7 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (MET) :             3.730ns  (required time - arrival time)
+Slack (MET) :             3.142ns  (required time - arrival time)
   Source:                 cordic/cordic_pipeline[15].x_pipe_reg[16][0]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Destination:            cordic_fpga_to_psoc/cipo_internal_reg/D
@@ -20,8 +20,8 @@ Slack (MET) :             3.730ns  (required time - arrival time)
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        6.119ns  (logic 3.105ns (50.744%)  route 3.014ns (49.256%))
-  Logic Levels:           11  (CARRY4=4 LUT1=1 LUT3=1 LUT5=1 LUT6=2 MUXF7=1 MUXF8=1)
+  Data Path Delay:        6.707ns  (logic 3.104ns (46.280%)  route 3.603ns (53.720%))
+  Logic Levels:           11  (CARRY4=4 LUT1=1 LUT3=1 LUT5=1 LUT6=3 MUXF7=1)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.660ns = ( 12.660 - 10.000 ) 
     Source Clock Delay      (SCD):    2.920ns
@@ -40,37 +40,37 @@ Slack (MET) :             3.730ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, unplaced)         0.800     2.240    clk_100mhz_IBUF
                          BUFG (Prop_bufg_I_O)         0.096     2.336 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16430, unplaced)     0.584     2.920    cordic/clk_100mhz_IBUF_BUFG
+                         net (fo=16412, unplaced)     0.584     2.920    cordic/clk_100mhz_IBUF_BUFG
                          FDRE                                         r  cordic/cordic_pipeline[15].x_pipe_reg[16][0]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.456     3.376 f  cordic/cordic_pipeline[15].x_pipe_reg[16][0]/Q
                          net (fo=2, unplaced)         0.322     3.698    cordic/cordic_pipeline[15].x_pipe_reg[16]_58[0]
-                         LUT1 (Prop_lut1_I0_O)        0.295     3.993 r  cordic/cipo_internal_i_53/O
-                         net (fo=1, unplaced)         0.333     4.326    cordic/cipo_internal_i_53_n_0
+                         LUT1 (Prop_lut1_I0_O)        0.295     3.993 r  cordic/cipo_internal_i_71/O
+                         net (fo=1, unplaced)         0.333     4.326    cordic/cipo_internal_i_71_n_0
                          CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580     4.906 r  cordic/cipo_internal_reg_i_48/CO[3]
-                         net (fo=1, unplaced)         0.009     4.915    cordic/cipo_internal_reg_i_48_n_0
+                                                      0.580     4.906 r  cordic/cipo_internal_reg_i_58/CO[3]
+                         net (fo=1, unplaced)         0.009     4.915    cordic/cipo_internal_reg_i_58_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.029 r  cordic/cipo_internal_reg_i_51/CO[3]
-                         net (fo=1, unplaced)         0.000     5.029    cordic/cipo_internal_reg_i_51_n_0
+                                                      0.114     5.029 r  cordic/cipo_internal_reg_i_57/CO[3]
+                         net (fo=1, unplaced)         0.000     5.029    cordic/cipo_internal_reg_i_57_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.143 r  cordic/cipo_internal_reg_i_52/CO[3]
-                         net (fo=1, unplaced)         0.000     5.143    cordic/cipo_internal_reg_i_52_n_0
+                                                      0.114     5.143 r  cordic/cipo_internal_reg_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     5.143    cordic/cipo_internal_reg_i_54_n_0
                          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.329     5.472 f  cordic/cipo_internal_reg_i_50/O[3]
+                                                      0.329     5.472 f  cordic/cipo_internal_reg_i_56/O[3]
                          net (fo=3, unplaced)         0.636     6.108    cordic/inp0[16]
-                         LUT3 (Prop_lut3_I0_O)        0.301     6.409 f  cordic/cipo_internal_i_49/O
+                         LUT3 (Prop_lut3_I0_O)        0.301     6.409 f  cordic/cipo_internal_i_55/O
                          net (fo=14, unplaced)        0.500     6.909    cordic/inp[16]
-                         LUT6 (Prop_lut6_I3_O)        0.124     7.033 r  cordic/cipo_internal_i_22/O
-                         net (fo=1, unplaced)         0.902     7.935    cordic/display_num[22]
-                         LUT6 (Prop_lut6_I1_O)        0.124     8.059 r  cordic/cipo_internal_i_10/O
-                         net (fo=1, unplaced)         0.000     8.059    cordic/cipo_internal_i_10_n_0
-                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.304 r  cordic/cipo_internal_reg_i_5/O
-                         net (fo=1, unplaced)         0.000     8.304    cordic/cipo_internal_reg_i_5_n_0
-                         MUXF8 (Prop_muxf8_I0_O)      0.104     8.408 r  cordic/cipo_internal_reg_i_2/O
-                         net (fo=1, unplaced)         0.312     8.720    cordic_fpga_to_psoc/cipo_internal_reg_0
-                         LUT5 (Prop_lut5_I0_O)        0.319     9.039 r  cordic_fpga_to_psoc/cipo_internal_i_1/O
-                         net (fo=1, unplaced)         0.000     9.039    cordic_fpga_to_psoc/cipo_internal_i_1_n_0
+                         LUT6 (Prop_lut6_I3_O)        0.124     7.033 r  cordic/cipo_internal_i_36/O
+                         net (fo=1, unplaced)         0.902     7.935    cordic/cos_out[6]
+                         LUT6 (Prop_lut6_I1_O)        0.124     8.059 r  cordic/cipo_internal_i_18/O
+                         net (fo=1, unplaced)         0.000     8.059    cordic/cipo_internal_i_18_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.245     8.304 r  cordic/cipo_internal_reg_i_8/O
+                         net (fo=1, unplaced)         0.452     8.756    cordic/cipo_internal_reg_i_8_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.298     9.054 r  cordic/cipo_internal_i_3/O
+                         net (fo=1, unplaced)         0.449     9.503    cordic_fpga_to_psoc/cipo_internal_reg_0
+                         LUT5 (Prop_lut5_I2_O)        0.124     9.627 r  cordic_fpga_to_psoc/cipo_internal_i_1/O
+                         net (fo=1, unplaced)         0.000     9.627    cordic_fpga_to_psoc/cipo_internal_i_1_n_0
                          FDRE                                         r  cordic_fpga_to_psoc/cipo_internal_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -80,16 +80,16 @@ Slack (MET) :             3.730ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, unplaced)         0.760    12.130    clk_100mhz_IBUF
                          BUFG (Prop_bufg_I_O)         0.091    12.221 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16430, unplaced)     0.439    12.660    cordic_fpga_to_psoc/clk_100mhz_IBUF_BUFG
+                         net (fo=16412, unplaced)     0.439    12.660    cordic_fpga_to_psoc/clk_100mhz_IBUF_BUFG
                          FDRE                                         r  cordic_fpga_to_psoc/cipo_internal_reg/C
                          clock pessimism              0.115    12.775    
                          clock uncertainty           -0.035    12.740    
                          FDRE (Setup_fdre_C_D)        0.029    12.769    cordic_fpga_to_psoc/cipo_internal_reg
   -------------------------------------------------------------------
                          required time                         12.769    
-                         arrival time                          -9.039    
+                         arrival time                          -9.627    
   -------------------------------------------------------------------
-                         slack                                  3.730    
+                         slack                                  3.142    
 
 
 
