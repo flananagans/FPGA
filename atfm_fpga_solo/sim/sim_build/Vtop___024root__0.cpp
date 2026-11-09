@@ -56,10 +56,10 @@ bool Vtop___024root___eval_act(Vtop___024root* vlSelf) {
     {
         // Inlined CFunc: _eval_triggers_vec__act
         vlSelfRef.__VactTriggered[0U] = (QData)((IData)(
-                                                        ((IData)(vlSelfRef.modulator__DOT__clk) 
-                                                         & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__modulator__DOT__clk__0)))));
-        vlSelfRef.__Vtrigprevexpr___TOP__modulator__DOT__clk__0 
-            = vlSelfRef.modulator__DOT__clk;
+                                                        ((IData)(vlSelfRef.pid_controller__DOT__clk) 
+                                                         & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__pid_controller__DOT__clk__0)))));
+        vlSelfRef.__Vtrigprevexpr___TOP__pid_controller__DOT__clk__0 
+            = vlSelfRef.pid_controller__DOT__clk;
     }
 #ifdef VL_DEBUG
     if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {
@@ -144,32 +144,77 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.modulator__DOT__clk = vlSelfRef.clk;
-    vlSelfRef.modulator__DOT__rst = vlSelfRef.rst;
-    vlSelfRef.modulator__DOT__data_valid_in = vlSelfRef.data_valid_in;
-    vlSelfRef.modulator__DOT__a_values[0U] = vlSelfRef.a_values[0U];
-    vlSelfRef.modulator__DOT__a_values[1U] = vlSelfRef.a_values[1U];
-    vlSelfRef.modulator__DOT__a_values[2U] = vlSelfRef.a_values[2U];
-    vlSelfRef.modulator__DOT__a_values[3U] = vlSelfRef.a_values[3U];
-    vlSelfRef.modulator__DOT__a_values[4U] = vlSelfRef.a_values[4U];
-    vlSelfRef.modulator__DOT__b_values[0U] = vlSelfRef.b_values[0U];
-    vlSelfRef.modulator__DOT__b_values[1U] = vlSelfRef.b_values[1U];
-    vlSelfRef.modulator__DOT__b_values[2U] = vlSelfRef.b_values[2U];
-    vlSelfRef.modulator__DOT__b_values[3U] = vlSelfRef.b_values[3U];
-    vlSelfRef.modulator__DOT__b_values[4U] = vlSelfRef.b_values[4U];
-    vlSelfRef.modulator__DOT__cos_harmonics[0U] = vlSelfRef.cos_harmonics[0U];
-    vlSelfRef.modulator__DOT__cos_harmonics[1U] = vlSelfRef.cos_harmonics[1U];
-    vlSelfRef.modulator__DOT__cos_harmonics[2U] = vlSelfRef.cos_harmonics[2U];
-    vlSelfRef.modulator__DOT__cos_harmonics[3U] = vlSelfRef.cos_harmonics[3U];
-    vlSelfRef.modulator__DOT__cos_harmonics[4U] = vlSelfRef.cos_harmonics[4U];
-    vlSelfRef.modulator__DOT__sin_harmonics[0U] = vlSelfRef.sin_harmonics[0U];
-    vlSelfRef.modulator__DOT__sin_harmonics[1U] = vlSelfRef.sin_harmonics[1U];
-    vlSelfRef.modulator__DOT__sin_harmonics[2U] = vlSelfRef.sin_harmonics[2U];
-    vlSelfRef.modulator__DOT__sin_harmonics[3U] = vlSelfRef.sin_harmonics[3U];
-    vlSelfRef.modulator__DOT__sin_harmonics[4U] = vlSelfRef.sin_harmonics[4U];
-    vlSelfRef.modulator_sum_out = vlSelfRef.modulator__DOT__modulator_sum_out;
-    vlSelfRef.data_valid_out = vlSelfRef.modulator__DOT__data_valid_out;
-    vlSelfRef.busy = vlSelfRef.modulator__DOT__busy;
+    vlSelfRef.pid_controller__DOT__clk = vlSelfRef.clk;
+    vlSelfRef.pid_controller__DOT__rst = vlSelfRef.rst;
+    vlSelfRef.busy = vlSelfRef.pid_controller__DOT__busy;
+    vlSelfRef.pid_controller__DOT__Kp = vlSelfRef.Kp;
+    vlSelfRef.pid_controller__DOT__Ki = vlSelfRef.Ki;
+    vlSelfRef.pid_controller__DOT__Kd = vlSelfRef.Kd;
+    vlSelfRef.out_sig = vlSelfRef.pid_controller__DOT__out_sig;
+    vlSelfRef.sat_hi = vlSelfRef.pid_controller__DOT__sat_hi;
+    vlSelfRef.sat_lo = vlSelfRef.pid_controller__DOT__sat_lo;
+    vlSelfRef.data_valid_out = vlSelfRef.pid_controller__DOT__data_valid_out;
+    vlSelfRef.pid_controller__DOT__non_pos_i_prod = 
+        (1U & (IData)((vlSelfRef.pid_controller__DOT__i_prod 
+                       >> 0x0000002eU)));
+    vlSelfRef.pid_controller__DOT__data_valid_in = vlSelfRef.data_valid_in;
+    vlSelfRef.pid_controller__DOT__inp_sig = vlSelfRef.inp_sig;
+    vlSelfRef.pid_controller__DOT__ref_sig = vlSelfRef.ref_sig;
+    vlSelfRef.pid_controller__DOT__i_next = (0x0000ffffffffffffULL 
+                                             & (VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_current) 
+                                                + VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_prod)));
+    vlSelfRef.pid_controller__DOT__unbounded_pid_sum 
+        = (0x0003ffffffffffffULL & (VL_SHIFTRS_QQI(50,50,32, 
+                                                   (0x0003ffffffffffffULL 
+                                                    & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
+                                    + (VL_SHIFTRS_QQI(50,50,32, 
+                                                      (0x0003ffffffffffffULL 
+                                                       & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_current)), 0x00000010U) 
+                                       + VL_SHIFTRS_QQI(50,50,32, 
+                                                        (0x0003ffffffffffffULL 
+                                                         & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U))));
+    vlSelfRef.pid_controller__DOT__accept_data = ((~ (IData)(vlSelfRef.pid_controller__DOT__busy)) 
+                                                  & (IData)(vlSelfRef.pid_controller__DOT__data_valid_in));
+    vlSelfRef.pid_controller__DOT__vel = (0x00007fffU 
+                                          & (VL_EXTENDS_II(15,14, (IData)(vlSelfRef.pid_controller__DOT__ref_sig)) 
+                                             - VL_EXTENDS_II(15,14, (IData)(vlSelfRef.pid_controller__DOT__inp_sig))));
+    vlSelfRef.pid_controller__DOT__i_clamp = ((VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                               & VL_LTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)) 
+                                              | (VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                                 & VL_GTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)));
+    vlSelfRef.pid_controller__DOT__deriv_vel = (0x001fffffU 
+                                                & (VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel)) 
+                                                   - 
+                                                   VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel_d))));
+    vlSelfRef.pid_controller__DOT__i_bounded = (0x00007fffffffffffULL 
+                                                & ((IData)(vlSelfRef.pid_controller__DOT__i_clamp)
+                                                    ? vlSelfRef.pid_controller__DOT__i_current
+                                                    : 
+                                                   (VL_LTS_IQQ(48, 0x0000000003331999ULL, vlSelfRef.pid_controller__DOT__i_next)
+                                                     ? 0x0000000003331999ULL
+                                                     : 
+                                                    (VL_GTS_IQQ(48, 0x0000fffffccce667ULL, vlSelfRef.pid_controller__DOT__i_next)
+                                                      ? 0x00007ffffccce667ULL
+                                                      : vlSelfRef.pid_controller__DOT__i_next))));
+    vlSelfRef.pid_controller__DOT__deriv_scaled = (0x001fffffU 
+                                                   & (vlSelfRef.pid_controller__DOT__deriv_vel 
+                                                      << 5U));
+    vlSelfRef.pid_controller__DOT__pid_sum = (0x0003ffffffffffffULL 
+                                              & (VL_SHIFTRS_QQI(50,50,32, 
+                                                                (0x0003ffffffffffffULL 
+                                                                 & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
+                                                 + 
+                                                 (VL_SHIFTRS_QQI(50,50,32, 
+                                                                 (0x0003ffffffffffffULL 
+                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U) 
+                                                  + 
+                                                  VL_SHIFTRS_QQI(50,50,32, 
+                                                                 (0x0003ffffffffffffULL 
+                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_bounded)), 0x00000010U))));
+    vlSelfRef.pid_controller__DOT__sat_hi_current = 
+        VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum);
+    vlSelfRef.pid_controller__DOT__sat_lo_current = 
+        VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum);
 }
 
 bool Vtop___024root___trigger_anySet__act(const VlUnpacked<QData/*63:0*/, 1> &in) {
@@ -192,288 +237,135 @@ void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    QData/*36:0*/ __Vdly__modulator__DOT__mac_cur;
-    __Vdly__modulator__DOT__mac_cur = 0;
-    CData/*3:0*/ __Vdly__modulator__DOT__idx;
-    __Vdly__modulator__DOT__idx = 0;
-    CData/*1:0*/ __Vdly__modulator__DOT__mac_state;
-    __Vdly__modulator__DOT__mac_state = 0;
-    CData/*0:0*/ __Vdly__modulator__DOT__busy;
-    __Vdly__modulator__DOT__busy = 0;
-    VlWide<5>/*159:0*/ __Vdly__modulator__DOT__a_reg;
-    VL_ZERO_W(160, __Vdly__modulator__DOT__a_reg);
-    VlWide<5>/*159:0*/ __Vdly__modulator__DOT__b_reg;
-    VL_ZERO_W(160, __Vdly__modulator__DOT__b_reg);
-    VlWide<5>/*159:0*/ __Vdly__modulator__DOT__cos_reg;
-    VL_ZERO_W(160, __Vdly__modulator__DOT__cos_reg);
-    VlWide<5>/*159:0*/ __Vdly__modulator__DOT__sin_reg;
-    VL_ZERO_W(160, __Vdly__modulator__DOT__sin_reg);
-    IData/*31:0*/ __Vdly__modulator__DOT__prod_b_temp;
-    __Vdly__modulator__DOT__prod_b_temp = 0;
-    IData/*31:0*/ __Vdly__modulator__DOT__prod_a_temp;
-    __Vdly__modulator__DOT__prod_a_temp = 0;
+    IData/*20:0*/ __Vdly__pid_controller__DOT__deriv_vel_filt;
+    __Vdly__pid_controller__DOT__deriv_vel_filt = 0;
     // Body
-    __Vdly__modulator__DOT__mac_cur = vlSelfRef.modulator__DOT__mac_cur;
-    __Vdly__modulator__DOT__idx = vlSelfRef.modulator__DOT__idx;
-    __Vdly__modulator__DOT__mac_state = vlSelfRef.modulator__DOT__mac_state;
-    __Vdly__modulator__DOT__a_reg[0U] = vlSelfRef.modulator__DOT__a_reg[0U];
-    __Vdly__modulator__DOT__a_reg[1U] = vlSelfRef.modulator__DOT__a_reg[1U];
-    __Vdly__modulator__DOT__a_reg[2U] = vlSelfRef.modulator__DOT__a_reg[2U];
-    __Vdly__modulator__DOT__a_reg[3U] = vlSelfRef.modulator__DOT__a_reg[3U];
-    __Vdly__modulator__DOT__a_reg[4U] = vlSelfRef.modulator__DOT__a_reg[4U];
-    __Vdly__modulator__DOT__b_reg[0U] = vlSelfRef.modulator__DOT__b_reg[0U];
-    __Vdly__modulator__DOT__b_reg[1U] = vlSelfRef.modulator__DOT__b_reg[1U];
-    __Vdly__modulator__DOT__b_reg[2U] = vlSelfRef.modulator__DOT__b_reg[2U];
-    __Vdly__modulator__DOT__b_reg[3U] = vlSelfRef.modulator__DOT__b_reg[3U];
-    __Vdly__modulator__DOT__b_reg[4U] = vlSelfRef.modulator__DOT__b_reg[4U];
-    __Vdly__modulator__DOT__cos_reg[0U] = vlSelfRef.modulator__DOT__cos_reg[0U];
-    __Vdly__modulator__DOT__cos_reg[1U] = vlSelfRef.modulator__DOT__cos_reg[1U];
-    __Vdly__modulator__DOT__cos_reg[2U] = vlSelfRef.modulator__DOT__cos_reg[2U];
-    __Vdly__modulator__DOT__cos_reg[3U] = vlSelfRef.modulator__DOT__cos_reg[3U];
-    __Vdly__modulator__DOT__cos_reg[4U] = vlSelfRef.modulator__DOT__cos_reg[4U];
-    __Vdly__modulator__DOT__sin_reg[0U] = vlSelfRef.modulator__DOT__sin_reg[0U];
-    __Vdly__modulator__DOT__sin_reg[1U] = vlSelfRef.modulator__DOT__sin_reg[1U];
-    __Vdly__modulator__DOT__sin_reg[2U] = vlSelfRef.modulator__DOT__sin_reg[2U];
-    __Vdly__modulator__DOT__sin_reg[3U] = vlSelfRef.modulator__DOT__sin_reg[3U];
-    __Vdly__modulator__DOT__sin_reg[4U] = vlSelfRef.modulator__DOT__sin_reg[4U];
-    __Vdly__modulator__DOT__busy = vlSelfRef.modulator__DOT__busy;
-    __Vdly__modulator__DOT__prod_b_temp = vlSelfRef.modulator__DOT__prod_b_temp;
-    __Vdly__modulator__DOT__prod_a_temp = vlSelfRef.modulator__DOT__prod_a_temp;
-    if ((1U & (~ (IData)(vlSelfRef.modulator__DOT__rst)))) {
-        __Vdly__modulator__DOT__prod_b_temp = VL_MULS_III(32, 
-                                                          VL_EXTENDS_II(32,16, (IData)(vlSelfRef.modulator__DOT__b_temp)), 
-                                                          VL_EXTENDS_II(32,16, (IData)(vlSelfRef.modulator__DOT__sin_temp)));
-        __Vdly__modulator__DOT__prod_a_temp = VL_MULS_III(32, 
-                                                          VL_EXTENDS_II(32,16, (IData)(vlSelfRef.modulator__DOT__a_temp)), 
-                                                          VL_EXTENDS_II(32,16, (IData)(vlSelfRef.modulator__DOT__cos_temp)));
-    }
-    if (vlSelfRef.modulator__DOT__rst) {
-        vlSelfRef.modulator__DOT__modulator_sum_out = 0U;
-        vlSelfRef.modulator__DOT__data_valid_out = 0U;
-        __Vdly__modulator__DOT__mac_cur = 0ULL;
-        __Vdly__modulator__DOT__idx = 0U;
-        __Vdly__modulator__DOT__mac_state = 0U;
-        __Vdly__modulator__DOT__busy = 0U;
-        __Vdly__modulator__DOT__a_reg[0U] = 0U;
-        __Vdly__modulator__DOT__a_reg[1U] = 0U;
-        __Vdly__modulator__DOT__a_reg[2U] = 0U;
-        __Vdly__modulator__DOT__a_reg[3U] = 0U;
-        __Vdly__modulator__DOT__a_reg[4U] = 0U;
-        __Vdly__modulator__DOT__b_reg[0U] = 0U;
-        __Vdly__modulator__DOT__b_reg[1U] = 0U;
-        __Vdly__modulator__DOT__b_reg[2U] = 0U;
-        __Vdly__modulator__DOT__b_reg[3U] = 0U;
-        __Vdly__modulator__DOT__b_reg[4U] = 0U;
-        __Vdly__modulator__DOT__cos_reg[0U] = 0U;
-        __Vdly__modulator__DOT__cos_reg[1U] = 0U;
-        __Vdly__modulator__DOT__cos_reg[2U] = 0U;
-        __Vdly__modulator__DOT__cos_reg[3U] = 0U;
-        __Vdly__modulator__DOT__cos_reg[4U] = 0U;
-        __Vdly__modulator__DOT__sin_reg[0U] = 0U;
-        __Vdly__modulator__DOT__sin_reg[1U] = 0U;
-        __Vdly__modulator__DOT__sin_reg[2U] = 0U;
-        __Vdly__modulator__DOT__sin_reg[3U] = 0U;
-        __Vdly__modulator__DOT__sin_reg[4U] = 0U;
-    } else {
-        vlSelfRef.modulator__DOT__data_valid_out = 0U;
-        if ((0x0aU > (IData)(vlSelfRef.modulator__DOT__idx))) {
-            if ((0x9fU >= (0x000000ffU & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                          << 4U)))) {
-                vlSelfRef.modulator__DOT__a_temp = 
-                    (0x0000ffffU & (((0U == (0x0000001fU 
-                                             & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                << 4U)))
-                                      ? 0U : (vlSelfRef.modulator__DOT__a_reg
-                                              [(((IData)(0x0000000fU) 
-                                                 + 
-                                                 (0x000000ffU 
-                                                  & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                     << 4U))) 
-                                                >> 5U)] 
-                                              << ((IData)(0x00000020U) 
-                                                  - 
-                                                  (0x0000001fU 
-                                                   & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                      << 4U))))) 
-                                    | (vlSelfRef.modulator__DOT__a_reg
-                                       [(7U & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                               >> 1U))] 
-                                       >> (0x0000001fU 
-                                           & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                              << 4U)))));
-                vlSelfRef.modulator__DOT__b_temp = 
-                    (0x0000ffffU & (((0U == (0x0000001fU 
-                                             & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                << 4U)))
-                                      ? 0U : (vlSelfRef.modulator__DOT__b_reg
-                                              [(((IData)(0x0000000fU) 
-                                                 + 
-                                                 (0x000000ffU 
-                                                  & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                     << 4U))) 
-                                                >> 5U)] 
-                                              << ((IData)(0x00000020U) 
-                                                  - 
-                                                  (0x0000001fU 
-                                                   & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                      << 4U))))) 
-                                    | (vlSelfRef.modulator__DOT__b_reg
-                                       [(7U & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                               >> 1U))] 
-                                       >> (0x0000001fU 
-                                           & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                              << 4U)))));
-                vlSelfRef.modulator__DOT__cos_temp 
-                    = (0x0000ffffU & (((0U == (0x0000001fU 
-                                               & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                  << 4U)))
-                                        ? 0U : (vlSelfRef.modulator__DOT__cos_reg
-                                                [(((IData)(0x0000000fU) 
-                                                   + 
-                                                   (0x000000ffU 
-                                                    & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                       << 4U))) 
-                                                  >> 5U)] 
-                                                << 
-                                                ((IData)(0x00000020U) 
-                                                 - 
-                                                 (0x0000001fU 
-                                                  & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                     << 4U))))) 
-                                      | (vlSelfRef.modulator__DOT__cos_reg
-                                         [(7U & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                 >> 1U))] 
-                                         >> (0x0000001fU 
-                                             & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                << 4U)))));
-                vlSelfRef.modulator__DOT__sin_temp 
-                    = (0x0000ffffU & (((0U == (0x0000001fU 
-                                               & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                  << 4U)))
-                                        ? 0U : (vlSelfRef.modulator__DOT__sin_reg
-                                                [(((IData)(0x0000000fU) 
-                                                   + 
-                                                   (0x000000ffU 
-                                                    & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                       << 4U))) 
-                                                  >> 5U)] 
-                                                << 
-                                                ((IData)(0x00000020U) 
-                                                 - 
-                                                 (0x0000001fU 
-                                                  & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                     << 4U))))) 
-                                      | (vlSelfRef.modulator__DOT__sin_reg
-                                         [(7U & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                 >> 1U))] 
-                                         >> (0x0000001fU 
-                                             & ((IData)(vlSelfRef.modulator__DOT__idx) 
-                                                << 4U)))));
-            } else {
-                vlSelfRef.modulator__DOT__a_temp = 0U;
-                vlSelfRef.modulator__DOT__b_temp = 0U;
-                vlSelfRef.modulator__DOT__cos_temp = 0U;
-                vlSelfRef.modulator__DOT__sin_temp = 0U;
-            }
+    __Vdly__pid_controller__DOT__deriv_vel_filt = vlSelfRef.pid_controller__DOT__deriv_vel_filt;
+    if (vlSelfRef.pid_controller__DOT__rst) {
+        __Vdly__pid_controller__DOT__deriv_vel_filt = 0U;
+        vlSelfRef.pid_controller__DOT__sat_hi = 0U;
+        vlSelfRef.pid_controller__DOT__out_sig = 0U;
+        vlSelfRef.pid_controller__DOT__sat_lo = 0U;
+        vlSelfRef.pid_controller__DOT__vel_d = 0U;
+        vlSelfRef.pid_controller__DOT__i_prod = 0ULL;
+        vlSelfRef.pid_controller__DOT__i_current = 0ULL;
+        vlSelfRef.pid_controller__DOT__d_term = 0ULL;
+        vlSelfRef.pid_controller__DOT__p_term = 0ULL;
+        vlSelfRef.pid_controller__DOT__d_prod = 0ULL;
+        vlSelfRef.pid_controller__DOT__p_prod = 0ULL;
+    } else if (vlSelfRef.pid_controller__DOT__accept_data) {
+        __Vdly__pid_controller__DOT__deriv_vel_filt 
+            = (0x001fffffU & (vlSelfRef.pid_controller__DOT__deriv_vel_filt 
+                              + VL_SHIFTRS_III(21,21,32, 
+                                               (0x001fffffU 
+                                                & (vlSelfRef.pid_controller__DOT__deriv_scaled 
+                                                   - vlSelfRef.pid_controller__DOT__deriv_vel_filt)), 3U)));
+        if (VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum)) {
+            vlSelfRef.pid_controller__DOT__sat_hi = 1U;
+            vlSelfRef.pid_controller__DOT__out_sig = 0x00001fffU;
         } else {
-            vlSelfRef.modulator__DOT__a_temp = 0U;
-            vlSelfRef.modulator__DOT__b_temp = 0U;
-            vlSelfRef.modulator__DOT__cos_temp = 0U;
-            vlSelfRef.modulator__DOT__sin_temp = 0U;
+            vlSelfRef.pid_controller__DOT__sat_hi = 0U;
+            vlSelfRef.pid_controller__DOT__out_sig 
+                = (VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum)
+                    ? 0x00002000U : (0x00003fffU & (IData)(vlSelfRef.pid_controller__DOT__pid_sum)));
         }
-        if ((0U == (IData)(vlSelfRef.modulator__DOT__mac_state))) {
-            if (((IData)(vlSelfRef.modulator__DOT__data_valid_in) 
-                 & (~ (IData)(vlSelfRef.modulator__DOT__busy)))) {
-                __Vdly__modulator__DOT__a_reg[0U] = vlSelfRef.modulator__DOT__a_values[0U];
-                __Vdly__modulator__DOT__a_reg[1U] = vlSelfRef.modulator__DOT__a_values[1U];
-                __Vdly__modulator__DOT__a_reg[2U] = vlSelfRef.modulator__DOT__a_values[2U];
-                __Vdly__modulator__DOT__a_reg[3U] = vlSelfRef.modulator__DOT__a_values[3U];
-                __Vdly__modulator__DOT__a_reg[4U] = vlSelfRef.modulator__DOT__a_values[4U];
-                __Vdly__modulator__DOT__b_reg[0U] = vlSelfRef.modulator__DOT__b_values[0U];
-                __Vdly__modulator__DOT__b_reg[1U] = vlSelfRef.modulator__DOT__b_values[1U];
-                __Vdly__modulator__DOT__b_reg[2U] = vlSelfRef.modulator__DOT__b_values[2U];
-                __Vdly__modulator__DOT__b_reg[3U] = vlSelfRef.modulator__DOT__b_values[3U];
-                __Vdly__modulator__DOT__b_reg[4U] = vlSelfRef.modulator__DOT__b_values[4U];
-                __Vdly__modulator__DOT__cos_reg[0U] 
-                    = vlSelfRef.modulator__DOT__cos_harmonics[0U];
-                __Vdly__modulator__DOT__cos_reg[1U] 
-                    = vlSelfRef.modulator__DOT__cos_harmonics[1U];
-                __Vdly__modulator__DOT__cos_reg[2U] 
-                    = vlSelfRef.modulator__DOT__cos_harmonics[2U];
-                __Vdly__modulator__DOT__cos_reg[3U] 
-                    = vlSelfRef.modulator__DOT__cos_harmonics[3U];
-                __Vdly__modulator__DOT__cos_reg[4U] 
-                    = vlSelfRef.modulator__DOT__cos_harmonics[4U];
-                __Vdly__modulator__DOT__sin_reg[0U] 
-                    = vlSelfRef.modulator__DOT__sin_harmonics[0U];
-                __Vdly__modulator__DOT__sin_reg[1U] 
-                    = vlSelfRef.modulator__DOT__sin_harmonics[1U];
-                __Vdly__modulator__DOT__sin_reg[2U] 
-                    = vlSelfRef.modulator__DOT__sin_harmonics[2U];
-                __Vdly__modulator__DOT__sin_reg[3U] 
-                    = vlSelfRef.modulator__DOT__sin_harmonics[3U];
-                __Vdly__modulator__DOT__sin_reg[4U] 
-                    = vlSelfRef.modulator__DOT__sin_harmonics[4U];
-                __Vdly__modulator__DOT__busy = 1U;
-                __Vdly__modulator__DOT__mac_state = 1U;
-                __Vdly__modulator__DOT__idx = 0U;
-                __Vdly__modulator__DOT__mac_cur = 0ULL;
-            }
-        } else if ((1U == (IData)(vlSelfRef.modulator__DOT__mac_state))) {
-            __Vdly__modulator__DOT__idx = (0x0000000fU 
-                                           & ((IData)(1U) 
-                                              + (IData)(vlSelfRef.modulator__DOT__idx)));
-            if ((2U <= (IData)(vlSelfRef.modulator__DOT__idx))) {
-                __Vdly__modulator__DOT__mac_cur = (0x0000001fffffffffULL 
-                                                   & ((vlSelfRef.modulator__DOT__mac_cur 
-                                                       + 
-                                                       VL_EXTENDS_QI(37,32, vlSelfRef.modulator__DOT__prod_a_temp)) 
-                                                      + 
-                                                      VL_EXTENDS_QI(37,32, vlSelfRef.modulator__DOT__prod_b_temp)));
-            }
-            if ((0x0bU == (IData)(vlSelfRef.modulator__DOT__idx))) {
-                __Vdly__modulator__DOT__mac_state = 2U;
-            }
-        } else {
-            if ((2U == (IData)(vlSelfRef.modulator__DOT__mac_state))) {
-                vlSelfRef.modulator__DOT__modulator_sum_out 
-                    = (0x0000ffffU & (IData)((0x0000001fffffffffULL 
-                                              & VL_SHIFTRS_QQI(37,37,32, vlSelfRef.modulator__DOT__mac_cur, 0x0000000fU))));
-                vlSelfRef.modulator__DOT__data_valid_out = 1U;
-                __Vdly__modulator__DOT__busy = 0U;
-            }
-            __Vdly__modulator__DOT__mac_state = 0U;
-        }
+        vlSelfRef.pid_controller__DOT__sat_lo = (VL_GTES_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum) 
+                                                 && VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum));
+        vlSelfRef.pid_controller__DOT__vel_d = vlSelfRef.pid_controller__DOT__vel;
+        vlSelfRef.pid_controller__DOT__i_prod = (0x00007fffffffffffULL 
+                                                 & VL_MULS_QQQ(47, 
+                                                               (0x00007fffffffffffULL 
+                                                                & VL_EXTENDS_QI(47,15, (IData)(vlSelfRef.pid_controller__DOT__vel))), 
+                                                               (0x00007fffffffffffULL 
+                                                                & VL_EXTENDS_QI(47,32, vlSelfRef.pid_controller__DOT__Ki))));
+        vlSelfRef.pid_controller__DOT__i_current = vlSelfRef.pid_controller__DOT__i_bounded;
+        vlSelfRef.pid_controller__DOT__d_term = (0x00007fffffffffffULL 
+                                                 & VL_SHIFTRS_QQI(47,47,32, vlSelfRef.pid_controller__DOT__d_prod, 0x00000010U));
+        vlSelfRef.pid_controller__DOT__p_term = (0x00007fffffffffffULL 
+                                                 & VL_SHIFTRS_QQI(47,47,32, vlSelfRef.pid_controller__DOT__p_prod, 0x00000010U));
+        vlSelfRef.pid_controller__DOT__d_prod = (0x00007fffffffffffULL 
+                                                 & VL_MULS_QQQ(47, 
+                                                               (0x00007fffffffffffULL 
+                                                                & VL_SHIFTRS_QQI(47,47,32, 
+                                                                                (0x00007fffffffffffULL 
+                                                                                & (0x0000000000000010ULL 
+                                                                                + 
+                                                                                VL_EXTENDS_QI(47,21, vlSelfRef.pid_controller__DOT__deriv_vel_filt))), 5U)), 
+                                                               (0x00007fffffffffffULL 
+                                                                & VL_EXTENDS_QI(47,32, vlSelfRef.pid_controller__DOT__Kd))));
+        vlSelfRef.pid_controller__DOT__p_prod = (0x00007fffffffffffULL 
+                                                 & VL_MULS_QQQ(47, 
+                                                               (0x00007fffffffffffULL 
+                                                                & VL_EXTENDS_QI(47,15, (IData)(vlSelfRef.pid_controller__DOT__vel))), 
+                                                               (0x00007fffffffffffULL 
+                                                                & VL_EXTENDS_QI(47,32, vlSelfRef.pid_controller__DOT__Kp))));
     }
-    vlSelfRef.modulator__DOT__prod_a_temp = __Vdly__modulator__DOT__prod_a_temp;
-    vlSelfRef.modulator__DOT__prod_b_temp = __Vdly__modulator__DOT__prod_b_temp;
-    vlSelfRef.modulator__DOT__mac_cur = __Vdly__modulator__DOT__mac_cur;
-    vlSelfRef.modulator__DOT__idx = __Vdly__modulator__DOT__idx;
-    vlSelfRef.modulator__DOT__mac_state = __Vdly__modulator__DOT__mac_state;
-    vlSelfRef.modulator__DOT__a_reg[0U] = __Vdly__modulator__DOT__a_reg[0U];
-    vlSelfRef.modulator__DOT__a_reg[1U] = __Vdly__modulator__DOT__a_reg[1U];
-    vlSelfRef.modulator__DOT__a_reg[2U] = __Vdly__modulator__DOT__a_reg[2U];
-    vlSelfRef.modulator__DOT__a_reg[3U] = __Vdly__modulator__DOT__a_reg[3U];
-    vlSelfRef.modulator__DOT__a_reg[4U] = __Vdly__modulator__DOT__a_reg[4U];
-    vlSelfRef.modulator__DOT__b_reg[0U] = __Vdly__modulator__DOT__b_reg[0U];
-    vlSelfRef.modulator__DOT__b_reg[1U] = __Vdly__modulator__DOT__b_reg[1U];
-    vlSelfRef.modulator__DOT__b_reg[2U] = __Vdly__modulator__DOT__b_reg[2U];
-    vlSelfRef.modulator__DOT__b_reg[3U] = __Vdly__modulator__DOT__b_reg[3U];
-    vlSelfRef.modulator__DOT__b_reg[4U] = __Vdly__modulator__DOT__b_reg[4U];
-    vlSelfRef.modulator__DOT__cos_reg[0U] = __Vdly__modulator__DOT__cos_reg[0U];
-    vlSelfRef.modulator__DOT__cos_reg[1U] = __Vdly__modulator__DOT__cos_reg[1U];
-    vlSelfRef.modulator__DOT__cos_reg[2U] = __Vdly__modulator__DOT__cos_reg[2U];
-    vlSelfRef.modulator__DOT__cos_reg[3U] = __Vdly__modulator__DOT__cos_reg[3U];
-    vlSelfRef.modulator__DOT__cos_reg[4U] = __Vdly__modulator__DOT__cos_reg[4U];
-    vlSelfRef.modulator__DOT__sin_reg[0U] = __Vdly__modulator__DOT__sin_reg[0U];
-    vlSelfRef.modulator__DOT__sin_reg[1U] = __Vdly__modulator__DOT__sin_reg[1U];
-    vlSelfRef.modulator__DOT__sin_reg[2U] = __Vdly__modulator__DOT__sin_reg[2U];
-    vlSelfRef.modulator__DOT__sin_reg[3U] = __Vdly__modulator__DOT__sin_reg[3U];
-    vlSelfRef.modulator__DOT__sin_reg[4U] = __Vdly__modulator__DOT__sin_reg[4U];
-    vlSelfRef.modulator__DOT__busy = __Vdly__modulator__DOT__busy;
-    vlSelfRef.modulator_sum_out = vlSelfRef.modulator__DOT__modulator_sum_out;
-    vlSelfRef.data_valid_out = vlSelfRef.modulator__DOT__data_valid_out;
-    vlSelfRef.busy = vlSelfRef.modulator__DOT__busy;
+    vlSelfRef.pid_controller__DOT__data_valid_out = 
+        ((1U & (~ (IData)(vlSelfRef.pid_controller__DOT__rst))) 
+         && (IData)(vlSelfRef.pid_controller__DOT__accept_data));
+    vlSelfRef.pid_controller__DOT__busy = ((1U & (~ (IData)(vlSelfRef.pid_controller__DOT__rst))) 
+                                           && (IData)(vlSelfRef.pid_controller__DOT__accept_data));
+    vlSelfRef.data_valid_out = vlSelfRef.pid_controller__DOT__data_valid_out;
+    vlSelfRef.busy = vlSelfRef.pid_controller__DOT__busy;
+    vlSelfRef.sat_hi = vlSelfRef.pid_controller__DOT__sat_hi;
+    vlSelfRef.out_sig = vlSelfRef.pid_controller__DOT__out_sig;
+    vlSelfRef.sat_lo = vlSelfRef.pid_controller__DOT__sat_lo;
+    vlSelfRef.pid_controller__DOT__deriv_vel = (0x001fffffU 
+                                                & (VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel)) 
+                                                   - 
+                                                   VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel_d))));
+    vlSelfRef.pid_controller__DOT__non_pos_i_prod = 
+        (1U & (IData)((vlSelfRef.pid_controller__DOT__i_prod 
+                       >> 0x0000002eU)));
+    vlSelfRef.pid_controller__DOT__i_next = (0x0000ffffffffffffULL 
+                                             & (VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_current) 
+                                                + VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_prod)));
+    vlSelfRef.pid_controller__DOT__deriv_scaled = (0x001fffffU 
+                                                   & (vlSelfRef.pid_controller__DOT__deriv_vel 
+                                                      << 5U));
+    vlSelfRef.pid_controller__DOT__deriv_vel_filt = __Vdly__pid_controller__DOT__deriv_vel_filt;
+    vlSelfRef.pid_controller__DOT__accept_data = ((~ (IData)(vlSelfRef.pid_controller__DOT__busy)) 
+                                                  & (IData)(vlSelfRef.pid_controller__DOT__data_valid_in));
+    vlSelfRef.pid_controller__DOT__unbounded_pid_sum 
+        = (0x0003ffffffffffffULL & (VL_SHIFTRS_QQI(50,50,32, 
+                                                   (0x0003ffffffffffffULL 
+                                                    & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
+                                    + (VL_SHIFTRS_QQI(50,50,32, 
+                                                      (0x0003ffffffffffffULL 
+                                                       & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_current)), 0x00000010U) 
+                                       + VL_SHIFTRS_QQI(50,50,32, 
+                                                        (0x0003ffffffffffffULL 
+                                                         & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U))));
+    vlSelfRef.pid_controller__DOT__i_clamp = ((VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                               & VL_LTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)) 
+                                              | (VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                                 & VL_GTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)));
+    vlSelfRef.pid_controller__DOT__i_bounded = (0x00007fffffffffffULL 
+                                                & ((IData)(vlSelfRef.pid_controller__DOT__i_clamp)
+                                                    ? vlSelfRef.pid_controller__DOT__i_current
+                                                    : 
+                                                   (VL_LTS_IQQ(48, 0x0000000003331999ULL, vlSelfRef.pid_controller__DOT__i_next)
+                                                     ? 0x0000000003331999ULL
+                                                     : 
+                                                    (VL_GTS_IQQ(48, 0x0000fffffccce667ULL, vlSelfRef.pid_controller__DOT__i_next)
+                                                      ? 0x00007ffffccce667ULL
+                                                      : vlSelfRef.pid_controller__DOT__i_next))));
+    vlSelfRef.pid_controller__DOT__pid_sum = (0x0003ffffffffffffULL 
+                                              & (VL_SHIFTRS_QQI(50,50,32, 
+                                                                (0x0003ffffffffffffULL 
+                                                                 & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
+                                                 + 
+                                                 (VL_SHIFTRS_QQI(50,50,32, 
+                                                                 (0x0003ffffffffffffULL 
+                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U) 
+                                                  + 
+                                                  VL_SHIFTRS_QQI(50,50,32, 
+                                                                 (0x0003ffffffffffffULL 
+                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_bounded)), 0x00000010U))));
+    vlSelfRef.pid_controller__DOT__sat_hi_current = 
+        VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum);
+    vlSelfRef.pid_controller__DOT__sat_lo_current = 
+        VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum);
 }
 
 void Vtop___024root___trigger_orInto__act_vec_vec(VlUnpacked<QData/*63:0*/, 1> &out, const VlUnpacked<QData/*63:0*/, 1> &in) {
@@ -514,6 +406,12 @@ void Vtop___024root___eval_debug_assertions(Vtop___024root* vlSelf) {
     }
     if (VL_UNLIKELY(((vlSelfRef.data_valid_in & 0xfeU)))) {
         Verilated::overWidthError("data_valid_in");
+    }
+    if (VL_UNLIKELY(((vlSelfRef.inp_sig & 0xc000U)))) {
+        Verilated::overWidthError("inp_sig");
+    }
+    if (VL_UNLIKELY(((vlSelfRef.ref_sig & 0xc000U)))) {
+        Verilated::overWidthError("ref_sig");
     }
 }
 #endif  // VL_DEBUG

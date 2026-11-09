@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Fri Nov  6 15:02:10 2026
-| Host         : biomech-Ubuntu-24-04-PC-Q35-ICH9-2009 running 64-bit Ubuntu 22.04.5 LTS
+| Date         : Mon Nov  9 17:43:08 2026
+| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_timing -file obj/post_route_timing.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
@@ -12,20 +12,20 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (MET) :             2.102ns  (required time - arrival time)
-  Source:                 full_hgen/gen_harmonics[8].nth_cordic/cordic_pipeline[15].valid_pipe_reg[16]/C
+Slack (MET) :             1.464ns  (required time - arrival time)
+  Source:                 signal_modulators[7].kth_modulator/idx_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            signal_modulators[5].kth_modulator/sin_reg_reg[0][1]/CE
-                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            signal_modulators[7].kth_modulator/prod_a_temp_reg/A[20]
+                            (rising edge-triggered cell DSP48E1 clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        7.170ns  (logic 0.741ns (10.335%)  route 6.429ns (89.665%))
-  Logic Levels:           1  (LUT3=1)
-  Clock Path Skew:        -0.286ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.773ns = ( 14.773 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.244ns
-    Clock Pessimism Removal (CPR):    0.186ns
+  Data Path Delay:        8.122ns  (logic 0.839ns (10.330%)  route 7.283ns (89.670%))
+  Logic Levels:           2  (LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.020ns = ( 15.020 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.231ns
+    Clock Pessimism Removal (CPR):    0.195ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -40,14 +40,16 @@ Slack (MET) :             2.102ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16416, routed)       1.736     5.244    full_hgen/gen_harmonics[8].nth_cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X41Y100        FDRE                                         r  full_hgen/gen_harmonics[8].nth_cordic/cordic_pipeline[15].valid_pipe_reg[16]/C
+                         net (fo=18490, routed)       1.723     5.231    signal_modulators[7].kth_modulator/clk_100mhz_IBUF_BUFG
+    SLICE_X29Y121        FDRE                                         r  signal_modulators[7].kth_modulator/idx_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X41Y100        FDRE (Prop_fdre_C_Q)         0.419     5.663 r  full_hgen/gen_harmonics[8].nth_cordic/cordic_pipeline[15].valid_pipe_reg[16]/Q
-                         net (fo=9, routed)           2.997     8.660    signal_modulators[5].kth_modulator/valid_arr[0]
-    SLICE_X1Y127         LUT3 (Prop_lut3_I0_O)        0.322     8.982 r  signal_modulators[5].kth_modulator/a_reg[9][15]_i_1__1/O
-                         net (fo=616, routed)         3.432    12.414    signal_modulators[5].kth_modulator/a_reg[9][15]_i_1__1_n_0
-    SLICE_X57Y99         FDRE                                         r  signal_modulators[5].kth_modulator/sin_reg_reg[0][1]/CE
+    SLICE_X29Y121        FDRE (Prop_fdre_C_Q)         0.419     5.650 r  signal_modulators[7].kth_modulator/idx_reg[3]/Q
+                         net (fo=77, routed)          1.625     7.275    signal_modulators[7].kth_modulator/idx_reg_n_0_[3]
+    SLICE_X30Y121        LUT3 (Prop_lut3_I1_O)        0.296     7.571 r  signal_modulators[7].kth_modulator/prod_a_temp_reg_i_39__6/O
+                         net (fo=71, routed)          2.808    10.380    signal_modulators[7].kth_modulator/prod_a_temp_reg_i_39__6_n_0
+    SLICE_X0Y147         LUT6 (Prop_lut6_I4_O)        0.124    10.504 r  signal_modulators[7].kth_modulator/prod_a_temp_reg_i_20__6/O
+                         net (fo=13, routed)          2.849    13.353    signal_modulators[7].kth_modulator/a_reg[17]
+    DSP48_X1Y51          DSP48E1                                      r  signal_modulators[7].kth_modulator/prod_a_temp_reg/A[20]
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -56,16 +58,17 @@ Slack (MET) :             2.102ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=16416, routed)       1.444    14.773    signal_modulators[5].kth_modulator/clk_100mhz_IBUF_BUFG
-    SLICE_X57Y99         FDRE                                         r  signal_modulators[5].kth_modulator/sin_reg_reg[0][1]/C
-                         clock pessimism              0.186    14.959    
-                         clock uncertainty           -0.035    14.923    
-    SLICE_X57Y99         FDRE (Setup_fdre_C_CE)      -0.407    14.516    signal_modulators[5].kth_modulator/sin_reg_reg[0][1]
+                         net (fo=18490, routed)       1.691    15.020    signal_modulators[7].kth_modulator/clk_100mhz_IBUF_BUFG
+    DSP48_X1Y51          DSP48E1                                      r  signal_modulators[7].kth_modulator/prod_a_temp_reg/CLK
+                         clock pessimism              0.195    15.214    
+                         clock uncertainty           -0.035    15.179    
+    DSP48_X1Y51          DSP48E1 (Setup_dsp48e1_CLK_A[20])
+                                                     -0.362    14.817    signal_modulators[7].kth_modulator/prod_a_temp_reg
   -------------------------------------------------------------------
-                         required time                         14.516    
-                         arrival time                         -12.414    
+                         required time                         14.817    
+                         arrival time                         -13.353    
   -------------------------------------------------------------------
-                         slack                                  2.102    
+                         slack                                  1.464    
 
 
 

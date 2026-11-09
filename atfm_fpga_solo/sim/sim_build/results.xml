@@ -1,19 +1,24 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1793218240" />
-    <testcase name="test_reset" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="142" time="0.022362232208251953" sim_time_ns="625.001" ratio_time="27948.95403015118" />
-    <testcase name="test_latency_and_pulse" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="152" time="0.004759073257446289" sim_time_ns="825.001" ratio_time="173353.28862802463" />
-    <testcase name="test_busy_window" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="168" time="0.0011720657348632812" sim_time_ns="175.00099999999998" ratio_time="149309.8849275834" />
-    <testcase name="test_zero_and_dc" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="189" time="0.0018949508666992188" sim_time_ns="345.001" ratio_time="182063.29571011575" />
-    <testcase name="test_single_coefficients" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="202" time="0.01694798469543457" sim_time_ns="3225.001" ratio_time="190288.1704199761" />
-    <testcase name="test_bit_exact_random" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="215" time="0.17493295669555664" sim_time_ns="33440.001000000004" ratio_time="191158.95387395227" />
-    <testcase name="test_extremes" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="229" time="0.0045680999755859375" sim_time_ns="835.0009999999966" ratio_time="182789.56337703473" />
-    <testcase name="test_directed_angles" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="239" time="0.008001089096069336" sim_time_ns="1465.0010000000038" ratio_time="183100.1982867194" />
-    <testcase name="test_ignore_while_busy" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="251" time="0.004282236099243164" sim_time_ns="1055.0009999999966" ratio_time="246366.8456268574" />
-    <testcase name="test_inputs_latched" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="282" time="0.0009717941284179688" sim_time_ns="175.00100000000384" ratio_time="180080.3224494642" />
-    <testcase name="test_back_to_back" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="304" time="0.01708078384399414" sim_time_ns="3225.0009999999966" ratio_time="188808.7238533819" />
-    <testcase name="test_reset_flushes" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="317" time="0.0031332969665527344" sim_time_ns="685.0010000000038" ratio_time="218619.8778195112" />
-    <testcase name="test_sawtooth_sweep" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="381" time="0.45154786109924316" sim_time_ns="20505.001000000004" ratio_time="45410.47088581674" />
-    <testcase name="test_square_wave_synthesis" classname="test_modulator" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_modulator.py" lineno="392" time="0.34604692459106445" sim_time_ns="20505.00099999999" ratio_time="59254.972498979594" />
+    <property name="random_seed" value="1794263826" />
+    <testcase name="test_sine_vs_dc_integrator_plots" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="276" time="2.084699869155884" sim_time_ns="46225.001" ratio_time="22173.45608541577" />
+    <testcase name="test_reset" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="295" time="0.0015749931335449219" sim_time_ns="225.00100000000384" ratio_time="142858.40059098034" />
+    <testcase name="test_busy_handshake" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="306" time="0.003032207489013672" sim_time_ns="375.00099999999657" ratio_time="123672.60530775166">
+      <failure message="Test failed with RANDOM_SEED=1794263826" />
+    </testcase>
+    <testcase name="test_zero_error" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="333" time="0.37480616569519043" sim_time_ns="925.0010000000038" ratio_time="2467.944993072118" />
+    <testcase name="test_p_only" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="341" time="0.3825099468231201" sim_time_ns="1225.0009999999966" ratio_time="3202.5337123232" />
+    <testcase name="test_integrator_ramp_and_clamp" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="352" time="0.3665609359741211" sim_time_ns="3625.001000000004" ratio_time="9889.217983271206" />
+    <testcase name="test_derivative_settles" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="365" time="0.3971216678619385" sim_time_ns="4555.000999999997" ratio_time="11470.038954367928">
+      <failure message="Test failed with RANDOM_SEED=1794263826" />
+    </testcase>
+    <testcase name="test_sine_input_dc_reference" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="383" time="0.485170841217041" sim_time_ns="15385.001000000004" ratio_time="31710.481531427253">
+      <failure message="Test failed with RANDOM_SEED=1794263826" />
+    </testcase>
+    <testcase name="test_windup_and_recovery" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="403" time="0.4333040714263916" sim_time_ns="12625.001000000004" ratio_time="29136.585212411745" />
+    <testcase name="test_output_saturation_antiwindup" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="426" time="0.9306719303131104" sim_time_ns="8935.00099999999" ratio_time="9600.591474800303" />
+    <testcase name="test_random_vs_model" classname="test_pid" file="/Users/smyl362/MEng/Biomechatronics/FPGA/atfm_fpga_solo/sim/test_pid.py" lineno="441" time="0.3476238250732422" sim_time_ns="60025.001000000004" ratio_time="172672.28731331378">
+      <failure message="Test failed with RANDOM_SEED=1794263826" />
+    </testcase>
   </testsuite>
 </testsuites>

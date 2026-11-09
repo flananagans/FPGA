@@ -5,10 +5,16 @@
 #include "Vtop__pch.h"
 
 // Parameter definitions for Vtop___024root
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__MAX_HARMONIC;
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__DATA_WIDTH;
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__MAC_WIDTH;
-constexpr IData/*31:0*/ Vtop___024root::modulator__DOT__LOAD_MAC_DELAY;
+constexpr SData/*13:0*/ Vtop___024root::pid_controller__DOT__OUT_MAX;
+constexpr SData/*13:0*/ Vtop___024root::pid_controller__DOT__OUT_MIN;
+constexpr IData/*31:0*/ Vtop___024root::pid_controller__DOT__GAIN_DATA_WIDTH;
+constexpr IData/*31:0*/ Vtop___024root::pid_controller__DOT__SIG_DATA_WIDTH;
+constexpr IData/*31:0*/ Vtop___024root::pid_controller__DOT__FRAC_WIDTH;
+constexpr IData/*31:0*/ Vtop___024root::pid_controller__DOT__ALPHA_DIV_FACTOR;
+constexpr IData/*31:0*/ Vtop___024root::pid_controller__DOT__DERIV_FRAC_BITS;
+constexpr IData/*31:0*/ Vtop___024root::pid_controller__DOT__PROD_WIDTH;
+constexpr QData/*46:0*/ Vtop___024root::pid_controller__DOT__I_MAX;
+constexpr QData/*46:0*/ Vtop___024root::pid_controller__DOT__I_MIN;
 
 
 void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf);

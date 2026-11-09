@@ -36,13 +36,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_IN8(&clk,0,0);
     VL_IN8(&rst,0,0);
     VL_IN8(&data_valid_in,0,0);
+    VL_OUT8(&sat_hi,0,0);
+    VL_OUT8(&sat_lo,0,0);
     VL_OUT8(&data_valid_out,0,0);
     VL_OUT8(&busy,0,0);
-    VL_INW(&a_values,159,0,5);
-    VL_INW(&b_values,159,0,5);
-    VL_INW(&cos_harmonics,159,0,5);
-    VL_INW(&sin_harmonics,159,0,5);
-    VL_OUT16(&modulator_sum_out,15,0);
+    VL_IN16(&inp_sig,13,0);
+    VL_IN16(&ref_sig,13,0);
+    VL_OUT16(&out_sig,13,0);
+    VL_IN(&Kp,31,0);
+    VL_IN(&Ki,31,0);
+    VL_IN(&Kd,31,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.

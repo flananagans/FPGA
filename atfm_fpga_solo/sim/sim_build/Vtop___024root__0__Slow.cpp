@@ -9,8 +9,8 @@ VL_ATTR_COLD void Vtop___024root___eval_static(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.__Vtrigprevexpr___TOP__modulator__DOT__clk__0 
-        = vlSelfRef.modulator__DOT__clk;
+    vlSelfRef.__Vtrigprevexpr___TOP__pid_controller__DOT__clk__0 
+        = vlSelfRef.pid_controller__DOT__clk;
 }
 
 VL_ATTR_COLD void Vtop___024root___eval_initial(Vtop___024root* vlSelf) {
@@ -171,7 +171,7 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__act(const VlUnpacked<QData/*63
         VL_DBG_MSGS("         No '" + tag + "' region triggers active\n");
     }
     if ((1U & (IData)(triggers[0U]))) {
-        VL_DBG_MSGS("         '" + tag + "' region trigger index 0 is active: @(posedge modulator.clk)\n");
+        VL_DBG_MSGS("         '" + tag + "' region trigger index 0 is active: @(posedge pid_controller.clk)\n");
     }
 }
 #endif  // VL_DEBUG
@@ -185,37 +185,49 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16707436170211756652ull);
     vlSelf->rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18209466448985614591ull);
     vlSelf->data_valid_in = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 13223545773184750206ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->a_values, __VscopeHash, 7469277622419261778ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->b_values, __VscopeHash, 17567726783840441254ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->cos_harmonics, __VscopeHash, 9560529273349479938ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->sin_harmonics, __VscopeHash, 7151580789698629045ull);
-    vlSelf->modulator_sum_out = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 3320341660322539821ull);
+    vlSelf->inp_sig = VL_SCOPED_RAND_RESET_I(14, __VscopeHash, 2285752947889448090ull);
+    vlSelf->ref_sig = VL_SCOPED_RAND_RESET_I(14, __VscopeHash, 1560659393915167952ull);
+    vlSelf->Kp = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 10150755001895970474ull);
+    vlSelf->Ki = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 10980670539033904880ull);
+    vlSelf->Kd = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 16127658886826835590ull);
+    vlSelf->out_sig = VL_SCOPED_RAND_RESET_I(14, __VscopeHash, 12038421961227337159ull);
+    vlSelf->sat_hi = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 1004562562341158143ull);
+    vlSelf->sat_lo = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10851980657492272700ull);
     vlSelf->data_valid_out = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 883001566760746723ull);
     vlSelf->busy = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 6386567572483775230ull);
-    vlSelf->modulator__DOT__clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7342137891961622134ull);
-    vlSelf->modulator__DOT__rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16127640825012946379ull);
-    vlSelf->modulator__DOT__data_valid_in = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14770749862920173105ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__a_values, __VscopeHash, 13850895787802974943ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__b_values, __VscopeHash, 13868964913823363008ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__cos_harmonics, __VscopeHash, 6231640570262010055ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__sin_harmonics, __VscopeHash, 4470418143287273386ull);
-    vlSelf->modulator__DOT__modulator_sum_out = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 8221855327503208346ull);
-    vlSelf->modulator__DOT__data_valid_out = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 10246916283518808770ull);
-    vlSelf->modulator__DOT__busy = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 414005708572651755ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__a_reg, __VscopeHash, 2148831544895622072ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__b_reg, __VscopeHash, 4898377298596070950ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__cos_reg, __VscopeHash, 16329397880276505980ull);
-    VL_SCOPED_RAND_RESET_W(160, vlSelf->modulator__DOT__sin_reg, __VscopeHash, 18332122517655708513ull);
-    vlSelf->modulator__DOT__idx = VL_SCOPED_RAND_RESET_I(4, __VscopeHash, 18406463518824155510ull);
-    vlSelf->modulator__DOT__mac_cur = VL_SCOPED_RAND_RESET_Q(37, __VscopeHash, 12763810436054000612ull);
-    vlSelf->modulator__DOT__mac_next = VL_SCOPED_RAND_RESET_Q(37, __VscopeHash, 4011835252960630649ull);
-    vlSelf->modulator__DOT__mac_state = VL_SCOPED_RAND_RESET_I(2, __VscopeHash, 17464872648881318673ull);
-    vlSelf->modulator__DOT__a_temp = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 15861279639554165123ull);
-    vlSelf->modulator__DOT__b_temp = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 1043129204140168571ull);
-    vlSelf->modulator__DOT__cos_temp = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 17099585889772073559ull);
-    vlSelf->modulator__DOT__sin_temp = VL_SCOPED_RAND_RESET_I(16, __VscopeHash, 13217223067697548597ull);
-    vlSelf->modulator__DOT__prod_a_temp = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 7815793644574972026ull);
-    vlSelf->modulator__DOT__prod_b_temp = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 11602505330393896775ull);
+    vlSelf->pid_controller__DOT__clk = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15745079858991721803ull);
+    vlSelf->pid_controller__DOT__rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16376463988306944678ull);
+    vlSelf->pid_controller__DOT__data_valid_in = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18240980497625801589ull);
+    vlSelf->pid_controller__DOT__inp_sig = VL_SCOPED_RAND_RESET_I(14, __VscopeHash, 16696330576379062987ull);
+    vlSelf->pid_controller__DOT__ref_sig = VL_SCOPED_RAND_RESET_I(14, __VscopeHash, 5115575149102820162ull);
+    vlSelf->pid_controller__DOT__Kp = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 10948386990251759133ull);
+    vlSelf->pid_controller__DOT__Ki = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 3307574917536552061ull);
+    vlSelf->pid_controller__DOT__Kd = VL_SCOPED_RAND_RESET_I(32, __VscopeHash, 12245392955611006491ull);
+    vlSelf->pid_controller__DOT__out_sig = VL_SCOPED_RAND_RESET_I(14, __VscopeHash, 566075992855360416ull);
+    vlSelf->pid_controller__DOT__sat_hi = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 14686041418033505201ull);
+    vlSelf->pid_controller__DOT__sat_lo = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 16566466435030686070ull);
+    vlSelf->pid_controller__DOT__data_valid_out = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15877815346791424003ull);
+    vlSelf->pid_controller__DOT__busy = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5351520684092292343ull);
+    vlSelf->pid_controller__DOT__accept_data = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5030084360731354753ull);
+    vlSelf->pid_controller__DOT__vel = VL_SCOPED_RAND_RESET_I(15, __VscopeHash, 5461722233696454477ull);
+    vlSelf->pid_controller__DOT__vel_d = VL_SCOPED_RAND_RESET_I(15, __VscopeHash, 3123603429618259690ull);
+    vlSelf->pid_controller__DOT__deriv_vel = VL_SCOPED_RAND_RESET_I(21, __VscopeHash, 9988493061270826404ull);
+    vlSelf->pid_controller__DOT__deriv_scaled = VL_SCOPED_RAND_RESET_I(21, __VscopeHash, 12328308189341166624ull);
+    vlSelf->pid_controller__DOT__deriv_vel_filt = VL_SCOPED_RAND_RESET_I(21, __VscopeHash, 5925758069008878353ull);
+    vlSelf->pid_controller__DOT__p_prod = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 13396847033347935674ull);
+    vlSelf->pid_controller__DOT__i_prod = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 2441122785122635282ull);
+    vlSelf->pid_controller__DOT__d_prod = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 13080978598518346772ull);
+    vlSelf->pid_controller__DOT__p_term = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 634233526556323174ull);
+    vlSelf->pid_controller__DOT__d_term = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 2657709570379681906ull);
+    vlSelf->pid_controller__DOT__i_next = VL_SCOPED_RAND_RESET_Q(48, __VscopeHash, 12697882948016620482ull);
+    vlSelf->pid_controller__DOT__i_current = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 3197690365897862223ull);
+    vlSelf->pid_controller__DOT__pid_sum = VL_SCOPED_RAND_RESET_Q(50, __VscopeHash, 17335736677440751431ull);
+    vlSelf->pid_controller__DOT__unbounded_pid_sum = VL_SCOPED_RAND_RESET_Q(50, __VscopeHash, 16804409462100179375ull);
+    vlSelf->pid_controller__DOT__non_pos_i_prod = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 5792395379713902434ull);
+    vlSelf->pid_controller__DOT__i_clamp = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 17206812278074022561ull);
+    vlSelf->pid_controller__DOT__sat_hi_current = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 15268844977542091675ull);
+    vlSelf->pid_controller__DOT__sat_lo_current = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7925344894322608305ull);
+    vlSelf->pid_controller__DOT__i_bounded = VL_SCOPED_RAND_RESET_Q(47, __VscopeHash, 6559667028060776223ull);
     for (int __Vi0 = 0; __Vi0 < 1; ++__Vi0) {
         vlSelf->__VstlTriggered[__Vi0] = 0;
     }
@@ -225,7 +237,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     for (int __Vi0 = 0; __Vi0 < 1; ++__Vi0) {
         vlSelf->__VactTriggered[__Vi0] = 0;
     }
-    vlSelf->__Vtrigprevexpr___TOP__modulator__DOT__clk__0 = 0;
+    vlSelf->__Vtrigprevexpr___TOP__pid_controller__DOT__clk__0 = 0;
     for (int __Vi0 = 0; __Vi0 < 1; ++__Vi0) {
         vlSelf->__VnbaTriggered[__Vi0] = 0;
     }

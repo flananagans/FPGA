@@ -264,16 +264,15 @@ module top_level
 
     // ***************** CORDIC TEST ***************** //
 
-    logic [15:0] cos_out;
-    logic [15:0] sin_out;
-    logic [31:0] display_num;
-    logic [31:0] cos_sin_out_latched;
+    localparam CORDIC_BIT_WIDTH = 18;
+    logic [CORDIC_BIT_WIDTH-1:0] cos_out, sin_out, angle_in;
+    // logic [31:0] display_num;
+    // logic [31:0] cos_sin_out_latched;
     // assign display_num = {cos_out, sin_out};
 
-    logic [15:0] angle_in;
     localparam COUNT_100HZ_MAX = 1_000_000;
     logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
-    logic trig_rise_edge, cordic_valid_in, psoc_trigger_in_d;
+    logic trig_rise_edge, cordic_valid_in, cordic_valid_out, psoc_trigger_in_d;
     localparam STEP = 1;  //65536/360 = 182 counts = 1 degree
 
     assign trig_rise_edge = (!psoc_trigger_in_d && psoc_trigger_in); //on rising edge of trigger in
@@ -282,12 +281,12 @@ module top_level
         if (rst) begin
             cordic_clk_counter <= 0;
             angle_in <= 0;
-            cos_sin_out_latched <= 0;
+            // cos_sin_out_latched <= 0;
             psoc_trigger_in_d <= 1'b0;
             cordic_valid_in <= 1'b0;
         end
         else begin
-        cos_sin_out_latched <= display_num;
+        // cos_sin_out_latched <= display_num;
         psoc_trigger_in_d <= psoc_trigger_in;
 
         if (trig_rise_edge) begin
@@ -301,8 +300,6 @@ module top_level
         end
     end
 
-    localparam CORDIC_BIT_WIDTH = 16;
-
     cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
         .clk(clk_100mhz),
         .rst(rst),
@@ -310,15 +307,27 @@ module top_level
         .angle(angle_in), //sw[15:0]
         .cos(cos_out),
         .sin(sin_out),
-        .data_cossin_valid_out()
+        .data_cossin_valid_out(cordic_valid_out)
     );
+
+    localparam NUM_SPI_BYTES = 8;
+    localparam HEADER_BIT_WIDTH = 8 * NUM_SPI_BYTES - 3 * CORDIC_BIT_WIDTH;
+    logic [HEADER_BIT_WIDTH-1:0] header;
+    assign header = {2'b11, 8'b0};
 
     // Latch, then send cossin cordic data over spi
     logic [3*CORDIC_BIT_WIDTH - 1:0] spi_ang_cossin_pkt;
-    assign spi_ang_cossin_pkt = {angle_in, cos_out, sin_out};
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            spi_ang_cossin_pkt <= '0;
+            // spi_ang_cossin_pkt <= '0;
+        end else if (cordic_valid_out) begin
+            spi_ang_cossin_pkt <= {header, angle_in, cos_out, sin_out};
+        end
+    end
 
     spi_peripheral #(
-        .DATA_WIDTH((3 * CORDIC_BIT_WIDTH)) // {angle, cos, sin}
+        .DATA_WIDTH((8 * NUM_SPI_BYTES)) // {header, angle, cos, sin} = 10 + 3*18 = 64 bits = 8 bytes
     ) cordic_fpga_to_psoc ( //teensy or psoc
         .clk(clk_100mhz),
         .rst(rst),

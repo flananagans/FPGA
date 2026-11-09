@@ -4,7 +4,7 @@
 # Execute this makefile from the object directory:
 #    make -f Vtop.mk
 
-default: modulator
+default: pid_controller
 
 ### Constants...
 # Perl executable (from $PERL, defaults to 'perl' if not set)
@@ -68,7 +68,7 @@ verilator.o: /Users/smyl362/6205_python/lib/python3.11/site-packages/cocotb/shar
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST)  -c -o $@ $<
 
 ### Link rules... (from --exe)
-modulator: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
+pid_controller: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a
 	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
 
 # Verilated -*- Makefile -*-
