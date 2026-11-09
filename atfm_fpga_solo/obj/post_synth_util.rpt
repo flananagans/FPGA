@@ -1,8 +1,8 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Nov  9 17:41:40 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Tool Version : Vivado v.2025.2.1 (lin64) Build 6403652 Thu Mar 19 13:47:00 MDT 2026
+| Date         : Mon Nov  9 18:15:21 2026
+| Host         : biomech-z890maoruselitewifi7ice running 64-bit Ubuntu 24.04.4 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
 | Device       : xc7s50csga324-1
@@ -22,13 +22,12 @@ Table of Contents
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
 |               Instance               |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
-| top_level                            |              (top) |      13516 |      13503 |       0 |   13 | 18457 |      0 |      0 |         16 |
-|   (top_level)                        |              (top) |        102 |        102 |       0 |    0 |   776 |      0 |      0 |          0 |
-|   cordic                             |      cordic_cossin |       1001 |        999 |       0 |    2 |  1097 |      0 |      0 |          0 |
-|   cordic_fpga_to_psoc                |     spi_peripheral |         27 |         27 |       0 |    0 |    14 |      0 |      0 |          0 |
-|   fpga_spi_con_to_enco               |            spi_con |         96 |         96 |       0 |    0 |    68 |      0 |      0 |          0 |
+| top_level                            |              (top) |      13514 |      13501 |       0 |   13 | 18458 |      0 |      0 |         16 |
+|   (top_level)                        |              (top) |        102 |        102 |       0 |    0 |   777 |      0 |      0 |          0 |
+|   cordic                             |      cordic_cossin |       1002 |       1000 |       0 |    2 |  1097 |      0 |      0 |          0 |
+|   fpga_spi_con_to_enco               |            spi_con |         92 |         92 |       0 |    0 |    68 |      0 |      0 |          0 |
 |   full_hgen                          | harmonic_generator |      10033 |      10022 |       0 |   11 | 10663 |      0 |      0 |          0 |
-|     (full_hgen)                      | harmonic_generator |          1 |          1 |       0 |    0 |     1 |      0 |      0 |          0 |
+|     gen_harmonics[9].nth_cordic      |   cordic_cossin_16 |       1010 |       1009 |       0 |    1 |  1063 |      0 |      0 |          0 |
 |     gen_harmonics[0].nth_cordic      |    cordic_cossin_7 |        998 |        997 |       0 |    1 |  1079 |      0 |      0 |          0 |
 |     gen_harmonics[1].nth_cordic      |    cordic_cossin_8 |        995 |        994 |       0 |    1 |  1063 |      0 |      0 |          0 |
 |     gen_harmonics[2].nth_cordic      |    cordic_cossin_9 |       1015 |       1014 |       0 |    1 |  1079 |      0 |      0 |          0 |
@@ -38,7 +37,6 @@ Table of Contents
 |     gen_harmonics[6].nth_cordic      |   cordic_cossin_13 |       1015 |       1014 |       0 |    1 |  1079 |      0 |      0 |          0 |
 |     gen_harmonics[7].nth_cordic      |   cordic_cossin_14 |        977 |        976 |       0 |    1 |  1030 |      0 |      0 |          0 |
 |     gen_harmonics[8].nth_cordic      |   cordic_cossin_15 |       1016 |       1014 |       0 |    2 |  1081 |      0 |      0 |          0 |
-|     gen_harmonics[9].nth_cordic      |   cordic_cossin_16 |       1010 |       1009 |       0 |    1 |  1063 |      0 |      0 |          0 |
 |   signal_modulators[0].kth_modulator |          modulator |        285 |        285 |       0 |    0 |   683 |      0 |      0 |          2 |
 |   signal_modulators[1].kth_modulator |        modulator_0 |        280 |        280 |       0 |    0 |   690 |      0 |      0 |          2 |
 |   signal_modulators[2].kth_modulator |        modulator_1 |        284 |        284 |       0 |    0 |   718 |      0 |      0 |          2 |

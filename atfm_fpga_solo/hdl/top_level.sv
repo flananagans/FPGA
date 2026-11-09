@@ -313,10 +313,10 @@ module top_level
     localparam NUM_SPI_BYTES = 8;
     localparam HEADER_BIT_WIDTH = 8 * NUM_SPI_BYTES - 3 * CORDIC_BIT_WIDTH;
     logic [HEADER_BIT_WIDTH-1:0] header;
-    assign header = {2'b11, 8'b0};
+    assign header = 10'b11_0000_0000; // 0x300 (10 bits)
 
     // Latch, then send cossin cordic data over spi
-    logic [3*CORDIC_BIT_WIDTH - 1:0] spi_ang_cossin_pkt;
+    logic [8 * NUM_SPI_BYTES -1 :0] spi_ang_cossin_pkt;
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
             spi_ang_cossin_pkt <= '0;
