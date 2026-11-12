@@ -265,7 +265,8 @@ module top_level
     // ***************** CORDIC TEST ***************** //
 
     localparam CORDIC_BIT_WIDTH = 18;
-    logic [CORDIC_BIT_WIDTH-1:0] cos_out, sin_out, angle_in;
+    logic signed [CORDIC_BIT_WIDTH-1:0] cos_out, sin_out, signed_angle_in;
+    logic [CORDIC_BIT_WIDTH-1:0] angle_in;
     // logic [31:0] display_num;
     // logic [31:0] cos_sin_out_latched;
     // assign display_num = {cos_out, sin_out};
@@ -300,11 +301,12 @@ module top_level
         end
     end
 
+    assign signed_angle_in = angle_in;
     cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
         .clk(clk_100mhz),
         .rst(rst),
         .data_angle_valid_in(cordic_valid_in),
-        .angle(angle_in), //sw[15:0]
+        .angle(signed_angle_in),
         .cos(cos_out),
         .sin(sin_out),
         .data_cossin_valid_out(cordic_valid_out)
@@ -313,7 +315,7 @@ module top_level
     localparam NUM_SPI_BYTES = 8;
     localparam HEADER_BIT_WIDTH = 8 * NUM_SPI_BYTES - 3 * CORDIC_BIT_WIDTH;
     logic [HEADER_BIT_WIDTH-1:0] header;
-    assign header = 10'b11_0000_0000; // 0x300 (10 bits)
+    assign header = 10'b11_0000_0011; // 0x300 (10 bits)
 
     // Latch, then send cossin cordic data over spi
     logic [8 * NUM_SPI_BYTES -1 :0] spi_ang_cossin_pkt;
