@@ -20,7 +20,7 @@
 //     output logic data_valid_out,
 //     output logic busy
 // );
-//     logic accept_data;
+//     logic accept_data, store_prods;
 //     assign accept_data = data_valid_in && !busy;
 
 //     // 1. Calculate error = velocity
@@ -42,12 +42,15 @@
 //             // smoothed_vel  <= '0;
 //             vel_d               <= '0;
 //             deriv_vel_filt      <= '0;
+//             // store_prods         <= 1'b0;
 //         end else if (accept_data) begin
 //             //LPF filtering
 //             deriv_vel_filt <= deriv_vel_filt + ( (deriv_scaled - deriv_vel_filt) >>> ALPHA_DIV_FACTOR ) ; //
 //             // d_prod <= (deriv_vel_filt + (1 <<< (DERIV_FRAC_BITS-1)));
 //             vel_d <= vel;               //prev error
+//             // store_prods <= 1'b1; // kinda FSM flag telling it to store PID products
 //         end
+//         // else store_prods <= 1'b0;
 //     end
 
 //     // 2. Calculate P, I, D products
@@ -66,6 +69,7 @@
 //             i_prod <= vel  * Ki; // do i need smoothed error for integrator
 //             // d_prod <= (deriv_vel_filt >>> DERIV_FRAC_BITS) * Kd;
 //             d_prod <= ((deriv_vel_filt + (1 <<< (DERIV_FRAC_BITS-1))) >>> DERIV_FRAC_BITS) * Kd; //need to understand
+//             store_prods <= 1'b0; //TODO: all the seq logic below needs to be guarded by an intermediary valid signal
 //         end else busy <= 1'b0;
 //     end
 
@@ -82,7 +86,7 @@
 //     localparam logic signed [PROD_WIDTH-1:0] I_MAX = (PROD_WIDTH'(OUT_MAX) <<< FRAC_WIDTH) / 10; // |T_pid,i| <= 0.1 * |T_pid,max|
 //     localparam logic signed [PROD_WIDTH-1:0] I_MIN = -I_MAX; //
 
-//     logic signed [PROD_WIDTH - 1 : 0]   p_term, d_term;
+//     logic signed [PROD_WIDTH - 1 : 0]   p_term, d_term; // for probing
 //     logic signed [PROD_WIDTH : 0]     i_next;
 //     logic signed [PROD_WIDTH - 1 : 0]   i_current;
 //     assign i_next = (PROD_WIDTH+1)'(i_current) + (PROD_WIDTH+1)'(i_prod); //used below; casting to higher bitwidth for signed addn
@@ -113,38 +117,23 @@
 //     end
 
 //     assign pid_sum = (p_prod >>> FRAC_WIDTH) + (i_bounded >>> FRAC_WIDTH) + (d_prod >>> FRAC_WIDTH);
+//     assign p_term = p_prod >>> FRAC_WIDTH; //for probing
+//     assign d_term = d_prod >>> FRAC_WIDTH; //for probing
 
-
-//     always_ff @(posedge clk) begin
-//         if (rst) begin
-//             i_current <= '0;
-//             p_term <= '0;
-//             d_term <= '0;
-//         end else if (accept_data) begin
-//             p_term <= p_prod >>> FRAC_WIDTH; //for probing
-//             d_term <= d_prod >>> FRAC_WIDTH; //for probing
-//             i_current <= i_bounded;
-//             // if (!i_clamp) begin
-//             //     // clamp integrator to the output range
-//             //     if (i_next > I_MAX)
-//             //         i_current <= I_MAX;
-//             //     else if (i_next < I_MIN)
-//             //         i_current <= I_MIN;
-//             //     else
-//             //         i_current <= (PROD_WIDTH+1)'(i_current) + (PROD_WIDTH+1)'(i_prod);
-//             // end
-//         end
-//     end
 
 //     // 4. Calculate P + I + D sum, output clamp
 
 //     always_ff @(posedge clk) begin
 //         if (rst) begin
+//             i_current <= '0;
+
 //             out_sig    <= '0;
 //             sat_hi <= 1'b0;
 //             sat_lo <= 1'b0;
 //             data_valid_out <= 1'b0;
 //         end else if (accept_data) begin
+//             i_current <= i_bounded;
+
 //             data_valid_out <= 1'b1;
 //             if (pid_sum > OUT_MAX) begin
 //                 out_sig    <= OUT_MAX;
@@ -172,6 +161,16 @@
 //     //         i_state <= i_state + (signed_velor * reg_ki);
 //     //     end
 //     // end
+
+//     // if (!i_clamp) begin
+//             //     // clamp integrator to the output range
+//             //     if (i_next > I_MAX)
+//             //         i_current <= I_MAX;
+//             //     else if (i_next < I_MIN)
+//             //         i_current <= I_MIN;
+//             //     else
+//             //         i_current <= (PROD_WIDTH+1)'(i_current) + (PROD_WIDTH+1)'(i_prod);
+//             // end
 
 
 

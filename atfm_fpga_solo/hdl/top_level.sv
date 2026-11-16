@@ -264,69 +264,242 @@ module top_level
 
     // ***************** CORDIC TEST ***************** //
 
-    localparam CORDIC_BIT_WIDTH = 18;
-    logic signed [CORDIC_BIT_WIDTH-1:0] cos_out, sin_out, signed_angle_in;
-    logic [CORDIC_BIT_WIDTH-1:0] angle_in;
+    // localparam CORDIC_BIT_WIDTH = 18;
+    // logic signed [CORDIC_BIT_WIDTH-1:0] cos_out, sin_out, signed_angle_in;
+    // logic [CORDIC_BIT_WIDTH-1:0] angle_in;
     // logic [31:0] display_num;
     // logic [31:0] cos_sin_out_latched;
     // assign display_num = {cos_out, sin_out};
 
-    localparam COUNT_100HZ_MAX = 1_000_000;
-    logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
-    logic trig_rise_edge, cordic_valid_in, cordic_valid_out, psoc_trigger_in_d;
-    localparam STEP = 1;  //65536/360 = 182 counts = 1 degree
+    // localparam COUNT_100HZ_MAX = 1_000_000;
+    // logic [$clog2(COUNT_100HZ_MAX) - 1: 0] cordic_clk_counter;
+    // logic trig_rise_edge, cordic_valid_in, cordic_valid_out, psoc_trigger_in_d;
+    // localparam STEP = 1;  //65536/360 = 182 counts = 1 degree
 
-    assign trig_rise_edge = (!psoc_trigger_in_d && psoc_trigger_in); //on rising edge of trigger in
+    // assign trig_rise_edge = (!psoc_trigger_in_d && psoc_trigger_in); //on rising edge of trigger in
 
-    always_ff @(posedge clk_100mhz) begin
-        if (rst) begin
-            cordic_clk_counter <= 0;
-            angle_in <= 0;
-            // cos_sin_out_latched <= 0;
-            psoc_trigger_in_d <= 1'b0;
-            cordic_valid_in <= 1'b0;
-        end
-        else begin
-        // cos_sin_out_latched <= display_num;
-        psoc_trigger_in_d <= psoc_trigger_in;
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (rst) begin
+    //         cordic_clk_counter <= 0;
+    //         angle_in <= 0;
+    //         // cos_sin_out_latched <= 0;
+    //         psoc_trigger_in_d <= 1'b0;
+    //         cordic_valid_in <= 1'b0;
+    //     end
+    //     else begin
+    //     // cos_sin_out_latched <= display_num;
+    //     psoc_trigger_in_d <= psoc_trigger_in;
 
-        if (trig_rise_edge) begin
-            angle_in <= angle_in + STEP;
-            cordic_valid_in <= 1'b1;
-            // cordic_clk_counter <= 0;
-        end else begin
-            cordic_valid_in <= 1'b0;
-            // cordic_clk_counter <= cordic_clk_counter + 1;
-        end
+    //     if (trig_rise_edge) begin
+    //         angle_in <= angle_in + STEP;
+    //         cordic_valid_in <= 1'b1;
+    //         // cordic_clk_counter <= 0;
+    //     end else begin
+    //         cordic_valid_in <= 1'b0;
+    //         // cordic_clk_counter <= cordic_clk_counter + 1;
+    //     end
+    //     end
+    // end
+
+    // assign signed_angle_in = angle_in;
+
+    // cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .data_angle_valid_in(cordic_valid_in),
+    //     .angle(signed_angle_in),
+    //     .cos(cos_out),
+    //     .sin(sin_out),
+    //     .data_cossin_valid_out(cordic_valid_out)
+    // );
+
+    // localparam NUM_SPI_BYTES = 8;
+    // localparam HEADER_BIT_WIDTH = 8 * NUM_SPI_BYTES - 3 * CORDIC_BIT_WIDTH;
+    // logic [HEADER_BIT_WIDTH-1:0] header;
+    // assign header = 10'b11_0000_0011; // 0x303 (10 bits)
+
+    // // Latch, then send cossin cordic data over spi
+    // logic [8 * NUM_SPI_BYTES -1 :0] spi_ang_cossin_pkt;
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (rst) begin
+    //         spi_ang_cossin_pkt <= '0;
+    //         // spi_ang_cossin_pkt <= '0;
+    //     end else if (cordic_valid_out && !spi_busy) begin
+    //         spi_ang_cossin_pkt <= {header, angle_in, cos_out, sin_out};
+    //     end
+    // end
+
+    // spi_peripheral #(
+    //     .DATA_WIDTH((8 * NUM_SPI_BYTES)) // {header, angle, cos, sin} = 10 + 3*18 = 64 bits = 8 bytes
+    // ) cordic_fpga_to_psoc ( //teensy or psoc
+    //     .clk(clk_100mhz),
+    //     .rst(rst),
+    //     .data_in(spi_ang_cossin_pkt),    // {angle, cos, sin} data to send to psoc controller
+    //     .data_out(),                    // Ignore received data for now
+    //     .data_valid(spi_byte_valid),    // Pulses after each byte
+    //     .busy(spi_busy),
+    //     .copi(copi),
+    //     .cipo(cipo),
+    //     .dclk(dclk),
+    //     .cs(cs)
+    // );
+
+    // *************************************************** //
+
+
+    // ***************** HARMONICS & MODULATORS TEST ***************** //
+    localparam CORDIC_BIT_WIDTH = 18;
+    logic signed [CORDIC_BIT_WIDTH-1:0] signed_angle_in;
+    logic [CORDIC_BIT_WIDTH-1:0] angle_in;
+
+    localparam NUM_MODULATORS = 8;
+    localparam MAX_HARMONIC = 10;
+
+    logic signed [NUM_MODULATORS-1:0] [CORDIC_BIT_WIDTH-1:0] mod_sum_out_arr;
+    logic [NUM_MODULATORS-1:0] mod_val_out_arr, mod_busy_arr;
+    logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] a_test_vals [NUM_MODULATORS];
+    logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] b_test_vals [NUM_MODULATORS];
+    initial begin
+        foreach (a_test_vals[m, h]) begin
+            if (h % 2 == 0) begin
+                a_test_vals[m][h] = 1;
+                b_test_vals[m][h] = 1;
+            end else begin
+                a_test_vals[m][h] = -1;
+                b_test_vals[m][h] = -1;
+            end
         end
     end
 
-    assign signed_angle_in = angle_in;
-    cordic_cossin #(.WIDTH(CORDIC_BIT_WIDTH), .NUM_ITERATIONS(16)) cordic(
-        .clk(clk_100mhz),
-        .rst(rst),
-        .data_angle_valid_in(cordic_valid_in),
-        .angle(signed_angle_in),
-        .cos(cos_out),
-        .sin(sin_out),
-        .data_cossin_valid_out(cordic_valid_out)
-    );
+    logic trig_rise_edge, psoc_trigger_in_d;
+    localparam STEP = 21845;  //65536/360 = 182 counts = 1 degree
+
+    assign trig_rise_edge = (!psoc_trigger_in_d && psoc_trigger_in); //on rising edge of trigger in
 
     localparam NUM_SPI_BYTES = 8;
     localparam HEADER_BIT_WIDTH = 8 * NUM_SPI_BYTES - 3 * CORDIC_BIT_WIDTH;
     logic [HEADER_BIT_WIDTH-1:0] header;
-    assign header = 10'b11_0000_0011; // 0x300 (10 bits)
+    assign header = 10'b11_0000_0011; // 0x303 (10 bits)
 
     // Latch, then send cossin cordic data over spi
     logic [8 * NUM_SPI_BYTES -1 :0] spi_ang_cossin_pkt;
+
+    /* Create fake a_n, b_n, coefficient vectors */
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (rst) begin
+    //         for (int m = 0; m < NUM_MODULATORS; m++) begin
+    //             a_test_vals[m] <= '0;
+    //             b_test_vals[m] <= '0;
+    //         end
+    //     end else begin
+    //         for (int m = 0; m < NUM_MODULATORS; m++) // different test coefficients for each signal so that vivado doesn't synth away
+    //             for (int k = 0; k < MAX_HARMONIC; k++) begin
+    //                 a_test_vals[m][k] <= a_test_vals[m][k] + (k + 1 + m);
+    //                 b_test_vals[m][k] <= b_test_vals[m][k] + (2*k + 1 + 3*m);
+    //             end
+    //     end
+    // end
+    logic [HEADER_BIT_WIDTH-1:0] total_clk_cycles_ctr;
+    logic hgen_valid_in, hgen_valid_out, hgen_busy;
+
+
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
-            spi_ang_cossin_pkt <= '0;
-            // spi_ang_cossin_pkt <= '0;
-        end else if (cordic_valid_out) begin
-            spi_ang_cossin_pkt <= {header, angle_in, cos_out, sin_out};
+            cordic_clk_counter <= 0;
+            // angle_in <= 0;
+            psoc_trigger_in_d <= 1'b0;
+            hgen_valid_in <= 1'b0;
+        end
+        else begin
+            psoc_trigger_in_d <= psoc_trigger_in;
+
+            if (trig_rise_edge) begin
+                // angle_in <= angle_in + STEP;
+                hgen_valid_in <= 1'b1;
+                // cordic_clk_counter <= 0;
+            end else begin
+                hgen_valid_in <= 1'b0;
+                // cordic_clk_counter <= cordic_clk_counter + 1;
+            end
+
         end
     end
+
+    logic [CORDIC_BIT_WIDTH-1:0] phase;
+    // logic signed [CORDIC_BIT_WIDTH-1:0] angle_n;
+    always_ff @(posedge clk_100mhz)
+        if (rst) phase <= '0;
+        else if (trig_rise_edge) phase <= phase + STEP; // increment by 30 degrees every trigger rising edge
+    assign angle_in = phase;
+
+    // assign angle_in = STEP; //30 degrees for 2^18 bits
+    assign signed_angle_in = angle_in;
+
+    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] cos_reg; // Output cosine for [1, MAX_HARMONIC]
+    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] sin_reg;
+    // logic signed [CORDIC_BIT_WIDTH-1:0] angle_in;
+    // assign angle_in = phase + (i * (1 << CORDIC_BIT_WIDTH)) / NUM_MODULATORS ; // wraps naturally, which is correct for angles
+
+    /* Generates MAX_HARMONIC number of cordic modules within */
+    harmonic_generator #(
+        .MAX_HARMONIC(MAX_HARMONIC),
+        .DATA_WIDTH(CORDIC_BIT_WIDTH)
+    ) full_hgen (
+        .clk(clk_100mhz),
+        .rst(rst),
+        .data_valid_in(hgen_valid_in),
+        .angle(signed_angle_in),
+        .cos_arr_out(cos_reg),
+        .sin_arr_out(sin_reg),
+        .data_valid_out(hgen_valid_out),
+        .busy(hgen_busy)
+    );
+
+    //one modulator per signal
+    generate
+        for (genvar i = 0; i < NUM_MODULATORS; i++) begin : signal_modulators
+            modulator #(
+                .MAX_HARMONIC(MAX_HARMONIC),
+                .DATA_WIDTH(CORDIC_BIT_WIDTH)
+            ) kth_modulator (
+                .clk(clk_100mhz),
+                .rst(rst),
+                .data_valid_in(hgen_valid_out),
+                .a_values(a_test_vals[i]),
+                .b_values(b_test_vals[i]),
+                .cos_harmonics(cos_reg),
+                .sin_harmonics(sin_reg),
+                .modulator_sum_out(mod_sum_out_arr[i]),
+                .data_valid_out(mod_val_out_arr[i]),
+                .busy(mod_busy_arr[i])
+            );
+        end
+    endgenerate
+
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            total_clk_cycles_ctr <= 0;
+            spi_ang_cossin_pkt <= '0;
+        end
+        else if (trig_rise_edge || hgen_valid_in || hgen_busy || (|mod_busy_arr && !(&mod_val_out_arr)) ) begin
+            total_clk_cycles_ctr <= total_clk_cycles_ctr + 1;
+        end
+        else if (&mod_val_out_arr && !spi_busy) begin
+            spi_ang_cossin_pkt <= {total_clk_cycles_ctr, angle_in, mod_sum_out_arr[0], cos_reg[0]};
+            //sending 0th index module for
+            total_clk_cycles_ctr <= 0; //all modules are done
+        end
+    end
+
+    // always_ff @(posedge clk_100mhz) begin
+    //     if (rst) begin
+    //         spi_ang_cossin_pkt <= '0;
+    //     end else if (cordic_valid_out && !spi_busy) begin
+    //         spi_ang_cossin_pkt <= {total_clk_cycles_ctr, angle_in, cos_out, sin_out};
+    //     end
+    // end
+
+    assign led[15] = ^mod_sum_out_arr; //for testing, to ensure that it is not synthed away
 
     spi_peripheral #(
         .DATA_WIDTH((8 * NUM_SPI_BYTES)) // {header, angle, cos, sin} = 10 + 3*18 = 64 bits = 8 bytes
@@ -388,85 +561,6 @@ module top_level
     // square
 
     //constant
-
-    // *************************************************** //
-
-
-    // ***************** HARMONICS & MODULATORS TEST ***************** //
-    localparam NUM_MODULATORS = 8;
-    localparam MAX_HARMONIC = 10;
-
-    logic [NUM_MODULATORS-1:0] [CORDIC_BIT_WIDTH-1:0] mod_sum_out_arr;
-    logic [NUM_MODULATORS-1:0] mod_val_out_arr, mod_busy_arr;
-    // logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] a_test_vals;
-    // logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] b_test_vals;
-    logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] a_test_vals [NUM_MODULATORS];
-    logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] b_test_vals [NUM_MODULATORS];
-
-    always_ff @(posedge clk_100mhz) begin
-        if (rst) begin
-            for (int m = 0; m < NUM_MODULATORS; m++) begin
-                a_test_vals[m] <= '0;
-                b_test_vals[m] <= '0;
-            end
-        end else begin
-            for (int m = 0; m < NUM_MODULATORS; m++) // different test coefficients for each signal so that vivado doesn't synth away
-                for (int k = 0; k < MAX_HARMONIC; k++) begin
-                    a_test_vals[m][k] <= a_test_vals[m][k] + (k + 1 + m);
-                    b_test_vals[m][k] <= b_test_vals[m][k] + (2*k + 1 + 3*m);
-                end
-        end
-    end
-
-    logic [CORDIC_BIT_WIDTH-1:0] phase;
-    logic signed [CORDIC_BIT_WIDTH-1:0] angle_n;
-    always_ff @(posedge clk_100mhz)
-        if (rst) phase <= '0;
-        else     phase <= phase + 16'd37;
-    assign angle_n = phase;
-
-    logic hgen_valid;
-    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] cos_reg; // Output cosine for [1, MAX_HARMONIC]
-    logic signed [MAX_HARMONIC-1:0] [CORDIC_BIT_WIDTH-1:0] sin_reg;
-    // logic signed [CORDIC_BIT_WIDTH-1:0] angle_in;
-    // assign angle_in = phase + (i * (1 << CORDIC_BIT_WIDTH)) / NUM_MODULATORS ; // wraps naturally, which is correct for angles
-
-    harmonic_generator #(
-        .MAX_HARMONIC(MAX_HARMONIC),
-        .DATA_WIDTH(CORDIC_BIT_WIDTH)
-    ) full_hgen (
-        .clk(clk_100mhz),
-        .rst(rst),
-        .data_valid_in(1'b1),
-        .angle(angle_n),
-        .cos_arr_out(cos_reg),
-        .sin_arr_out(sin_reg),
-        .data_valid_out(hgen_valid),
-        .busy()
-    );
-
-
-    generate
-        for (genvar i = 0; i < NUM_MODULATORS; i++) begin : signal_modulators
-            modulator #(
-                .MAX_HARMONIC(MAX_HARMONIC),
-                .DATA_WIDTH(CORDIC_BIT_WIDTH)
-            ) kth_modulator (
-                .clk(clk_100mhz),
-                .rst(rst),
-                .data_valid_in(hgen_valid),
-                .a_values(a_test_vals[i]),
-                .b_values(b_test_vals[i]),
-                .cos_harmonics(cos_reg),
-                .sin_harmonics(sin_reg),
-                .modulator_sum_out(mod_sum_out_arr[i]),
-                .data_valid_out(mod_val_out_arr[i]),
-                .busy(mod_busy_arr[i])
-            );
-        end
-        endgenerate
-
-        assign led[15] = ^mod_sum_out_arr; //for testing, to ensure that it is not synthed away
 
     // *************************************************** //
 
