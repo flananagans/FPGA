@@ -1,0 +1,52 @@
+TODO
+
+PSOC - figure out the bit error plotting and wrap around error in my modsum code
+
+FPGA - revise PID logic and write the testbenches testing each of Kp, Ki, and Kd effect
+then test integrator error + plot
+then start widrow hoff module and testbench that
+
+ref sig = step signal
+psoc pass state to fpga, fpga set the next state, feed back to psoc to run the algo (Runge Kutta - 4th order) -> way to solve linear differential equation model
+simulation of known model (mass spring damper)
+
+desired state = test vector, K gain
+supply output control command back to PSOC
+
+PSOC updates state of model via m, b, k constants of model and outputs the next state x_i+1
+x_i+1 = Ax_i + B*u_i
+make it not respond to input for some amount of time to make integraor sum grow a bunch
+after that time, can let the command resume and affect the model
+get some step response (in state) after it resumes
+-5 to 5 Nm over 12 bit number for output command
+
+can zero pad to 32 bit in top level
+
+dont have to worry about updating gains/gain scheduling because linear systems will have an optimal set of K
+if command saturates ever -> makes system nonlinear
+send output command to psoc to track
+set Ki = Kd = 0
+set Kp to something, see what output command you get -> should be sinusoid
+increasing Kp outputs sinusoidal siganl with amplitdue higher
+e.g. Ki = 10, Kp = Kd = 0,
+-> versus Ki = 20 -> amplitude of output should double
+
+0.01 reolution for gains -> 16-bit max
+K 16 bit -> 25x18 dsp
+get plot: desired, actual states and output command for each
+
+set actual signal amplitude to be higher than what 0.1 * T_pid max
+output is same amplitude as input but phase shifted
+-> if windup -> sinusoidal amplitude is not cut off at top
+-> if not then cut off at top
+
+PID, harmonics + modulator
+motor model, delay compensation, phase alignment -> voltage needed for desire current (multiplications + add)
+Widrow Hoff -> an, bn (scaled down to [-1, 1]) -> will divide by largest harmonic
+--> how often do we want to update an, bn -> 4kHz
+-> for a nominal 48kHz (every 12 control loops)
+input test vector that is sine wave  of one of the harmonics
+input sine/cosine is in line with freq of error term so should primarily affect coeff assoc w that freq
+should identify the sinusoide in terms of amp and phase
+if i have phase shifted input sine wave, i want to see that the final an and bn values eventually reach some value and when i remodulate with them, they match the input test sine wave
+velocity filter
