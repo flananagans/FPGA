@@ -362,11 +362,11 @@ module top_level
     initial begin
         foreach (a_test_vals[m, h]) begin
             if (h % 2 == 0) begin
-                a_test_vals[m][h] = 1;
-                b_test_vals[m][h] = 1;
+                a_test_vals[m][h] = 3;
+                b_test_vals[m][h] = 3;
             end else begin
-                a_test_vals[m][h] = -1;
-                b_test_vals[m][h] = -1;
+                a_test_vals[m][h] = -3;
+                b_test_vals[m][h] = -3;
             end
         end
     end
@@ -385,27 +385,29 @@ module top_level
     logic [8 * NUM_SPI_BYTES -1 :0] spi_ang_cossin_pkt;
 
     /* Create fake a_n, b_n, coefficient vectors */
-    // always_ff @(posedge clk_100mhz) begin
-    //     if (rst) begin
-    //         for (int m = 0; m < NUM_MODULATORS; m++) begin
-    //             a_test_vals[m] <= '0;
-    //             b_test_vals[m] <= '0;
-    //         end
-    //     end else begin
-    //         for (int m = 0; m < NUM_MODULATORS; m++) // different test coefficients for each signal so that vivado doesn't synth away
-    //             for (int k = 0; k < MAX_HARMONIC; k++) begin
-    //                 a_test_vals[m][k] <= a_test_vals[m][k] + (k + 1 + m);
-    //                 b_test_vals[m][k] <= b_test_vals[m][k] + (2*k + 1 + 3*m);
-    //             end
-    //     end
-    // end
+    always_ff @(posedge clk_100mhz) begin
+        if (rst) begin
+            for (int m = 0; m < NUM_MODULATORS; m++) begin
+                a_test_vals[m] <= '0;
+                b_test_vals[m] <= '0;
+            end
+        end else begin
+            for (int k = 0; k < MAX_HARMONIC; k++) begin
+                a_test_vals[0][k] <= -1;
+                b_test_vals[0][k] <= -1;
+                for (int m = 1; m < NUM_MODULATORS; m++) begin// different test coefficients for each signal so that vivado doesn't synth away
+                    a_test_vals[m][k] <= a_test_vals[m][k] + (k + 1 + m);
+                    b_test_vals[m][k] <= b_test_vals[m][k] + (2*k + 1 + 3*m);
+                end
+            end
+        end
+    end
     logic [HEADER_BIT_WIDTH-1:0] total_clk_cycles_ctr;
     logic hgen_valid_in, hgen_valid_out, hgen_busy;
 
 
     always_ff @(posedge clk_100mhz) begin
         if (rst) begin
-            cordic_clk_counter <= 0;
             // angle_in <= 0;
             psoc_trigger_in_d <= 1'b0;
             hgen_valid_in <= 1'b0;
@@ -414,12 +416,9 @@ module top_level
             psoc_trigger_in_d <= psoc_trigger_in;
 
             if (trig_rise_edge) begin
-                // angle_in <= angle_in + STEP;
                 hgen_valid_in <= 1'b1;
-                // cordic_clk_counter <= 0;
             end else begin
                 hgen_valid_in <= 1'b0;
-                // cordic_clk_counter <= cordic_clk_counter + 1;
             end
 
         end

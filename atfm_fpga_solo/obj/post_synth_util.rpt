@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Thu Nov 12 10:41:34 2026
+| Date         : Wed Nov 18 11:01:17 2026
 | Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_utilization -file obj/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 | Design       : top_level
@@ -22,31 +22,30 @@ Table of Contents
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
 |               Instance               |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
-| top_level                            |              (top) |      13518 |      13505 |       0 |   13 | 18458 |      0 |      0 |         16 |
-|   (top_level)                        |              (top) |        102 |        102 |       0 |    0 |   777 |      0 |      0 |          0 |
-|   cordic                             |      cordic_cossin |       1001 |        999 |       0 |    2 |  1097 |      0 |      0 |          0 |
-|   cordic_fpga_to_psoc                |     spi_peripheral |         29 |         29 |       0 |    0 |    14 |      0 |      0 |          0 |
+| top_level                            |              (top) |      12532 |      12522 |       0 |   10 | 17877 |      0 |      0 |         16 |
+|   (top_level)                        |              (top) |        197 |        197 |       0 |    0 |  1359 |      0 |      0 |          0 |
+|   cordic_fpga_to_psoc                |     spi_peripheral |         30 |         30 |       0 |    0 |    14 |      0 |      0 |          0 |
 |   fpga_spi_con_to_enco               |            spi_con |         96 |         96 |       0 |    0 |    68 |      0 |      0 |          0 |
-|   full_hgen                          | harmonic_generator |      10033 |      10022 |       0 |   11 | 10663 |      0 |      0 |          0 |
-|     (full_hgen)                      | harmonic_generator |          1 |          1 |       0 |    0 |     1 |      0 |      0 |          0 |
-|     gen_harmonics[0].nth_cordic      |    cordic_cossin_7 |        998 |        997 |       0 |    1 |  1079 |      0 |      0 |          0 |
-|     gen_harmonics[1].nth_cordic      |    cordic_cossin_8 |        995 |        994 |       0 |    1 |  1063 |      0 |      0 |          0 |
-|     gen_harmonics[2].nth_cordic      |    cordic_cossin_9 |       1015 |       1014 |       0 |    1 |  1079 |      0 |      0 |          0 |
-|     gen_harmonics[3].nth_cordic      |   cordic_cossin_10 |        981 |        980 |       0 |    1 |  1046 |      0 |      0 |          0 |
-|     gen_harmonics[4].nth_cordic      |   cordic_cossin_11 |       1014 |       1013 |       0 |    1 |  1079 |      0 |      0 |          0 |
-|     gen_harmonics[5].nth_cordic      |   cordic_cossin_12 |       1011 |       1010 |       0 |    1 |  1063 |      0 |      0 |          0 |
-|     gen_harmonics[6].nth_cordic      |   cordic_cossin_13 |       1015 |       1014 |       0 |    1 |  1079 |      0 |      0 |          0 |
-|     gen_harmonics[7].nth_cordic      |   cordic_cossin_14 |        977 |        976 |       0 |    1 |  1030 |      0 |      0 |          0 |
-|     gen_harmonics[8].nth_cordic      |   cordic_cossin_15 |       1016 |       1014 |       0 |    2 |  1081 |      0 |      0 |          0 |
-|     gen_harmonics[9].nth_cordic      |   cordic_cossin_16 |       1010 |       1009 |       0 |    1 |  1063 |      0 |      0 |          0 |
-|   signal_modulators[0].kth_modulator |          modulator |        285 |        285 |       0 |    0 |   683 |      0 |      0 |          2 |
-|   signal_modulators[1].kth_modulator |        modulator_0 |        280 |        280 |       0 |    0 |   690 |      0 |      0 |          2 |
-|   signal_modulators[2].kth_modulator |        modulator_1 |        284 |        284 |       0 |    0 |   718 |      0 |      0 |          2 |
-|   signal_modulators[3].kth_modulator |        modulator_2 |        280 |        280 |       0 |    0 |   721 |      0 |      0 |          2 |
-|   signal_modulators[4].kth_modulator |        modulator_3 |        284 |        284 |       0 |    0 |   755 |      0 |      0 |          2 |
-|   signal_modulators[5].kth_modulator |        modulator_4 |        280 |        280 |       0 |    0 |   752 |      0 |      0 |          2 |
-|   signal_modulators[6].kth_modulator |        modulator_5 |        284 |        284 |       0 |    0 |   770 |      0 |      0 |          2 |
-|   signal_modulators[7].kth_modulator |        modulator_6 |        280 |        280 |       0 |    0 |   750 |      0 |      0 |          2 |
+|   full_hgen                          | harmonic_generator |      10031 |      10021 |       0 |   10 | 10678 |      0 |      0 |          0 |
+|     (full_hgen)                      | harmonic_generator |          0 |          0 |       0 |    0 |     1 |      0 |      0 |          0 |
+|     gen_harmonics[0].nth_cordic      |      cordic_cossin |        999 |        998 |       0 |    1 |  1079 |      0 |      0 |          0 |
+|     gen_harmonics[1].nth_cordic      |    cordic_cossin_7 |        996 |        995 |       0 |    1 |  1080 |      0 |      0 |          0 |
+|     gen_harmonics[2].nth_cordic      |    cordic_cossin_8 |       1015 |       1014 |       0 |    1 |  1079 |      0 |      0 |          0 |
+|     gen_harmonics[3].nth_cordic      |    cordic_cossin_9 |        981 |        980 |       0 |    1 |  1046 |      0 |      0 |          0 |
+|     gen_harmonics[4].nth_cordic      |   cordic_cossin_10 |       1014 |       1013 |       0 |    1 |  1079 |      0 |      0 |          0 |
+|     gen_harmonics[5].nth_cordic      |   cordic_cossin_11 |       1011 |       1010 |       0 |    1 |  1063 |      0 |      0 |          0 |
+|     gen_harmonics[6].nth_cordic      |   cordic_cossin_12 |       1015 |       1014 |       0 |    1 |  1079 |      0 |      0 |          0 |
+|     gen_harmonics[7].nth_cordic      |   cordic_cossin_13 |        977 |        976 |       0 |    1 |  1030 |      0 |      0 |          0 |
+|     gen_harmonics[8].nth_cordic      |   cordic_cossin_14 |       1013 |       1012 |       0 |    1 |  1079 |      0 |      0 |          0 |
+|     gen_harmonics[9].nth_cordic      |   cordic_cossin_15 |       1010 |       1009 |       0 |    1 |  1063 |      0 |      0 |          0 |
+|   signal_modulators[0].kth_modulator |          modulator |        181 |        181 |       0 |    0 |   424 |      0 |      0 |          2 |
+|   signal_modulators[1].kth_modulator |        modulator_0 |        284 |        284 |       0 |    0 |   743 |      0 |      0 |          2 |
+|   signal_modulators[2].kth_modulator |        modulator_1 |        287 |        287 |       0 |    0 |   743 |      0 |      0 |          2 |
+|   signal_modulators[3].kth_modulator |        modulator_2 |        283 |        283 |       0 |    0 |   758 |      0 |      0 |          2 |
+|   signal_modulators[4].kth_modulator |        modulator_3 |        288 |        288 |       0 |    0 |   762 |      0 |      0 |          2 |
+|   signal_modulators[5].kth_modulator |        modulator_4 |        287 |        287 |       0 |    0 |   775 |      0 |      0 |          2 |
+|   signal_modulators[6].kth_modulator |        modulator_5 |        285 |        285 |       0 |    0 |   779 |      0 |      0 |          2 |
+|   signal_modulators[7].kth_modulator |        modulator_6 |        283 |        283 |       0 |    0 |   774 |      0 |      0 |          2 |
 +--------------------------------------+--------------------+------------+------------+---------+------+-------+--------+--------+------------+
 
 
