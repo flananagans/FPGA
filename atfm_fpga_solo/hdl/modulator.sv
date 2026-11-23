@@ -9,8 +9,8 @@ module modulator
     input wire          data_valid_in,
     input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] a_values,
     input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] b_values,
-    input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] cos_harmonics,
     input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] sin_harmonics,
+    input wire signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] cos_harmonics,
     output logic signed [DATA_WIDTH-1:0] modulator_sum_out,
     output logic data_valid_out,
     output logic busy
@@ -74,8 +74,8 @@ module modulator
             cos_temp <= (idx < MAX_HARMONIC) ? cos_reg[idx] : '0;
             sin_temp <= (idx < MAX_HARMONIC) ? sin_reg[idx] : '0;
             // Stage 2: takes one cycle after LOAD
-            prod_a_temp <= a_temp * cos_temp;
-            prod_b_temp <= b_temp * sin_temp;
+            prod_a_temp <= a_temp * sin_temp;
+            prod_b_temp <= b_temp * cos_temp;
 
             case (mac_state)
                 BUFFER: begin
