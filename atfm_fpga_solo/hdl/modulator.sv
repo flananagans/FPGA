@@ -23,8 +23,8 @@ module modulator
     logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] a_reg;
     logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] b_reg;
 
-    logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] cos_reg; // Output cosine for [1, MAX_HARMONIC]
     logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] sin_reg; // Output sine.
+    logic signed [MAX_HARMONIC-1:0] [DATA_WIDTH-1:0] cos_reg; // Output cosine for [1, MAX_HARMONIC]
     // logic mult_acc_active;
 
     logic [$clog2(MAX_HARMONIC + LOAD_MAC_DELAY + 1)-1:0] idx;
@@ -45,7 +45,7 @@ module modulator
     // end
 
     localparam LOAD_MAC_DELAY = 2;
-    logic signed [DATA_WIDTH-1:0] a_temp, b_temp, cos_temp, sin_temp;
+    logic signed [DATA_WIDTH-1:0] a_temp, b_temp, sin_temp, cos_temp;
     logic signed [2*DATA_WIDTH-1:0] prod_a_temp, prod_b_temp;
 
     always_ff @(posedge clk) begin
@@ -83,8 +83,8 @@ module modulator
                         a_reg <= a_values;
                         b_reg <= b_values;
 
-                        cos_reg <= cos_harmonics;
                         sin_reg <= sin_harmonics;
+                        cos_reg <= cos_harmonics;
 
                         busy <= 1'b1;
                         mac_state <= MAC;

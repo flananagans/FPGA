@@ -3,12 +3,12 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Nov 18 16:38:37 2026
-# Process ID: 2566
-# Current directory: /home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a
+# Start of session at: Mon Nov 23 16:32:27 2026
+# Process ID: 2484
+# Current directory: /home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940
 # Command line: vivado -mode batch -source build.tcl
-# Log file: /home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/vivado.log
-# Journal file: /home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/vivado.jou
+# Log file: /home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/vivado.log
+# Journal file: /home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/vivado.jou
 # Running On        :eecs-digital-48
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 24.04.3 LTS
@@ -19,7 +19,7 @@
 # Host memory       :16689 MB
 # Swap memory       :4294 MB
 # Total Virtual     :20984 MB
-# Available Virtual :19632 MB
+# Available Virtual :19621 MB
 #-----------------------------------------------------------
 source build.tcl
 # set_param general.maxThreads 4
@@ -37,7 +37,7 @@ source build.tcl
 obj is empty
 # set sources_sv [ glob ./hdl/*.sv ]
 # read_verilog -sv $sources_sv
-read_verilog: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1391.289 ; gain = 65.840 ; free physical = 12883 ; free virtual = 18369
+read_verilog: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1407.480 ; gain = 76.840 ; free physical = 12862 ; free virtual = 18350
 # set sources_v [ glob -nocomplain ./hdl/*.v ]
 # if {[llength $sources_v] > 0 } {
 #     read_verilog $sources_v
@@ -71,61 +71,61 @@ INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Device 21-9227] Part: xc7s50csga324-1 does not have CEAM library.
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 2589
+INFO: [Synth 8-7075] Helper process launched with PID 2509
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2142.879 ; gain = 411.746 ; free physical = 11732 ; free virtual = 17254
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2159.102 ; gain = 412.746 ; free physical = 11681 ; free virtual = 17204
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6901] identifier 'LOAD_MAC_DELAY' is used before its declaration [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/modulator.sv:30]
-WARNING: [Synth 8-9661] initial value of parameter 'SENT_DATA_WIDTH' is omitted [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/parallel_spi_peripheral.sv:13]
-WARNING: [Synth 8-9661] initial value of parameter 'DATA_LINES' is omitted [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/parallel_spi_peripheral.sv:14]
-WARNING: [Synth 8-9661] initial value of parameter 'CMD_WIDTH' is omitted [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/parallel_spi_peripheral.sv:15]
-WARNING: [Synth 8-10929] literal value 'd50_000_000 truncated to fit in 24 bits [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:593]
-WARNING: [Synth 8-6901] identifier 'spi_busy' is used before its declaration [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:487]
-WARNING: [Synth 8-6901] identifier 'spi_busy' is used before its declaration [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:626]
-INFO: [Synth 8-6157] synthesizing module 'top_level' [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'modulator' [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/modulator.sv:2]
+WARNING: [Synth 8-6901] identifier 'LOAD_MAC_DELAY' is used before its declaration [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/modulator.sv:30]
+WARNING: [Synth 8-9661] initial value of parameter 'SENT_DATA_WIDTH' is omitted [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/parallel_spi_peripheral.sv:13]
+WARNING: [Synth 8-9661] initial value of parameter 'DATA_LINES' is omitted [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/parallel_spi_peripheral.sv:14]
+WARNING: [Synth 8-9661] initial value of parameter 'CMD_WIDTH' is omitted [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/parallel_spi_peripheral.sv:15]
+WARNING: [Synth 8-10929] literal value 'd50_000_000 truncated to fit in 24 bits [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:593]
+WARNING: [Synth 8-6901] identifier 'spi_busy' is used before its declaration [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:487]
+WARNING: [Synth 8-6901] identifier 'spi_busy' is used before its declaration [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:626]
+INFO: [Synth 8-6157] synthesizing module 'top_level' [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'modulator' [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/modulator.sv:2]
 	Parameter MAX_HARMONIC bound to: 10 - type: integer 
 	Parameter DATA_WIDTH bound to: 18 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'modulator' (0#1) [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/modulator.sv:2]
-INFO: [Synth 8-6157] synthesizing module 'spi_con' [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_con.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'modulator' (0#1) [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/modulator.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'spi_con' [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_con.sv:3]
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter DATA_CLK_PERIOD bound to: 28 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'spi_con' (0#1) [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_con.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'harmonic_generator' [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/harmonic_generator.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'spi_con' (0#1) [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_con.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'harmonic_generator' [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/harmonic_generator.sv:2]
 	Parameter MAX_HARMONIC bound to: 10 - type: integer 
 	Parameter DATA_WIDTH bound to: 18 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'cordic_cossin' [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/cordic_cossin.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'cordic_cossin' [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/cordic_cossin.sv:10]
 	Parameter WIDTH bound to: 18 - type: integer 
 	Parameter NUM_ITERATIONS bound to: 16 - type: integer 
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/cordic_cossin.sv:68]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/cordic_cossin.sv:40]
-INFO: [Synth 8-6155] done synthesizing module 'cordic_cossin' (0#1) [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/cordic_cossin.sv:10]
-INFO: [Synth 8-6155] done synthesizing module 'harmonic_generator' (0#1) [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/harmonic_generator.sv:2]
-INFO: [Synth 8-6157] synthesizing module 'spi_peripheral' [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_peripheral.sv:4]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/cordic_cossin.sv:68]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/cordic_cossin.sv:40]
+INFO: [Synth 8-6155] done synthesizing module 'cordic_cossin' (0#1) [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/cordic_cossin.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'harmonic_generator' (0#1) [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/harmonic_generator.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'spi_peripheral' [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_peripheral.sv:4]
 	Parameter DATA_WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'spi_peripheral' (0#1) [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_peripheral.sv:4]
-INFO: [Synth 8-6155] done synthesizing module 'top_level' (0#1) [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:3]
-WARNING: [Synth 8-6014] Unused sequential element trigger_d_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_con.sv:46]
-WARNING: [Synth 8-6014] Unused sequential element trigger_fall_edge_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_con.sv:47]
-WARNING: [Synth 8-6014] Unused sequential element past_ts_delay_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_con.sv:76]
-WARNING: [Synth 8-6014] Unused sequential element data_frame_end_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/spi_con.sv:77]
-WARNING: [Synth 8-6014] Unused sequential element cordic_pipeline[15].total_angle_pipe_reg[16] was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/cordic_cossin.sv:99]
-WARNING: [Synth 8-6014] Unused sequential element cordic_pipeline[15].desired_angle_pipe_reg[16] was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/cordic_cossin.sv:99]
-WARNING: [Synth 8-6014] Unused sequential element auto_trigger_counter_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:86]
-WARNING: [Synth 8-6014] Unused sequential element auto_trigger_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:87]
-WARNING: [Synth 8-6014] Unused sequential element btn_debounce_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:106]
-WARNING: [Synth 8-6014] Unused sequential element btn_trigger_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:107]
-WARNING: [Synth 8-6014] Unused sequential element encoder_data_latched_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:239]
-WARNING: [Synth 8-6014] Unused sequential element encoder_status_latched_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:241]
-WARNING: [Synth 8-6014] Unused sequential element send_pending_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:245]
-WARNING: [Synth 8-6014] Unused sequential element latch_sig_out_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:554]
-WARNING: [Synth 8-6014] Unused sequential element spi_shift_reg_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:670]
-WARNING: [Synth 8-6014] Unused sequential element spi_byte_count_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:664]
-WARNING: [Synth 8-6014] Unused sequential element spi_packet_ready_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:672]
-WARNING: [Synth 8-6014] Unused sequential element encoder_data_available_reg was removed.  [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:673]
-WARNING: [Synth 8-3848] Net ss1_an in module/entity top_level does not have driver. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:13]
-WARNING: [Synth 8-3848] Net ss1_c in module/entity top_level does not have driver. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:15]
-WARNING: [Synth 8-3848] Net uart_txd in module/entity top_level does not have driver. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/hdl/top_level.sv:39]
+INFO: [Synth 8-6155] done synthesizing module 'spi_peripheral' (0#1) [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_peripheral.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'top_level' (0#1) [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:3]
+WARNING: [Synth 8-6014] Unused sequential element trigger_d_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_con.sv:46]
+WARNING: [Synth 8-6014] Unused sequential element trigger_fall_edge_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_con.sv:47]
+WARNING: [Synth 8-6014] Unused sequential element past_ts_delay_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_con.sv:76]
+WARNING: [Synth 8-6014] Unused sequential element data_frame_end_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/spi_con.sv:77]
+WARNING: [Synth 8-6014] Unused sequential element cordic_pipeline[15].total_angle_pipe_reg[16] was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/cordic_cossin.sv:99]
+WARNING: [Synth 8-6014] Unused sequential element cordic_pipeline[15].desired_angle_pipe_reg[16] was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/cordic_cossin.sv:99]
+WARNING: [Synth 8-6014] Unused sequential element auto_trigger_counter_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:86]
+WARNING: [Synth 8-6014] Unused sequential element auto_trigger_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:87]
+WARNING: [Synth 8-6014] Unused sequential element btn_debounce_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:106]
+WARNING: [Synth 8-6014] Unused sequential element btn_trigger_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:107]
+WARNING: [Synth 8-6014] Unused sequential element encoder_data_latched_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:239]
+WARNING: [Synth 8-6014] Unused sequential element encoder_status_latched_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:241]
+WARNING: [Synth 8-6014] Unused sequential element send_pending_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:245]
+WARNING: [Synth 8-6014] Unused sequential element latch_sig_out_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:554]
+WARNING: [Synth 8-6014] Unused sequential element spi_shift_reg_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:670]
+WARNING: [Synth 8-6014] Unused sequential element spi_byte_count_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:664]
+WARNING: [Synth 8-6014] Unused sequential element spi_packet_ready_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:672]
+WARNING: [Synth 8-6014] Unused sequential element encoder_data_available_reg was removed.  [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:673]
+WARNING: [Synth 8-3848] Net ss1_an in module/entity top_level does not have driver. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:13]
+WARNING: [Synth 8-3848] Net ss1_c in module/entity top_level does not have driver. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:15]
+WARNING: [Synth 8-3848] Net uart_txd in module/entity top_level does not have driver. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/hdl/top_level.sv:39]
 WARNING: [Synth 8-3917] design top_level has port rgb1[2] driven by constant 0
 WARNING: [Synth 8-3917] design top_level has port rgb1[0] driven by constant 0
 WARNING: [Synth 8-7129] Port ss1_an[3] in module top_level is either unconnected or has no load
@@ -161,51 +161,51 @@ WARNING: [Synth 8-7129] Port btn[2] in module top_level is either unconnected or
 WARNING: [Synth 8-7129] Port btn[1] in module top_level is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_rxd in module top_level is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2247.848 ; gain = 516.715 ; free physical = 11599 ; free virtual = 17125
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2264.070 ; gain = 517.715 ; free physical = 11567 ; free virtual = 17094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2265.660 ; gain = 534.527 ; free physical = 11599 ; free virtual = 17124
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2278.914 ; gain = 532.559 ; free physical = 11567 ; free virtual = 17093
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2265.660 ; gain = 534.527 ; free physical = 11599 ; free virtual = 17124
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2278.914 ; gain = 532.559 ; free physical = 11567 ; free virtual = 17093
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2265.660 ; gain = 0.000 ; free physical = 11601 ; free virtual = 17126
+Netlist sorting complete. Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2278.914 ; gain = 0.000 ; free physical = 11568 ; free virtual = 17095
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc]
-WARNING: [Vivado 12-584] No ports matched 'ss1_c[7]'. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc:88]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc:88]
+Parsing XDC File [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc]
+WARNING: [Vivado 12-584] No ports matched 'ss1_c[7]'. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc:88]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
+Finished Parsing XDC File [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2410.410 ; gain = 0.000 ; free physical = 11570 ; free virtual = 17110
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2426.664 ; gain = 0.000 ; free physical = 11529 ; free virtual = 17071
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2410.410 ; gain = 0.000 ; free physical = 11569 ; free virtual = 17110
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2426.664 ; gain = 0.000 ; free physical = 11529 ; free virtual = 17072
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11587 ; free virtual = 17128
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2426.664 ; gain = 680.309 ; free physical = 11545 ; free virtual = 17088
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11587 ; free virtual = 17128
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2426.664 ; gain = 680.309 ; free physical = 11545 ; free virtual = 17088
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11587 ; free virtual = 17128
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2426.664 ; gain = 680.309 ; free physical = 11545 ; free virtual = 17088
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'mac_state_reg' in module 'modulator'
 INFO: [Synth 8-802] inferred FSM for state register 'spi_state_reg' in module 'spi_con'
@@ -229,7 +229,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'mac_state_reg' using encod
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'spi_state_reg' using encoding 'sequential' in module 'spi_con'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11570 ; free virtual = 17113
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 2426.664 ; gain = 680.309 ; free physical = 11521 ; free virtual = 17065
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -239,7 +239,7 @@ Detailed RTL Component Info :
 	   2 Input   24 Bit       Adders := 1     
 	   2 Input   19 Bit       Adders := 20    
 	   3 Input   19 Bit       Adders := 320   
-	   2 Input   18 Bit       Adders := 160   
+	   2 Input   18 Bit       Adders := 240   
 	   2 Input   10 Bit       Adders := 1     
 	   2 Input    9 Bit       Adders := 1     
 	   2 Input    6 Bit       Adders := 1     
@@ -253,7 +253,7 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 3     
 	               24 Bit    Registers := 1     
 	               19 Bit    Registers := 340   
-	               18 Bit    Registers := 667   
+	               18 Bit    Registers := 745   
 	               10 Bit    Registers := 1     
 	                9 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
@@ -266,9 +266,9 @@ Detailed RTL Component Info :
 	   6 Input   32 Bit        Muxes := 1     
 	   2 Input   24 Bit        Muxes := 1     
 	   2 Input   19 Bit        Muxes := 331   
-	   2 Input   18 Bit        Muxes := 21    
+	   2 Input   18 Bit        Muxes := 20    
 	   3 Input   18 Bit        Muxes := 20    
-	   2 Input   17 Bit        Muxes := 11    
+	   2 Input   17 Bit        Muxes := 10    
 	   2 Input   16 Bit        Muxes := 10    
 	   2 Input   15 Bit        Muxes := 10    
 	   2 Input   14 Bit        Muxes := 10    
@@ -395,6 +395,326 @@ DSP Report: register b_temp_reg is absorbed into DSP mac_cur0.
 DSP Report: register prod_b_temp_reg is absorbed into DSP mac_cur0.
 DSP Report: operator prod_b_temp0 is absorbed into DSP mac_cur0.
 DSP Report: operator mac_cur0 is absorbed into DSP mac_cur0.
+DSP Report: Generating DSP a_test_vals_reg[0][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][9] is absorbed into DSP a_test_vals_reg[0][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][9].
+DSP Report: Generating DSP a_test_vals_reg[0][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][8] is absorbed into DSP a_test_vals_reg[0][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][8].
+DSP Report: Generating DSP a_test_vals_reg[0][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][7] is absorbed into DSP a_test_vals_reg[0][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][7].
+DSP Report: Generating DSP a_test_vals_reg[0][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][6] is absorbed into DSP a_test_vals_reg[0][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][6].
+DSP Report: Generating DSP a_test_vals_reg[0][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][5] is absorbed into DSP a_test_vals_reg[0][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][5].
+DSP Report: Generating DSP a_test_vals_reg[0][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][4] is absorbed into DSP a_test_vals_reg[0][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][4].
+DSP Report: Generating DSP a_test_vals_reg[0][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][3] is absorbed into DSP a_test_vals_reg[0][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][3].
+DSP Report: Generating DSP a_test_vals_reg[0][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][2] is absorbed into DSP a_test_vals_reg[0][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][2].
+DSP Report: Generating DSP a_test_vals_reg[0][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][1] is absorbed into DSP a_test_vals_reg[0][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][1].
+DSP Report: Generating DSP a_test_vals_reg[0][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[0][0] is absorbed into DSP a_test_vals_reg[0][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[0][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[0][0].
+DSP Report: Generating DSP a_test_vals_reg[1][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][9] is absorbed into DSP a_test_vals_reg[1][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][9].
+DSP Report: Generating DSP a_test_vals_reg[1][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][8] is absorbed into DSP a_test_vals_reg[1][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][8].
+DSP Report: Generating DSP a_test_vals_reg[1][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][7] is absorbed into DSP a_test_vals_reg[1][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][7].
+DSP Report: Generating DSP a_test_vals_reg[1][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][6] is absorbed into DSP a_test_vals_reg[1][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][6].
+DSP Report: Generating DSP a_test_vals_reg[1][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][5] is absorbed into DSP a_test_vals_reg[1][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][5].
+DSP Report: Generating DSP a_test_vals_reg[1][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][4] is absorbed into DSP a_test_vals_reg[1][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][4].
+DSP Report: Generating DSP a_test_vals_reg[1][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][3] is absorbed into DSP a_test_vals_reg[1][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][3].
+DSP Report: Generating DSP a_test_vals_reg[1][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][2] is absorbed into DSP a_test_vals_reg[1][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][2].
+DSP Report: Generating DSP a_test_vals_reg[1][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][1] is absorbed into DSP a_test_vals_reg[1][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][1].
+DSP Report: Generating DSP a_test_vals_reg[1][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[1][0] is absorbed into DSP a_test_vals_reg[1][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[1][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[1][0].
+DSP Report: Generating DSP a_test_vals_reg[2][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][9] is absorbed into DSP a_test_vals_reg[2][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][9].
+DSP Report: Generating DSP a_test_vals_reg[2][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][8] is absorbed into DSP a_test_vals_reg[2][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][8].
+DSP Report: Generating DSP a_test_vals_reg[2][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][7] is absorbed into DSP a_test_vals_reg[2][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][7].
+DSP Report: Generating DSP a_test_vals_reg[2][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][6] is absorbed into DSP a_test_vals_reg[2][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][6].
+DSP Report: Generating DSP a_test_vals_reg[2][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][5] is absorbed into DSP a_test_vals_reg[2][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][5].
+DSP Report: Generating DSP a_test_vals_reg[2][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][4] is absorbed into DSP a_test_vals_reg[2][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][4].
+DSP Report: Generating DSP a_test_vals_reg[2][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][3] is absorbed into DSP a_test_vals_reg[2][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][3].
+DSP Report: Generating DSP a_test_vals_reg[2][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][2] is absorbed into DSP a_test_vals_reg[2][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][2].
+DSP Report: Generating DSP a_test_vals_reg[2][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][1] is absorbed into DSP a_test_vals_reg[2][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][1].
+DSP Report: Generating DSP a_test_vals_reg[2][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[2][0] is absorbed into DSP a_test_vals_reg[2][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[2][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[2][0].
+DSP Report: Generating DSP a_test_vals_reg[3][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][9] is absorbed into DSP a_test_vals_reg[3][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][9].
+DSP Report: Generating DSP a_test_vals_reg[3][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][8] is absorbed into DSP a_test_vals_reg[3][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][8].
+DSP Report: Generating DSP a_test_vals_reg[3][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][7] is absorbed into DSP a_test_vals_reg[3][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][7].
+DSP Report: Generating DSP a_test_vals_reg[3][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][6] is absorbed into DSP a_test_vals_reg[3][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][6].
+DSP Report: Generating DSP a_test_vals_reg[3][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][5] is absorbed into DSP a_test_vals_reg[3][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][5].
+DSP Report: Generating DSP a_test_vals_reg[3][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][4] is absorbed into DSP a_test_vals_reg[3][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][4].
+DSP Report: Generating DSP a_test_vals_reg[3][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][3] is absorbed into DSP a_test_vals_reg[3][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][3].
+DSP Report: Generating DSP a_test_vals_reg[3][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][2] is absorbed into DSP a_test_vals_reg[3][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][2].
+DSP Report: Generating DSP a_test_vals_reg[3][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][1] is absorbed into DSP a_test_vals_reg[3][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][1].
+DSP Report: Generating DSP a_test_vals_reg[3][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[3][0] is absorbed into DSP a_test_vals_reg[3][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[3][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[3][0].
+DSP Report: Generating DSP a_test_vals_reg[4][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][9] is absorbed into DSP a_test_vals_reg[4][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][9].
+DSP Report: Generating DSP a_test_vals_reg[4][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][8] is absorbed into DSP a_test_vals_reg[4][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][8].
+DSP Report: Generating DSP a_test_vals_reg[4][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][7] is absorbed into DSP a_test_vals_reg[4][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][7].
+DSP Report: Generating DSP a_test_vals_reg[4][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][6] is absorbed into DSP a_test_vals_reg[4][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][6].
+DSP Report: Generating DSP a_test_vals_reg[4][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][5] is absorbed into DSP a_test_vals_reg[4][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][5].
+DSP Report: Generating DSP a_test_vals_reg[4][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][4] is absorbed into DSP a_test_vals_reg[4][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][4].
+DSP Report: Generating DSP a_test_vals_reg[4][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][3] is absorbed into DSP a_test_vals_reg[4][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][3].
+DSP Report: Generating DSP a_test_vals_reg[4][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][2] is absorbed into DSP a_test_vals_reg[4][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][2].
+DSP Report: Generating DSP a_test_vals_reg[4][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][1] is absorbed into DSP a_test_vals_reg[4][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][1].
+DSP Report: Generating DSP a_test_vals_reg[4][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[4][0] is absorbed into DSP a_test_vals_reg[4][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[4][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[4][0].
+DSP Report: Generating DSP a_test_vals_reg[5][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][9] is absorbed into DSP a_test_vals_reg[5][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][9].
+DSP Report: Generating DSP a_test_vals_reg[5][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][8] is absorbed into DSP a_test_vals_reg[5][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][8].
+DSP Report: Generating DSP a_test_vals_reg[5][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][7] is absorbed into DSP a_test_vals_reg[5][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][7].
+DSP Report: Generating DSP a_test_vals_reg[5][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][6] is absorbed into DSP a_test_vals_reg[5][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][6].
+DSP Report: Generating DSP a_test_vals_reg[5][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][5] is absorbed into DSP a_test_vals_reg[5][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][5].
+DSP Report: Generating DSP a_test_vals_reg[5][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][4] is absorbed into DSP a_test_vals_reg[5][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][4].
+DSP Report: Generating DSP a_test_vals_reg[5][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][3] is absorbed into DSP a_test_vals_reg[5][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][3].
+DSP Report: Generating DSP a_test_vals_reg[5][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][2] is absorbed into DSP a_test_vals_reg[5][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][2].
+DSP Report: Generating DSP a_test_vals_reg[5][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][1] is absorbed into DSP a_test_vals_reg[5][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][1].
+DSP Report: Generating DSP a_test_vals_reg[5][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[5][0] is absorbed into DSP a_test_vals_reg[5][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[5][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[5][0].
+DSP Report: Generating DSP a_test_vals_reg[6][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][9] is absorbed into DSP a_test_vals_reg[6][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][9].
+DSP Report: Generating DSP a_test_vals_reg[6][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][8] is absorbed into DSP a_test_vals_reg[6][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][8].
+DSP Report: Generating DSP a_test_vals_reg[6][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][7] is absorbed into DSP a_test_vals_reg[6][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][7].
+DSP Report: Generating DSP a_test_vals_reg[6][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][6] is absorbed into DSP a_test_vals_reg[6][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][6].
+DSP Report: Generating DSP a_test_vals_reg[6][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][5] is absorbed into DSP a_test_vals_reg[6][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][5].
+DSP Report: Generating DSP a_test_vals_reg[6][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][4] is absorbed into DSP a_test_vals_reg[6][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][4].
+DSP Report: Generating DSP a_test_vals_reg[6][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][3] is absorbed into DSP a_test_vals_reg[6][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][3].
+DSP Report: Generating DSP a_test_vals_reg[6][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][2] is absorbed into DSP a_test_vals_reg[6][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][2].
+DSP Report: Generating DSP a_test_vals_reg[6][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][1] is absorbed into DSP a_test_vals_reg[6][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][1].
+DSP Report: Generating DSP a_test_vals_reg[6][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[6][0] is absorbed into DSP a_test_vals_reg[6][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[6][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[6][0].
+DSP Report: Generating DSP a_test_vals_reg[7][9], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][9] is absorbed into DSP a_test_vals_reg[7][9].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][9].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][9].
+DSP Report: Generating DSP a_test_vals_reg[7][8], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][8] is absorbed into DSP a_test_vals_reg[7][8].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][8].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][8].
+DSP Report: Generating DSP a_test_vals_reg[7][7], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][7] is absorbed into DSP a_test_vals_reg[7][7].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][7].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][7].
+DSP Report: Generating DSP a_test_vals_reg[7][6], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][6] is absorbed into DSP a_test_vals_reg[7][6].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][6].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][6].
+DSP Report: Generating DSP a_test_vals_reg[7][5], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][5] is absorbed into DSP a_test_vals_reg[7][5].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][5].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][5].
+DSP Report: Generating DSP a_test_vals_reg[7][4], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][4] is absorbed into DSP a_test_vals_reg[7][4].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][4].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][4].
+DSP Report: Generating DSP a_test_vals_reg[7][3], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][3] is absorbed into DSP a_test_vals_reg[7][3].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][3].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][3].
+DSP Report: Generating DSP a_test_vals_reg[7][2], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][2] is absorbed into DSP a_test_vals_reg[7][2].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][2].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][2].
+DSP Report: Generating DSP a_test_vals_reg[7][1], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][1] is absorbed into DSP a_test_vals_reg[7][1].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][1].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][1].
+DSP Report: Generating DSP a_test_vals_reg[7][0], operation Mode is: (C+(A:0x3ffff)*B)'.
+DSP Report: register a_test_vals_reg[7][0] is absorbed into DSP a_test_vals_reg[7][0].
+DSP Report: operator p_1_out is absorbed into DSP a_test_vals_reg[7][0].
+DSP Report: operator p_0_out is absorbed into DSP a_test_vals_reg[7][0].
 WARNING: [Synth 8-3917] design top_level has port rgb1[2] driven by constant 0
 WARNING: [Synth 8-3917] design top_level has port rgb1[0] driven by constant 0
 WARNING: [Synth 8-7129] Port ss1_an[3] in module top_level is either unconnected or has no load
@@ -430,7 +750,7 @@ WARNING: [Synth 8-7129] Port btn[2] in module top_level is either unconnected or
 WARNING: [Synth 8-7129] Port btn[1] in module top_level is either unconnected or has no load
 WARNING: [Synth 8-7129] Port uart_rxd in module top_level is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11532 ; free virtual = 17088
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 2426.664 ; gain = 680.309 ; free physical = 11491 ; free virtual = 17052
 ---------------------------------------------------------------------------------
  Sort Area is top_level__GC0 prod_a_temp_reg_0 : 0 0 : 2550 5224 : Used 1 time 0
  Sort Area is top_level__GC0 prod_a_temp_reg_0 : 0 1 : 2674 5224 : Used 1 time 0
@@ -448,31 +768,191 @@ Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elaps
  Sort Area is top_level__GC0 prod_a_temp_reg_8 : 0 1 : 2674 5224 : Used 1 time 0
  Sort Area is top_level__GC0 prod_a_temp_reg_9 : 0 0 : 2550 5224 : Used 1 time 0
  Sort Area is top_level__GC0 prod_a_temp_reg_9 : 0 1 : 2674 5224 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][0]_14 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][1]_13 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][2]_12 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][3]_11 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][4]_10 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][5]_f : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][6]_e : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][7]_d : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][8]_c : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[0][9]_a : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][0]_1e : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][1]_1d : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][2]_1c : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][3]_1b : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][4]_1a : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][5]_19 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][6]_18 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][7]_17 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][8]_16 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[1][9]_15 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][0]_28 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][1]_27 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][2]_26 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][3]_25 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][4]_24 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][5]_23 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][6]_22 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][7]_21 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][8]_20 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[2][9]_1f : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][0]_32 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][1]_31 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][2]_30 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][3]_2f : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][4]_2e : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][5]_2d : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][6]_2c : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][7]_2b : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][8]_2a : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[3][9]_29 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][0]_3c : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][1]_3b : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][2]_3a : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][3]_39 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][4]_38 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][5]_37 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][6]_36 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][7]_35 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][8]_34 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[4][9]_33 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][0]_46 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][1]_45 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][2]_44 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][3]_43 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][4]_42 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][5]_41 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][6]_40 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][7]_3f : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][8]_3e : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[5][9]_3d : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][0]_50 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][1]_4f : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][2]_4e : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][3]_4d : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][4]_4c : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][5]_4b : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][6]_4a : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][7]_49 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][8]_48 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[6][9]_47 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][0]_5a : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][1]_59 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][2]_58 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][3]_57 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][4]_56 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][5]_55 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][6]_54 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][7]_53 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][8]_52 : 0 0 : 849 849 : Used 1 time 0
+ Sort Area is top_level__GC0 a_test_vals_reg[7][9]_51 : 0 0 : 849 849 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | (A2*B2)'      | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-|modulator   | PCIN+(A2*B2)' | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
-+------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | (A2*B2)'           | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|modulator   | PCIN+(A2*B2)'      | 18     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+(A:0x3ffff)*B)' | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
++------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -482,19 +962,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11543 ; free virtual = 17106
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2426.664 ; gain = 680.309 ; free physical = 11489 ; free virtual = 17056
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11529 ; free virtual = 17092
+Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2429.664 ; gain = 683.309 ; free physical = 11452 ; free virtual = 17020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:46 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11522 ; free virtual = 17086
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 2452.438 ; gain = 706.082 ; free physical = 11438 ; free virtual = 17006
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -512,37 +992,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:50 ; elapsed = 00:00:50 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11520 ; free virtual = 17083
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11431 ; free virtual = 16999
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:50 ; elapsed = 00:00:50 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11522 ; free virtual = 17086
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11431 ; free virtual = 16999
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:53 ; elapsed = 00:00:53 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11526 ; free virtual = 17090
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11432 ; free virtual = 17000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11526 ; free virtual = 17090
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11432 ; free virtual = 17000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11526 ; free virtual = 17090
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11432 ; free virtual = 17000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11526 ; free virtual = 17090
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11432 ; free virtual = 17000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -566,6 +1046,86 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|top_level   | (C+A*B)'      | 18     | 17     | 18     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
 |modulator   | (A'*B')'      | 30     | 18     | -      | -      | 0      | 1    | 1    | -    | -    | -     | 0    | 1    | 
 |modulator   | PCIN+(A'*B')' | 30     | 18     | -      | -      | 41     | 1    | 1    | -    | -    | -     | 1    | 0    | 
 |modulator   | (A'*B')'      | 30     | 18     | -      | -      | 0      | 1    | 1    | -    | -    | -     | 0    | 1    | 
@@ -596,55 +1156,55 @@ Report Cell Usage:
 |      |Cell    |Count |
 +------+--------+------+
 |1     |BUFG    |     1|
-|2     |CARRY4  |  3085|
-|3     |DSP48E1 |    16|
-|5     |LUT1    |   873|
-|6     |LUT2    |  3565|
-|7     |LUT3    |  5952|
-|8     |LUT4    |  2108|
-|9     |LUT5    |    59|
-|10    |LUT6    |  1853|
-|11    |MUXF7   |     8|
-|12    |SRL16E  |    10|
-|13    |FDRE    | 17866|
-|14    |FDSE    |    13|
-|15    |IBUF    |     8|
-|16    |OBUF    |    32|
-|17    |OBUFT   |    14|
+|2     |CARRY4  |  3323|
+|3     |DSP48E1 |    96|
+|6     |LUT1    |   956|
+|7     |LUT2    |  3571|
+|8     |LUT3    |  5950|
+|9     |LUT4    |  2110|
+|10    |LUT5    |    56|
+|11    |LUT6    |  1949|
+|12    |MUXF7   |     8|
+|13    |SRL16E  |    10|
+|14    |FDRE    | 17687|
+|15    |FDSE    |    13|
+|16    |IBUF    |     8|
+|17    |OBUF    |    32|
+|18    |OBUFT   |    14|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2410.410 ; gain = 679.277 ; free physical = 11526 ; free virtual = 17090
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2467.195 ; gain = 720.840 ; free physical = 11432 ; free virtual = 17000
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 2410.410 ; gain = 534.527 ; free physical = 11527 ; free virtual = 17090
-Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 2410.418 ; gain = 679.277 ; free physical = 11527 ; free virtual = 17090
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 2467.195 ; gain = 573.090 ; free physical = 11432 ; free virtual = 17000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2467.203 ; gain = 720.840 ; free physical = 11432 ; free virtual = 17000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2410.418 ; gain = 0.000 ; free physical = 11821 ; free virtual = 17388
-INFO: [Netlist 29-17] Analyzing 3109 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2467.203 ; gain = 0.000 ; free physical = 11767 ; free virtual = 17338
+INFO: [Netlist 29-17] Analyzing 3427 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc]
-WARNING: [Vivado 12-584] No ports matched 'ss1_c[7]'. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc:88]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc:88]
+Parsing XDC File [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc]
+WARNING: [Vivado 12-584] No ports matched 'ss1_c[7]'. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc:88]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [/home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/xdc/top_level.xdc]
+Finished Parsing XDC File [/home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/xdc/top_level.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2413.379 ; gain = 0.000 ; free physical = 11828 ; free virtual = 17396
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2467.203 ; gain = 0.000 ; free physical = 11773 ; free virtual = 17346
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: c70d9705
+Synth Design complete | Checksum: 38c1909d
 INFO: [Common 17-83] Releasing license: Synthesis
 34 Infos, 99 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:08 ; elapsed = 00:01:07 . Memory (MB): peak = 2413.379 ; gain = 1015.152 ; free physical = 11828 ; free virtual = 17396
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2181.933; main = 1877.164; forked = 448.239
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3443.914; main = 2413.383; forked = 1033.500
+synth_design: Time (s): cpu = 00:01:13 ; elapsed = 00:01:12 . Memory (MB): peak = 2467.203 ; gain = 1052.785 ; free physical = 11773 ; free virtual = 17346
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2250.209; main = 1907.041; forked = 488.077
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3564.082; main = 2467.199; forked = 1096.883
 # report_timing_summary -file $outputDir/post_synth_timing_summary.rpt
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
-report_timing_summary: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 2464.316 ; gain = 50.938 ; free physical = 11763 ; free virtual = 17348
+report_timing_summary: Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 2518.977 ; gain = 51.773 ; free physical = 11704 ; free virtual = 17293
 # report_utilization -file $outputDir/post_synth_util.rpt -hierarchical -hierarchical_depth 4
 # report_timing -file $outputDir/post_synth_timing.rpt
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
@@ -661,110 +1221,110 @@ INFO: [DRC 23-27] Running DRC with 4 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.6 . Memory (MB): peak = 2552.801 ; gain = 88.484 ; free physical = 11729 ; free virtual = 17314
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.58 . Memory (MB): peak = 2605.492 ; gain = 86.516 ; free physical = 11659 ; free virtual = 17248
 
 Starting Cache Timing Information Task
-Ending Cache Timing Information Task | Checksum: 1b8ac9bdc
+Ending Cache Timing Information Task | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2552.801 ; gain = 0.000 ; free physical = 11729 ; free virtual = 17314
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2605.492 ; gain = 0.000 ; free physical = 11659 ; free virtual = 17248
 
 Starting Logic Optimization Task
 
 Phase 1 Initialization
 
 Phase 1.1 Core Generation And Design Setup
-Phase 1.1 Core Generation And Design Setup | Checksum: 1b8ac9bdc
+Phase 1.1 Core Generation And Design Setup | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11425 ; free virtual = 17015
 
 Phase 1.2 Setup Constraints And Sort Netlist
-Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1b8ac9bdc
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
-Phase 1 Initialization | Checksum: 1b8ac9bdc
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11425 ; free virtual = 17015
+Phase 1 Initialization | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11425 ; free virtual = 17015
 
 Phase 2 Timer Update And Timing Data Collection
 
 Phase 2.1 Timer Update
-Phase 2.1 Timer Update | Checksum: 1b8ac9bdc
+Phase 2.1 Timer Update | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.54 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.54 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11425 ; free virtual = 17015
 
 Phase 2.2 Timing Data Collection
-Phase 2.2 Timing Data Collection | Checksum: 1b8ac9bdc
+Phase 2.2 Timing Data Collection | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.6 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
-Phase 2 Timer Update And Timing Data Collection | Checksum: 1b8ac9bdc
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.61 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11425 ; free virtual = 17015
+Phase 2 Timer Update And Timing Data Collection | Checksum: 20b1cc1fe
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.61 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.61 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11425 ; free virtual = 17015
 
 Phase 3 Retarget
 INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
-INFO: [Opt 31-138] Pushed 1 inverter(s) to 2 load pin(s).
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 3 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 3 Retarget | Checksum: 202302801
+Phase 3 Retarget | Checksum: 197bed147
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11496 ; free virtual = 17081
-Retarget | Checksum: 202302801
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11426 ; free virtual = 17016
+Retarget | Checksum: 197bed147
 INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 219 cells
 
 Phase 4 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 4 Constant propagation | Checksum: 29bcafeed
+Phase 4 Constant propagation | Checksum: 1e6eab9a1
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11496 ; free virtual = 17081
-Constant propagation | Checksum: 29bcafeed
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11427 ; free virtual = 17017
+Constant propagation | Checksum: 1e6eab9a1
 INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
 
 Phase 5 Sweep
-Phase 5 Sweep | Checksum: 1d4f636ec
+Phase 5 Sweep | Checksum: 1a8086619
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
-Sweep | Checksum: 1d4f636ec
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11427 ; free virtual = 17017
+Sweep | Checksum: 1a8086619
 INFO: [Opt 31-389] Phase Sweep created 4 cells and removed 0 cells
 
 Phase 6 BUFG optimization
-Phase 6 BUFG optimization | Checksum: 1d4f636ec
+Phase 6 BUFG optimization | Checksum: 1a8086619
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
-BUFG optimization | Checksum: 1d4f636ec
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11428 ; free virtual = 17018
+BUFG optimization | Checksum: 1a8086619
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 7 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 7 Shift Register Optimization | Checksum: 1d4f636ec
+Phase 7 Shift Register Optimization | Checksum: 1a8086619
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17081
-Shift Register Optimization | Checksum: 1d4f636ec
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11428 ; free virtual = 17018
+Shift Register Optimization | Checksum: 1a8086619
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 8 Post Processing Netlist
-Phase 8 Post Processing Netlist | Checksum: 29e00ba82
+Phase 8 Post Processing Netlist | Checksum: 21868e59d
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11496 ; free virtual = 17081
-Post Processing Netlist | Checksum: 29e00ba82
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11428 ; free virtual = 17018
+Post Processing Netlist | Checksum: 21868e59d
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 
 Phase 9 Finalization
 
 Phase 9.1 Finalizing Design Cores and Updating Shapes
-Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 14a3dea69
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 21d362927
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17082
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
 
 Phase 9.2 Verifying Netlist Connectivity
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17082
-Phase 9.2 Verifying Netlist Connectivity | Checksum: 14a3dea69
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 21d362927
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17082
-Phase 9 Finalization | Checksum: 14a3dea69
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
+Phase 9 Finalization | Checksum: 21d362927
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17082
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
 Opt_design Change Summary
 =========================
 
@@ -781,30 +1341,30 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 
 
-Ending Logic Optimization Task | Checksum: 14a3dea69
+Ending Logic Optimization Task | Checksum: 21d362927
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17082
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-Ending Power Optimization Task | Checksum: 14a3dea69
+Ending Power Optimization Task | Checksum: 21d362927
 
-Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17083
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 14a3dea69
+Ending Final Cleanup Task | Checksum: 21d362927
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17083
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17083
-Ending Netlist Obfuscation Task | Checksum: 14a3dea69
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
+Ending Netlist Obfuscation Task | Checksum: 21d362927
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17083
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11429 ; free virtual = 17018
 INFO: [Common 17-83] Releasing license: Implementation
 17 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 2754.801 ; gain = 290.484 ; free physical = 11497 ; free virtual = 17083
+opt_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 2810.492 ; gain = 291.516 ; free physical = 11429 ; free virtual = 17018
 # place_design
 Command: place_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7s50'
@@ -824,59 +1384,59 @@ Starting Placer Task
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11500 ; free virtual = 17087
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: f4ae7ba3
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11433 ; free virtual = 17024
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 12b2db4cf
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11500 ; free virtual = 17087
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11500 ; free virtual = 17087
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11433 ; free virtual = 17024
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11433 ; free virtual = 17024
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1f1930562
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 11dd1eb76
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2754.801 ; gain = 0.000 ; free physical = 11497 ; free virtual = 17088
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2810.492 ; gain = 0.000 ; free physical = 11435 ; free virtual = 17030
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 2916bd893
+Phase 1.3 Build Placer Netlist Model | Checksum: 1742d6074
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11495 ; free virtual = 17087
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11439 ; free virtual = 17035
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 2916bd893
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1742d6074
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11495 ; free virtual = 17088
-Phase 1 Placer Initialization | Checksum: 2916bd893
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11439 ; free virtual = 17036
+Phase 1 Placer Initialization | Checksum: 1742d6074
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11495 ; free virtual = 17087
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11439 ; free virtual = 17036
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 271153752
+Phase 2.1 Floorplanning | Checksum: 21abc34df
 
-Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11495 ; free virtual = 17088
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11439 ; free virtual = 17036
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 28fab18f5
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 2048579c7
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11496 ; free virtual = 17089
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11441 ; free virtual = 17038
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 28fab18f5
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 2048579c7
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11496 ; free virtual = 17089
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11441 ; free virtual = 17038
 
 Phase 2.4 Global Placement Core
 
 Phase 2.4.1 UpdateTiming Before Physical Synthesis
-Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 247344975
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 20a5a5c9a
 
-Time (s): cpu = 00:00:27 ; elapsed = 00:00:14 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11495 ; free virtual = 17089
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:15 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11448 ; free virtual = 17046
 
 Phase 2.4.2 Physical Synthesis In Placer
-INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 56 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 40 LUT instances to create LUTNM shape
 INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
-INFO: [Physopt 32-1138] End 1 Pass. Optimized 27 nets or LUTs. Breaked 0 LUT, combined 27 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 18 nets or LUTs. Breaked 0 LUT, combined 18 existing LUTs and moved 0 existing LUT
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -887,7 +1447,7 @@ INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was
 INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
 INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2757.812 ; gain = 0.000 ; free physical = 11495 ; free virtual = 17091
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2813.504 ; gain = 0.000 ; free physical = 11446 ; free virtual = 17047
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -896,7 +1456,7 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            0  |             27  |                    27  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |            0  |             18  |                    18  |           0  |           1  |  00:00:00  |
 |  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
@@ -905,59 +1465,59 @@ Summary of Physical Synthesis Optimizations
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            0  |             27  |                    27  |           0  |           4  |  00:00:00  |
+|  Total                                            |            0  |             18  |                    18  |           0  |           4  |  00:00:00  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.4.2 Physical Synthesis In Placer | Checksum: 1f97f26a5
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 29ab9d30a
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:15 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11495 ; free virtual = 17091
-Phase 2.4 Global Placement Core | Checksum: 1a87b5c2b
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:17 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11447 ; free virtual = 17047
+Phase 2.4 Global Placement Core | Checksum: 1c7647208
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:15 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11494 ; free virtual = 17091
-Phase 2 Global Placement | Checksum: 1a87b5c2b
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:17 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11446 ; free virtual = 17047
+Phase 2 Global Placement | Checksum: 1c7647208
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:16 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11494 ; free virtual = 17091
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:17 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11446 ; free virtual = 17047
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1fb320d97
+Phase 3.1 Commit Multi Column Macros | Checksum: 20f455ef9
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:16 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11494 ; free virtual = 17091
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:18 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11447 ; free virtual = 17048
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1afda6e2e
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 20cef32e4
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:19 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11494 ; free virtual = 17091
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:21 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11448 ; free virtual = 17049
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 2214350e6
+Phase 3.3 Area Swap Optimization | Checksum: 25870e09e
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:19 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11494 ; free virtual = 17091
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:21 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11448 ; free virtual = 17049
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1b0a13fae
+Phase 3.4 Pipeline Register Optimization | Checksum: 2990d0bac
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:19 . Memory (MB): peak = 2757.812 ; gain = 3.012 ; free physical = 11494 ; free virtual = 17091
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:21 . Memory (MB): peak = 2813.504 ; gain = 3.012 ; free physical = 11448 ; free virtual = 17049
 
 Phase 3.5 Small Shape Detail Placement
-Phase 3.5 Small Shape Detail Placement | Checksum: 1a0061f59
+Phase 3.5 Small Shape Detail Placement | Checksum: 2735a5282
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:23 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17090
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:24 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11448 ; free virtual = 17050
 
 Phase 3.6 Re-assign LUT pins
-Phase 3.6 Re-assign LUT pins | Checksum: 12e0a8767
+Phase 3.6 Re-assign LUT pins | Checksum: 1fdef4090
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:24 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17090
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:25 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11448 ; free virtual = 17050
 
 Phase 3.7 Pipeline Register Optimization
-Phase 3.7 Pipeline Register Optimization | Checksum: 1846ff6e5
+Phase 3.7 Pipeline Register Optimization | Checksum: 2585367d8
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:24 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17090
-Phase 3 Detail Placement | Checksum: 1846ff6e5
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:25 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11448 ; free virtual = 17050
+Phase 3 Detail Placement | Checksum: 2585367d8
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:25 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17090
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:25 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11448 ; free virtual = 17050
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -965,7 +1525,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 2120c5430
+Post Placement Optimization Initialization | Checksum: 16ade5d0b
 
 Phase 4.1.1.1 BUFG Insertion
 
@@ -973,35 +1533,34 @@ Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 4 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=1.807 | TNS=0.000 |
-Phase 1 Physical Synthesis Initialization | Checksum: 187a03229
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=1.553 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1590f5791
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11493 ; free virtual = 17090
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.88 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11450 ; free virtual = 17052
 INFO: [Place 46-33] Processed net full_hgen/gen_harmonics[0].nth_cordic/E[0], BUFG insertion was skipped due to placement/routing conflicts.
-INFO: [Place 46-33] Processed net signal_modulators[4].kth_modulator/trig_rise_edge, BUFG insertion was skipped due to placement/routing conflicts.
-INFO: [Place 46-56] BUFG insertion identified 2 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 2, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
-Ending Physical Synthesis Task | Checksum: 1ffcd858e
+INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 239ce2ede
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11493 ; free virtual = 17090
-Phase 4.1.1.1 BUFG Insertion | Checksum: 2120c5430
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11450 ; free virtual = 17052
+Phase 4.1.1.1 BUFG Insertion | Checksum: 16ade5d0b
 
-Time (s): cpu = 00:00:54 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17090
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:32 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
 
 Phase 4.1.1.2 Post Placement Timing Optimization
-INFO: [Place 30-746] Post Placement Timing Summary WNS=1.807. For the most accurate timing information please run report_timing.
-Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 2887ff22e
+INFO: [Place 30-746] Post Placement Timing Summary WNS=1.553. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1f423c9e9
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17090
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:32 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
-Phase 4.1 Post Commit Optimization | Checksum: 2887ff22e
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:32 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
+Phase 4.1 Post Commit Optimization | Checksum: 1f423c9e9
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:32 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 2887ff22e
+Phase 4.2 Post Placement Cleanup | Checksum: 1f423c9e9
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:32 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
 
 Phase 4.3 Placer Reporting
 
@@ -1011,35 +1570,35 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |           | Global Congestion | Short Congestion  |
 | Direction | Region Size       | Region Size       |
 |___________|___________________|___________________|
-|      North|                1x1|                4x4|
+|      North|                1x1|                2x2|
 |___________|___________________|___________________|
-|      South|                1x1|                4x4|
+|      South|                1x1|                2x2|
 |___________|___________________|___________________|
-|       East|                1x1|                1x1|
+|       East|                1x1|                2x2|
 |___________|___________________|___________________|
 |       West|                1x1|                1x1|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: 2887ff22e
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1f423c9e9
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
-Phase 4.3 Placer Reporting | Checksum: 2887ff22e
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:32 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
+Phase 4.3 Placer Reporting | Checksum: 1f423c9e9
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:33 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11493 ; free virtual = 17091
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11450 ; free virtual = 17052
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:31 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 214432d7a
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:33 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1cd3e86c4
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:32 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
-Ending Placer Task | Checksum: 136015214
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:33 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
+Ending Placer Task | Checksum: 120e07761
 
-Time (s): cpu = 00:00:56 ; elapsed = 00:00:32 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
-31 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+Time (s): cpu = 00:00:58 ; elapsed = 00:00:33 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
+30 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:59 ; elapsed = 00:00:33 . Memory (MB): peak = 2765.816 ; gain = 11.016 ; free physical = 11493 ; free virtual = 17091
+place_design: Time (s): cpu = 00:01:02 ; elapsed = 00:00:35 . Memory (MB): peak = 2821.508 ; gain = 11.016 ; free physical = 11450 ; free virtual = 17052
 # report_clock_utilization -file $outputDir/clock_util.rpt
 WARNING: [Device 21-9320] Failed to find the Oracle tile group with name 'HSR_BOUNDARY_TOP'. This is required for Clock regions and Virtual grid.
 WARNING: [Device 21-2174] Failed to initialize Virtual grid.
@@ -1066,30 +1625,30 @@ INFO: [Route 35-270] Using Router directive 'Explore'.
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 4 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: 356a5d97 ConstDB: 0 ShapeSum: 5605c147 RouteDB: aa913336
-Post Restoration Checksum: NetGraph: 3e0d89a0 | NumContArr: 60ddd742 | Constraints: c2a8fa9d | Timing: c2a8fa9d
-Phase 1 Build RT Design | Checksum: 2243d561c
+Checksum: PlaceDB: 5946469c ConstDB: 0 ShapeSum: 1d08fd8f RouteDB: aa913336
+Post Restoration Checksum: NetGraph: bcc4603 | NumContArr: 111aeb98 | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 1a23926d5
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11490 ; free virtual = 17090
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11456 ; free virtual = 17060
 
 Phase 2 Router Initialization
 
 Phase 2.1 Fix Topology Constraints
-Phase 2.1 Fix Topology Constraints | Checksum: 2243d561c
+Phase 2.1 Fix Topology Constraints | Checksum: 1a23926d5
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11490 ; free virtual = 17090
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11455 ; free virtual = 17060
 
 Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: 2243d561c
+Phase 2.2 Pre Route Cleanup | Checksum: 1a23926d5
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11490 ; free virtual = 17090
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11455 ; free virtual = 17060
  Number of Nodes with overlaps = 0
 
 Phase 2.3 Update Timing
-Phase 2.3 Update Timing | Checksum: 2673c8ef6
+Phase 2.3 Update Timing | Checksum: 138143869
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11489 ; free virtual = 17090
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.829  | TNS=0.000  | WHS=-0.158 | THS=-115.492|
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 2821.508 ; gain = 0.000 ; free physical = 11455 ; free virtual = 17060
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.656  | TNS=0.000  | WHS=-0.176 | THS=-98.918|
 
 
 Router Utilization Summary
@@ -1098,87 +1657,89 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 24011
+  Number of Failed Nets               = 26969
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 24011
+  Number of Unrouted Nets             = 26969
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 2 Router Initialization | Checksum: 267feea62
+Phase 2 Router Initialization | Checksum: 171eae23f
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:20 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11489 ; free virtual = 17090
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:20 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 3 Global Routing
-Phase 3 Global Routing | Checksum: 267feea62
+Phase 3 Global Routing | Checksum: 171eae23f
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:20 . Memory (MB): peak = 2765.816 ; gain = 0.000 ; free physical = 11489 ; free virtual = 17090
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:20 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 4 Initial Routing
 
 Phase 4.1 Initial Net Routing Pass
-Phase 4.1 Initial Net Routing Pass | Checksum: 35a6d20db
+Phase 4.1 Initial Net Routing Pass | Checksum: 254ca5d2c
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:22 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17085
-Phase 4 Initial Routing | Checksum: 35a6d20db
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:21 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
+Phase 4 Initial Routing | Checksum: 254ca5d2c
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:22 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17085
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:21 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 5 Rip-up And Reroute
 
 Phase 5.1 Global Iteration 0
- Number of Nodes with overlaps = 1259
- Number of Nodes with overlaps = 90
- Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 1448
+ Number of Nodes with overlaps = 169
+ Number of Nodes with overlaps = 24
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.187  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.184  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 5.1 Global Iteration 0 | Checksum: 337ca399c
+Phase 5.1 Global Iteration 0 | Checksum: 213e88a25
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:27 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
-Phase 5 Rip-up And Reroute | Checksum: 337ca399c
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:28 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
+Phase 5 Rip-up And Reroute | Checksum: 213e88a25
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:27 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:28 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 6 Delay and Skew Optimization
 
 Phase 6.1 Delay CleanUp
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 27df268ec
+Phase 6.1.1 Update Timing | Checksum: 20c3e00fd
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:29 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.195  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:30 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.192  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 6.1 Delay CleanUp | Checksum: 27df268ec
+Phase 6.1 Delay CleanUp | Checksum: 20c3e00fd
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:29 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:30 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 6.2 Clock Skew Optimization
-Phase 6.2 Clock Skew Optimization | Checksum: 27df268ec
+Phase 6.2 Clock Skew Optimization | Checksum: 20c3e00fd
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:29 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
-Phase 6 Delay and Skew Optimization | Checksum: 27df268ec
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:30 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
+Phase 6 Delay and Skew Optimization | Checksum: 20c3e00fd
 
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:29 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:30 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 7 Post Hold Fix
 
 Phase 7.1 Hold Fix Iter
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.195  | TNS=0.000  | WHS=0.026  | THS=0.000  |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.192  | TNS=0.000  | WHS=0.017  | THS=0.000  |
 
-Phase 7.1 Hold Fix Iter | Checksum: 369a4d2c3
+Phase 7.1 Hold Fix Iter | Checksum: 2860dde4f
 
-Time (s): cpu = 00:00:58 ; elapsed = 00:00:30 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
-Phase 7 Post Hold Fix | Checksum: 369a4d2c3
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:31 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
+Phase 7 Post Hold Fix | Checksum: 2860dde4f
 
-Time (s): cpu = 00:00:58 ; elapsed = 00:00:30 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:31 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 8 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 9.24261 %
-  Global Horizontal Routing Utilization  = 10.2768 %
+  Global Vertical Routing Utilization    = 9.44208 %
+  Global Horizontal Routing Utilization  = 10.2435 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -1188,50 +1749,50 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 8 Route finalize | Checksum: 369a4d2c3
+Phase 8 Route finalize | Checksum: 2860dde4f
 
-Time (s): cpu = 00:00:58 ; elapsed = 00:00:30 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11485 ; free virtual = 17087
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:31 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11414 ; free virtual = 17021
 
 Phase 9 Verifying routed nets
 
  Verification completed successfully
-Phase 9 Verifying routed nets | Checksum: 369a4d2c3
+Phase 9 Verifying routed nets | Checksum: 2860dde4f
 
-Time (s): cpu = 00:00:58 ; elapsed = 00:00:30 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:31 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 
 Phase 10 Depositing Routes
-Phase 10 Depositing Routes | Checksum: 3adb6dfeb
+Phase 10 Depositing Routes | Checksum: 35639beef
 
-Time (s): cpu = 00:01:00 ; elapsed = 00:00:31 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 
 Phase 11 Post Process Routing
-Phase 11 Post Process Routing | Checksum: 3adb6dfeb
+Phase 11 Post Process Routing | Checksum: 35639beef
 
-Time (s): cpu = 00:01:00 ; elapsed = 00:00:31 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 
 Phase 12 Post Router Timing
-INFO: [Route 35-20] Post Routing Timing Summary | WNS=1.196  | TNS=0.000  | WHS=0.028  | THS=0.000  |
+INFO: [Route 35-20] Post Routing Timing Summary | WNS=1.195  | TNS=0.000  | WHS=0.025  | THS=0.000  |
 
-Phase 12 Post Router Timing | Checksum: 3685c0524
+Phase 12 Post Router Timing | Checksum: 28f0e97f1
 
-Time (s): cpu = 00:01:10 ; elapsed = 00:00:35 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:36 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 INFO: [Route 35-61] The design met the timing requirement.
-Total Elapsed time in route_design: 34.61 secs
+Total Elapsed time in route_design: 35.74 secs
 
 Phase 13 Post-Route Event Processing
-Phase 13 Post-Route Event Processing | Checksum: 15d37446b
+Phase 13 Post-Route Event Processing | Checksum: 1e9415f35
 
-Time (s): cpu = 00:01:10 ; elapsed = 00:00:35 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:36 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 INFO: [Route 35-16] Router Completed Successfully
-Ending Routing Task | Checksum: 15d37446b
+Ending Routing Task | Checksum: 1e9415f35
 
-Time (s): cpu = 00:01:10 ; elapsed = 00:00:35 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:36 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
 14 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:01:14 ; elapsed = 00:00:36 . Memory (MB): peak = 2767.156 ; gain = 1.340 ; free physical = 11484 ; free virtual = 17086
+route_design: Time (s): cpu = 00:01:16 ; elapsed = 00:00:38 . Memory (MB): peak = 2841.504 ; gain = 19.996 ; free physical = 11413 ; free virtual = 17020
 # report_route_status -file $outputDir/post_route_status.rpt
 # report_timing_summary -file $outputDir/post_route_timing_summary.rpt
 # report_timing -file $outputDir/post_route_timing.rpt
@@ -1249,7 +1810,7 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.1/data/ip'.
 INFO: [DRC 23-27] Running DRC with 4 threads
-INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/fpga/worker_place/temp/6161fe463021443e99720943dc5ce03a/obj/post_imp_drc.rpt.
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/fpga/worker_place/temp/fbfe2d3ced284e1fb37aaa85970a7940/obj/post_imp_drc.rpt.
 report_drc completed successfully
 # write_bitstream -force $outputDir/final.bit
 Command: write_bitstream -force obj/final.bit
@@ -1267,7 +1828,108 @@ WARNING: [DRC CFGBVS-1] Missing CFGBVS and CONFIG_VOLTAGE Design Properties: Nei
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][0] input a_test_vals_reg[0][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][0] input a_test_vals_reg[0][0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][1] input a_test_vals_reg[0][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][1] input a_test_vals_reg[0][1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][2] input a_test_vals_reg[0][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][2] input a_test_vals_reg[0][2]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][3] input a_test_vals_reg[0][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][3] input a_test_vals_reg[0][3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][4] input a_test_vals_reg[0][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][4] input a_test_vals_reg[0][4]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][5] input a_test_vals_reg[0][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][5] input a_test_vals_reg[0][5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][6] input a_test_vals_reg[0][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][6] input a_test_vals_reg[0][6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][7] input a_test_vals_reg[0][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][7] input a_test_vals_reg[0][7]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][8] input a_test_vals_reg[0][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][8] input a_test_vals_reg[0][8]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][9] input a_test_vals_reg[0][9]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[0][9] input a_test_vals_reg[0][9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][0] input a_test_vals_reg[1][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][0] input a_test_vals_reg[1][0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][1] input a_test_vals_reg[1][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][1] input a_test_vals_reg[1][1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][2] input a_test_vals_reg[1][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][2] input a_test_vals_reg[1][2]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][3] input a_test_vals_reg[1][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][3] input a_test_vals_reg[1][3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][4] input a_test_vals_reg[1][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][4] input a_test_vals_reg[1][4]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][5] input a_test_vals_reg[1][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][5] input a_test_vals_reg[1][5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][6] input a_test_vals_reg[1][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][6] input a_test_vals_reg[1][6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][7] input a_test_vals_reg[1][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][7] input a_test_vals_reg[1][7]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][8] input a_test_vals_reg[1][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][8] input a_test_vals_reg[1][8]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][9] input a_test_vals_reg[1][9]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[1][9] input a_test_vals_reg[1][9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][0] input a_test_vals_reg[2][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][0] input a_test_vals_reg[2][0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][1] input a_test_vals_reg[2][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][1] input a_test_vals_reg[2][1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][2] input a_test_vals_reg[2][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][2] input a_test_vals_reg[2][2]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][3] input a_test_vals_reg[2][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][3] input a_test_vals_reg[2][3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][4] input a_test_vals_reg[2][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][4] input a_test_vals_reg[2][4]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][5] input a_test_vals_reg[2][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][5] input a_test_vals_reg[2][5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][6] input a_test_vals_reg[2][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][6] input a_test_vals_reg[2][6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][7] input a_test_vals_reg[2][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][7] input a_test_vals_reg[2][7]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][8] input a_test_vals_reg[2][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][8] input a_test_vals_reg[2][8]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][9] input a_test_vals_reg[2][9]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[2][9] input a_test_vals_reg[2][9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][0] input a_test_vals_reg[3][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][0] input a_test_vals_reg[3][0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][1] input a_test_vals_reg[3][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][1] input a_test_vals_reg[3][1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][2] input a_test_vals_reg[3][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][2] input a_test_vals_reg[3][2]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][3] input a_test_vals_reg[3][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][3] input a_test_vals_reg[3][3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][4] input a_test_vals_reg[3][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][4] input a_test_vals_reg[3][4]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][5] input a_test_vals_reg[3][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][5] input a_test_vals_reg[3][5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][6] input a_test_vals_reg[3][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][6] input a_test_vals_reg[3][6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][7] input a_test_vals_reg[3][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][7] input a_test_vals_reg[3][7]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][8] input a_test_vals_reg[3][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][8] input a_test_vals_reg[3][8]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][9] input a_test_vals_reg[3][9]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[3][9] input a_test_vals_reg[3][9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][0] input a_test_vals_reg[4][0]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][0] input a_test_vals_reg[4][0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][1] input a_test_vals_reg[4][1]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][1] input a_test_vals_reg[4][1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][2] input a_test_vals_reg[4][2]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][2] input a_test_vals_reg[4][2]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][3] input a_test_vals_reg[4][3]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][3] input a_test_vals_reg[4][3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][4] input a_test_vals_reg[4][4]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][4] input a_test_vals_reg[4][4]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][5] input a_test_vals_reg[4][5]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][5] input a_test_vals_reg[4][5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][6] input a_test_vals_reg[4][6]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][6] input a_test_vals_reg[4][6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][7] input a_test_vals_reg[4][7]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][7] input a_test_vals_reg[4][7]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][8] input a_test_vals_reg[4][8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][8] input a_test_vals_reg[4][8]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][9] input a_test_vals_reg[4][9]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP a_test_vals_reg[4][9] input a_test_vals_reg[4][9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+INFO: [Common 17-14] Message 'DRC DPIP-1' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 161 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 4 threads.
 Loading data files...
@@ -1276,12 +1938,12 @@ Loading route data...
 Processing options...
 Creating bitmap...
 Creating bitstream...
-Bitstream compression saved 8672608 bits.
+Bitstream compression saved 5143328 bits.
 Writing bitstream obj/final.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
-9 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+10 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 3050.000 ; gain = 258.832 ; free physical = 11196 ; free virtual = 16812
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 18 16:42:00 2026...
+write_bitstream: Time (s): cpu = 00:00:26 ; elapsed = 00:00:23 . Memory (MB): peak = 3112.348 ; gain = 246.832 ; free physical = 11136 ; free virtual = 16757
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 23 16:36:01 2026...
