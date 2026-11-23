@@ -359,17 +359,17 @@ module top_level
     logic [NUM_MODULATORS-1:0] mod_val_out_arr, mod_busy_arr;
     logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] a_test_vals [NUM_MODULATORS];
     logic signed [MAX_HARMONIC-1:0][CORDIC_BIT_WIDTH-1:0] b_test_vals [NUM_MODULATORS];
-    initial begin
-        foreach (a_test_vals[m, h]) begin
-            if (h % 2 == 0) begin
-                a_test_vals[m][h] = 3;
-                b_test_vals[m][h] = 3;
-            end else begin
-                a_test_vals[m][h] = -3;
-                b_test_vals[m][h] = -3;
-            end
-        end
-    end
+    // initial begin
+    //     foreach (a_test_vals[m, h]) begin
+    //         if (h % 2 == 0) begin
+    //             a_test_vals[m][h] = 3;
+    //             b_test_vals[m][h] = 3;
+    //         end else begin
+    //             a_test_vals[m][h] = -3;
+    //             b_test_vals[m][h] = -3;
+    //         end
+    //     end
+    // end
 
     logic trig_rise_edge, psoc_trigger_in_d;
     localparam STEP = 21845;  //65536/360 = 182 counts = 1 degree
