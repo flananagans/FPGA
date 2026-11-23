@@ -2,19 +2,20 @@
 
 module pid_controller #(
     GAIN_DATA_WIDTH = 16,
-    SIG_DATA_WIDTH = 14,
-    FRAC_WIDTH = 16 // for Q16.16
+    SIG_DATA_WIDTH = 12,
+    FRAC_WIDTH = 7 // for Q5.7
+    //rationale: output is +/-5m which requires 25 < 2^5
 ) (
     input wire          clk,
     input wire          rst,
     input wire          data_valid_in,
-    input wire signed [SIG_DATA_WIDTH - 1:0] inp_sig,
-    input wire signed [SIG_DATA_WIDTH - 1:0] ref_sig,
+    input wire signed [SIG_DATA_WIDTH - 1:0] inp_state,
+    input wire signed [SIG_DATA_WIDTH - 1:0] des_state,
     input wire signed [GAIN_DATA_WIDTH - 1:0] Kp,
     input wire signed [GAIN_DATA_WIDTH - 1:0] Ki,
     input wire signed [GAIN_DATA_WIDTH - 1:0] Kd,
 
-    output logic signed [SIG_DATA_WIDTH - 1:0] out_sig,
+    output logic signed [SIG_DATA_WIDTH - 1:0] out_cmd,
     output logic        sat_hi,       // output clamped at max (2^ (SIG_DATA_WIDTH - 1)- 1)
     output logic        sat_lo,        // output clamped at min (-1 * 2^ (SIG_DATA_WIDTH - 1))
     output logic data_valid_out,
@@ -25,8 +26,8 @@ module pid_controller #(
     assign accept_data = data_valid_in && !busy;
 
     // 1. Calculate error = velocity
-    logic signed [SIG_DATA_WIDTH : 0] vel, vel_d; // vel[n] = ref_sig[n] - inp_sig[n]; vel_d[n] = vel[n-1] (latched)
-    assign vel = ref_sig - inp_sig; // current error
+    logic signed [SIG_DATA_WIDTH : 0] vel, vel_d; // vel[n] = des_state[n] - inp_state[n]; vel_d[n] = vel[n-1] (latched)
+    assign vel = des_state - inp_state; // current error
 
     localparam ALPHA_DIV_FACTOR = 3; // A = >> 3 = 0.125x
     // scale up by DERIV_FRAC_BITS to get better accuracy
@@ -34,7 +35,7 @@ module pid_controller #(
     logic signed [SIG_DATA_WIDTH + 1 + DERIV_FRAC_BITS: 0] deriv_vel; // need extra bit to do vel[n] - vel[n-1] = vel - vel_d
     assign deriv_vel = vel - vel_d;
 
-    logic signed [SIG_DATA_WIDTH + 1 + DERIV_FRAC_BITS: 0] deriv_scaled, deriv_vel_filt; // running sum of vel_filt + A*(vel - vel_filt)
+    logic signed [SIG_DATA_WIDTH + 2 + DERIV_FRAC_BITS: 0] deriv_scaled, deriv_vel_filt; // running sum of vel_filt + A*(vel - vel_filt)
     assign deriv_scaled = deriv_vel <<< DERIV_FRAC_BITS;
 
 
@@ -128,7 +129,7 @@ module pid_controller #(
         if (rst) begin
             i_current <= '0;
 
-            out_sig    <= '0;
+            out_cmd    <= '0;
             sat_hi <= 1'b0;
             sat_lo <= 1'b0;
             data_valid_out <= 1'b0;
@@ -137,15 +138,15 @@ module pid_controller #(
 
             data_valid_out <= 1'b1;
             if (pid_sum > OUT_MAX) begin
-                out_sig    <= OUT_MAX;
+                out_cmd    <= OUT_MAX;
                 sat_hi <= 1'b1;
                 sat_lo <= 1'b0;
             end else if (pid_sum < OUT_MIN) begin
-                out_sig    <= OUT_MIN;
+                out_cmd    <= OUT_MIN;
                 sat_hi <= 1'b0;
                 sat_lo <= 1'b1;
             end else begin
-                out_sig    <= pid_sum;
+                out_cmd    <= pid_sum;
                 sat_hi <= 1'b0;
                 sat_lo <= 1'b0;
             end

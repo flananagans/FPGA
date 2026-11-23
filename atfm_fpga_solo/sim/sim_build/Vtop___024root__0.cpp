@@ -150,71 +150,66 @@ void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelfRef.pid_controller__DOT__Kp = vlSelfRef.Kp;
     vlSelfRef.pid_controller__DOT__Ki = vlSelfRef.Ki;
     vlSelfRef.pid_controller__DOT__Kd = vlSelfRef.Kd;
-    vlSelfRef.out_sig = vlSelfRef.pid_controller__DOT__out_sig;
+    vlSelfRef.out_cmd = vlSelfRef.pid_controller__DOT__out_cmd;
     vlSelfRef.sat_hi = vlSelfRef.pid_controller__DOT__sat_hi;
     vlSelfRef.sat_lo = vlSelfRef.pid_controller__DOT__sat_lo;
     vlSelfRef.data_valid_out = vlSelfRef.pid_controller__DOT__data_valid_out;
     vlSelfRef.pid_controller__DOT__non_pos_i_prod = 
-        (1U & (IData)((vlSelfRef.pid_controller__DOT__i_prod 
-                       >> 0x0000002eU)));
+        (1U & (vlSelfRef.pid_controller__DOT__i_prod 
+               >> 0x0000001cU));
+    vlSelfRef.pid_controller__DOT__p_term = (0x1fffffffU 
+                                             & VL_SHIFTRS_III(29,29,32, vlSelfRef.pid_controller__DOT__p_prod, 7U));
+    vlSelfRef.pid_controller__DOT__d_term = (0x1fffffffU 
+                                             & VL_SHIFTRS_III(29,29,32, vlSelfRef.pid_controller__DOT__d_prod, 7U));
     vlSelfRef.pid_controller__DOT__data_valid_in = vlSelfRef.data_valid_in;
-    vlSelfRef.pid_controller__DOT__inp_sig = vlSelfRef.inp_sig;
-    vlSelfRef.pid_controller__DOT__ref_sig = vlSelfRef.ref_sig;
-    vlSelfRef.pid_controller__DOT__i_next = (0x0000ffffffffffffULL 
-                                             & (VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_current) 
-                                                + VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_prod)));
+    vlSelfRef.pid_controller__DOT__inp_state = vlSelfRef.inp_state;
+    vlSelfRef.pid_controller__DOT__des_state = vlSelfRef.des_state;
+    vlSelfRef.pid_controller__DOT__i_next = (0x3fffffffU 
+                                             & (VL_EXTENDS_II(30,29, vlSelfRef.pid_controller__DOT__i_current) 
+                                                + VL_EXTENDS_II(30,29, vlSelfRef.pid_controller__DOT__i_prod)));
     vlSelfRef.pid_controller__DOT__unbounded_pid_sum 
-        = (0x0003ffffffffffffULL & (VL_SHIFTRS_QQI(50,50,32, 
-                                                   (0x0003ffffffffffffULL 
-                                                    & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
-                                    + (VL_SHIFTRS_QQI(50,50,32, 
-                                                      (0x0003ffffffffffffULL 
-                                                       & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_current)), 0x00000010U) 
-                                       + VL_SHIFTRS_QQI(50,50,32, 
-                                                        (0x0003ffffffffffffULL 
-                                                         & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U))));
+        = (VL_SHIFTRS_III(32,32,32, VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__p_prod), 7U) 
+           + (VL_SHIFTRS_III(32,32,32, VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_current), 7U) 
+              + VL_SHIFTRS_III(32,32,32, VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__d_prod), 7U)));
     vlSelfRef.pid_controller__DOT__accept_data = ((~ (IData)(vlSelfRef.pid_controller__DOT__busy)) 
                                                   & (IData)(vlSelfRef.pid_controller__DOT__data_valid_in));
-    vlSelfRef.pid_controller__DOT__vel = (0x00007fffU 
-                                          & (VL_EXTENDS_II(15,14, (IData)(vlSelfRef.pid_controller__DOT__ref_sig)) 
-                                             - VL_EXTENDS_II(15,14, (IData)(vlSelfRef.pid_controller__DOT__inp_sig))));
-    vlSelfRef.pid_controller__DOT__i_clamp = ((VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
-                                               & VL_LTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)) 
-                                              | (VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
-                                                 & VL_GTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)));
-    vlSelfRef.pid_controller__DOT__deriv_vel = (0x001fffffU 
-                                                & (VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel)) 
+    vlSelfRef.pid_controller__DOT__vel = (0x00001fffU 
+                                          & (VL_EXTENDS_II(13,12, (IData)(vlSelfRef.pid_controller__DOT__des_state)) 
+                                             - VL_EXTENDS_II(13,12, (IData)(vlSelfRef.pid_controller__DOT__inp_state))));
+    vlSelfRef.pid_controller__DOT__i_clamp = ((VL_LTS_III(32, 0x000007ffU, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                               & VL_LTS_III(32, 0U, 
+                                                            VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_prod))) 
+                                              | (VL_GTS_III(32, 0xfffff800U, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                                 & VL_GTS_III(32, 0U, 
+                                                              VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_prod))));
+    vlSelfRef.pid_controller__DOT__deriv_vel = (0x0007ffffU 
+                                                & (VL_EXTENDS_II(19,13, (IData)(vlSelfRef.pid_controller__DOT__vel)) 
                                                    - 
-                                                   VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel_d))));
-    vlSelfRef.pid_controller__DOT__i_bounded = (0x00007fffffffffffULL 
+                                                   VL_EXTENDS_II(19,13, (IData)(vlSelfRef.pid_controller__DOT__vel_d))));
+    vlSelfRef.pid_controller__DOT__i_bounded = (0x1fffffffU 
                                                 & ((IData)(vlSelfRef.pid_controller__DOT__i_clamp)
                                                     ? vlSelfRef.pid_controller__DOT__i_current
                                                     : 
-                                                   (VL_LTS_IQQ(48, 0x0000000003331999ULL, vlSelfRef.pid_controller__DOT__i_next)
-                                                     ? 0x0000000003331999ULL
+                                                   (VL_LTS_III(30, 0x00006659U, vlSelfRef.pid_controller__DOT__i_next)
+                                                     ? 0x00006659U
                                                      : 
-                                                    (VL_GTS_IQQ(48, 0x0000fffffccce667ULL, vlSelfRef.pid_controller__DOT__i_next)
-                                                      ? 0x00007ffffccce667ULL
+                                                    (VL_GTS_III(30, 0x3fff99a7U, vlSelfRef.pid_controller__DOT__i_next)
+                                                      ? 0x1fff99a7U
                                                       : vlSelfRef.pid_controller__DOT__i_next))));
-    vlSelfRef.pid_controller__DOT__deriv_scaled = (0x001fffffU 
-                                                   & (vlSelfRef.pid_controller__DOT__deriv_vel 
+    vlSelfRef.pid_controller__DOT__deriv_scaled = (0x000fffffU 
+                                                   & (VL_EXTENDS_II(20,19, vlSelfRef.pid_controller__DOT__deriv_vel) 
                                                       << 5U));
-    vlSelfRef.pid_controller__DOT__pid_sum = (0x0003ffffffffffffULL 
-                                              & (VL_SHIFTRS_QQI(50,50,32, 
-                                                                (0x0003ffffffffffffULL 
-                                                                 & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
+    vlSelfRef.pid_controller__DOT__pid_sum = (VL_SHIFTRS_III(32,32,32, 
+                                                             VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__p_prod), 7U) 
+                                              + (VL_SHIFTRS_III(32,32,32, 
+                                                                VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__d_prod), 7U) 
                                                  + 
-                                                 (VL_SHIFTRS_QQI(50,50,32, 
-                                                                 (0x0003ffffffffffffULL 
-                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U) 
-                                                  + 
-                                                  VL_SHIFTRS_QQI(50,50,32, 
-                                                                 (0x0003ffffffffffffULL 
-                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_bounded)), 0x00000010U))));
+                                                 VL_SHIFTRS_III(32,32,32, 
+                                                                VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_bounded), 7U)));
     vlSelfRef.pid_controller__DOT__sat_hi_current = 
-        VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum);
+        VL_LTS_III(32, 0x000007ffU, vlSelfRef.pid_controller__DOT__pid_sum);
     vlSelfRef.pid_controller__DOT__sat_lo_current = 
-        VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum);
+        VL_GTS_III(32, 0xfffff800U, vlSelfRef.pid_controller__DOT__pid_sum);
 }
 
 bool Vtop___024root___trigger_anySet__act(const VlUnpacked<QData/*63:0*/, 1> &in) {
@@ -237,135 +232,126 @@ void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Locals
-    IData/*20:0*/ __Vdly__pid_controller__DOT__deriv_vel_filt;
+    IData/*19:0*/ __Vdly__pid_controller__DOT__deriv_vel_filt;
     __Vdly__pid_controller__DOT__deriv_vel_filt = 0;
     // Body
     __Vdly__pid_controller__DOT__deriv_vel_filt = vlSelfRef.pid_controller__DOT__deriv_vel_filt;
     if (vlSelfRef.pid_controller__DOT__rst) {
         __Vdly__pid_controller__DOT__deriv_vel_filt = 0U;
+        vlSelfRef.pid_controller__DOT__out_cmd = 0U;
         vlSelfRef.pid_controller__DOT__sat_hi = 0U;
-        vlSelfRef.pid_controller__DOT__out_sig = 0U;
         vlSelfRef.pid_controller__DOT__sat_lo = 0U;
         vlSelfRef.pid_controller__DOT__vel_d = 0U;
-        vlSelfRef.pid_controller__DOT__i_prod = 0ULL;
-        vlSelfRef.pid_controller__DOT__i_current = 0ULL;
-        vlSelfRef.pid_controller__DOT__d_term = 0ULL;
-        vlSelfRef.pid_controller__DOT__p_term = 0ULL;
-        vlSelfRef.pid_controller__DOT__d_prod = 0ULL;
-        vlSelfRef.pid_controller__DOT__p_prod = 0ULL;
+        vlSelfRef.pid_controller__DOT__d_prod = 0U;
+        vlSelfRef.pid_controller__DOT__p_prod = 0U;
+        vlSelfRef.pid_controller__DOT__i_prod = 0U;
+        vlSelfRef.pid_controller__DOT__i_current = 0U;
     } else if (vlSelfRef.pid_controller__DOT__accept_data) {
         __Vdly__pid_controller__DOT__deriv_vel_filt 
-            = (0x001fffffU & (vlSelfRef.pid_controller__DOT__deriv_vel_filt 
-                              + VL_SHIFTRS_III(21,21,32, 
-                                               (0x001fffffU 
+            = (0x000fffffU & (vlSelfRef.pid_controller__DOT__deriv_vel_filt 
+                              + VL_SHIFTRS_III(20,20,32, 
+                                               (0x000fffffU 
                                                 & (vlSelfRef.pid_controller__DOT__deriv_scaled 
                                                    - vlSelfRef.pid_controller__DOT__deriv_vel_filt)), 3U)));
-        if (VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum)) {
+        if (VL_LTS_III(32, 0x000007ffU, vlSelfRef.pid_controller__DOT__pid_sum)) {
+            vlSelfRef.pid_controller__DOT__out_cmd = 0x000007ffU;
             vlSelfRef.pid_controller__DOT__sat_hi = 1U;
-            vlSelfRef.pid_controller__DOT__out_sig = 0x00001fffU;
         } else {
+            vlSelfRef.pid_controller__DOT__out_cmd 
+                = (VL_GTS_III(32, 0xfffff800U, vlSelfRef.pid_controller__DOT__pid_sum)
+                    ? 0x00000800U : (0x00000fffU & vlSelfRef.pid_controller__DOT__pid_sum));
             vlSelfRef.pid_controller__DOT__sat_hi = 0U;
-            vlSelfRef.pid_controller__DOT__out_sig 
-                = (VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum)
-                    ? 0x00002000U : (0x00003fffU & (IData)(vlSelfRef.pid_controller__DOT__pid_sum)));
         }
-        vlSelfRef.pid_controller__DOT__sat_lo = (VL_GTES_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum) 
-                                                 && VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum));
+        vlSelfRef.pid_controller__DOT__sat_lo = (VL_GTES_III(32, 0x000007ffU, vlSelfRef.pid_controller__DOT__pid_sum) 
+                                                 && VL_GTS_III(32, 0xfffff800U, vlSelfRef.pid_controller__DOT__pid_sum));
         vlSelfRef.pid_controller__DOT__vel_d = vlSelfRef.pid_controller__DOT__vel;
-        vlSelfRef.pid_controller__DOT__i_prod = (0x00007fffffffffffULL 
-                                                 & VL_MULS_QQQ(47, 
-                                                               (0x00007fffffffffffULL 
-                                                                & VL_EXTENDS_QI(47,15, (IData)(vlSelfRef.pid_controller__DOT__vel))), 
-                                                               (0x00007fffffffffffULL 
-                                                                & VL_EXTENDS_QI(47,32, vlSelfRef.pid_controller__DOT__Ki))));
+        vlSelfRef.pid_controller__DOT__d_prod = (0x1fffffffU 
+                                                 & VL_MULS_III(32, 
+                                                               VL_SHIFTRS_III(32,32,32, 
+                                                                              ((IData)(0x00000010U) 
+                                                                               + 
+                                                                               VL_EXTENDS_II(32,20, vlSelfRef.pid_controller__DOT__deriv_vel_filt)), 5U), 
+                                                               VL_EXTENDS_II(32,16, (IData)(vlSelfRef.pid_controller__DOT__Kd))));
+        vlSelfRef.pid_controller__DOT__p_prod = (0x1fffffffU 
+                                                 & VL_MULS_III(29, 
+                                                               (0x1fffffffU 
+                                                                & VL_EXTENDS_II(29,13, (IData)(vlSelfRef.pid_controller__DOT__vel))), 
+                                                               (0x1fffffffU 
+                                                                & VL_EXTENDS_II(29,16, (IData)(vlSelfRef.pid_controller__DOT__Kp)))));
+        vlSelfRef.pid_controller__DOT__i_prod = (0x1fffffffU 
+                                                 & VL_MULS_III(29, 
+                                                               (0x1fffffffU 
+                                                                & VL_EXTENDS_II(29,13, (IData)(vlSelfRef.pid_controller__DOT__vel))), 
+                                                               (0x1fffffffU 
+                                                                & VL_EXTENDS_II(29,16, (IData)(vlSelfRef.pid_controller__DOT__Ki)))));
         vlSelfRef.pid_controller__DOT__i_current = vlSelfRef.pid_controller__DOT__i_bounded;
-        vlSelfRef.pid_controller__DOT__d_term = (0x00007fffffffffffULL 
-                                                 & VL_SHIFTRS_QQI(47,47,32, vlSelfRef.pid_controller__DOT__d_prod, 0x00000010U));
-        vlSelfRef.pid_controller__DOT__p_term = (0x00007fffffffffffULL 
-                                                 & VL_SHIFTRS_QQI(47,47,32, vlSelfRef.pid_controller__DOT__p_prod, 0x00000010U));
-        vlSelfRef.pid_controller__DOT__d_prod = (0x00007fffffffffffULL 
-                                                 & VL_MULS_QQQ(47, 
-                                                               (0x00007fffffffffffULL 
-                                                                & VL_SHIFTRS_QQI(47,47,32, 
-                                                                                (0x00007fffffffffffULL 
-                                                                                & (0x0000000000000010ULL 
-                                                                                + 
-                                                                                VL_EXTENDS_QI(47,21, vlSelfRef.pid_controller__DOT__deriv_vel_filt))), 5U)), 
-                                                               (0x00007fffffffffffULL 
-                                                                & VL_EXTENDS_QI(47,32, vlSelfRef.pid_controller__DOT__Kd))));
-        vlSelfRef.pid_controller__DOT__p_prod = (0x00007fffffffffffULL 
-                                                 & VL_MULS_QQQ(47, 
-                                                               (0x00007fffffffffffULL 
-                                                                & VL_EXTENDS_QI(47,15, (IData)(vlSelfRef.pid_controller__DOT__vel))), 
-                                                               (0x00007fffffffffffULL 
-                                                                & VL_EXTENDS_QI(47,32, vlSelfRef.pid_controller__DOT__Kp))));
+    }
+    if ((1U & (~ (IData)(vlSelfRef.pid_controller__DOT__rst)))) {
+        if (vlSelfRef.pid_controller__DOT__accept_data) {
+            vlSelfRef.pid_controller__DOT__store_prods = 0U;
+        }
     }
     vlSelfRef.pid_controller__DOT__data_valid_out = 
         ((1U & (~ (IData)(vlSelfRef.pid_controller__DOT__rst))) 
          && (IData)(vlSelfRef.pid_controller__DOT__accept_data));
     vlSelfRef.pid_controller__DOT__busy = ((1U & (~ (IData)(vlSelfRef.pid_controller__DOT__rst))) 
                                            && (IData)(vlSelfRef.pid_controller__DOT__accept_data));
+    vlSelfRef.pid_controller__DOT__deriv_vel_filt = __Vdly__pid_controller__DOT__deriv_vel_filt;
     vlSelfRef.data_valid_out = vlSelfRef.pid_controller__DOT__data_valid_out;
     vlSelfRef.busy = vlSelfRef.pid_controller__DOT__busy;
-    vlSelfRef.sat_hi = vlSelfRef.pid_controller__DOT__sat_hi;
-    vlSelfRef.out_sig = vlSelfRef.pid_controller__DOT__out_sig;
-    vlSelfRef.sat_lo = vlSelfRef.pid_controller__DOT__sat_lo;
-    vlSelfRef.pid_controller__DOT__deriv_vel = (0x001fffffU 
-                                                & (VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel)) 
-                                                   - 
-                                                   VL_EXTENDS_II(21,15, (IData)(vlSelfRef.pid_controller__DOT__vel_d))));
-    vlSelfRef.pid_controller__DOT__non_pos_i_prod = 
-        (1U & (IData)((vlSelfRef.pid_controller__DOT__i_prod 
-                       >> 0x0000002eU)));
-    vlSelfRef.pid_controller__DOT__i_next = (0x0000ffffffffffffULL 
-                                             & (VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_current) 
-                                                + VL_EXTENDS_QQ(48,47, vlSelfRef.pid_controller__DOT__i_prod)));
-    vlSelfRef.pid_controller__DOT__deriv_scaled = (0x001fffffU 
-                                                   & (vlSelfRef.pid_controller__DOT__deriv_vel 
-                                                      << 5U));
-    vlSelfRef.pid_controller__DOT__deriv_vel_filt = __Vdly__pid_controller__DOT__deriv_vel_filt;
     vlSelfRef.pid_controller__DOT__accept_data = ((~ (IData)(vlSelfRef.pid_controller__DOT__busy)) 
                                                   & (IData)(vlSelfRef.pid_controller__DOT__data_valid_in));
+    vlSelfRef.out_cmd = vlSelfRef.pid_controller__DOT__out_cmd;
+    vlSelfRef.sat_hi = vlSelfRef.pid_controller__DOT__sat_hi;
+    vlSelfRef.sat_lo = vlSelfRef.pid_controller__DOT__sat_lo;
+    vlSelfRef.pid_controller__DOT__deriv_vel = (0x0007ffffU 
+                                                & (VL_EXTENDS_II(19,13, (IData)(vlSelfRef.pid_controller__DOT__vel)) 
+                                                   - 
+                                                   VL_EXTENDS_II(19,13, (IData)(vlSelfRef.pid_controller__DOT__vel_d))));
+    vlSelfRef.pid_controller__DOT__d_term = (0x1fffffffU 
+                                             & VL_SHIFTRS_III(29,29,32, vlSelfRef.pid_controller__DOT__d_prod, 7U));
+    vlSelfRef.pid_controller__DOT__p_term = (0x1fffffffU 
+                                             & VL_SHIFTRS_III(29,29,32, vlSelfRef.pid_controller__DOT__p_prod, 7U));
+    vlSelfRef.pid_controller__DOT__non_pos_i_prod = 
+        (1U & (vlSelfRef.pid_controller__DOT__i_prod 
+               >> 0x0000001cU));
+    vlSelfRef.pid_controller__DOT__i_next = (0x3fffffffU 
+                                             & (VL_EXTENDS_II(30,29, vlSelfRef.pid_controller__DOT__i_current) 
+                                                + VL_EXTENDS_II(30,29, vlSelfRef.pid_controller__DOT__i_prod)));
     vlSelfRef.pid_controller__DOT__unbounded_pid_sum 
-        = (0x0003ffffffffffffULL & (VL_SHIFTRS_QQI(50,50,32, 
-                                                   (0x0003ffffffffffffULL 
-                                                    & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
-                                    + (VL_SHIFTRS_QQI(50,50,32, 
-                                                      (0x0003ffffffffffffULL 
-                                                       & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_current)), 0x00000010U) 
-                                       + VL_SHIFTRS_QQI(50,50,32, 
-                                                        (0x0003ffffffffffffULL 
-                                                         & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U))));
-    vlSelfRef.pid_controller__DOT__i_clamp = ((VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
-                                               & VL_LTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)) 
-                                              | (VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
-                                                 & VL_GTS_IQQ(47, 0ULL, vlSelfRef.pid_controller__DOT__i_prod)));
-    vlSelfRef.pid_controller__DOT__i_bounded = (0x00007fffffffffffULL 
+        = (VL_SHIFTRS_III(32,32,32, VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__p_prod), 7U) 
+           + (VL_SHIFTRS_III(32,32,32, VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_current), 7U) 
+              + VL_SHIFTRS_III(32,32,32, VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__d_prod), 7U)));
+    vlSelfRef.pid_controller__DOT__deriv_scaled = (0x000fffffU 
+                                                   & (VL_EXTENDS_II(20,19, vlSelfRef.pid_controller__DOT__deriv_vel) 
+                                                      << 5U));
+    vlSelfRef.pid_controller__DOT__i_clamp = ((VL_LTS_III(32, 0x000007ffU, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                               & VL_LTS_III(32, 0U, 
+                                                            VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_prod))) 
+                                              | (VL_GTS_III(32, 0xfffff800U, vlSelfRef.pid_controller__DOT__unbounded_pid_sum) 
+                                                 & VL_GTS_III(32, 0U, 
+                                                              VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_prod))));
+    vlSelfRef.pid_controller__DOT__i_bounded = (0x1fffffffU 
                                                 & ((IData)(vlSelfRef.pid_controller__DOT__i_clamp)
                                                     ? vlSelfRef.pid_controller__DOT__i_current
                                                     : 
-                                                   (VL_LTS_IQQ(48, 0x0000000003331999ULL, vlSelfRef.pid_controller__DOT__i_next)
-                                                     ? 0x0000000003331999ULL
+                                                   (VL_LTS_III(30, 0x00006659U, vlSelfRef.pid_controller__DOT__i_next)
+                                                     ? 0x00006659U
                                                      : 
-                                                    (VL_GTS_IQQ(48, 0x0000fffffccce667ULL, vlSelfRef.pid_controller__DOT__i_next)
-                                                      ? 0x00007ffffccce667ULL
+                                                    (VL_GTS_III(30, 0x3fff99a7U, vlSelfRef.pid_controller__DOT__i_next)
+                                                      ? 0x1fff99a7U
                                                       : vlSelfRef.pid_controller__DOT__i_next))));
-    vlSelfRef.pid_controller__DOT__pid_sum = (0x0003ffffffffffffULL 
-                                              & (VL_SHIFTRS_QQI(50,50,32, 
-                                                                (0x0003ffffffffffffULL 
-                                                                 & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__p_prod)), 0x00000010U) 
+    vlSelfRef.pid_controller__DOT__pid_sum = (VL_SHIFTRS_III(32,32,32, 
+                                                             VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__p_prod), 7U) 
+                                              + (VL_SHIFTRS_III(32,32,32, 
+                                                                VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__d_prod), 7U) 
                                                  + 
-                                                 (VL_SHIFTRS_QQI(50,50,32, 
-                                                                 (0x0003ffffffffffffULL 
-                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__d_prod)), 0x00000010U) 
-                                                  + 
-                                                  VL_SHIFTRS_QQI(50,50,32, 
-                                                                 (0x0003ffffffffffffULL 
-                                                                  & VL_EXTENDS_QQ(50,47, vlSelfRef.pid_controller__DOT__i_bounded)), 0x00000010U))));
+                                                 VL_SHIFTRS_III(32,32,32, 
+                                                                VL_EXTENDS_II(32,29, vlSelfRef.pid_controller__DOT__i_bounded), 7U)));
     vlSelfRef.pid_controller__DOT__sat_hi_current = 
-        VL_LTS_IQQ(50, 0x0000000000001fffULL, vlSelfRef.pid_controller__DOT__pid_sum);
+        VL_LTS_III(32, 0x000007ffU, vlSelfRef.pid_controller__DOT__pid_sum);
     vlSelfRef.pid_controller__DOT__sat_lo_current = 
-        VL_GTS_IQQ(50, 0x0003ffffffffe000ULL, vlSelfRef.pid_controller__DOT__pid_sum);
+        VL_GTS_III(32, 0xfffff800U, vlSelfRef.pid_controller__DOT__pid_sum);
 }
 
 void Vtop___024root___trigger_orInto__act_vec_vec(VlUnpacked<QData/*63:0*/, 1> &out, const VlUnpacked<QData/*63:0*/, 1> &in) {
@@ -407,11 +393,11 @@ void Vtop___024root___eval_debug_assertions(Vtop___024root* vlSelf) {
     if (VL_UNLIKELY(((vlSelfRef.data_valid_in & 0xfeU)))) {
         Verilated::overWidthError("data_valid_in");
     }
-    if (VL_UNLIKELY(((vlSelfRef.inp_sig & 0xc000U)))) {
-        Verilated::overWidthError("inp_sig");
+    if (VL_UNLIKELY(((vlSelfRef.inp_state & 0xf000U)))) {
+        Verilated::overWidthError("inp_state");
     }
-    if (VL_UNLIKELY(((vlSelfRef.ref_sig & 0xc000U)))) {
-        Verilated::overWidthError("ref_sig");
+    if (VL_UNLIKELY(((vlSelfRef.des_state & 0xf000U)))) {
+        Verilated::overWidthError("des_state");
     }
 }
 #endif  // VL_DEBUG

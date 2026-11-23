@@ -394,10 +394,10 @@ module top_level
         end else if (trig_rise_edge) begin
             for (int k = 0; k < MAX_HARMONIC; k++) begin
                 //-1 = 18'sd131072, 1 = 18'sd131071
-                a_test_vals[0][k] <= -18'sd131072; //
-                b_test_vals[0][k] <= -18'sd131072;
-                for (int m = 1; m < NUM_MODULATORS; m++) begin// different test coefficients for each signal so that vivado doesn't synth away
-                    a_test_vals[m][k] <= a_test_vals[m][k] + (k + 1 + m);
+                // a_test_vals[0][k] <= -18'sd131072; //
+                // b_test_vals[0][k] <= -18'sd131072;
+                for (int m = 0; m < NUM_MODULATORS; m++) begin// different test coefficients for each signal so that vivado doesn't synth away
+                    a_test_vals[m][k] <= -1 * (a_test_vals[m][k] + (k + 1 + m));
                     b_test_vals[m][k] <= b_test_vals[m][k] + (2*k + 1 + 3*m);
                 end
             end

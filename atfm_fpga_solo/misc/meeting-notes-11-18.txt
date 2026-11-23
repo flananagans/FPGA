@@ -30,6 +30,7 @@ set Kp to something, see what output command you get -> should be sinusoid
 increasing Kp outputs sinusoidal siganl with amplitdue higher
 e.g. Ki = 10, Kp = Kd = 0,
 -> versus Ki = 20 -> amplitude of output should double
+And then another test where Kd is the only nonzero value
 
 0.01 reolution for gains -> 16-bit max
 K 16 bit -> 25x18 dsp
