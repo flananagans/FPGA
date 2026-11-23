@@ -50,6 +50,12 @@ I_MAX = (OUT_MAX << FRAC) // 10
 I_MIN = -I_MAX
 D_ROUND_NEAREST = True                # set True after applying the D-path rounding RTL fix
 
+GAIN_RAW_MAX = (1 << (GAIN_W - 1)) - 1
+GAIN_RAW_MIN = -(1 << (GAIN_W - 1))
+GAIN_REAL_MAX = GAIN_RAW_MAX / 2 ** FRAC       # largest gain the port can carry
+ALPHA_GAIN = 2.0 ** -ALPHA                     # D low-pass: fraction of a 1-sample jump seen after 1 sample
+MIN_RAW_NONZERO = 4
+
 # ---- DUT port names (taken from the previous testbench; edit here if the .sv differs) ----
 PORT_REF, PORT_INP, PORT_OUT, PORT_I = "des_state", "inp_state", "out_cmd", "i_current"
 
@@ -66,35 +72,91 @@ NM_PER_COUNT = T_MAX_NM / (1 << (SIG_W - 1))
 I_MAX_NM = I_MAX / 2 ** FRAC * NM_PER_COUNT      # integrator authority in Nm
 
 # ---- scenario definitions ----
-STEP_AT, STEP_VAL, N_STEP = 50, 200, 1500        # 200 counts = 0.2 rad step at sample 50
-BLACKOUT, N_BLACKOUT = (50, 400), 2500           # plant ignores command for samples 50..399
-N_SAT, SAT_STEP = 1500, 800
-GMAX = (1 << (GAIN_W-1)) - 1
+# STEP_AT, STEP_VAL, N_STEP = 50, 200, 1500        # 200 counts = 0.2 rad step at sample 50
+# BLACKOUT, N_BLACKOUT = (50, 400), 2500           # plant ignores command for samples 50..399
+# N_SAT, SAT_STEP = 1500, 800
+# GMAX = (1 << (GAIN_W-1)) - 1
+LINEAR_LIMIT = 0.95 * OUT_MAX                  # peak command allowed in the "linear" tests
+CMD_BUDGET   = 0.80 * OUT_MAX                  # what the gain design aims for (headroom for quantisation)
+P_SHARE, D_SHARE = 0.5, 0.3                    # fraction of CMD_BUDGET used by P and by the D kick on sample 1
+TI_SAMPLES   = 64                              # Ki = Kp / TI_SAMPLES
 
+STEP_AT, N_STEP = 50, 1500
+STEP_VAL = max(1, round(0.10 * OUT_MAX))       # 10 % of full scale (205 counts for 12 bit)
+BLACKOUT, N_BLACKOUT = (50, 400), 2500
+
+SAT_AT_FRAC   = 0.40                           # saturation step = 40 % of full scale
+SAT_STEP      = round(SAT_AT_FRAC * OUT_MAX)
+SAT_OVERDRIVE = 2.5                            # first command = 2.5 x full scale
+N_SAT = 1500
 
 Gains = namedtuple("Gains", "kp ki kd")
 
-
 def q(x):
-    return int(round(x * (1 << FRAC)))
+    """Real gain (output counts per input count) -> raw integer, with a range check."""
+    raw = int(round(x * (1 << FRAC)))
+    assert GAIN_RAW_MIN <= raw <= GAIN_RAW_MAX, (
+        f"gain {x:g} -> raw {raw} does not fit GAIN_W={GAIN_W} signed bits at FRAC={FRAC} "
+        f"(max gain {GAIN_REAL_MAX:g}). Raise GAIN_W (need >= {abs(raw).bit_length() + 1}), "
+        f"lower FRAC, or raise STEP_VAL.")
+    return raw
 
 
 def G(kp, ki, kd):
-    """Real-valued gains (output counts per input count) -> raw Q16.16 integers."""
     return Gains(q(kp), q(ki), q(kd))
 
 
-CL_GAINS = {                                     # linear (non-saturating) closed-loop gain sets
-    "P":   G(16, 0.0,    0),
-    "PD":  G(16, 0.0,   80),
-    "PI":  G(16, 0.0625, 0),
-    "PID": G(16, 0.0625, 80),
+def first_sample_cmd(g, step):
+    """Worst-case command (counts) just after a setpoint step of `step` counts.
+    P sees the full step, D sees ALPHA_GAIN*step (filtered kick), I adds one increment."""
+    kp, ki, kd = (v / 2 ** FRAC for v in g)
+    return step * (abs(kp) + abs(kd) * ALPHA_GAIN + abs(ki))
+
+
+def design_gains(step=STEP_VAL):
+    kp = P_SHARE * CMD_BUDGET / step
+    kd = D_SHARE * CMD_BUDGET / (step * ALPHA_GAIN)
+    ki = kp / TI_SAMPLES
+    return kp, ki, kd
+
+
+def _cl(use_i, use_d):
+    kp, ki, kd = design_gains()
+    return G(kp, ki if use_i else 0.0, kd if use_d else 0.0)
+
+
+CL_GAINS = {
+    "P":   _cl(False, False),
+    "PD":  _cl(False, True),
+    "PI":  _cl(True,  False),
+    "PID": _cl(True,  True),
 }
-SAT_GAINS = G(48, 0.0625, 0)
+
+
+def _check_design():
+    for name, g in CL_GAINS.items():
+        pk = first_sample_cmd(g, STEP_VAL)
+        assert pk <= LINEAR_LIMIT, (f"{name}: first command ~{pk:.0f} counts > {LINEAR_LIMIT:.0f}; "
+                                    f"lower P_SHARE/D_SHARE or the step")
+        for f in g._fields:
+            raw = getattr(g, f)
+            assert raw == 0 or abs(raw) >= MIN_RAW_NONZERO, (
+                f"{name}.{f} = {raw} raw is too coarse at FRAC={FRAC}; raise FRAC or lower TI_SAMPLES")
+    # the integrator must be able to hold the plant against its spring, or PI can't remove the offset
+    hold_nm = PLANT_K * STEP_VAL / COUNTS_PER_UNIT
+    assert I_MAX_NM > hold_nm, f"integrator authority {I_MAX_NM:.3f} Nm < holding torque {hold_nm:.3f} Nm"
+
+
+_check_design()      # must come after I_MAX_NM is defined (it's in the physical-scaling block)
+
+
+# saturation gains: first command = SAT_OVERDRIVE * full scale
+_sat_kp = SAT_OVERDRIVE * OUT_MAX / SAT_STEP
+SAT_GAINS = G(_sat_kp, _sat_kp / TI_SAMPLES, 0.0)
 
 TERM_CASES = {                                   # open-loop sweeps: gains double each time
     "P": dict(gains=[0.5, 1.0, 2.0],     amp=400,  cos=False),
-    "I": dict(gains=[2/128, 4/128, 8/128], amp=250, cos=True),
+    "I": dict(gains=[2 / (1 << FRAC), 4 / (1 << FRAC), 8 / (1 << FRAC)], amp=250, cos=True),
     "D": dict(gains=[2.5, 5, 10],   amp=1600, cos=False),
 }
 
@@ -105,8 +167,8 @@ def to_signed(v, w):
 
 
 def wr(sig, val, w):
-    sig.value = val & ((1 << w) - 1)
     assert -(1 << (w-1)) <= val < (1 << (w-1)), f"{sig._name}: {val} doesn't fit in {w} bits"
+    sig.value = val & ((1 << w) - 1)
 
 
 
@@ -159,7 +221,7 @@ class PidModel:
         self.dfilt = to_signed(self.dfilt + ((dscaled - self.dfilt) >> ALPHA), DW)
         self.vel_d = vel
         self.i_cur = ib
-        return dict(out=out, hi=hi, lo=lo, i_raw=ib)
+        return dict(out=out, hi=hi, lo=lo, i_raw=ib, clamp=int(clamp), pre=pre)
 
 
 # ---------------------------------------------------------------- plant model (stands in for the PSoC)

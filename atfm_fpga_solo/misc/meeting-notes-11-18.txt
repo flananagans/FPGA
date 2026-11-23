@@ -1,4 +1,24 @@
-TODO
+TODO 11/23
+
+Thesis progression:
+talk about development stage - debugging as we move from FPGA Xilinx board to enclustra
+test + integration
+iron out real time differences when the system is running as a whole
+potentially battery management system hardware/pcb design work
+
+look at patent for human/patient side of work ->
+Saenz thesis topics - Widrow hoff method + anticogging of motor
+widrow hoff to compensate anticogging
+didn't frame the problem as a sum of sinusoids (was assuming that motor was still purely sinusoidal)
+-> idea that characterization of motor is not pure sinusoid wasn't developed yet
+we have feedforward anticogging, and widrow hoff picks up the slack/anything we missed
+reference CORDIC material
+
+How to stress test the modulator
+- make all the cosine values 0 and then make the sin ones nonzero (1 and -1 for sep runs)
+- make all the sine values 0 and cosine ones nonzero (1 and -1 for sep runs)
+- want angle step of 1
+TODO - 11/18
 
 PSOC - figure out the bit error plotting and wrap around error in my modsum code
 
