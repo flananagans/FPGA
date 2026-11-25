@@ -1,3 +1,9 @@
+TODO 11/25 
+MAJOR - need to fix modulator output sum bitwidth problem --> currently getting truncated, 
+need additional 9 bits at least - look at gemini chat
+will have to redo serial monitor stuff + plots
+CHANGE IN BOTH SV and TB needed !!!
+
 TODO 11/23
 
 Thesis progression:
