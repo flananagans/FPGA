@@ -1,8 +1,8 @@
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Nov 23 17:12:42 2026
-| Host         : eecs-digital-48 running 64-bit Ubuntu 24.04.3 LTS
+| Tool Version : Vivado v.2025.2.1 (lin64) Build 6403652 Thu Mar 19 13:47:00 MDT 2026
+| Date         : Wed Nov 25 15:23:00 2026
+| Host         : biomech-z890maoruselitewifi7ice running 64-bit Ubuntu 24.04.4 LTS
 | Command      : report_timing_summary -file obj/post_route_timing_summary.rpt
 | Design       : top_level
 | Device       : 7s50-csga324
@@ -138,7 +138,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      1.195        0.000                      0                27017        0.025        0.000                      0                27017        3.020        0.000                       0                 17811  
+      1.536        0.000                      0                24298        0.020        0.000                      0                24298        3.020        0.000                       0                 17156  
 
 
 All user specified timing constraints are met.
@@ -161,7 +161,7 @@ gclk   {0.000 4.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-gclk                1.195        0.000                      0                27017        0.025        0.000                      0                27017        3.020        0.000                       0                 17811  
+gclk                1.536        0.000                      0                24298        0.020        0.000                      0                24298        3.020        0.000                       0                 17156  
 
 
 ------------------------------------------------------------------------------------------------
@@ -192,27 +192,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  gclk
   To Clock:  gclk
 
-Setup :            0  Failing Endpoints,  Worst Slack        1.195ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.025ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        1.536ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.020ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.020ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             1.195ns  (required time - arrival time)
-  Source:                 full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[11].desired_angle_pipe_reg[12][6]/C
+Slack (MET) :             1.536ns  (required time - arrival time)
+  Source:                 phase_reg[8]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][17]/D
+  Destination:            full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][17]/D
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
-  Data Path Delay:        8.539ns  (logic 2.608ns (30.542%)  route 5.931ns (69.458%))
-  Logic Levels:           9  (CARRY4=7 LUT1=1 LUT4=1)
-  Clock Path Skew:        -0.293ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.756ns = ( 14.756 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.234ns
+  Data Path Delay:        8.186ns  (logic 2.798ns (34.180%)  route 5.388ns (65.820%))
+  Logic Levels:           10  (CARRY4=8 LUT2=2)
+  Clock Path Skew:        -0.305ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.755ns = ( 14.755 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.245ns
     Clock Pessimism Removal (CPR):    0.186ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -228,37 +228,40 @@ Slack (MET) :             1.195ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=17810, routed)       1.726     5.234    full_hgen/gen_harmonics[3].nth_cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X17Y121        FDRE                                         r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[11].desired_angle_pipe_reg[12][6]/C
+                         net (fo=17155, routed)       1.737     5.245    clk_100mhz_IBUF_BUFG
+    SLICE_X11Y112        FDRE                                         r  phase_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X17Y121        FDRE (Prop_fdre_C_Q)         0.419     5.653 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[11].desired_angle_pipe_reg[12][6]/Q
-                         net (fo=3, routed)           1.311     6.964    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[11].desired_angle_pipe_reg[12]_224[6]
-    SLICE_X15Y123        LUT4 (Prop_lut4_I0_O)        0.297     7.261 r  full_hgen/gen_harmonics[3].nth_cordic/i___200_i_16/O
-                         net (fo=1, routed)           0.000     7.261    full_hgen/gen_harmonics[3].nth_cordic/i___200_i_16_n_0
-    SLICE_X15Y123        CARRY4 (Prop_carry4_S[2]_CO[3])
-                                                      0.398     7.659 r  full_hgen/gen_harmonics[3].nth_cordic/i___200_i_2/CO[3]
-                         net (fo=1, routed)           0.000     7.659    full_hgen/gen_harmonics[3].nth_cordic/i___200_i_2_n_0
-    SLICE_X15Y124        CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     7.773 f  full_hgen/gen_harmonics[3].nth_cordic/i___200_i_1/CO[3]
-                         net (fo=45, routed)          4.132    11.906    full_hgen/gen_harmonics[3].nth_cordic/i___200_i_1_n_0
-    SLICE_X49Y74         LUT1 (Prop_lut1_I0_O)        0.124    12.030 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe[13][3]_i_2/O
-                         net (fo=1, routed)           0.479    12.508    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe[13][3]_i_2_n_0
-    SLICE_X48Y73         CARRY4 (Prop_carry4_CYINIT_CO[3])
-                                                      0.580    13.088 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][3]_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.088    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][3]_i_1_n_0
-    SLICE_X48Y74         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.202 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][7]_i_1/CO[3]
-                         net (fo=1, routed)           0.009    13.211    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][7]_i_1_n_0
-    SLICE_X48Y75         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.325 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][11]_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.325    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][11]_i_1_n_0
-    SLICE_X48Y76         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.439 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][15]_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.439    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][15]_i_1_n_0
-    SLICE_X48Y77         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    13.773 r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][18]_i_1/O[1]
-                         net (fo=1, routed)           0.000    13.773    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][18]_i_1_n_6
-    SLICE_X48Y77         FDRE                                         r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][17]/D
+    SLICE_X11Y112        FDRE (Prop_fdre_C_Q)         0.456     5.701 r  phase_reg[8]/Q
+                         net (fo=24, routed)          4.328    10.029    full_hgen/gen_harmonics[2].nth_cordic/phase_reg[8]
+    SLICE_X44Y79         LUT2 (Prop_lut2_I0_O)        0.124    10.153 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe[0][11]_i_8__2/O
+                         net (fo=1, routed)           0.000    10.153    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe[0][11]_i_8__2_n_0
+    SLICE_X44Y79         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    10.551 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][11]_i_6__2/CO[3]
+                         net (fo=1, routed)           0.000    10.551    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][11]_i_6__2_n_0
+    SLICE_X44Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.665 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][15]_i_6__2/CO[3]
+                         net (fo=1, routed)           0.000    10.665    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][15]_i_6__2_n_0
+    SLICE_X44Y81         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    10.887 r  full_hgen/gen_harmonics[2].nth_cordic/x_flip_pipe_reg[0]_i_2__4/O[0]
+                         net (fo=17, routed)          1.051    11.938    full_hgen/gen_harmonics[2].nth_cordic/x_flip_pipe_reg[0]_i_2__4_n_7
+    SLICE_X45Y74         LUT2 (Prop_lut2_I0_O)        0.325    12.263 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe[0][3]_i_2/O
+                         net (fo=1, routed)           0.000    12.263    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe[0][3]_i_2_n_0
+    SLICE_X45Y74         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.483    12.746 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][3]_i_1/CO[3]
+                         net (fo=1, routed)           0.009    12.755    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][3]_i_1_n_0
+    SLICE_X45Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.869 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.869    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][7]_i_1_n_0
+    SLICE_X45Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.983 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.983    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][11]_i_1_n_0
+    SLICE_X45Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    13.097 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    13.097    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][15]_i_1_n_0
+    SLICE_X45Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    13.431 r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][17]_i_1/O[1]
+                         net (fo=1, routed)           0.000    13.431    full_hgen/gen_harmonics[2].nth_cordic/p_0_in1_in[17]
+    SLICE_X45Y78         FDRE                                         r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][17]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)      10.000    10.000 r  
@@ -267,16 +270,16 @@ Slack (MET) :             1.195ns  (required time - arrival time)
     N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=17810, routed)       1.427    14.756    full_hgen/gen_harmonics[3].nth_cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X48Y77         FDRE                                         r  full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][17]/C
-                         clock pessimism              0.186    14.942    
-                         clock uncertainty           -0.035    14.906    
-    SLICE_X48Y77         FDRE (Setup_fdre_C_D)        0.062    14.968    full_hgen/gen_harmonics[3].nth_cordic/cordic_pipeline[12].y_pipe_reg[13][17]
+                         net (fo=17155, routed)       1.426    14.755    full_hgen/gen_harmonics[2].nth_cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X45Y78         FDRE                                         r  full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][17]/C
+                         clock pessimism              0.186    14.941    
+                         clock uncertainty           -0.035    14.905    
+    SLICE_X45Y78         FDRE (Setup_fdre_C_D)        0.062    14.967    full_hgen/gen_harmonics[2].nth_cordic/desired_angle_pipe_reg[0][17]
   -------------------------------------------------------------------
-                         required time                         14.968    
-                         arrival time                         -13.773    
+                         required time                         14.967    
+                         arrival time                         -13.431    
   -------------------------------------------------------------------
-                         slack                                  1.195    
+                         slack                                  1.536    
 
 
 
@@ -284,19 +287,19 @@ Slack (MET) :             1.195ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.025ns  (arrival time - required time)
-  Source:                 full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]/C
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[2].y_pipe_reg[3][0]/C
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
-  Destination:            full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][4]/D
+  Destination:            full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]/D
                             (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
   Path Group:             gclk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (gclk rise@0.000ns - gclk rise@0.000ns)
-  Data Path Delay:        0.481ns  (logic 0.398ns (82.779%)  route 0.083ns (17.221%))
-  Logic Levels:           2  (CARRY4=2)
+  Data Path Delay:        0.476ns  (logic 0.256ns (53.813%)  route 0.220ns (46.187%))
+  Logic Levels:           2  (CARRY4=1 LUT3=1)
   Clock Path Skew:        0.350ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.031ns
-    Source Clock Delay      (SCD):    1.430ns
+    Destination Clock Delay (DCD):    2.063ns
+    Source Clock Delay      (SCD):    1.462ns
     Clock Pessimism Removal (CPR):    0.250ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -307,18 +310,17 @@ Slack (MET) :             0.025ns  (arrival time - required time)
     N15                  IBUF (Prop_ibuf_I_O)         0.209     0.209 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.843    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.869 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=17810, routed)       0.562     1.430    full_hgen/gen_harmonics[5].nth_cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X38Y99         FDRE                                         r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]/C
+                         net (fo=17155, routed)       0.594     1.462    full_hgen/gen_harmonics[0].nth_cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X1Y98          FDRE                                         r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[2].y_pipe_reg[3][0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X38Y99         FDRE (Prop_fdre_C_Q)         0.164     1.594 r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]/Q
-                         net (fo=2, routed)           0.082     1.676    full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[3].y_pipe_reg[4]_311[0]
-    SLICE_X39Y99         CARRY4 (Prop_carry4_DI[0]_CO[3])
-                                                      0.180     1.856 r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][3]_i_1/CO[3]
-                         net (fo=1, routed)           0.001     1.857    full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][3]_i_1_n_0
-    SLICE_X39Y100        CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.054     1.911 r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][7]_i_1/O[0]
-                         net (fo=1, routed)           0.000     1.911    full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][7]_i_1_n_7
-    SLICE_X39Y100        FDRE                                         r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][4]/D
+    SLICE_X1Y98          FDRE (Prop_fdre_C_Q)         0.141     1.603 r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[2].y_pipe_reg[3][0]/Q
+                         net (fo=2, routed)           0.220     1.823    full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[2].y_pipe_reg[3]_7[0]
+    SLICE_X4Y100         LUT3 (Prop_lut3_I0_O)        0.045     1.868 r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe[4][3]_i_6/O
+                         net (fo=1, routed)           0.000     1.868    full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe[4][3]_i_6_n_0
+    SLICE_X4Y100         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.070     1.938 r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][3]_i_1/O[0]
+                         net (fo=1, routed)           0.000     1.938    full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][3]_i_1_n_7
+    SLICE_X4Y100         FDRE                                         r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock gclk rise edge)       0.000     0.000 r  
@@ -327,15 +329,15 @@ Slack (MET) :             0.025ns  (arrival time - required time)
     N15                  IBUF (Prop_ibuf_I_O)         0.396     0.396 r  clk_100mhz_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.085    clk_100mhz_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.114 r  clk_100mhz_IBUF_BUFG_inst/O
-                         net (fo=17810, routed)       0.917     2.031    full_hgen/gen_harmonics[5].nth_cordic/clk_100mhz_IBUF_BUFG
-    SLICE_X39Y100        FDRE                                         r  full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][4]/C
-                         clock pessimism             -0.250     1.781    
-    SLICE_X39Y100        FDRE (Hold_fdre_C_D)         0.105     1.886    full_hgen/gen_harmonics[5].nth_cordic/cordic_pipeline[4].y_pipe_reg[5][4]
+                         net (fo=17155, routed)       0.949     2.063    full_hgen/gen_harmonics[0].nth_cordic/clk_100mhz_IBUF_BUFG
+    SLICE_X4Y100         FDRE                                         r  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]/C
+                         clock pessimism             -0.250     1.813    
+    SLICE_X4Y100         FDRE (Hold_fdre_C_D)         0.105     1.918    full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[3].y_pipe_reg[4][0]
   -------------------------------------------------------------------
-                         required time                         -1.886    
-                         arrival time                           1.911    
+                         required time                         -1.918    
+                         arrival time                           1.938    
   -------------------------------------------------------------------
-                         slack                                  0.025    
+                         slack                                  0.020    
 
 
 
@@ -349,9 +351,9 @@ Period(ns):         10.000
 Sources:            { clk_100mhz }
 
 Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
-Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y22   signal_modulators[0].kth_modulator/prod_a_temp_reg/CLK
-Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         6.000       5.020      SLICE_X42Y94  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[14].x_flip_pipe_reg[15]_srl15/CLK
-High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         4.000       3.020      SLICE_X42Y94  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[14].x_flip_pipe_reg[15]_srl15/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X0Y41   signal_modulators[0].kth_modulator/prod_a_temp_reg/CLK
+Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         6.000       5.020      SLICE_X6Y115  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[14].x_flip_pipe_reg[15]_srl15/CLK
+High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         4.000       3.020      SLICE_X6Y115  full_hgen/gen_harmonics[0].nth_cordic/cordic_pipeline[14].x_flip_pipe_reg[15]_srl15/CLK
 
 
 
